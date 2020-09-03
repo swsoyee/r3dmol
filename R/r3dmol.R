@@ -5,23 +5,31 @@
 #' @import htmlwidgets
 #'
 #' @export
-r3dmol <- function(message, width = NULL, height = NULL, elementId = NULL) {
+r3dmol <-
+  function(id,
+           data = NULL,
+           width = NULL,
+           height = NULL,
+           elementId = NULL) {
 
-  # forward options using x
-  x = list(
-    message = message
-  )
+    if (missing(id))
+      stop("Id is missing. Please pass a unique id for generate widget.", call. = FALSE)
+    if (missing(data))
+      stop("Data path is missing.", call. = FALSE)
+    # forward options using x
+    x = list(id = id,
+             data = data)
 
-  # create widget
-  htmlwidgets::createWidget(
-    name = 'r3dmol',
-    x,
-    width = width,
-    height = height,
-    package = 'r3dmol',
-    elementId = elementId
-  )
-}
+    # create widget
+    htmlwidgets::createWidget(
+      name = 'r3dmol',
+      x,
+      width = width,
+      height = height,
+      package = 'r3dmol',
+      elementId = elementId
+    )
+  }
 
 #' Shiny bindings for r3dmol
 #'
@@ -40,13 +48,21 @@ r3dmol <- function(message, width = NULL, height = NULL, elementId = NULL) {
 #' @name r3dmol-shiny
 #'
 #' @export
-r3dmolOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'r3dmol', width, height, package = 'r3dmol')
-}
+r3dmolOutput <-
+  function(outputId,
+           width = '100%',
+           height = '400px') {
+    htmlwidgets::shinyWidgetOutput(outputId, 'r3dmol', width, height, package = 'r3dmol')
+  }
 
 #' @rdname r3dmol-shiny
 #' @export
-renderR3dmol <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, r3dmolOutput, env, quoted = TRUE)
-}
+renderR3dmol <-
+  function(expr,
+           env = parent.frame(),
+           quoted = FALSE) {
+    if (!quoted) {
+      expr <- substitute(expr)
+    } # force quoted
+    htmlwidgets::shinyRenderWidget(expr, r3dmolOutput, env, quoted = TRUE)
+  }
