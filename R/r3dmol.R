@@ -6,19 +6,22 @@
 #'
 #' @export
 r3dmol <-
-  function(id,
-           data = NULL,
+  function(data_path = NULL,
            width = NULL,
            height = NULL,
+           id = NULL,
            elementId = NULL) {
+    # If data path is missing
+    if (missing(data_path))
+      stop("Data path is missing.", call. = FALSE)
 
     if (missing(id))
-      stop("Id is missing. Please pass a unique id for generate widget.", call. = FALSE)
-    if (missing(data))
-      stop("Data path is missing.", call. = FALSE)
+      id <- paste(format(as.hexmode(sample(256, 10, replace = TRUE) - 1), width = 2),
+                  collapse = "")
+
     # forward options using x
     x = list(id = id,
-             data = data)
+             data = readLines(data_path))
 
     # create widget
     htmlwidgets::createWidget(
