@@ -4,13 +4,13 @@ HTMLWidgets.widget({
 
   type: 'output',
 
-  factory: function (el, width, height) {
+  factory: (el, width, height) => {
 
     // TODO: define shared variables for this instance
 
     return {
 
-      renderValue: function (x) {
+      renderValue: x => {
         $(el).empty();
         $(el).css({
           width: x.width || "100%",
@@ -27,7 +27,7 @@ HTMLWidgets.widget({
         v.render();
       },
 
-      resize: function (width, height) {
+      resize: (width, height) => {
 
         // TODO: code to re-render the widget with a new size
 
