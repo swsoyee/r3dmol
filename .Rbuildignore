@@ -2,3 +2,6 @@
 ^renv\.lock$
 ^r3dmol\.Rproj$
 ^\.Rproj\.user$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
