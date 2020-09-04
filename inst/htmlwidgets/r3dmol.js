@@ -13,8 +13,9 @@ HTMLWidgets.widget({
       renderValue: function (x) {
         $(el).empty();
         $(el).css({
-          width: x.width || "960px",
+          width: x.width || "100%",
           height: x.height || "500px",
+          position: x.position || "relative",
         })
         const config = {
           backgroundColor: 'white',
