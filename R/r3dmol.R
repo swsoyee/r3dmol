@@ -1,9 +1,12 @@
-#' <Add Title>
+#' Initialise
 #'
-#' <Add Description>
+#' Initialise a 3d protein structure
+#'
+#' @param
 #'
 #' @import htmlwidgets
 #'
+#' @name init
 #' @export
 r3dmol <-
   function(data_path = NULL,
@@ -24,14 +27,22 @@ r3dmol <-
              data = readLines(data_path))
 
     # create widget
-    htmlwidgets::createWidget(
+    widget <- htmlwidgets::createWidget(
       name = 'r3dmol',
       x,
       width = width,
       height = height,
       package = 'r3dmol',
-      elementId = elementId
+      elementId = elementId,
+      sizingPolicy = htmlwidgets::sizingPolicy(
+        defaultWidth = "100%",
+        knitr.figure = FALSE,
+        browser.fill = TRUE,
+        padding = 0
+      )
     )
+
+    return(widget)
   }
 
 #' Shiny bindings for r3dmol
