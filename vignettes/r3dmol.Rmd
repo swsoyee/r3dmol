@@ -1,0 +1,41 @@
+---
+title: "Introduction to r3dmol"
+author: "Wei Su"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: flatly
+---
+
+<!--
+%\VignetteEngine{knitr::rmarkdown}
+%\VignetteIndexEntry{Introduction to r3dmol}
+-->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This is an R package that provides support for [`3Dmol.js`](https://3dmol.csb.pitt.edu/index.html) as a [`htmlwidgets`](https://www.htmlwidgets.org/). 
+
+> This package is still very early in its development stages, everything will be changed very often!
+
+```{r installation, eval=FALSE}
+# install.packages("devtools")
+devtools::install_github('swsoyee/r3dmol')
+```
+
+```{r demo}
+library(r3dmol)
+r3dmol(data_path = "../data/6zsl.pdb")
+```
+
+## About `3Dmol.js`
+
+> Nicholas Rego and David Koes
+3Dmol.js: molecular visualization with WebGL
+Bioinformatics (2015) 31 (8): 1322-1324 [doi:10.1093/bioinformatics/btu829](http://doi.org/10.1093/bioinformatics/btu829)
+
