@@ -65,6 +65,37 @@
 <div id="r3dmol" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#r3dmol" class="anchor"></a>r3dmol</h1></div>
+<!-- badges: start -->
+<!-- badges: end -->
+<p>This is an R package that provides support for <a href="https://3dmol.csb.pitt.edu/index.html"><code>3Dmol.js</code></a> as a <a href="https://www.htmlwidgets.org/"><code>htmlwidgets</code></a>.</p>
+<div id="installation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h2>
+<blockquote>
+<p>This package is still very early in its development stages, everything will be changed very often!</p>
+</blockquote>
+<p><del>You can install the released version of r3dmol from <a href="https://CRAN.R-project.org">CRAN</a> with:</del></p>
+<div class="sourceCode" id="cb1"><pre class="r"># Not available now.
+# install.packages("r3dmol")</pre></div>
+<p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("devtools")</span>
+<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"swsoyee/r3dmol"</span>)</pre></div>
+</div>
+<div id="example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#example" class="anchor"></a>Example</h2>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">r3dmol</span>)
+<span class="fu"><a href="reference/init.html">r3dmol</a></span>(<span class="kw">data_path</span> <span class="kw">=</span> <span class="st">"../data/6zsl.pdb"</span>)</pre></div>
+<p><img src="https://user-images.githubusercontent.com/20528423/92235475-aff64180-eeee-11ea-94b8-304ea64425b5.png" alt="picture"></p>
+</div>
+<div id="about-3dmoljs" class="section level2">
+<h2 class="hasAnchor">
+<a href="#about-3dmoljs" class="anchor"></a>About <code>3Dmol.js</code>
+</h2>
+<blockquote>
+<p>Nicholas Rego and David Koes 3Dmol.js: molecular visualization with WebGL Bioinformatics (2015) 31 (8): 1322-1324 <a href="http://doi.org/10.1093/bioinformatics/btu829">doi:10.1093/bioinformatics/btu829</a></p>
+</blockquote>
+</div>
 </div>
   </div>
 
