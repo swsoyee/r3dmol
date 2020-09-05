@@ -42,6 +42,9 @@ HTMLWidgets.widget({
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits",
+          // remove
+          "removeAllLabels", "removeAllModels", "removeAllShapes",
+          "removeAllSurfaces", "removeLabel",
           // animate
           "spin", "rotate", "translate", "translateScene", "zoom"
         ]
@@ -111,6 +114,26 @@ HTMLWidgets.widget({
 
       addStyle: (params) => {
         view.addStyle(params.sel, params.style);
+      },
+
+      removeAllLabels: () => {
+        view.removeAllLabels();
+      },
+
+      removeAllModels: () => {
+        view.removeAllModels();
+      },
+
+      removeAllShapes: () => {
+        view.removeAllShapes();
+      },
+
+      removeAllSurfaces: () => {
+        view.removeAllSurfaces();
+      },
+
+      removeLabel: () => {
+        view.removeLabel();
       },
 
       setStyle: (params) => {
