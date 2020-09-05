@@ -19,3 +19,8 @@ R3dmol id or a \code{r3dmol} object (the output from \code{r3dmol()})
 \description{
 Continuously rotate a scene around the specified axis
 }
+\examples{
+library(r3dmol)
+r3dmol(data_path = pdb_6zsl) \%>\%
+  spin()
+}
