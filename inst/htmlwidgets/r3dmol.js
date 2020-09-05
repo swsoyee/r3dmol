@@ -75,6 +75,11 @@ HTMLWidgets.widget({
         view.translate(params.x, params.y, params.animationDuration, params.fixedPath);
         view.render();
       },
+
+      translateScene: (params) => { // TODO: need test.
+        view.translateScene(params.x, params.y, params.animationDuration, params.fixedPath);
+        view.render();
+      },
     };
   }
 });

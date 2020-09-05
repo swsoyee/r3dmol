@@ -110,3 +110,25 @@ translate <- function(id, x, y, animationDuration, fixedPath) {
   method <- "translate"
   callJS()
 }
+
+#' Translate current models by x,y screen coordinates
+#'
+#' This translates the models relative to the current view. It does
+#' not change the center of rotation.
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param x Relative change \code{numeric} in view coordinates of camera
+#' @param y Relative change \code{numeric} in view coordinates of camera
+#' @param animationDuration an optional parameter of milliseconds \code{numeric} that
+#' denotes the duration of a zoom animation
+#' @param fixedPath if \code{true} animation is constrained to
+#' requested motion, overriding updates that happen during the animation
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+translateScene <- function(id, x, y, animationDuration, fixedPath) {
+  method <- "translateScene"
+  callJS()
+}
