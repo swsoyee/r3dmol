@@ -45,3 +45,19 @@ addAsOneMolecule <- function(id, data, format) {
   method <- "addAsOneMolecule"
   callJS()
 }
+
+#' Create and add box shape
+#'
+#' This method provides a shorthand way to create a box shape object
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param spec Box shape style specification
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+addBox <- function(id, spec = list()) {
+  method <- "addBox"
+  callJS()
+}
