@@ -61,3 +61,17 @@ addBox <- function(id, spec = list()) {
   method <- "addBox"
   callJS()
 }
+
+#' Create and add Curve shape
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param spec Style specification
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+addCurve <- function(id, spec = list()) {
+  method <- "addCurve"
+  callJS()
+}

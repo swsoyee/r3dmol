@@ -66,6 +66,11 @@ HTMLWidgets.widget({
         view.render();
       },
 
+      addCurve: params => {
+        view.addCurve(params.spec);
+        view.render();
+      },
+
       addStyle: (params) => {
         view.addStyle(params.sel, params.style);
         view.render();
