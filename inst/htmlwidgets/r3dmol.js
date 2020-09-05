@@ -28,7 +28,6 @@ HTMLWidgets.widget({
           })
           view.addModel(x.data.join("\n"), "pdb");
           view.zoomTo();
-          view.render();
         }
 
         // Now that the widget is initialized, call any outstanding API
@@ -49,60 +48,52 @@ HTMLWidgets.widget({
         // TODO: code to re-render the widget with a new size
 
       },
+      render: () => {
+        view.render();
+      },
 
       addArrow: params => {
         view.addArrow(params.spec);
-        view.render();
       },
 
       addAsOneMolecule: params => {
         view.addAsOneMolecule(params.data.join("\n"), params.format);
-        view.render();
       },
 
       addBox: params => {
         view.addBox(params.spec);
-        view.render();
       },
 
       addCurve: params => {
         view.addCurve(params.spec);
-        view.render();
       },
 
       addCylinder: params => {
         view.addCylinder(params.spec);
-        view.render();
       },
 
       addLine: params => {
         view.addLine(params.spec);
-        view.render();
       },
 
       addPropertyLabels: (params) => {
         view.addPropertyLabels(params.prop, params.sel, params.style);
-        view.render();
       },
 
       addSphere: params => {
         view.addSphere(params.spec);
-        view.render();
       },
 
       addShape: params => {
         view.addShape(params.shapeSpec);
-        view.render();
       },
 
       addStyle: (params) => {
         view.addStyle(params.sel, params.style);
-        view.render();
       },
 
       setStyle: (params) => {
         view.setStyle(params.sel, params.style);
-        view.render();
       },
 
       isAnimated: ({ }) => {
@@ -111,47 +102,38 @@ HTMLWidgets.widget({
 
       setBackgroundColor: (params) => {
         view.setBackgroundColor(params.hex, params.alpha);
-        view.render();
       },
 
       spin: (params) => {
         view.spin(params.axis);
-        view.render();
       },
 
       setWidth: (params) => {
         view.setWidth(params.width);
-        view.render();
       },
 
       setProjection: params => {
         view.setProjection(params.scheme)
-        view.render();
       },
 
       setZoomLimits: (params) => {
         view.setZoomLimits(params.lower, params.upper);
-        view.render();
       },
 
       stopAnimate: ({ }) => { // TODO: not working.
         view.stopAnimate();
-        view.render();
       },
 
       translate: (params) => {
         view.translate(params.x, params.y, params.animationDuration, params.fixedPath);
-        view.render();
       },
 
       translateScene: (params) => { // TODO: need test.
         view.translateScene(params.x, params.y, params.animationDuration, params.fixedPath);
-        view.render();
       },
 
       zoom: (params) => {
         view.zoom(params.factor, params.animationDuration, params.fixedPath);
-        view.render();
       },
     };
   }

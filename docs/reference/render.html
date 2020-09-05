@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Continuously rotate a scene around the specified axis — spin • r3dmol</title>
+<title>Render current state of viewer — render • r3dmol</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="Continuously rotate a scene around the specified axis — spin" />
-<meta property="og:description" content="Continuously rotate a scene around the specified axis" />
+<meta property="og:title" content="Render current state of viewer — render" />
+<meta property="og:description" content="Render current state of viewer, after adding/removing models,
+applying styles, etc." />
 
 
 
@@ -106,16 +107,17 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Continuously rotate a scene around the specified axis</h1>
+    <h1>Render current state of viewer</h1>
     
-    <div class="hidden name"><code>spin.Rd</code></div>
+    <div class="hidden name"><code>render.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Continuously rotate a scene around the specified axis</p>
+    <p>Render current state of viewer, after adding/removing models,
+applying styles, etc.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>spin</span>(<span class='no'>id</span>, <span class='kw'>axis</span> <span class='kw'>=</span> <span class='st'>"y"</span>)</pre>
+    <pre class="usage"><span class='fu'>render</span>(<span class='no'>id</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -124,23 +126,9 @@
       <th>id</th>
       <td><p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p></td>
     </tr>
-    <tr>
-      <th>axis</th>
-      <td><p>Axis (<code>"x"</code>, <code>"y"</code>, <code>"z"</code>, <code>"vx"</code>, <code>"vy"</code>, <code>"vz"</code>)
-to rotate around. Default <code>"y"</code>. View relative (rather than model relative) axes are
-prefixed with <code>"v"</code>.</p></td>
-    </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>R3dmol id or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>r3dmol</span>)
-<span class='fu'><a href='init.html'>r3dmol</a></span>(<span class='kw'>data_path</span> <span class='kw'>=</span> <span class='no'>pdb_6zsl</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>spin</span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='render.html'>render</a></span>()</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
