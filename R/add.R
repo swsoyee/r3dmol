@@ -122,3 +122,19 @@ addLine <- function(id, spec = list()) {
 #   method <- "addPropertyLabels"
 #   callJS()
 # }
+
+#' Create and add sphere shape
+#'
+#' This method provides a shorthand way to create a spherical shape object
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param spec Sphere shape style specification
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+addSphere <- function(id, spec = list()) {
+  method <- "addSphere"
+  callJS()
+}

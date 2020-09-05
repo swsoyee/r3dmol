@@ -85,6 +85,11 @@ HTMLWidgets.widget({
         view.render();
       },
 
+      addSphere: params => {
+        view.addSphere(params.spec);
+        view.render();
+      },
+
       addStyle: (params) => {
         view.addStyle(params.sel, params.style);
         view.render();
