@@ -13,3 +13,18 @@ addStyle <- function(id, sel = list(), style = list()) {
   method <- "addStyle"
   callJS()
 }
+
+
+#' Create and add arrow shape
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param spec Style specification
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+addArrow <- function(id, spec = list()) {
+  method <- "addArrow" # TODO Callback function need fixed
+  callJS()
+}
