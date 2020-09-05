@@ -58,7 +58,7 @@ setStyle <- function(id, sel = list(), style = list()) {
   callJS()
 }
 
-#' Continuously rotate a scene around the specified axis.
+#' Continuously rotate a scene around the specified axis
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @param axis Axis (\code{"x"}, \code{"y"}, \code{"z"}, \code{"vx"}, \code{"vy"}, \code{"vz"}) to rotate around.
@@ -73,5 +73,17 @@ spin <- function(id, axis = "y") {
     stop("Unknow axis.")
   }
   method <- "spin"
+  callJS()
+}
+
+#' Stop animation of all models in viewer
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#'
+#' @export
+#'
+#' @examples
+stopAnimate <- function(id) {
+  method <- "stopAnimate"
   callJS()
 }

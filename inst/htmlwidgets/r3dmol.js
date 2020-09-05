@@ -64,6 +64,11 @@ HTMLWidgets.widget({
       spin: (params) => {
         view.spin(params.axis);
         view.render();
+      },
+
+      stopAnimate: ({ }) => { // TODO: not working.
+        view.stopAnimate();
+        view.render();
       }
     };
   }
