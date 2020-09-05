@@ -2,16 +2,30 @@
 % Please edit documentation in R/set.R
 \name{setStyle}
 \alias{setStyle}
-\title{Title}
+\title{Set style properties to all selected atoms}
 \usage{
 setStyle(id, sel = list(), style = list())
 }
 \arguments{
-\item{style}{}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+
+\item{sel}{Atom selection specification}
+
+\item{style}{Style spec to apply to specified atoms}
 }
 \value{
-
+R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 }
 \description{
-Title
+Set style properties to all selected atoms
+}
+\examples{
+library(r3dmol)
+r3dmol(data_path = pdb_6zsl) \%>\%
+  setStyle(style = list(cartoon = list())) \%>\%
+  setStyle(sel = list(chain = "A"),
+           style = list(stick = list(
+             radius = 0.5,
+             colorscheme = "magentaCarbon"
+           )))
 }
