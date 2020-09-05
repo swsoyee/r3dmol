@@ -2,6 +2,7 @@
 
 export("%>%")
 export(addArrow)
+export(addAsOneMolecule)
 export(addStyle)
 export(isAnimated)
 export(r3dmol)

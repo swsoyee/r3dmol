@@ -56,6 +56,11 @@ HTMLWidgets.widget({
         view.render();
       },
 
+      addAsOneMolecule: params => {
+        view.addAsOneMolecule(params.data.join("\n"), params.format);
+        view.render();
+      },
+
       addStyle: (params) => {
         view.addStyle(params.sel, params.style);
         view.render();

@@ -14,7 +14,6 @@ addStyle <- function(id, sel = list(), style = list()) {
   callJS()
 }
 
-
 #' Create and add arrow shape
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
@@ -26,5 +25,23 @@ addStyle <- function(id, sel = list(), style = list()) {
 #' @examples
 addArrow <- function(id, spec = list()) {
   method <- "addArrow" # TODO Callback function need fixed
+  callJS()
+}
+
+#' Create and add model to viewer
+#'
+#' Given multimodel file and its format, all atoms are added to one model
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param data Input data
+#' @param format Input format
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+addAsOneMolecule <- function(id, data, format) {
+  data <- readLines(data) # TODO Need refactor
+  method <- "addAsOneMolecule"
   callJS()
 }
