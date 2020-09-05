@@ -4,10 +4,10 @@
 \alias{setStyle}
 \title{Title}
 \usage{
-setStyle(id, itemId)
+setStyle(id, sel = list(), style = list())
 }
 \arguments{
-\item{itemId}{}
+\item{style}{}
 }
 \value{
 

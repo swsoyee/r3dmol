@@ -57,3 +57,20 @@ setStyle <- function(id, sel = list(), style = list()) {
   method <- "setStyle"
   callJS()
 }
+
+#' Title
+#'
+#' @param id
+#' @param axis
+#'
+#' @return
+#' @export
+#'
+#' @examples
+spin <- function(id, axis = "y") {
+  if (!axis %in% c("x", "y", "z", "vx", "vy", "vz")) {
+    stop("Unknow axis.")
+  }
+  method <- "spin"
+  callJS()
+}

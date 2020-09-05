@@ -59,8 +59,12 @@ HTMLWidgets.widget({
       setStyle: (params) => {
         view.setStyle(params.sel, params.style);
         view.render();
-      }
+      },
 
+      spin: (params) => {
+        view.spin(params.axis);
+        view.render();
+      }
     };
   }
 });
