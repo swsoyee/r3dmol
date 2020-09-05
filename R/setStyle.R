@@ -132,3 +132,23 @@ translateScene <- function(id, x, y, animationDuration, fixedPath) {
   method <- "translateScene"
   callJS()
 }
+
+
+#' Zoom current view by a constant factor
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param factor Magnification \code{numeric} factor. Values greater than \code{1} will
+#' zoom in, less than one will zoom out. Default \code{2}.
+#' @param animationDuration an optional parameter of milliseconds \code{numeric} that
+#' denotes the duration of a zoom animation
+#' @param fixedPath if \code{true} animation is constrained to
+#' requested motion, overriding updates that happen during the animation
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+zoom <- function(id, factor = 2, animationDuration, fixedPath) {
+  method <- "zoom"
+  callJS()
+}

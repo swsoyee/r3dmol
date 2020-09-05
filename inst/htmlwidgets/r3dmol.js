@@ -80,6 +80,11 @@ HTMLWidgets.widget({
         view.translateScene(params.x, params.y, params.animationDuration, params.fixedPath);
         view.render();
       },
+
+      zoom: (params) => {
+        view.zoom(params.factor, params.animationDuration, params.fixedPath);
+        view.render();
+      },
     };
   }
 });
