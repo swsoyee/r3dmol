@@ -61,6 +61,11 @@ HTMLWidgets.widget({
         view.render();
       },
 
+      setBackgroundColor: (params) => {
+        view.setBackgroundColor(params.hex, params.alpha);
+        view.render();
+      },
+
       spin: (params) => {
         view.spin(params.axis);
         view.render();

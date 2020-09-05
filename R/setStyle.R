@@ -182,3 +182,21 @@ setWidth <- function(id, width) {
   method <- "setWidth"
   callJS()
 }
+
+
+#' Set viewer background color
+#'
+#' Set the background color (default white)
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param hex Hexcode specified background color, or standard color spec \code{character}
+#' @param alpha Alpha level \code{numeric} (default \code{1.0})
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+setBackgroundColor <- function(id, hex, alpha) {
+  method <- "setBackgroundColor"
+  callJS()
+}
