@@ -2,7 +2,7 @@
 #'
 #' Initialise a 3d protein structure
 #'
-#' @param
+#' @param data_path
 #'
 #' @import htmlwidgets
 #'
@@ -24,7 +24,11 @@ r3dmol <-
 
     # forward options using x
     x = list(id = id,
-             data = readLines(data_path))
+             data = readLines(data_path)
+             )
+    # Allow a list of API functions to be called on the timevis after
+    # initialization
+    x$api <- list()
 
     # create widget
     widget <- htmlwidgets::createWidget(
