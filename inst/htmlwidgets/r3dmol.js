@@ -69,7 +69,12 @@ HTMLWidgets.widget({
       stopAnimate: ({ }) => { // TODO: not working.
         view.stopAnimate();
         view.render();
-      }
+      },
+
+      translate: (params) => {
+        view.translate(params.x, params.y, params.animationDuration, params.fixedPath);
+        view.render();
+      },
     };
   }
 });

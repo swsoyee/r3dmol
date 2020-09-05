@@ -61,8 +61,9 @@ setStyle <- function(id, sel = list(), style = list()) {
 #' Continuously rotate a scene around the specified axis
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param axis Axis (\code{"x"}, \code{"y"}, \code{"z"}, \code{"vx"}, \code{"vy"}, \code{"vz"}) to rotate around.
-#' Default \code{"y"}. View relative (rather than model relative) axes are prefixed with \code{"v"}.
+#' @param axis Axis (\code{"x"}, \code{"y"}, \code{"z"}, \code{"vx"}, \code{"vy"}, \code{"vz"})
+#' to rotate around. Default \code{"y"}. View relative (rather than model relative) axes are
+#'  prefixed with \code{"v"}.
 #'
 #' @return R3dmol id or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
@@ -85,5 +86,27 @@ spin <- function(id, axis = "y") {
 #' @examples
 stopAnimate <- function(id) {
   method <- "stopAnimate"
+  callJS()
+}
+
+
+#' Translate current view by x,y screen coordinates
+#'
+#' This pans the camera rather than translating the model.
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param x Relative change \code{numeric} in view coordinates of camera
+#' @param y Relative change \code{numeric} in view coordinates of camera
+#' @param animationDuration an optional parameter of milliseconds \code{numeric} that
+#' denotes the duration of a zoom animation
+#' @param fixedPath if \code{true} animation is constrained to
+#' requested motion, overriding updates that happen during the animation
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+translate <- function(id, x, y, animationDuration, fixedPath) {
+  method <- "translate"
   callJS()
 }
