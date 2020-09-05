@@ -66,6 +66,11 @@ HTMLWidgets.widget({
         view.render();
       },
 
+      setWidth: (params) => {
+        view.setWidth(params.width);
+        view.render();
+      },
+
       setZoomLimits: (params) => {
         view.setZoomLimits(params.lower, params.upper);
         view.render();

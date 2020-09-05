@@ -168,3 +168,17 @@ setZoomLimits <- function(id, lower = 0, upper = Inf) {
   method <- "setZoomLimits"
   callJS()
 }
+
+#' Set viewer width
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param width Width \code{numeric} in pixels
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+setWidth <- function(id, width) {
+  method <- "setWidth"
+  callJS()
+}
