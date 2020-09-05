@@ -75,3 +75,17 @@ addCurve <- function(id, spec = list()) {
   method <- "addCurve"
   callJS()
 }
+
+#' Create and add cylinder shape
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param spec Style specification
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+addCylinder <- function(id, spec = list()) {
+  method <- "addCylinder" # TODO Callback function need fixed
+  callJS()
+}
