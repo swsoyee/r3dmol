@@ -35,7 +35,8 @@ devtools::install_github("swsoyee/r3dmol")
 
 ``` r
 library(r3dmol)
-r3dmol(data_path = "../data/6zsl.pdb")
+r3dmol(data_path = pdb_6zsl) %>%
+  setStyle(style = list(cartoon = list(color = 'spectrum'))) %>%
 ```
 
 ![picture](https://user-images.githubusercontent.com/20528423/92235475-aff64180-eeee-11ea-94b8-304ea64425b5.png)
