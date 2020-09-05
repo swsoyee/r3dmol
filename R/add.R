@@ -103,3 +103,22 @@ addLine <- function(id, spec = list()) {
   method <- "addLine"
   callJS()
 }
+
+# TODO This function has bugs, do not use!
+#' Add property labels
+#'
+#' This will generate one label per a selected
+#' atom at the atom's coordinates with the property value as the label text.
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param prop Property name
+#' @param sel Atom selection specification
+#' @param style Style spec to add to specified atoms
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#'
+#' @examples
+# addPropertyLabels <- function(id, prop, sel, style) {
+#   method <- "addPropertyLabels"
+#   callJS()
+# }

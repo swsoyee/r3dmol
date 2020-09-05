@@ -34,7 +34,6 @@ HTMLWidgets.widget({
         // Now that the widget is initialized, call any outstanding API
         // functions that the user wantd to run on the widget
         const numApiCalls = x['api'].length;
-        console.log(x);
         for (let i = 0; i < numApiCalls; i++) {
           let call = x['api'][i];
           const method = call.method;
@@ -78,6 +77,11 @@ HTMLWidgets.widget({
 
       addLine: params => {
         view.addLine(params.spec);
+        view.render();
+      },
+
+      addPropertyLabels: (params) => {
+        view.addPropertyLabels(params.prop, params.sel, params.style);
         view.render();
       },
 
