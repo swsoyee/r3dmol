@@ -61,6 +61,11 @@ HTMLWidgets.widget({
         view.render();
       },
 
+      isAnimated: ({ }) => {
+        console.log("aa");
+        return view.isAnimated();
+      },
+
       setBackgroundColor: (params) => {
         view.setBackgroundColor(params.hex, params.alpha);
         view.render();
