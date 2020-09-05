@@ -22,6 +22,5 @@ Continuously rotate a scene around the specified axis
 \examples{
 library(r3dmol)
 r3dmol(data_path = pdb_6zsl) \%>\%
-  spin() \%>\%
-  render()
+  spin()
 }

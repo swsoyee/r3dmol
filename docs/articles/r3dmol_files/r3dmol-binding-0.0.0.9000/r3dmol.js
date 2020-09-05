@@ -33,6 +33,16 @@ HTMLWidgets.widget({
         // Now that the widget is initialized, call any outstanding API
         // functions that the user wantd to run on the widget
         const numApiCalls = x['api'].length;
+        // Save last call function name for auto render function call
+        const lastCallFunction = x['api'][numApiCalls - 1].method;
+        const isAutoRenderFunction = [
+          "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
+          "addSphere", "addShape", "addStyle",
+          "setStyle", "setBackgroundColor", "setWidth", "setProjection",
+          "setZoomLimits",
+          "spin", "translate", "translateScene", "zoom"
+        ]
+
         for (let i = 0; i < numApiCalls; i++) {
           let call = x['api'][i];
           const method = call.method;
@@ -40,6 +50,10 @@ HTMLWidgets.widget({
           try {
             that[method](call);
           } catch (err) { }
+        }
+        // Auto render
+        if (isAutoRenderFunction.findIndex(el => el === lastCallFunction) > -1) {
+          view.render();
         }
       },
 

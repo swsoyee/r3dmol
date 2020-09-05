@@ -11,8 +11,7 @@
 #' @examples
 #' library(r3dmol)
 #' r3dmol(data_path = pdb_6zsl) %>%
-#'   spin() %>%
-#'   render()
+#'   spin()
 spin <- function(id, axis = "y") {
   if (!axis %in% c("x", "y", "z", "vx", "vy", "vz")) {
     stop("Unknow axis.")
