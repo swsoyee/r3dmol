@@ -62,7 +62,6 @@ HTMLWidgets.widget({
       },
 
       isAnimated: ({ }) => {
-        console.log("aa");
         return view.isAnimated();
       },
 
