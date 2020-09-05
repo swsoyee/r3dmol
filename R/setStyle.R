@@ -152,3 +152,19 @@ zoom <- function(id, factor = 2, animationDuration, fixedPath) {
   method <- "zoom"
   callJS()
 }
+
+
+#' Set lower and upper limit stops for zoom
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param lower limit on zoom in (positive \code{numeric} number). Default \code{0}.
+#' @param upper limit on zoom out (positive \code{numeric} number). Default \code{Inf}.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+setZoomLimits <- function(id, lower = 0, upper = Inf) {
+  method <- "setZoomLimits"
+  callJS()
+}
