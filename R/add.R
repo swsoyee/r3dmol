@@ -138,3 +138,17 @@ addSphere <- function(id, spec = list()) {
   method <- "addSphere"
   callJS()
 }
+
+#' Add shape object to viewer
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param shapeSpec Style specification for label
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+addShape <- function(id, shapeSpec = list()) {
+  method <- "addShape" # TODO Not work now.
+  callJS()
+}

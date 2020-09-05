@@ -90,6 +90,11 @@ HTMLWidgets.widget({
         view.render();
       },
 
+      addShape: params => {
+        view.addShape(params.shapeSpec);
+        view.render();
+      },
+
       addStyle: (params) => {
         view.addStyle(params.sel, params.style);
         view.render();
