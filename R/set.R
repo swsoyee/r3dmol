@@ -61,6 +61,25 @@ setBackgroundColor <- function(id, hex, alpha) {
   callJS()
 }
 
+#' Set view projection scheme
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param scheme Either \code{orthographic} or \code{perspective}.
+#' Default is \code{perspective}. Orthographic can also be enabled on viewer creation
+#' by setting \code{orthographic} to true in the config object.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+setProjection <- function(id, scheme = "perspective") {
+  if (!scheme %in% c("perspective", "orthographic")) { # TODO Nor work?
+    stop("Unknow scheme")
+  }
+  method <- "setProjection"
+  callJS()
+}
+
 #' Get viewer animate status
 #'
 #' Return true if viewer is currently being animated, false otherwise

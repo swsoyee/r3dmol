@@ -124,6 +124,11 @@ HTMLWidgets.widget({
         view.render();
       },
 
+      setProjection: params => {
+        view.setProjection(params.scheme)
+        view.render();
+      },
+
       setZoomLimits: (params) => {
         view.setZoomLimits(params.lower, params.upper);
         view.render();
