@@ -58,12 +58,13 @@ setStyle <- function(id, sel = list(), style = list()) {
   callJS()
 }
 
-#' Title
+#' Continuously rotate a scene around the specified axis.
 #'
-#' @param id
-#' @param axis
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param axis Axis (\code{"x"}, \code{"y"}, \code{"z"}, \code{"vx"}, \code{"vy"}, \code{"vz"}) to rotate around.
+#' Default \code{"y"}. View relative (rather than model relative) axes are prefixed with \code{"v"}.
 #'
-#' @return
+#' @return R3dmol id or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
 #' @examples

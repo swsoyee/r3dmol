@@ -2,16 +2,19 @@
 % Please edit documentation in R/setStyle.R
 \name{spin}
 \alias{spin}
-\title{Title}
+\title{Continuously rotate a scene around the specified axis.}
 \usage{
 spin(id, axis = "y")
 }
 \arguments{
-\item{axis}{}
+\item{id}{R3dmol id or a \code{r3dmol} object (the output from \code{r3dmol()})}
+
+\item{axis}{Axis (\code{"x"}, \code{"y"}, \code{"z"}, \code{"vx"}, \code{"vy"}, \code{"vz"}) to rotate around.
+Default \code{"y"}. View relative (rather than model relative) axes are prefixed with \code{"v"}.}
 }
 \value{
-
+R3dmol id or a \code{r3dmol} object (the output from \code{r3dmol()})
 }
 \description{
-Title
+Continuously rotate a scene around the specified axis.
 }
