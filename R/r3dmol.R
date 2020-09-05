@@ -17,16 +17,21 @@ r3dmol <-
     # If data path is missing
     if (missing(data_path))
       stop("Data path is missing.", call. = FALSE)
+    if (length(data_path) > 1) {
+      data <- data_path
+    } else {
+      data <- readLines(data_path)
+    }
 
     if (missing(id))
-      id <- paste(format(as.hexmode(sample(256, 10, replace = TRUE) - 1), width = 2),
-                  collapse = "")
+      id <-
+        paste(format(as.hexmode(sample(256, 10, replace = TRUE) - 1), width = 2),
+              collapse = "")
 
     # forward options using x
     x = list(id = id,
-             data = readLines(data_path)
-             )
-    # Allow a list of API functions to be called on the timevis after
+             data = data)
+    # Allow a list of API functions to be called on the r3dmol after
     # initialization
     x$api <- list()
 

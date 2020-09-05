@@ -32,7 +32,7 @@ devtools::install_github('swsoyee/r3dmol')
 
 ```{r demo}
 library(r3dmol)
-r3dmol(data_path = "../data/6zsl.pdb")
+r3dmol(data_path = "../data-raw/6zsl.pdb")
 ```
 
 ## About `3Dmol.js`
