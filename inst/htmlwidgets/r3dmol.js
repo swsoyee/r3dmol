@@ -43,7 +43,7 @@ HTMLWidgets.widget({
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits",
           // animate
-          "spin", "translate", "translateScene", "zoom"
+          "spin", "rotate", "translate", "translateScene", "zoom"
         ]
 
         for (let i = 0; i < numApiCalls; i++) {
@@ -67,6 +67,10 @@ HTMLWidgets.widget({
       },
       render: () => {
         view.render();
+      },
+
+      rotate: (params) => {
+        view.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath);
       },
 
       addArrow: params => {
