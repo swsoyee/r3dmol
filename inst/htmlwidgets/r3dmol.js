@@ -76,6 +76,11 @@ HTMLWidgets.widget({
         view.render();
       },
 
+      addLine: params => {
+        view.addLine(params.spec);
+        view.render();
+      },
+
       addStyle: (params) => {
         view.addStyle(params.sel, params.style);
         view.render();

@@ -89,3 +89,17 @@ addCylinder <- function(id, spec = list()) {
   method <- "addCylinder" # TODO Callback function need fixed
   callJS()
 }
+
+#' Create and add line shape
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param spec Style specification, can specify dashed, dashLength, and gapLength
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+addLine <- function(id, spec = list()) {
+  method <- "addLine"
+  callJS()
+}

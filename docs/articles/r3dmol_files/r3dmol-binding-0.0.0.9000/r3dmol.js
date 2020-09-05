@@ -71,6 +71,16 @@ HTMLWidgets.widget({
         view.render();
       },
 
+      addCylinder: params => {
+        view.addCylinder(params.spec);
+        view.render();
+      },
+
+      addLine: params => {
+        view.addLine(params.spec);
+        view.render();
+      },
+
       addStyle: (params) => {
         view.addStyle(params.sel, params.style);
         view.render();
