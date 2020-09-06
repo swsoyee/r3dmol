@@ -17,7 +17,7 @@
 #'              colorscheme = "magentaCarbon"
 #'            )))
 m_set_style <- function(id, sel = list(), style = list()) {
-  if(missing(style)) {
+  if (missing(style)) {
     stop("The `style` argument must be passed.")
   }
   method <- "setStyle"
@@ -72,10 +72,28 @@ m_set_background_color <- function(id, hex, alpha) {
 #'
 #' @examples
 m_set_projection <- function(id, scheme = "perspective") {
-  if (!scheme %in% c("perspective", "orthographic")) { # TODO Nor work?
+  if (!scheme %in% c("perspective", "orthographic")) {
+    # TODO Nor work?
     stop("Unknow scheme")
   }
   method <- "setProjection"
+  callJS()
+}
+
+#' Set slab of view
+#'
+#' Set slab of view (contents outside of slab are clipped).
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param near near clipping plane distance
+#' @param far far clipping plane distance
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+m_set_slab <- function(id, near, far) {
+  method <- "setSlab"
   callJS()
 }
 
@@ -89,7 +107,8 @@ m_set_projection <- function(id, scheme = "perspective") {
 #' @export
 #'
 #' @examples
-m_is_animated <- function(id) { # TODO Fix return value in callJS()
+m_is_animated <- function(id) {
+  # TODO Fix return value in callJS()
   method <- "isAnimated"
   callJS()
 }

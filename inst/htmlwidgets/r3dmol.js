@@ -39,7 +39,7 @@ HTMLWidgets.widget({
           "addSphere", "addShape", "addStyle", "addLabel", "addModel",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
-          "setZoomLimits", "setHeight", "resize_m",
+          "setZoomLimits", "setHeight", "setSlab", "resize_m",
           // remove
           "removeAllLabels", "removeAllModels", "removeAllShapes",
           "removeAllSurfaces", "removeLabel",
@@ -92,6 +92,7 @@ HTMLWidgets.widget({
         return view.isAnimated();
       },
       setBackgroundColor: params => view.setBackgroundColor(params.hex, params.alpha),
+      setSlab: params => view.setSlab(params.near, params.far),
       spin: params => view.spin(params.axis),
       setWidth: params => view.setWidth(params.width),
       setHeight: params => view.setHeight(params.height),
