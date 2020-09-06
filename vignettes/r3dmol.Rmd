@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 This is an R package that provides support for [`3Dmol.js`](https://3dmol.csb.pitt.edu/index.html) as a [`htmlwidgets`](https://www.htmlwidgets.org/). 
 
-> This package is still very early in its development stages, everything will be changed very often!
+> This package is still very early in its development stages, everything will be changed very often! Please give me a star on Github if you find it useful and I will speed up the development process!
 
 ```{r installation, eval=FALSE}
 # install.packages("devtools")

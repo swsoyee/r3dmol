@@ -14,7 +14,8 @@ This is an R package that provides support for
 ## Installation
 
 > This package is still very early in its development stages, everything
-> will be changed very often\!
+> will be changed very often\! Please give me a star on Github if you
+> find it useful and I will speed up the development process\!
 
 ~~You can install the released version of r3dmol from
 [CRAN](https://CRAN.R-project.org) with:~~
