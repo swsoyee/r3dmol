@@ -39,33 +39,22 @@ m_set_zoom_limits <- function(id, lower = 0, upper = Inf) {
   callJS()
 }
 
-#' Set viewer width
-#'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param width Width \code{numeric} in pixels
-#'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @rdname m_set_viewer
 #' @export
-#'
-#' @examples
 m_set_width <- function(id, width) {
   method <- "setWidth"
   callJS()
 }
 
-
-#' Set viewer background color
-#'
-#' Set the background color (default white)
-#'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param hex Hexcode specified background color, or standard color spec \code{character}
-#' @param alpha Alpha level \code{numeric} (default \code{1.0})
-#'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @rdname m_set_viewer
 #' @export
-#'
-#' @examples
+m_set_height <- function(id, height) {
+  method <- "setHeight"
+  callJS()
+}
+
+#' @rdname m_set_viewer
+#' @export
 m_set_background_color <- function(id, hex, alpha) {
   method <- "setBackgroundColor"
   callJS()
