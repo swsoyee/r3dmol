@@ -97,6 +97,27 @@ m_set_slab <- function(id, near, far) {
   callJS()
 }
 
+#' Set global view styles
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param style css style object in list.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_set_style(style = list(stick = list())) %>%
+#'   m_zoom_to() %>%
+#'   m_set_view_style(style = list(style = "outline", color = "blue"))
+m_set_view_style <- function(id, style) {
+  method <- "setViewStyle"
+  callJS()
+}
+
 #' Get viewer animate status
 #'
 #' Return true if viewer is currently being animated, false otherwise
