@@ -38,7 +38,7 @@ HTMLWidgets.widget({
         const isAutoRenderFunction = [
           // add
           "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
-          "addSphere", "addShape", "addStyle",
+          "addSphere", "addShape", "addStyle", "addLabel",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits",
@@ -94,6 +94,10 @@ HTMLWidgets.widget({
 
       addCylinder: params => {
         view.addCylinder(params.spec);
+      },
+
+      addLabel: params => {
+        view.addLabel(params.text, params.options, params.sel, params.noshow);
       },
 
       addLine: params => {

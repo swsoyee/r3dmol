@@ -152,3 +152,31 @@ m_add_shape <- function(id, shapeSpec = list()) {
   method <- "addShape" # TODO Not work now.
   callJS()
 }
+
+#' Add label to viewer
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param text Label text
+#' @param options Label style specification
+#' @param sel Set position of label to center of this selection
+#' @param noshow if \code{TRUE}, do not immediately display label - when adding multiple
+#' labels this is more efficient
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+#' library(r3dmol)
+#' r3dmol(data_path = pdb_6zsl) %>%
+#'   m_add_label(
+#'     "Label",
+#'     options = list(
+#'       position = m_vector3(-6.89, 0.75, 0.35),
+#'       backgroundColor = "#666666",
+#'       backgroundOpacity = 0.9
+#'     )
+#'   )
+m_add_label <- function(id, text, options = list(), sel = list(), noshow = TRUE) {
+  method <- "addLabel"
+  callJS()
+}
