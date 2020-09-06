@@ -21,9 +21,8 @@ reference:
       - m_rotate
       - m_spin
       - m_stop_animate
-      - m_translate
-      - m_translate_scene
-      - m_zoom
+      - starts_with("m_translate")
+      - starts_with("m_zoom")
   - title: 'Class Constructor'
     desc: 'Convenience functions for constructing class for r3dmol.'
   - contents:

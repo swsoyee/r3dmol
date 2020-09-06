@@ -3,19 +3,19 @@
 \name{init}
 \alias{init}
 \alias{r3dmol}
-\title{Initialise}
+\title{Initialise a WebGL-based viewer}
 \usage{
-r3dmol(
-  data_path = NULL,
-  width = NULL,
-  height = NULL,
-  id = NULL,
-  elementId = NULL
-)
+r3dmol(id = NULL, width = NULL, height = NULL, elementId = NULL)
 }
 \arguments{
-\item{data_path}{}
+\item{id}{HTML element id of viewer}
 }
 \description{
-Initialise a 3d protein structure
+Create and initialize an appropriate viewer at supplied HTML element using specification in config
+}
+\examples{
+library(r3dmol)
+r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
+  m_zoom_to()
 }

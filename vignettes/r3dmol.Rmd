@@ -32,7 +32,9 @@ devtools::install_github('swsoyee/r3dmol')
 
 ```{r demo}
 library(r3dmol)
-r3dmol(data_path = pdb_6zsl) %>%
+r3dmol() %>%
+  m_add_model(data = pdb_6zsl, format = "pdb") %>%
+  m_zoom_to() %>%
   m_set_style(style = list(cartoon = list(color = 'spectrum'))) %>%
   m_spin()
 ```

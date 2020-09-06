@@ -1,27 +1,23 @@
-#' Initialise
+#' Initialise a WebGL-based viewer
 #'
-#' Initialise a 3d protein structure
+#' Create and initialize an appropriate viewer at supplied HTML element using specification in config
 #'
-#' @param data_path
+#' @param id HTML element id of viewer
 #'
 #' @import htmlwidgets
 #'
 #' @name init
 #' @export
+#' @examples
+#' library(r3dmol)
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_zoom_to()
 r3dmol <-
-  function(data_path = NULL,
+  function(id = NULL,
            width = NULL,
            height = NULL,
-           id = NULL,
            elementId = NULL) {
-    # If data path is missing
-    if (missing(data_path))
-      stop("Data path is missing.", call. = FALSE)
-    if (length(data_path) > 1) {
-      data <- data_path
-    } else {
-      data <- readLines(data_path)
-    }
 
     if (missing(id))
       id <-
@@ -29,8 +25,7 @@ r3dmol <-
               collapse = "")
 
     # forward options using x
-    x = list(id = id,
-             data = data)
+    x = list(id = id)
     # Allow a list of API functions to be called on the r3dmol after
     # initialization
     x$api <- list()

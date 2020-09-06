@@ -26,8 +26,6 @@ HTMLWidgets.widget({
             height: x.height || "500px",
             position: x.position || "relative",
           })
-          view.addModel(x.data.join("\n"), "pdb");
-          view.zoomTo();
         }
 
         // Now that the widget is initialized, call any outstanding API
@@ -46,7 +44,7 @@ HTMLWidgets.widget({
           "removeAllLabels", "removeAllModels", "removeAllShapes",
           "removeAllSurfaces", "removeLabel",
           // animate
-          "spin", "rotate", "translate", "translateScene", "zoom"
+          "spin", "rotate", "translate", "translateScene", "zoom", "zoomTo"
         ]
 
         for (let i = 0; i < numApiCalls; i++) {
@@ -103,6 +101,7 @@ HTMLWidgets.widget({
       // TODO: need test.
       translateScene: params => view.translateScene(params.x, params.y, params.animationDuration, params.fixedPath),
       zoom: (params) => view.zoom(params.factor, params.animationDuration, params.fixedPath),
+      zoomTo: (params) => view.zoomTo(params.sel, params.animationDuration, params.fixedPath),
     };
   }
 });

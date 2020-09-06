@@ -122,3 +122,25 @@ m_zoom <- function(id, factor = 2, animationDuration, fixedPath) {
   method <- "zoom"
   callJS()
 }
+
+#' Zoom to center of atom selection
+#'
+#' Zoom to center of atom selection. The slab will be set appropriately for
+#' the selection, unless an empty selection is provided, in which case there will be no slab.
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param sel Selection specification specifying model and atom
+#' properties to select. Default: all atoms in viewer.
+#' @param animationDuration an optional parameter of milliseconds \code{numeric} that
+#' denotes the duration of a zoom animation
+#' @param fixedPath if \code{true} animation is constrained to
+#' requested motion, overriding updates that happen during the animation
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+m_zoom_to <- function(id, sel, animationDuration, fixedPath) {
+  method <- "zoomTo"
+  callJS()
+}

@@ -90,9 +90,11 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<div class="sourceCode" id="cb3"><pre class="r">library(r3dmol)
-r3dmol(data_path = pdb_6zsl) %&gt;%
-  m_set_style(style = list(cartoon = list(color = 'spectrum'))) %&gt;%</pre></div>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">r3dmol</span>)
+<span class="fu"><a href="reference/init.html">r3dmol</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="reference/m_add_model.html">m_add_model</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">pdb_6zsl</span>, <span class="kw">format</span> <span class="kw">=</span> <span class="st">"pdb"</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="reference/m_zoom_to.html">m_zoom_to</a></span>() <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="reference/m_set_style.html">m_set_style</a></span>(<span class="kw">style</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">cartoon</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">color</span> <span class="kw">=</span> <span class="st">'spectrum'</span>)))</pre></div>
 <p><img src="https://user-images.githubusercontent.com/20528423/92235475-aff64180-eeee-11ea-94b8-304ea64425b5.png" alt="picture"></p>
 </div>
 <div id="about-3dmoljs" class="section level2">

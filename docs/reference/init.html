@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Initialise — init • r3dmol</title>
+<title>Initialise a WebGL-based viewer — init • r3dmol</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Initialise — init" />
-<meta property="og:description" content="Initialise a 3d protein structure" />
+<meta property="og:title" content="Initialise a WebGL-based viewer — init" />
+<meta property="og:description" content="Create and initialize an appropriate viewer at supplied HTML element using specification in config" />
 
 
 
@@ -116,33 +116,32 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Initialise</h1>
+    <h1>Initialise a WebGL-based viewer</h1>
     
     <div class="hidden name"><code>init.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Initialise a 3d protein structure</p>
+    <p>Create and initialize an appropriate viewer at supplied HTML element using specification in config</p>
     </div>
 
-    <pre class="usage"><span class='fu'>r3dmol</span>(
-  <span class='kw'>data_path</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)</pre>
+    <pre class="usage"><span class='fu'>r3dmol</span>(<span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>elementId</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>data_path</th>
-      <td></td>
+      <th>id</th>
+      <td><p>HTML element id of viewer</p></td>
     </tr>
     </table>
 
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>r3dmol</span>)
+<span class='fu'>r3dmol</span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_add_model.html'>m_add_model</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>pdb_6zsl</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"pdb"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>()</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
