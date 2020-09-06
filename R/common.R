@@ -35,3 +35,17 @@ m_resize <- function(id) {
   method <- "resize_m"
   callJS()
 }
+
+#' Enable/disable fog for content far from the camera
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param fog whether to enable or disable the fog
+#'
+#' @return
+#' @export
+#'
+#' @examples
+m_enable_fog <- function(id, fog = TRUE) {
+  method <- "enableFog"
+  callJS()
+}

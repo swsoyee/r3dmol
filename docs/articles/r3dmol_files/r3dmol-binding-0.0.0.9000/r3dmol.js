@@ -44,7 +44,8 @@ HTMLWidgets.widget({
           "removeAllLabels", "removeAllModels", "removeAllShapes",
           "removeAllSurfaces", "removeLabel",
           // animate
-          "spin", "rotate", "translate", "translateScene", "zoom", "zoomTo"
+          "spin", "rotate", "translate", "translateScene", "zoom", "zoomTo",
+          "enableFog"
         ]
 
         for (let i = 0; i < numApiCalls; i++) {
@@ -99,6 +100,7 @@ HTMLWidgets.widget({
       stopAnimate: ({ }) => { // TODO: not working.
         view.stopAnimate();
       },
+      enableFog: params => view.enableFog(params.fog), // Not work
       translate: params => view.translate(params.x, params.y, params.animationDuration, params.fixedPath),
       // TODO: need test.
       translateScene: params => view.translateScene(params.x, params.y, params.animationDuration, params.fixedPath),
