@@ -21,6 +21,10 @@ reference:
       - m_translate
       - m_translate_scene
       - m_zoom
+  - title: 'Class Constructor'
+    desc: 'Convenience functions for constructing class for r3dmol.'
+  - contents:
+      - m_vector3
   - title: 'Dataset'
     desc: 'Datasets provide by package for demo'
   - contents:
