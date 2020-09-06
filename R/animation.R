@@ -16,8 +16,8 @@
 #' @examples
 #' library(r3dmol)
 #' r3dmol(data_path = pdb_6zsl) %>%
-#'   rotate(angle = 90, axis = "y", animationDuration = 1000)
-rotate <- function(id, angle, axis = "v", animationDuration = 0, fixedPath) {
+#'   m_rotate(angle = 90, axis = "y", animationDuration = 1000)
+m_rotate <- function(id, angle, axis = "v", animationDuration = 0, fixedPath) {
   if (!axis %in% c("x", "y", "z", "vx", "vy", "vz")) {
     stop("Unknow axis.")
   }
@@ -38,8 +38,8 @@ rotate <- function(id, angle, axis = "v", animationDuration = 0, fixedPath) {
 #' @examples
 #' library(r3dmol)
 #' r3dmol(data_path = pdb_6zsl) %>%
-#'   spin()
-spin <- function(id, axis = "y") {
+#'   m_spin()
+m_spin <- function(id, axis = "y") {
   if (!axis %in% c("x", "y", "z", "vx", "vy", "vz")) {
     stop("Unknow axis.")
   }
@@ -54,7 +54,7 @@ spin <- function(id, axis = "y") {
 #' @export
 #'
 #' @examples
-stopAnimate <- function(id) {
+m_stop_animate <- function(id) {
   method <- "stopAnimate"
   callJS()
 }
@@ -76,7 +76,7 @@ stopAnimate <- function(id) {
 #' @export
 #'
 #' @examples
-translate <- function(id, x, y, animationDuration, fixedPath) {
+m_translate <- function(id, x, y, animationDuration, fixedPath) {
   method <- "translate"
   callJS()
 }
@@ -98,7 +98,7 @@ translate <- function(id, x, y, animationDuration, fixedPath) {
 #' @export
 #'
 #' @examples
-translateScene <- function(id, x, y, animationDuration, fixedPath) {
+m_translate_scene <- function(id, x, y, animationDuration, fixedPath) {
   method <- "translateScene"
   callJS()
 }
@@ -118,7 +118,7 @@ translateScene <- function(id, x, y, animationDuration, fixedPath) {
 #' @export
 #'
 #' @examples
-zoom <- function(id, factor = 2, animationDuration, fixedPath) {
+m_zoom <- function(id, factor = 2, animationDuration, fixedPath) {
   method <- "zoom"
   callJS()
 }

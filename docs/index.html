@@ -84,8 +84,9 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">r3dmol</span>)
-<span class="fu"><a href="reference/init.html">r3dmol</a></span>(<span class="kw">data_path</span> <span class="kw">=</span> <span class="st">"../data/6zsl.pdb"</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="r">library(r3dmol)
+r3dmol(data_path = pdb_6zsl) %&gt;%
+  setStyle(style = list(cartoon = list(color = 'spectrum'))) %&gt;%</pre></div>
 <p><img src="https://user-images.githubusercontent.com/20528423/92235475-aff64180-eeee-11ea-94b8-304ea64425b5.png" alt="picture"></p>
 </div>
 <div id="about-3dmoljs" class="section level2">

@@ -34,7 +34,7 @@ devtools::install_github('swsoyee/r3dmol')
 library(r3dmol)
 r3dmol(data_path = pdb_6zsl) %>%
   setStyle(style = list(cartoon = list(color = 'spectrum'))) %>%
-  spin()
+  m_spin()
 ```
 
 ## About `3Dmol.js`
