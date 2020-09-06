@@ -6,7 +6,7 @@
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
-addStyle <- function(id, sel = list(), style = list()) {
+m_add_style <- function(id, sel = list(), style = list()) {
   if(missing(style)) {
     stop("The `style` argument must be passed.")
   }
@@ -23,7 +23,7 @@ addStyle <- function(id, sel = list(), style = list()) {
 #' @export
 #'
 #' @examples
-addArrow <- function(id, spec = list()) {
+m_add_arrow <- function(id, spec = list()) {
   method <- "addArrow" # TODO Callback function need fixed
   callJS()
 }
@@ -40,7 +40,7 @@ addArrow <- function(id, spec = list()) {
 #' @export
 #'
 #' @examples
-addAsOneMolecule <- function(id, data, format) {
+m_add_as_one_molecule <- function(id, data, format) {
   data <- readLines(data) # TODO Need refactor
   method <- "addAsOneMolecule"
   callJS()
@@ -57,7 +57,7 @@ addAsOneMolecule <- function(id, data, format) {
 #' @export
 #'
 #' @examples
-addBox <- function(id, spec = list()) {
+m_add_box <- function(id, spec = list()) {
   method <- "addBox"
   callJS()
 }
@@ -71,7 +71,7 @@ addBox <- function(id, spec = list()) {
 #' @export
 #'
 #' @examples
-addCurve <- function(id, spec = list()) {
+m_add_curve <- function(id, spec = list()) {
   method <- "addCurve"
   callJS()
 }
@@ -85,7 +85,7 @@ addCurve <- function(id, spec = list()) {
 #' @export
 #'
 #' @examples
-addCylinder <- function(id, spec = list()) {
+m_add_cylinder <- function(id, spec = list()) {
   method <- "addCylinder" # TODO Callback function need fixed
   callJS()
 }
@@ -99,7 +99,7 @@ addCylinder <- function(id, spec = list()) {
 #' @export
 #'
 #' @examples
-addLine <- function(id, spec = list()) {
+m_add_line <- function(id, spec = list()) {
   method <- "addLine"
   callJS()
 }
@@ -134,7 +134,7 @@ addLine <- function(id, spec = list()) {
 #' @export
 #'
 #' @examples
-addSphere <- function(id, spec = list()) {
+m_add_sphere <- function(id, spec = list()) {
   method <- "addSphere"
   callJS()
 }
@@ -148,7 +148,7 @@ addSphere <- function(id, spec = list()) {
 #' @export
 #'
 #' @examples
-addShape <- function(id, shapeSpec = list()) {
+m_add_shape <- function(id, shapeSpec = list()) {
   method <- "addShape" # TODO Not work now.
   callJS()
 }

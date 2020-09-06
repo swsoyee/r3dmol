@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Remove all shape objects from viewer — m_remove_all_shapes • r3dmol</title>
+<title>Create and add line shape — m_add_line • r3dmol</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Remove all shape objects from viewer — m_remove_all_shapes" />
-<meta property="og:description" content="Remove all shape objects from viewer" />
+<meta property="og:title" content="Create and add line shape — m_add_line" />
+<meta property="og:description" content="Create and add line shape" />
 
 
 
@@ -106,16 +106,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Remove all shape objects from viewer</h1>
+    <h1>Create and add line shape</h1>
     
-    <div class="hidden name"><code>m_remove_all_shapes.Rd</code></div>
+    <div class="hidden name"><code>m_add_line.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Remove all shape objects from viewer</p>
+    <p>Create and add line shape</p>
     </div>
 
-    <pre class="usage"><span class='fu'>m_remove_all_shapes</span>(<span class='no'>id</span>)</pre>
+    <pre class="usage"><span class='fu'>m_add_line</span>(<span class='no'>id</span>, <span class='kw'>spec</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -124,25 +124,16 @@
       <th>id</th>
       <td><p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p></td>
     </tr>
+    <tr>
+      <th>spec</th>
+      <td><p>Style specification, can specify dashed, dashLength, and gapLength</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>id R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p>
+    <p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>r3dmol</span>)
-<span class='no'>mol</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='init.html'>r3dmol</a></span>(<span class='kw'>data_path</span> <span class='kw'>=</span> <span class='no'>pdb_6zsl</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>addSphere</span>(<span class='kw'>spec</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-    <span class='kw'>center</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='fl'>0</span>),
-    <span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>10.0</span>,
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'red'</span>
-  ))</div><div class='output co'>#&gt; <span class='error'>Error in addSphere(., spec = list(center = list(x = 0, y = 0, z = 0),     radius = 10, color = "red")):  関数 "addSphere" を見つけることができませんでした </span></div><div class='input'>
-<span class='co'># Render model with shape</span>
-<span class='no'>mol</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos):  オブジェクト 'mol' がありません </span></div><div class='input'>
-<span class='co'># Remove shape</span>
-<span class='no'>mol</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'>m_remove_all_shapes</span>()</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent):  オブジェクト 'mol' がありません </span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
