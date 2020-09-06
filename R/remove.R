@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-removeAllLabels <- function(id) {
+m_remove_all_labels <- function(id) {
   method <- "removeAllLabels"
   callJS()
 }
@@ -19,7 +19,7 @@ removeAllLabels <- function(id) {
 #' @export
 #'
 #' @examples
-removeAllModels <- function(id) {
+m_remove_all_models <- function(id) {
   method <- "removeAllModels"
   callJS()
 }
@@ -45,8 +45,8 @@ removeAllModels <- function(id) {
 #'
 #' # Remove shape
 #' mol %>%
-#'   removeAllShapes()
-removeAllShapes <- function(id) {
+#'   m_remove_all_shapes()
+m_remove_all_shapes <- function(id) {
   method <- "removeAllShapes"
   callJS()
 }
@@ -59,7 +59,7 @@ removeAllShapes <- function(id) {
 #' @export
 #'
 #' @examples
-removeAllSurfaces <- function(id) {
+m_remove_all_surfaces <- function(id) {
   method <- "removeAllSurfaces"
   callJS()
 }
@@ -73,7 +73,7 @@ removeAllSurfaces <- function(id) {
 #' @export
 #'
 #' @examples
-removeLabel <- function(id, label) {
+m_remove_label <- function(id, label) {
   method <- "removeLabel"
   callJS()
 }

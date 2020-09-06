@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-render <- function(id) {
+m_render <- function(id) {
   method <- "render"
   callJS()
 }
