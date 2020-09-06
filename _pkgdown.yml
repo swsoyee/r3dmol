@@ -1,0 +1,19 @@
+reference:
+  - title: 'Add Functions'
+    desc: 'Functions for adding elements to the view.'
+  - contents:
+      - starts_with("m_add")
+  - title: 'Remove Functions'
+    desc: 'Functions for removing elements to the view.'
+  - contents:
+      - starts_with("m_remove")
+  - title: 'Animate Functions'
+    desc: 'Functions for creating animation.'
+  - contents:
+      - m_render
+      - m_rotate
+      - m_spin
+      - m_stop_animate
+      - m_translate
+      - m_translate_scene
+      - m_zoom
