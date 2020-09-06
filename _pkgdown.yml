@@ -1,13 +1,17 @@
 reference:
-  - title: 'Add Functions'
+  - title: 'Add'
     desc: 'Functions for adding elements to the view.'
   - contents:
       - starts_with("m_add")
-  - title: 'Remove Functions'
+  - title: 'Set'
+    desc: 'Functions for setting elements to the view.'
+  - contents:
+      - starts_with("m_set")
+  - title: 'Remove'
     desc: 'Functions for removing elements to the view.'
   - contents:
       - starts_with("m_remove")
-  - title: 'Animate Functions'
+  - title: 'Animate'
     desc: 'Functions for creating animation.'
   - contents:
       - m_render
@@ -17,3 +21,7 @@ reference:
       - m_translate
       - m_translate_scene
       - m_zoom
+  - title: 'Dataset'
+    desc: 'Datasets provide by package for demo'
+  - contents:
+      - pdb_6zsl

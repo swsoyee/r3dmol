@@ -10,13 +10,13 @@
 #' @examples
 #' library(r3dmol)
 #' r3dmol(data_path = pdb_6zsl) %>%
-#'   setStyle(style = list(cartoon = list())) %>%
-#'   setStyle(sel = list(chain = "A"),
+#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_set_style(sel = list(chain = "A"),
 #'            style = list(stick = list(
 #'              radius = 0.5,
 #'              colorscheme = "magentaCarbon"
 #'            )))
-setStyle <- function(id, sel = list(), style = list()) {
+m_set_style <- function(id, sel = list(), style = list()) {
   if(missing(style)) {
     stop("The `style` argument must be passed.")
   }
@@ -34,7 +34,7 @@ setStyle <- function(id, sel = list(), style = list()) {
 #' @export
 #'
 #' @examples
-setZoomLimits <- function(id, lower = 0, upper = Inf) {
+m_set_zoom_limits <- function(id, lower = 0, upper = Inf) {
   method <- "setZoomLimits"
   callJS()
 }
@@ -48,7 +48,7 @@ setZoomLimits <- function(id, lower = 0, upper = Inf) {
 #' @export
 #'
 #' @examples
-setWidth <- function(id, width) {
+m_set_width <- function(id, width) {
   method <- "setWidth"
   callJS()
 }
@@ -66,7 +66,7 @@ setWidth <- function(id, width) {
 #' @export
 #'
 #' @examples
-setBackgroundColor <- function(id, hex, alpha) {
+m_set_background_color <- function(id, hex, alpha) {
   method <- "setBackgroundColor"
   callJS()
 }
@@ -82,7 +82,7 @@ setBackgroundColor <- function(id, hex, alpha) {
 #' @export
 #'
 #' @examples
-setProjection <- function(id, scheme = "perspective") {
+m_set_projection <- function(id, scheme = "perspective") {
   if (!scheme %in% c("perspective", "orthographic")) { # TODO Nor work?
     stop("Unknow scheme")
   }
@@ -100,7 +100,7 @@ setProjection <- function(id, scheme = "perspective") {
 #' @export
 #'
 #' @examples
-isAnimated <- function(id) { # TODO Fix return value in callJS()
+m_is_animated <- function(id) { # TODO Fix return value in callJS()
   method <- "isAnimated"
   callJS()
 }
