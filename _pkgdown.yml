@@ -31,4 +31,4 @@ reference:
   - title: 'Dataset'
     desc: 'Datasets provide by package for demo'
   - contents:
-      - pdb_6zsl
+      - starts_with("pdb")

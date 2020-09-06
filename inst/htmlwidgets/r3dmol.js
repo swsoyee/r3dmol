@@ -38,7 +38,7 @@ HTMLWidgets.widget({
         const isAutoRenderFunction = [
           // add
           "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
-          "addSphere", "addShape", "addStyle", "addLabel",
+          "addSphere", "addShape", "addStyle", "addLabel", "addModel",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits",
@@ -81,6 +81,7 @@ HTMLWidgets.widget({
       addSphere: params => view.addSphere(params.spec),
       addShape: params => view.addShape(params.shapeSpec),
       addStyle: params => view.addStyle(params.sel, params.style),
+      addModel: params => view.addModel(params.data.join("\n"), params.format, params.options),
       removeAllLabels: () => view.removeAllLabels(),
       removeAllModels: () => view.removeAllModels(),
       removeAllShapes: () => view.removeAllShapes(),

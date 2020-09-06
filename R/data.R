@@ -4,3 +4,11 @@
 #'
 #' @format PDB Format.
 "pdb_6zsl"
+
+#' Crystal Structure of Mutant Macrophage Capping Protein (Cap G) with Actin-severing Activity in the Ca2+-Free Form
+#' in PDB format
+#'
+#' @source DOI: 10.2210/pdb1J72/pdb. \url{https://www.rcsb.org/structure/1J72}
+#'
+#' @format PDB Format.
+"pdb_1j72"

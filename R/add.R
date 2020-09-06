@@ -180,3 +180,25 @@ m_add_label <- function(id, text, options = list(), sel = list(), noshow = TRUE)
   method <- "addLabel"
   callJS()
 }
+
+#' Create and add model to viewer
+#'
+#' Create and add model to viewer, given molecular data and its format
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param data Input data
+#' @param format Input format (\code{'pdb'}, \code{'sdf'}, \code{'xyz'}, \code{'pqr'},
+#'  or \code{'mol2'})
+#' @param options Format dependent options. Attributes depend on the input file format.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+m_add_model <- function(id, data, format, options) {
+  if (!format %in% c("pdb", "sdf", "xyz", "pqr", "mol2")) {
+    stop("Unknow format.")
+  }
+  method <- "addModel"
+  callJS()
+}
