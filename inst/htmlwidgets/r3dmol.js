@@ -39,7 +39,7 @@ HTMLWidgets.widget({
           "addSphere", "addShape", "addStyle", "addLabel", "addModel",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
-          "setZoomLimits", "setHeight",
+          "setZoomLimits", "setHeight", "resize_m",
           // remove
           "removeAllLabels", "removeAllModels", "removeAllShapes",
           "removeAllSurfaces", "removeLabel",
@@ -66,6 +66,7 @@ HTMLWidgets.widget({
         // TODO: code to re-render the widget with a new size
 
       },
+      resize_m: () => view.resize(),
       render: () => view.render(),
       rotate: params => view.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath),
       addArrow: params => view.addArrow(params.spec),
