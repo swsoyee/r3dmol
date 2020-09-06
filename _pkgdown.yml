@@ -1,3 +1,6 @@
+template:
+  params:
+    ganalytics: UA-131217026-2
 reference:
   - title: 'Add'
     desc: 'Functions for adding elements to the view.'
