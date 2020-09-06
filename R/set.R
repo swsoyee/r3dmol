@@ -118,6 +118,21 @@ m_set_view_style <- function(id, style) {
   callJS()
 }
 
+
+#' Set the duration of the hover delay
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param hoverDuration an optional parameter that denotes
+#' the duration of the hover delay (in milliseconds) before the hover action is called
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+m_set_hover_duration <- function(id, hoverDuration) {
+  method <- "setHoverDuration"
+  callJS()
+}
+
+
 #' Get viewer animate status
 #'
 #' Return true if viewer is currently being animated, false otherwise
