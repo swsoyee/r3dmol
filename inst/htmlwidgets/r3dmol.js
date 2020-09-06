@@ -68,121 +68,40 @@ HTMLWidgets.widget({
         // TODO: code to re-render the widget with a new size
 
       },
-      render: () => {
-        view.render();
-      },
-
-      rotate: (params) => {
-        view.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath);
-      },
-
-      addArrow: params => {
-        view.addArrow(params.spec);
-      },
-
-      addAsOneMolecule: params => {
-        view.addAsOneMolecule(params.data.join("\n"), params.format);
-      },
-
-      addBox: params => {
-        view.addBox(params.spec);
-      },
-
-      addCurve: params => {
-        view.addCurve(params.spec);
-      },
-
-      addCylinder: params => {
-        view.addCylinder(params.spec);
-      },
-
-      addLabel: params => {
-        view.addLabel(params.text, params.options, params.sel, params.noshow);
-      },
-
-      addLine: params => {
-        view.addLine(params.spec);
-      },
-
-      addPropertyLabels: (params) => {
-        view.addPropertyLabels(params.prop, params.sel, params.style);
-      },
-
-      addSphere: params => {
-        view.addSphere(params.spec);
-      },
-
-      addShape: params => {
-        view.addShape(params.shapeSpec);
-      },
-
-      addStyle: (params) => {
-        view.addStyle(params.sel, params.style);
-      },
-
-      removeAllLabels: () => {
-        view.removeAllLabels();
-      },
-
-      removeAllModels: () => {
-        view.removeAllModels();
-      },
-
-      removeAllShapes: () => {
-        view.removeAllShapes();
-      },
-
-      removeAllSurfaces: () => {
-        view.removeAllSurfaces();
-      },
-
-      removeLabel: () => {
-        view.removeLabel();
-      },
-
-      setStyle: (params) => {
-        view.setStyle(params.sel, params.style);
-      },
-
+      render: () => view.render(),
+      rotate: params => view.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath),
+      addArrow: params => view.addArrow(params.spec),
+      addAsOneMolecule: params => view.addAsOneMolecule(params.data.join("\n"), params.format),
+      addBox: params => view.addBox(params.spec),
+      addCurve: params => view.addCurve(params.spec),
+      addCylinder: params => view.addCylinder(params.spec),
+      addLabel: params => view.addLabel(params.text, params.options, params.sel, params.noshow),
+      addLine: params => view.addLine(params.spec),
+      addPropertyLabels: params => view.addPropertyLabels(params.prop, params.sel, params.style),
+      addSphere: params => view.addSphere(params.spec),
+      addShape: params => view.addShape(params.shapeSpec),
+      addStyle: params => view.addStyle(params.sel, params.style),
+      removeAllLabels: () => view.removeAllLabels(),
+      removeAllModels: () => view.removeAllModels(),
+      removeAllShapes: () => view.removeAllShapes(),
+      removeAllSurfaces: () => view.removeAllSurfaces(),
+      removeLabel: () => view.removeLabel(),
+      setStyle: params => view.setStyle(params.sel, params.style),
       isAnimated: ({ }) => {
         return view.isAnimated();
       },
-
-      setBackgroundColor: (params) => {
-        view.setBackgroundColor(params.hex, params.alpha);
-      },
-
-      spin: (params) => {
-        view.spin(params.axis);
-      },
-
-      setWidth: (params) => {
-        view.setWidth(params.width);
-      },
-
-      setProjection: params => {
-        view.setProjection(params.scheme)
-      },
-
-      setZoomLimits: (params) => {
-        view.setZoomLimits(params.lower, params.upper);
-      },
-
+      setBackgroundColor: params => view.setBackgroundColor(params.hex, params.alpha),
+      spin: params => view.spin(params.axis),
+      setWidth: params => view.setWidth(params.width),
+      setProjection: params => view.setProjection(params.scheme),
+      setZoomLimits: params => view.setZoomLimits(params.lower, params.upper),
       stopAnimate: ({ }) => { // TODO: not working.
         view.stopAnimate();
       },
-
-      translate: (params) => {
-        view.translate(params.x, params.y, params.animationDuration, params.fixedPath);
-      },
-
-      translateScene: (params) => { // TODO: need test.
-        view.translateScene(params.x, params.y, params.animationDuration, params.fixedPath);
-      },
-
-      zoom: (params) => {
-        view.zoom(params.factor, params.animationDuration, params.fixedPath);
-      },
+      translate: params => view.translate(params.x, params.y, params.animationDuration, params.fixedPath),
+      // TODO: need test.
+      translateScene: params => view.translateScene(params.x, params.y, params.animationDuration, params.fixedPath),
+      zoom: (params) => view.zoom(params.factor, params.animationDuration, params.fixedPath),
     };
   }
 });
