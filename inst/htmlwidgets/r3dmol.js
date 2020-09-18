@@ -22,8 +22,6 @@ HTMLWidgets.widget({
           container.widget = that;
 
           $(el).css({
-            width: x.width || "100%",
-            height: x.height || "500px",
             position: x.position || "relative",
           })
         }
@@ -64,11 +62,9 @@ HTMLWidgets.widget({
       },
 
       resize: (width, height) => {
-
-        // TODO: code to re-render the widget with a new size
-
+        container.setAttribute('width', width);
+        container.setAttribute('height', height);
       },
-      resize_m: () => view.resize(),
       render: () => view.render(),
       rotate: params => view.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath),
       addArrow: params => view.addArrow(params.spec),
