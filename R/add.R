@@ -23,6 +23,18 @@ m_add_style <- function(id, sel = list(), style = list()) {
 #' @export
 #'
 #' @examples
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_set_style(style = list(cartoon = list(color = 'spectrum'))) %>%
+#'   m_add_arrow(
+#'     spec = list(
+#'       start = list(x = -10.0, y = 0.0, z = 0.0),
+#'       end = list(x = 0.0, y = -10.0, z = 0.0),
+#'       radius = 1.0,
+#'       radiusRadio = 1.0,
+#'       mid = 1.0
+#'     )
+#'   )
 m_add_arrow <- function(id, spec = list()) {
   method <- "addArrow" # TODO Callback function need fixed
   callJS()

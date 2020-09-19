@@ -24,6 +24,8 @@ r3dmol <-
         paste(format(as.hexmode(sample(256, 10, replace = TRUE) - 1), width = 2),
               collapse = "")
 
+    if (!is.null(elementId) && !grepl(pattern = "^[#,.]{0,1}[A-Za-z][0-9A-Za-z\\-\\._:]*$", elementId))
+      stop("The elementId is not a validate id. Please use an id that starts with a letter.")
     # forward options using x
     x = list(id = id)
     # Allow a list of API functions to be called on the r3dmol after

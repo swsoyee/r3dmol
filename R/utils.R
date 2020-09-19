@@ -26,6 +26,53 @@ callJS <- function() {
   }
 }
 
+#' Callback function generator
+#'
+#' @param elementId The same \code{elementId} set in r3dmol() for bind the callback function.
+#' @param callback Callback function in string.
+#'
+#' @export
+#'
+#' @examples
+#' r3dmol(elementId = "pdb_6zsl") %>% # Required to provide elementId
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_set_style(style = list(cartoon = list(color = 'spectrum'))) %>%
+#'   m_add_arrow(
+#'     spec = list(
+#'       start = list(x = -10.0, y = 0.0, z = 0.0),
+#'       end = list(x = 0.0, y = -10.0, z = 0.0),
+#'       radius = 1.0,
+#'       radiusRadio = 1.0,
+#'       mid = 1.0,
+#'       clickable = TRUE,
+#'       callback = m_callback(
+#'         elementId = "pdb_6zsl", # The same elementId
+#'         callback = "function(){
+#'           this.color.setHex(0xFF0000FF);
+#'         }"
+#'       )
+#'     )
+#'   )
+m_callback <- function(elementId, callback) {
+  if (missing(elementId))
+    stop(
+      'No elementId is provided. To bind a callback function, set the elementId in r3dmol() and pass in the same elementId.'
+    )
+  func <- gsub(
+    pattern = "}[^}]*$",
+    replacement = sprintf(
+      "
+      const view = HTMLWidgets.find('#%s');
+      if(view){
+        view.render();
+      }}",
+      elementId
+    ),
+    x = callback
+  )
+  htmlwidgets::JS(func)
+}
+
 #' Pipe operator
 #'
 #' See \link[=magrittr]{\%>\%} for details.

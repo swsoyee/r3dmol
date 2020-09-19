@@ -25,6 +25,10 @@ reference:
       - m_stop_animate
       - starts_with("m_translate")
       - starts_with("m_zoom")
+  - title: 'Other'
+    desc: 'Other useful functions.'
+  - contents:
+      - m_callback
   - title: 'Class Constructor'
     desc: 'Convenience functions for constructing class for r3dmol.'
   - contents:

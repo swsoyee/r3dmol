@@ -17,3 +17,17 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 \description{
 Create and add arrow shape
 }
+\examples{
+r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
+  m_set_style(style = list(cartoon = list(color = 'spectrum'))) \%>\%
+  m_add_arrow(
+    spec = list(
+      start = list(x = -10.0, y = 0.0, z = 0.0),
+      end = list(x = 0.0, y = -10.0, z = 0.0),
+      radius = 1.0,
+      radiusRadio = 1.0,
+      mid = 1.0
+    )
+  )
+}
