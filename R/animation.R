@@ -15,7 +15,8 @@
 #'
 #' @examples
 #' library(r3dmol)
-#' r3dmol(data_path = pdb_6zsl) %>%
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_rotate(angle = 90, axis = "y", animationDuration = 1000)
 m_rotate <- function(id, angle, axis = "v", animationDuration = 0, fixedPath) {
   if (!axis %in% c("x", "y", "z", "vx", "vy", "vz")) {
@@ -37,7 +38,9 @@ m_rotate <- function(id, angle, axis = "v", animationDuration = 0, fixedPath) {
 #'
 #' @examples
 #' library(r3dmol)
-#' r3dmol(data_path = pdb_6zsl) %>%
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_zoom_to() %>%
 #'   m_spin()
 m_spin <- function(id, axis = "y") {
   if (!axis %in% c("x", "y", "z", "vx", "vy", "vz")) {
@@ -140,6 +143,9 @@ m_zoom <- function(id, factor = 2, animationDuration, fixedPath) {
 #' @export
 #'
 #' @examples
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_zoom_to()
 m_zoom_to <- function(id, sel, animationDuration, fixedPath) {
   method <- "zoomTo"
   callJS()

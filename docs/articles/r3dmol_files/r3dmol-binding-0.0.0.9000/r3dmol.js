@@ -9,7 +9,7 @@ HTMLWidgets.widget({
     let initialized = false;
     const elementId = el.id;
     const container = document.getElementById(elementId);
-    let view = $3Dmol.createViewer($(container), { backgroundColor: 'white' });
+    let view;
 
     return {
 
@@ -23,14 +23,14 @@ HTMLWidgets.widget({
 
           $(el).css({
             position: x.position || "relative",
-          })
+          });
+          view = $3Dmol.createViewer($(container), x.configs);
         }
-
         // Now that the widget is initialized, call any outstanding API
         // functions that the user wantd to run on the widget
-        const numApiCalls = x['api'].length;
+        const numApiCalls = x.api.length;
         // Save last call function name for auto render function call
-        const lastCallFunction = x['api'][numApiCalls - 1].method;
+        const lastCallFunction = x.api[numApiCalls - 1].method;
         const isAutoRenderFunction = [
           // add
           "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
@@ -45,12 +45,12 @@ HTMLWidgets.widget({
           // animate
           "spin", "rotate", "translate", "translateScene", "zoom", "zoomTo",
           "enableFog", "center"
-        ]
+        ];
 
         for (let i = 0; i < numApiCalls; i++) {
-          let call = x['api'][i];
+          let call = x.api[i];
           const method = call.method;
-          delete call['method'];
+          delete call.method;
           try {
             that[method](call);
           } catch (err) { }
@@ -85,7 +85,7 @@ HTMLWidgets.widget({
       removeAllSurfaces: () => view.removeAllSurfaces(),
       removeLabel: () => view.removeLabel(),
       setStyle: params => view.setStyle(params.sel, params.style),
-      isAnimated: ({ }) => {
+      isAnimated: () => {
         return view.isAnimated();
       },
       setBackgroundColor: params => view.setBackgroundColor(params.hex, params.alpha),
@@ -97,7 +97,7 @@ HTMLWidgets.widget({
       setHeight: params => view.setHeight(params.height),
       setProjection: params => view.setProjection(params.scheme),
       setZoomLimits: params => view.setZoomLimits(params.lower, params.upper),
-      stopAnimate: ({ }) => { // TODO: not working.
+      stopAnimate: () => { // TODO: not working.
         view.stopAnimate();
       },
       enableFog: params => view.enableFog(params.fog), // Not work

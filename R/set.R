@@ -9,13 +9,15 @@
 #'
 #' @examples
 #' library(r3dmol)
-#' r3dmol(data_path = pdb_6zsl) %>%
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_set_style(style = list(cartoon = list())) %>%
 #'   m_set_style(sel = list(chain = "A"),
 #'            style = list(stick = list(
 #'              radius = 0.5,
 #'              colorscheme = "magentaCarbon"
-#'            )))
+#'            ))) %>%
+#'   m_zoom_to()
 m_set_style <- function(id, sel = list(), style = list()) {
   if (missing(style)) {
     stop("The `style` argument must be passed.")

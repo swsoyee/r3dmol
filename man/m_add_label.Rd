@@ -26,7 +26,9 @@ Add label to viewer
 }
 \examples{
 library(r3dmol)
-r3dmol(data_path = pdb_6zsl) \%>\%
+
+r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
   m_add_label(
     "Label",
     options = list(
@@ -34,5 +36,6 @@ r3dmol(data_path = pdb_6zsl) \%>\%
       backgroundColor = "#666666",
       backgroundOpacity = 0.9
     )
-  )
+  ) \%>\%
+  m_zoom_to()
 }

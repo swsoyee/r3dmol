@@ -21,6 +21,8 @@ Continuously rotate a scene around the specified axis
 }
 \examples{
 library(r3dmol)
-r3dmol(data_path = pdb_6zsl) \%>\%
+r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
+  m_zoom_to() \%>\%
   m_spin()
 }

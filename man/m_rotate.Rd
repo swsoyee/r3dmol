@@ -29,6 +29,7 @@ Rotate scene by angle degrees around axis
 }
 \examples{
 library(r3dmol)
-r3dmol(data_path = pdb_6zsl) \%>\%
+r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
   m_rotate(angle = 90, axis = "y", animationDuration = 1000)
 }

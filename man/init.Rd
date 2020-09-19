@@ -5,17 +5,30 @@
 \alias{r3dmol}
 \title{Initialise a WebGL-based viewer}
 \usage{
-r3dmol(id = NULL, width = NULL, height = NULL, elementId = NULL)
+r3dmol(id = NULL, ..., width = NULL, height = NULL, elementId = NULL)
 }
 \arguments{
-\item{id}{HTML element id of viewer}
+\item{id}{HTML element id of viewer.}
+
+\item{...}{Viewer input specification, see \url{http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec}
+for more details.}
 }
 \description{
 Create and initialize an appropriate viewer at supplied HTML element using specification in config
 }
 \examples{
 library(r3dmol)
+
 r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
+  m_zoom_to()
+
+# Viewer configs setting
+r3dmol(
+  backgroundColor = "black",
+  lowerZoomLimit = 1,
+  upperZoomLimit = 350
+) \%>\%
   m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
   m_zoom_to()
 }

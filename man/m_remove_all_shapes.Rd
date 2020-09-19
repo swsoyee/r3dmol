@@ -17,8 +17,10 @@ Remove all shape objects from viewer
 }
 \examples{
 library(r3dmol)
-mol <- r3dmol(data_path = pdb_6zsl) \%>\%
-  addSphere(spec = list(
+
+mol <- r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
+  m_add_sphere(spec = list(
     center = list(x = 0, y = 0, z = 0),
     radius = 10.0,
     color = 'red'

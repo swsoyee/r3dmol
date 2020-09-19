@@ -2,7 +2,9 @@
 #'
 #' Create and initialize an appropriate viewer at supplied HTML element using specification in config
 #'
-#' @param id HTML element id of viewer
+#' @param id HTML element id of viewer.
+#' @param ... Viewer input specification, see <http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec>
+#' for more details.
 #'
 #' @import htmlwidgets
 #'
@@ -10,24 +12,36 @@
 #' @export
 #' @examples
 #' library(r3dmol)
+#'
 #' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_zoom_to()
+#'
+#' # Viewer configs setting
+#' r3dmol(
+#'   backgroundColor = "black",
+#'   lowerZoomLimit = 1,
+#'   upperZoomLimit = 350
+#' ) %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_zoom_to()
 r3dmol <-
   function(id = NULL,
+           ...,
            width = NULL,
            height = NULL,
            elementId = NULL) {
-
     if (missing(id))
       id <-
         paste(format(as.hexmode(sample(256, 10, replace = TRUE) - 1), width = 2),
               collapse = "")
 
-    if (!is.null(elementId) && !grepl(pattern = "^[#,.]{0,1}[A-Za-z][0-9A-Za-z\\-\\._:]*$", elementId))
+    if (!is.null(elementId) &&
+        !grepl(pattern = "^[#,.]{0,1}[A-Za-z][0-9A-Za-z\\-\\._:]*$", elementId))
       stop("The elementId is not a validate id. Please use an id that starts with a letter.")
     # forward options using x
-    x = list(id = id)
+    x <- list(id = id,
+              configs = list(...))
     # Allow a list of API functions to be called on the r3dmol after
     # initialization
     x$api <- list()

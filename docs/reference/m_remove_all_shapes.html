@@ -142,17 +142,21 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>r3dmol</span>)
-<span class='no'>mol</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='init.html'>r3dmol</a></span>(<span class='kw'>data_path</span> <span class='kw'>=</span> <span class='no'>pdb_6zsl</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>addSphere</span>(<span class='kw'>spec</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+
+<span class='no'>mol</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='init.html'>r3dmol</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_add_model.html'>m_add_model</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>pdb_6zsl</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"pdb"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_add_sphere.html'>m_add_sphere</a></span>(<span class='kw'>spec</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
     <span class='kw'>center</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>z</span> <span class='kw'>=</span> <span class='fl'>0</span>),
     <span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>10.0</span>,
     <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'red'</span>
-  ))</div><div class='output co'>#&gt; <span class='error'>Error in r3dmol(data_path = pdb_6zsl):  使われていない引数 (data_path = pdb_6zsl) </span></div><div class='input'>
+  ))
+
 <span class='co'># Render model with shape</span>
-<span class='no'>mol</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos):  オブジェクト 'mol' がありません </span></div><div class='input'>
+<span class='no'>mol</span>
+
 <span class='co'># Remove shape</span>
 <span class='no'>mol</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'>m_remove_all_shapes</span>()</div><div class='output co'>#&gt; <span class='error'>Error in eval(lhs, parent, parent):  オブジェクト 'mol' がありません </span></div></pre>
+  <span class='fu'>m_remove_all_shapes</span>()</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

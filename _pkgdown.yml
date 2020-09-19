@@ -2,6 +2,11 @@ template:
   params:
     ganalytics: UA-131217026-2
 reference:
+  - title: 'Common'
+    desc: 'Basic functions.'
+  - contents:
+      - init
+      - m_callback
   - title: 'Add'
     desc: 'Functions for adding elements to the view.'
   - contents:
@@ -19,16 +24,11 @@ reference:
   - contents:
       - m_center
       - m_render
-      - m_resize
       - m_rotate
       - m_spin
       - m_stop_animate
       - starts_with("m_translate")
       - starts_with("m_zoom")
-  - title: 'Other'
-    desc: 'Other useful functions.'
-  - contents:
-      - m_callback
   - title: 'Class Constructor'
     desc: 'Convenience functions for constructing class for r3dmol.'
   - contents:

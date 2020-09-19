@@ -25,3 +25,8 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 Zoom to center of atom selection. The slab will be set appropriately for
 the selection, unless an empty selection is provided, in which case there will be no slab.
 }
+\examples{
+r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
+  m_zoom_to()
+}
