@@ -217,3 +217,32 @@ m_add_model <- function(id, data, format, options) {
   method <- "addModel"
   callJS()
 }
+
+#' Construct isosurface from volumetric data in gaussian cube format
+#'
+#' @param id  R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param data Input file contents
+#' @param format Input file format
+#' @param or Shape style specification
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+#' r3dmol() %>%
+#'   m_add_volumetric_data(
+#'     data = bohr_cube,
+#'     format = "cube",
+#'     or = list(
+#'       isoval = -0.01,
+#'       color = "red",
+#'       opacity = 0.95
+#'     )
+#'   ) %>%
+#'   m_set_style(sel = list(cartoon = list()),
+#'               style = list(stick = list())) %>%
+#'   m_zoom_to()
+m_add_volumetric_data <- function(id, data, format, or) {
+  method <- "addVolumetricData"
+  callJS()
+}

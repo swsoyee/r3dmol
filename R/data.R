@@ -12,3 +12,10 @@
 #'
 #' @format PDB Format.
 "pdb_1j72"
+
+#' Gaussian cube file example
+#'
+#' @source <https://github.com/3dmol/3Dmol.js/blob/master/tests/auto/data/bohr.cube>
+#'
+#' @format Gaussian cube format
+"bohr_cube"
