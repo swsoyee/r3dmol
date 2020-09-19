@@ -4,12 +4,12 @@
 \alias{m_add_model}
 \title{Create and add model to viewer}
 \usage{
-m_add_model(id, data, format, options)
+m_add_model(id, data, format = c("pdb", "sdf", "xyz", "pqr", "mol2"), options)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
 
-\item{data}{Input data}
+\item{data}{Path of input data path or a vector of data.}
 
 \item{format}{Input format (\code{'pdb'}, \code{'sdf'}, \code{'xyz'}, \code{'pqr'},
 or \code{'mol2'})}

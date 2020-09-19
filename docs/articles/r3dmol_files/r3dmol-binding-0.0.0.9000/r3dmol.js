@@ -80,7 +80,7 @@ HTMLWidgets.widget({
       addShape: params => view.addShape(params.shapeSpec),
       addStyle: params => view.addStyle(params.sel, params.style),
       addModel: params => view.addModel(params.data.join("\n"), params.format, params.options),
-      addVolumetricData: params => view.addVolumetricData(params.data.join("\n"), params.format, params.or),
+      addIsosurface: params => view.addIsosurface(new $3Dmol.VolumeData(params.data.join("\n"), "cube"), params.isoSpec),
       removeAllLabels: () => view.removeAllLabels(),
       removeAllModels: () => view.removeAllModels(),
       removeAllShapes: () => view.removeAllShapes(),

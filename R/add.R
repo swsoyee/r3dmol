@@ -201,7 +201,7 @@ m_add_label <- function(id, text, options = list(), sel = list(), noshow = TRUE)
 #' Create and add model to viewer, given molecular data and its format
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param data Input data
+#' @param data Path of input data path or a vector of data.
 #' @param format Input format (\code{'pdb'}, \code{'sdf'}, \code{'xyz'}, \code{'pqr'},
 #'  or \code{'mol2'})
 #' @param options Format dependent options. Attributes depend on the input file format.
@@ -210,30 +210,37 @@ m_add_label <- function(id, text, options = list(), sel = list(), noshow = TRUE)
 #' @export
 #'
 #' @examples
-m_add_model <- function(id, data, format, options) {
-  if (!format %in% c("pdb", "sdf", "xyz", "pqr", "mol2")) {
-    stop("Unknow format.")
+m_add_model <-
+  function(id,
+           data,
+           format = c("pdb", "sdf", "xyz", "pqr", "mol2"),
+           options) {
+
+    format <- match.arg(format)
+
+    # If file path is pass in, read the file and store it as a vector
+    if (length(data) == 1 && file.exists(data)) {
+      data <- readLines(data)
+    }
+
+    method <- "addModel"
+    callJS()
   }
-  method <- "addModel"
-  callJS()
-}
 
 #' Construct isosurface from volumetric data in gaussian cube format
 #'
 #' @param id  R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param data Input file contents
-#' @param format Input file format
-#' @param or Shape style specification
+#' @param data Path of input data path or a vector of data.
+#' @param isoSpec Volumetric data shape specification
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
 #' @examples
 #' r3dmol() %>%
-#'   m_add_volumetric_data(
+#'   m_add_isosurface(
 #'     data = bohr_cube,
-#'     format = "cube",
-#'     or = list(
+#'     isoSpec = list(
 #'       isoval = -0.01,
 #'       color = "red",
 #'       opacity = 0.95
@@ -242,7 +249,13 @@ m_add_model <- function(id, data, format, options) {
 #'   m_set_style(sel = list(cartoon = list()),
 #'               style = list(stick = list())) %>%
 #'   m_zoom_to()
-m_add_volumetric_data <- function(id, data, format, or) {
-  method <- "addVolumetricData"
+m_add_isosurface <- function(id, data, isoSpec) {
+
+  # If file path is pass in, read the file and store it as a vector
+  if (length(data) == 1 && file.exists(data)) {
+    data <- readLines(data)
+  }
+
+  method <- "addIsosurface"
   callJS()
 }
