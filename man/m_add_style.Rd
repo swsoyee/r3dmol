@@ -19,3 +19,11 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 \description{
 Add style properties to all selected atoms
 }
+\examples{
+library(r3dmol)
+
+r3dmol() \%>\%
+  m_add_model(data = pdb_1j72, format = "pdb") \%>\%
+  m_add_style(style = list(cartoon = list())) \%>\%
+  m_zoom_to()
+}
