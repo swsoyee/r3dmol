@@ -23,11 +23,17 @@ r3dmol() \%>\%
   m_set_style(style = list(cartoon = list(color = 'spectrum'))) \%>\%
   m_add_arrow(
     spec = list(
-      start = list(x = -10.0, y = 0.0, z = 0.0),
-      end = list(x = 0.0, y = -10.0, z = 0.0),
-      radius = 1.0,
-      radiusRadio = 1.0,
-      mid = 1.0
+      start = m_vector3(-10, 0, 0),
+      end = m_vector3(0, -10, 0),
+      radius = 1,
+      radiusRadio = 1,
+      mid = 1,
+      clickable = TRUE,
+      callback =
+        "function(){
+          this.color.setHex(0xFF0000FF);
+          view.render()
+        }"
     )
   )
 }

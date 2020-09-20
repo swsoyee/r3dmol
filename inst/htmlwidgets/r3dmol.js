@@ -68,7 +68,12 @@ HTMLWidgets.widget({
       },
       render: () => view.render(),
       rotate: params => view.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath),
-      addArrow: params => view.addArrow(params.spec),
+      addArrow: params => {
+        if(params.spec.callback) {
+          params.spec.callback = eval('(' + params.spec.callback + ')');
+        }
+        view.addArrow(params.spec)
+      },
       addAsOneMolecule: params => view.addAsOneMolecule(params.data.join("\n"), params.format),
       addBox: params => view.addBox(params.spec),
       addCurve: params => view.addCurve(params.spec),
