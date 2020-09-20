@@ -435,3 +435,39 @@ m_add_models_as_frames <- function(id, data, format) {
   method <- "addModelsAsFrames"
   callJS()
 }
+
+#' Add residue labels
+#'
+#' Add residue labels. This will generate one label per a
+#' residue within the selected atoms. The label will be at the
+#' centroid of the atoms and styled according to the passed style.
+#' The label text will be [resn][resi]
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param sel Atom selection specification
+#' @param style Style spec to add to specified atoms
+#' @param byframe if true, create labels for every individual frame, not just current
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_set_style(style = list(stick = list(radius = 0.15), cartoon = list())) %>%
+#'   m_add_res_labels(
+#'     sel = list(resn = "GLY"),
+#'     style = list(
+#'       font = "Arial",
+#'       fontColor = "white",
+#'       backgroundColor = "black",
+#'       showBackground = TRUE
+#'     )
+#'   ) %>%
+#'   m_zoom_to()
+m_add_res_labels <- function(id, sel, style, byframe) {
+  method <- "addResLabels"
+  callJS()
+}

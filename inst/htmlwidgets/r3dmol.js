@@ -43,7 +43,7 @@ HTMLWidgets.widget({
           // add
           "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
           "addSphere", "addShape", "addStyle", "addLabel", "addModel",
-          "addVolumetricData", "addPropertyLabels",
+          "addVolumetricData", "addPropertyLabels", "addResLabels",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
@@ -84,6 +84,7 @@ HTMLWidgets.widget({
       addLabel: params => view.addLabel(params.text, params.options, params.sel, params.noshow),
       addLine: params => view.addLine(params.spec),
       addPropertyLabels: params => view.addPropertyLabels(params.prop, params.sel, params.style),
+      addResLabels: params => view.addResLabels(params.sel, params.style, params.byframe),
       addSphere: params => view.addSphere(params.spec),
       addShape: params => view.addShape(params.shapeSpec),
       addStyle: params => view.addStyle(params.sel, params.style),
