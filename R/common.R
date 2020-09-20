@@ -54,3 +54,20 @@ m_center <- function(id, sel, animationDuration, fixedPath) {
   method <- "center"
   callJS()
 }
+
+#' Animate all models in viewer from their respective frames
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param options can specify \code{interval} (speed of animation), \code{loop} (direction
+#' of looping, \code{'backward'}, \code{'forward'} or \code{'backAndForth'}), step interval
+#' between frames (\code{'step'}), and \code{reps} (number of repetitions, \code{0}
+#' indicates infinite loop)
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+m_animate <- function(id, options) {
+  animate <- "animate"
+  callJS()
+}

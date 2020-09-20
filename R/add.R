@@ -295,7 +295,7 @@ m_add_model <-
 
 #' Construct isosurface from volumetric data in gaussian cube format
 #'
-#' @param id  R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @param data Path of input data path or a vector of data.
 #' @param isoSpec Volumetric data shape specification
 #'
@@ -318,12 +318,35 @@ m_add_model <-
 #'               style = list(stick = list())) %>%
 #'   m_zoom_to()
 m_add_isosurface <- function(id, data, isoSpec) {
-
   # If file path is pass in, read the file and store it as a vector
   if (length(data) == 1 && file.exists(data)) {
     data <- readLines(data)
   }
 
   method <- "addIsosurface"
+  callJS()
+}
+
+#' Create and add model to viewer
+#'
+#' Create and add model to viewer. Given multimodel file and its format,
+#' different atomlists are stored in model's frame
+#' property and model's atoms are set to the 0th frame
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param data Path of input data path or a vector of data.
+#' @param format Input format (see <http://3dmol.csb.pitt.edu/doc/types.html#FileFormats>).
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+m_add_models_as_frames <- function(id, data, format) {
+  # If file path is pass in, read the file and store it as a vector
+  if (length(data) == 1 && file.exists(data)) {
+    data <- readLines(data)
+  }
+
+  method <- "addModelsAsFrames"
   callJS()
 }

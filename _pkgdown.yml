@@ -21,6 +21,7 @@ reference:
   - title: 'Animate'
     desc: 'Functions for creating animation.'
   - contents:
+      - m_animate
       - m_center
       - m_render
       - m_rotate
