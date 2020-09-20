@@ -11,6 +11,14 @@ HTMLWidgets.widget({
     const container = document.getElementById(elementId);
     let view;
 
+    const evalCallback = (callbackArray, paramSet) => {
+      while (callbackArray.length) {
+        let name = callbackArray.shift();
+        paramSet[name] = eval('(' + paramSet[name] + ')');
+      }
+      return (paramSet);
+    }
+
     return {
 
       renderValue: function (x) {
@@ -68,16 +76,11 @@ HTMLWidgets.widget({
       },
       render: () => view.render(),
       rotate: params => view.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath),
-      addArrow: params => {
-        if(params.spec.callback) {
-          params.spec.callback = eval('(' + params.spec.callback + ')');
-        }
-        view.addArrow(params.spec)
-      },
+      addArrow: params => view.addArrow(evalCallback(['callback'], params.spec)),
       addAsOneMolecule: params => view.addAsOneMolecule(params.data.join("\n"), params.format),
       addBox: params => view.addBox(params.spec),
       addCurve: params => view.addCurve(params.spec),
-      addCylinder: params => view.addCylinder(params.spec),
+      addCylinder: params => view.addCylinder(evalCallback(['callback', 'hover_callback', 'unhover_callback'], params.spec)),
       addLabel: params => view.addLabel(params.text, params.options, params.sel, params.noshow),
       addLine: params => view.addLine(params.spec),
       addPropertyLabels: params => view.addPropertyLabels(params.prop, params.sel, params.style),

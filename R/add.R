@@ -157,8 +157,57 @@ m_add_curve <- function(id, spec = list()) {
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_cylinder(
+#'     spec = list(
+#'       start = list(x = 0.0, y = 0.0, z = 0.0),
+#'       end = list(x = 10.0, y = 0.0, z = 0.0),
+#'       radius = 1.0,
+#'       fromCap = 1,
+#'       toCap = 2,
+#'       color = "red",
+#'       hoverable = TRUE,
+#'       clickable = TRUE,
+#'       callback = "
+#'       function(){
+#'         this.color.setHex(0x00FFFF00);
+#'         view.render();
+#'       }",
+#'       hover_callback = "
+#'       function(){
+#'         view.render();
+#'       }",
+#'       unhover_callback = "
+#'       function(){
+#'         this.color.setHex(0xFF000000);
+#'         view.render();
+#'       }"
+#'     )
+#'   ) %>%
+#'   m_add_cylinder(
+#'     spec = list(
+#'       start = m_vector3(0, 2, 0),
+#'       end = m_vector3(0, 10, 0),
+#'       radius = 0.5,
+#'       fromCap = FALSE,
+#'       toCap = TRUE,
+#'       color = "teal"
+#'     )
+#'   ) %>%
+#'   m_add_cylinder(
+#'     spec = list(
+#'       start = m_vector3(15, 0, 0),
+#'       end = m_vector3(20, 0, 0),
+#'       radius = 1,
+#'       fromCap = FALSE,
+#'       toCap = FALSE,
+#'       color = "black"
+#'     )
+#'   )
 m_add_cylinder <- function(id, spec = list()) {
-  method <- "addCylinder" # TODO Callback function need fixed
+  method <- "addCylinder"
   callJS()
 }
 
