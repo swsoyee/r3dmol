@@ -25,3 +25,17 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 \description{
 This pans the camera rather than translating the model.
 }
+\examples{
+library(r3dmol)
+
+r3dmol() \%>\%
+  m_add_model(data = pdb_1j72, format = "pdb") \%>\%
+  m_set_style(style = list(cartoon = list(), stick = list())) \%>\%
+  m_translate(x = 200,
+              y = 50,
+              animationDuration = 1000) \%>\%
+  m_rotate(angle = 90,
+           axis = "z",
+           animationDuration = 1000) \%>\%
+  m_zoom_to()
+}

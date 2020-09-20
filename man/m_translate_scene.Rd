@@ -26,3 +26,17 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 This translates the models relative to the current view. It does
 not change the center of rotation.
 }
+\examples{
+library(r3dmol)
+
+r3dmol() \%>\%
+  m_add_model(data = pdb_1j72, format = "pdb") \%>\%
+  m_set_style(style = list(cartoon = list(), stick = list())) \%>\%
+  m_translate_scene(x = 200,
+                    y = 50,
+                    animationDuration = 1000) \%>\%
+  m_rotate(angle = 90,
+           axis = "z",
+           animationDuration = 1000) \%>\%
+  m_zoom_to()
+}

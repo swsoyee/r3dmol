@@ -79,6 +79,18 @@ m_stop_animate <- function(id) {
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_set_style(style = list(cartoon = list(), stick = list())) %>%
+#'   m_translate(x = 200,
+#'               y = 50,
+#'               animationDuration = 1000) %>%
+#'   m_rotate(angle = 90,
+#'            axis = "z",
+#'            animationDuration = 1000) %>%
+#'   m_zoom_to()
 m_translate <- function(id, x, y, animationDuration, fixedPath) {
   method <- "translate"
   callJS()
@@ -101,6 +113,18 @@ m_translate <- function(id, x, y, animationDuration, fixedPath) {
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_set_style(style = list(cartoon = list(), stick = list())) %>%
+#'   m_translate_scene(x = 200,
+#'                     y = 50,
+#'                     animationDuration = 1000) %>%
+#'   m_rotate(angle = 90,
+#'            axis = "z",
+#'            animationDuration = 1000) %>%
+#'   m_zoom_to()
 m_translate_scene <- function(id, x, y, animationDuration, fixedPath) {
   method <- "translateScene"
   callJS()
