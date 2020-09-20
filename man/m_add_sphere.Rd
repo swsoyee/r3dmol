@@ -17,3 +17,13 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 \description{
 This method provides a shorthand way to create a spherical shape object
 }
+\examples{
+library(r3dmol)
+
+r3dmol() \%>\%
+  m_add_sphere(spec = list(
+    center = m_vector3(0, 0, 0),
+    radius = 10,
+    color = "red"
+  ))
+}

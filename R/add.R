@@ -204,6 +204,14 @@ m_add_property_labels <- function(id, prop, sel, style) {
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_sphere(spec = list(
+#'     center = m_vector3(0, 0, 0),
+#'     radius = 10,
+#'     color = "red"
+#'   ))
 m_add_sphere <- function(id, spec = list()) {
   method <- "addSphere"
   callJS()
