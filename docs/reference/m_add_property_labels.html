@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create and add box shape — m_add_box • r3dmol</title>
+<title>Add property labels — m_add_property_labels • r3dmol</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="Create and add box shape — m_add_box" />
-<meta property="og:description" content="This method provides a shorthand way to create a box shape object" />
+<meta property="og:title" content="Add property labels — m_add_property_labels" />
+<meta property="og:description" content="This will generate one label per a selected
+atom at the atom's coordinates with the property value as the label text." />
 
 
 
@@ -116,16 +117,17 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create and add box shape</h1>
+    <h1>Add property labels</h1>
     
-    <div class="hidden name"><code>m_add_box.Rd</code></div>
+    <div class="hidden name"><code>m_add_property_labels.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This method provides a shorthand way to create a box shape object</p>
+    <p>This will generate one label per a selected
+atom at the atom's coordinates with the property value as the label text.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>m_add_box</span>(<span class='no'>id</span>, <span class='kw'>spec</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>())</pre>
+    <pre class="usage"><span class='fu'>m_add_property_labels</span>(<span class='no'>id</span>, <span class='no'>prop</span>, <span class='no'>sel</span>, <span class='no'>style</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,8 +137,16 @@
       <td><p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p></td>
     </tr>
     <tr>
-      <th>spec</th>
-      <td><p>Box shape style specification</p></td>
+      <th>prop</th>
+      <td><p>Property name</p></td>
+    </tr>
+    <tr>
+      <th>sel</th>
+      <td><p>Atom selection specification</p></td>
+    </tr>
+    <tr>
+      <th>style</th>
+      <td><p>Style spec to add to specified atoms</p></td>
     </tr>
     </table>
 
@@ -148,28 +158,20 @@
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>r3dmol</span>)
 
 <span class='fu'><a href='init.html'>r3dmol</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='m_add_line.html'>m_add_line</a></span>(<span class='kw'>spec</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'red'</span>,
-    <span class='kw'>start</span> <span class='kw'>=</span> <span class='fu'><a href='m_vector3.html'>m_vector3</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
-    <span class='kw'>end</span> <span class='kw'>=</span> <span class='fu'><a href='m_vector3.html'>m_vector3</a></span>(<span class='fl'>5</span>, <span class='fl'>0</span>, <span class='fl'>0</span>)
-  )) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='m_add_line.html'>m_add_line</a></span>(<span class='kw'>spec</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'blue'</span>,
-    <span class='kw'>start</span> <span class='kw'>=</span> <span class='fu'><a href='m_vector3.html'>m_vector3</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
-    <span class='kw'>end</span> <span class='kw'>=</span> <span class='fu'><a href='m_vector3.html'>m_vector3</a></span>(<span class='fl'>0</span>, <span class='fl'>5</span>, <span class='fl'>0</span>)
-  )) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='m_add_line.html'>m_add_line</a></span>(<span class='kw'>spec</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>'green'</span>,
-    <span class='kw'>start</span> <span class='kw'>=</span> <span class='fu'><a href='m_vector3.html'>m_vector3</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
-    <span class='kw'>end</span> <span class='kw'>=</span> <span class='fu'><a href='m_vector3.html'>m_vector3</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>5</span>)
-  )) <span class='kw'>%&gt;%</span>
-  <span class='fu'>m_add_box</span>(<span class='kw'>spec</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-    <span class='kw'>center</span> <span class='kw'>=</span> <span class='fu'><a href='m_vector3.html'>m_vector3</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
-    <span class='kw'>demensions</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>w</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>h</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>d</span> <span class='kw'>=</span> <span class='fl'>2</span>),
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"magenta"</span>
-  )) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_add_model.html'>m_add_model</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='st'>"data-raw/Conformer3D_CID_5291.sdf"</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"sdf"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_set_style.html'>m_set_style</a></span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>stick</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>radius</span> <span class='kw'>=</span> <span class='fl'>2</span>))) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='m_rotate.html'>m_rotate</a></span>(<span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>45</span>, <span class='kw'>axis</span> <span class='kw'>=</span> <span class='fu'><a href='m_vector3.html'>m_vector3</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>))</div></pre>
+  <span class='fu'>m_add_property_labels</span>(
+    <span class='kw'>prop</span> <span class='kw'>=</span> <span class='st'>"index"</span>,
+    <span class='kw'>sel</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>not</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>elem</span> <span class='kw'>=</span> <span class='st'>'H'</span>)),
+    <span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+      <span class='kw'>fontColor</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
+      <span class='kw'>font</span> <span class='kw'>=</span> <span class='st'>"sans-serif"</span>,
+      <span class='kw'>fontSize</span> <span class='kw'>=</span> <span class='fl'>28</span>,
+      <span class='kw'>showBackground</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+      <span class='kw'>alignment</span> <span class='kw'>=</span> <span class='st'>"center"</span>
+    )
+  )</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -18,6 +18,8 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 This method provides a shorthand way to create a box shape object
 }
 \examples{
+library(r3dmol)
+
 r3dmol() \%>\%
   m_add_line(spec = list(
     color = 'red',

@@ -6,6 +6,12 @@
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_add_style(style = list(cartoon = list())) %>%
+#'   m_zoom_to()
 m_add_style <- function(id, sel = list(), style = list()) {
   if(missing(style)) {
     stop("The `style` argument must be passed.")
@@ -23,6 +29,8 @@ m_add_style <- function(id, sel = list(), style = list()) {
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_set_style(style = list(cartoon = list(color = 'spectrum'))) %>%
@@ -75,6 +83,8 @@ m_add_as_one_molecule <- function(id, data, format) {
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
 #' r3dmol() %>%
 #'   m_add_line(spec = list(
 #'     color = 'red',
@@ -145,7 +155,6 @@ m_add_line <- function(id, spec = list()) {
   callJS()
 }
 
-# TODO This function has bugs, do not use!
 #' Add property labels
 #'
 #' This will generate one label per a selected
@@ -157,12 +166,30 @@ m_add_line <- function(id, spec = list()) {
 #' @param style Style spec to add to specified atoms
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
 #'
 #' @examples
-# addPropertyLabels <- function(id, prop, sel, style) {
-#   method <- "addPropertyLabels"
-#   callJS()
-# }
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = "data-raw/Conformer3D_CID_5291.sdf", format = "sdf") %>%
+#'   m_set_style(style = list(stick = list(radius = 2))) %>%
+#'   m_zoom_to() %>%
+#'   m_add_property_labels(
+#'     prop = "index",
+#'     sel = list(not = list(elem = 'H')),
+#'     style = list(
+#'       fontColor = "black",
+#'       font = "sans-serif",
+#'       fontSize = 28,
+#'       showBackground = FALSE,
+#'       alignment = "center"
+#'     )
+#'   )
+m_add_property_labels <- function(id, prop, sel, style) {
+  method <- "addPropertyLabels"
+  callJS()
+}
 
 #' Create and add sphere shape
 #'
@@ -266,6 +293,8 @@ m_add_model <-
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
 #' r3dmol() %>%
 #'   m_add_isosurface(
 #'     data = bohr_cube,

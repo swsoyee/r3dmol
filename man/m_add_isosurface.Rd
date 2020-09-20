@@ -20,6 +20,8 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 Construct isosurface from volumetric data in gaussian cube format
 }
 \examples{
+library(r3dmol)
+
 r3dmol() \%>\%
   m_add_isosurface(
     data = bohr_cube,

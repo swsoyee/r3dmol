@@ -2,7 +2,7 @@
 % Please edit documentation in R/add.R
 \name{m_add_sphere}
 \alias{m_add_sphere}
-\title{Add property labels}
+\title{Create and add sphere shape}
 \usage{
 m_add_sphere(id, spec = list())
 }
@@ -10,25 +10,10 @@ m_add_sphere(id, spec = list())
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
 
 \item{spec}{Sphere shape style specification}
-
-\item{prop}{Property name}
-
-\item{sel}{Atom selection specification}
-
-\item{style}{Style spec to add to specified atoms}
 }
 \value{
 R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 }
 \description{
-This will generate one label per a selected
-atom at the atom's coordinates with the property value as the label text.
-}
-\examples{
-Create and add sphere shape
-
 This method provides a shorthand way to create a spherical shape object
-
 }

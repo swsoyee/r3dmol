@@ -35,7 +35,7 @@ HTMLWidgets.widget({
           // add
           "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
           "addSphere", "addShape", "addStyle", "addLabel", "addModel",
-          "addVolumetricData",
+          "addVolumetricData", "addPropertyLabels",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",

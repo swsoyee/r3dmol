@@ -18,6 +18,8 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 Create and add arrow shape
 }
 \examples{
+library(r3dmol)
+
 r3dmol() \%>\%
   m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
   m_set_style(style = list(cartoon = list(color = 'spectrum'))) \%>\%
