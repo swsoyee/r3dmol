@@ -16,12 +16,18 @@ m_render <- function(id) {
 #' Enable/disable fog for content far from the camera
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param fog whether to enable or disable the fog
+#' @param fog whether to enable or disable the fog, default is \code{TRUE}.
 #'
-#' @return
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_enable_fog(fog = F)
 m_enable_fog <- function(id, fog = TRUE) {
   method <- "enableFog"
   callJS()

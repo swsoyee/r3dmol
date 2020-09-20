@@ -36,7 +36,8 @@ library(r3dmol)
 r3dmol(                                             # Set viewer
   cartoonQuality = 10,
   lowerZoomLimit = 50,
-  upperZoomLimit = 350
+  upperZoomLimit = 350,
+  elementId = "demo"
 ) %>%                                               
   m_add_model(data = pdb_6zsl, format = "pdb") %>%  # Add model
   m_zoom_to() %>%                                   # Zoom to center

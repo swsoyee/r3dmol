@@ -113,9 +113,8 @@ HTMLWidgets.widget({
         view.stopAnimate();
       },
       animate: params => view.animate(params.options),
-      enableFog: params => view.enableFog(params.fog), // Not work
+      enableFog: params => view.enableFog(params.fog),
       translate: params => view.translate(params.x, params.y, params.animationDuration, params.fixedPath),
-      // TODO: need test.
       translateScene: params => view.translateScene(params.x, params.y, params.animationDuration, params.fixedPath),
       zoom: (params) => view.zoom(params.factor, params.animationDuration, params.fixedPath),
       zoomTo: (params) => view.zoomTo(params.sel, params.animationDuration, params.fixedPath),

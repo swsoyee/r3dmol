@@ -6,6 +6,8 @@ reference:
     desc: 'Basic functions.'
   - contents:
       - init
+      - m_render
+      - m_enable_fog
   - title: 'Add'
     desc: 'Functions for adding elements to the view.'
   - contents:
@@ -23,7 +25,6 @@ reference:
   - contents:
       - m_animate
       - m_center
-      - m_render
       - m_rotate
       - m_spin
       - m_stop_animate
