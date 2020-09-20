@@ -19,7 +19,7 @@
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_rotate(angle = 90, axis = "y", animationDuration = 1000)
 m_rotate <- function(id, angle, axis = "v", animationDuration = 0, fixedPath) {
-  if (!axis %in% c("x", "y", "z", "vx", "vy", "vz")) {
+  if (!axis %in% c("x", "y", "z", "vx", "vy", "vz") && class(axis) != "Vector3") {
     stop("Unknow axis.")
   }
   method <- "rotate"

@@ -75,6 +75,29 @@ m_add_as_one_molecule <- function(id, data, format) {
 #' @export
 #'
 #' @examples
+#' r3dmol() %>%
+#'   m_add_line(spec = list(
+#'     color = 'red',
+#'     start = m_vector3(0, 0, 0),
+#'     end = m_vector3(5, 0, 0)
+#'   )) %>%
+#'   m_add_line(spec = list(
+#'     color = 'blue',
+#'     start = m_vector3(0, 0, 0),
+#'     end = m_vector3(0, 5, 0)
+#'   )) %>%
+#'   m_add_line(spec = list(
+#'     color = 'green',
+#'     start = m_vector3(0, 0, 0),
+#'     end = m_vector3(0, 0, 5)
+#'   )) %>%
+#'   m_add_box(spec = list(
+#'     center = m_vector3(0, 0, 0),
+#'     demensions = list(w = 3, h = 4, d = 2),
+#'     color = "magenta"
+#'   )) %>%
+#'   m_zoom_to() %>%
+#'   m_rotate(angle = 45, axis = m_vector3(1, 1, 1))
 m_add_box <- function(id, spec = list()) {
   method <- "addBox"
   callJS()

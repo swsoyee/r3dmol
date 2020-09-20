@@ -4,7 +4,7 @@
 \alias{m_vector3}
 \title{Create a 3 dimensional vector}
 \usage{
-m_vector3(x = NULL, y = NULL, z = NULL)
+m_vector3(x = 0, y = 0, z = 0)
 }
 \arguments{
 \item{x}{x coordinate, \code{character} and \code{numeric} are both accepted.}

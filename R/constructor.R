@@ -10,9 +10,9 @@
 #' @examples
 #' library(r3dmol)
 #' m_vector3(1, 2, 3)
-m_vector3 <- function(x = NULL,
-                      y = NULL,
-                      z = NULL) {
+m_vector3 <- function(x = 0,
+                      y = 0,
+                      z = 0) {
   if (missing(x) || missing(y) || missing(z))
     stop("3 dimensional should by passed.")
 
@@ -25,7 +25,9 @@ m_vector3 <- function(x = NULL,
     stop("Dimensional format error.")
   })
 
-  return(list(x = vector_number[1],
-              y = vector_number[2],
-              z = vector_number[3]))
+  result <- list(x = vector_number[1],
+                 y = vector_number[2],
+                 z = vector_number[3])
+  class(result) <- "Vector3"
+  return(result)
 }
