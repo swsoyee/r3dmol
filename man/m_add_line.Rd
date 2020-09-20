@@ -17,3 +17,14 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 \description{
 Create and add line shape
 }
+\examples{
+library(r3dmol)
+
+r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
+  m_add_line(spec = list(
+    dashed = TRUE,
+    start = m_vector3(0, 0, 0),
+    end = m_vector3(30, 30, 30)
+  ))
+}

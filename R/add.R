@@ -15,7 +15,7 @@
 #'   m_add_style(style = list(cartoon = list())) %>%
 #'   m_zoom_to()
 m_add_style <- function(id, sel = list(), style = list()) {
-  if(missing(style)) {
+  if (missing(style)) {
     stop("The `style` argument must be passed.")
   }
   method <- "addStyle"
@@ -124,6 +124,25 @@ m_add_box <- function(id, spec = list()) {
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_add_curve(
+#'     spec = list(
+#'       points = list(
+#'         m_vector3(0, 0, 0),
+#'         m_vector3(5, 3, 0),
+#'         m_vector3(5, 7, 0),
+#'         m_vector3(0, 10, 0)
+#'       ),
+#'       radius = 0.5,
+#'       smooth = 10,
+#'       fromArrow = FALSE,
+#'       toArrow = TRUE,
+#'       color = 'orange'
+#'     )
+#'   )
 m_add_curve <- function(id, spec = list()) {
   method <- "addCurve"
   callJS()
@@ -152,6 +171,15 @@ m_add_cylinder <- function(id, spec = list()) {
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_add_line(spec = list(
+#'     dashed = TRUE,
+#'     start = m_vector3(0, 0, 0),
+#'     end = m_vector3(30, 30, 30)
+#'   ))
 m_add_line <- function(id, spec = list()) {
   method <- "addLine"
   callJS()
@@ -257,10 +285,15 @@ m_add_shape <- function(id, shapeSpec = list()) {
 #'     )
 #'   ) %>%
 #'   m_zoom_to()
-m_add_label <- function(id, text, options = list(), sel = list(), noshow = TRUE) {
-  method <- "addLabel"
-  callJS()
-}
+m_add_label <-
+  function(id,
+           text,
+           options = list(),
+           sel = list(),
+           noshow = TRUE) {
+    method <- "addLabel"
+    callJS()
+  }
 
 #' Create and add model to viewer
 #'
@@ -276,12 +309,15 @@ m_add_label <- function(id, text, options = list(), sel = list(), noshow = TRUE)
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb")
 m_add_model <-
   function(id,
            data,
            format = c("pdb", "sdf", "xyz", "pqr", "mol2"),
            options) {
-
     format <- match.arg(format)
 
     # If file path is pass in, read the file and store it as a vector

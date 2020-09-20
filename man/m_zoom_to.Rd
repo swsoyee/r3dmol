@@ -26,6 +26,8 @@ Zoom to center of atom selection. The slab will be set appropriately for
 the selection, unless an empty selection is provided, in which case there will be no slab.
 }
 \examples{
+library(r3dmol)
+
 r3dmol() \%>\%
   m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
   m_zoom_to()

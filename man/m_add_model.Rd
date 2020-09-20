@@ -22,3 +22,9 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 \description{
 Create and add model to viewer, given molecular data and its format
 }
+\examples{
+library(r3dmol)
+
+r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb")
+}

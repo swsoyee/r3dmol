@@ -17,3 +17,24 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 \description{
 Create and add Curve shape
 }
+\examples{
+library(r3dmol)
+
+r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
+  m_add_curve(
+    spec = list(
+      points = list(
+        m_vector3(0, 0, 0),
+        m_vector3(5, 3, 0),
+        m_vector3(5, 7, 0),
+        m_vector3(0, 10, 0)
+      ),
+      radius = 0.5,
+      smooth = 10,
+      fromArrow = FALSE,
+      toArrow = TRUE,
+      color = 'orange'
+    )
+  )
+}

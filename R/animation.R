@@ -121,6 +121,12 @@ m_translate_scene <- function(id, x, y, animationDuration, fixedPath) {
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_zoom_to() %>%
+#'   m_zoom(factor = 2, animationDuration = 1000)
 m_zoom <- function(id, factor = 2, animationDuration, fixedPath) {
   method <- "zoom"
   callJS()
@@ -143,6 +149,8 @@ m_zoom <- function(id, factor = 2, animationDuration, fixedPath) {
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_zoom_to()

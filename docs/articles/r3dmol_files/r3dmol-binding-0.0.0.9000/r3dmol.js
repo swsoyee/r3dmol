@@ -85,6 +85,7 @@ HTMLWidgets.widget({
       addShape: params => view.addShape(params.shapeSpec),
       addStyle: params => view.addStyle(params.sel, params.style),
       addModel: params => view.addModel(params.data.join("\n"), params.format, params.options),
+      // TODO: not working
       addModelsAsFrames: params => view.addModelsAsFrames(params.data.join("\n"), params.format),
       addIsosurface: params => view.addIsosurface(new $3Dmol.VolumeData(params.data.join("\n"), "cube"), params.isoSpec),
       removeAllLabels: () => view.removeAllLabels(),
