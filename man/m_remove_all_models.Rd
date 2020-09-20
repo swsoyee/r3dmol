@@ -15,3 +15,16 @@ id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 \description{
 Delete all existing models
 }
+\examples{
+library(r3dmol)
+
+mol <- r3dmol() \%>\%
+  m_add_model(data = "data-raw/Conformer3D_CID_5291.sdf", format = "sdf")
+
+# Render model
+mol
+
+# Remove all labels
+mol \%>\%
+  m_remove_all_models()
+}

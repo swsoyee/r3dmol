@@ -37,6 +37,7 @@ r3dmol(                                             # Set viewer
   cartoonQuality = 10,
   lowerZoomLimit = 50,
   upperZoomLimit = 350,
+  id = "demo",
   elementId = "demo"
 ) %>%                                               
   m_add_model(data = pdb_6zsl, format = "pdb") %>%  # Add model

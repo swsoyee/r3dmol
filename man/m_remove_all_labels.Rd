@@ -15,3 +15,29 @@ id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 \description{
 Remove all labels from viewer
 }
+\examples{
+library(r3dmol)
+
+mol <- r3dmol() \%>\%
+  m_add_model(data = "data-raw/Conformer3D_CID_5291.sdf", format = "sdf") \%>\%
+  m_set_style(style = list(stick = list(radius = 2))) \%>\%
+  m_zoom_to() \%>\%
+  m_add_property_labels(
+    prop = "index",
+    sel = list(not = list(elem = 'H')),
+    style = list(
+      fontColor = "black",
+      font = "sans-serif",
+      fontSize = 28,
+      showBackground = FALSE,
+      alignment = "center"
+    )
+  )
+
+# Render model with labels
+mol
+
+# Remove all labels
+mol \%>\%
+  m_remove_all_labels()
+}

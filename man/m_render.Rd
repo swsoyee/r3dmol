@@ -11,5 +11,13 @@ m_render(id)
 }
 \description{
 Render current state of viewer, after adding/removing models,
-applying styles, etc.
+applying styles, etc. In most cases, the model will render automatically,
+only call it when manual rendering is required.
+}
+\examples{
+library(r3dmol)
+
+r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
+  m_render()
 }
