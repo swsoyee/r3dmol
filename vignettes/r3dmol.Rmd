@@ -32,11 +32,22 @@ devtools::install_github('swsoyee/r3dmol')
 
 ```{r demo}
 library(r3dmol)
-r3dmol() %>%
-  m_add_model(data = pdb_6zsl, format = "pdb") %>%
-  m_zoom_to() %>%
-  m_set_style(style = list(cartoon = list(color = 'spectrum'))) %>%
-  m_spin()
+
+r3dmol(
+  cartoonQuality = 10,
+  lowerZoomLimit = 50,
+  upperZoomLimit = 350
+) %>%                                               # Set viewer
+  m_add_model(data = pdb_6zsl, format = "pdb") %>%  # Add model
+  m_zoom_to() %>%                                   # Zoom to center
+  m_set_style(                                      # Draw cartoon representation of secondary structure
+    style = list(cartoon = list(color = '#00cc96'))) %>%
+  m_set_style(sel = list(ss = 's'),                 # Style beta sheet
+              style = list(cartoon = list(color = '#636efa', arrows = TRUE))) %>%
+  m_set_style(sel = list(ss = 'h'),                 # Style alpha helix
+              style = list(cartoon = list(color = '#ff7f0e'))) %>%
+  m_rotate(angle = 90, axis = 'y') %>%              # Set the initial angle of rotation 
+  m_spin()                                          # Spin it!
 ```
 
 ## About `3Dmol.js`
