@@ -4,7 +4,7 @@
 \alias{m_set_projection}
 \title{Set view projection scheme}
 \usage{
-m_set_projection(id, scheme = "perspective")
+m_set_projection(id, scheme = c("perspective", "orthographic"))
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
@@ -18,4 +18,12 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 }
 \description{
 Set view projection scheme
+}
+\examples{
+library(r3dmol)
+
+r3dmol() \%>\%
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
+  m_set_style(style = list(cartoon = list())) \%>\%
+  m_set_projection(scheme = "orthographic")
 }

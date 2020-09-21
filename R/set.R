@@ -73,11 +73,14 @@ m_set_background_color <- function(id, hex, alpha) {
 #' @export
 #'
 #' @examples
-m_set_projection <- function(id, scheme = "perspective") {
-  if (!scheme %in% c("perspective", "orthographic")) {
-    # TODO Nor work?
-    stop("Unknow scheme")
-  }
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_set_projection(scheme = "orthographic")
+m_set_projection <- function(id, scheme = c("perspective", "orthographic")) {
+  scheme <- match.arg(scheme)
   method <- "setProjection"
   callJS()
 }
