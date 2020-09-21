@@ -48,6 +48,7 @@ HTMLWidgets.widget({
           "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
           "addSphere", "addShape", "addStyle", "addLabel", "addModel",
           "addVolumetricData", "addPropertyLabels", "addResLabels",
+          "addSurface",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
@@ -96,6 +97,7 @@ HTMLWidgets.widget({
       // TODO: not working
       addModelsAsFrames: params => view.addModelsAsFrames(validateData(params.data), params.format),
       addIsosurface: params => view.addIsosurface(new $3Dmol.VolumeData(validateData(params.data), "cube"), params.isoSpec),
+      addSurface: params => view.addSurface(params.type, params.style, params.atomsel, params.allsel, params.focus, evalCallback(['surfacecallback'], params.surfacecallback)),
       removeAllLabels: () => view.removeAllLabels(),
       removeAllModels: () => view.removeAllModels(),
       removeAllShapes: () => view.removeAllShapes(),

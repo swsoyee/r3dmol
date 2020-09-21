@@ -471,3 +471,23 @@ m_add_res_labels <- function(id, sel, style, byframe) {
   method <- "addResLabels"
   callJS()
 }
+
+
+#' Add surface representation to atoms
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param type Surface type (VDW, MS, SAS, or SES)
+#' @param style Optional style specification for surface material (e.g. for different coloring scheme, etc).
+#' @param atomsel Show surface for atoms in this selection.
+#' @param allsel Use atoms in this selection to calculate surface; may be larger group than \code{atomsel}.
+#' @param focus Optionally begin rendering surface specified atoms.
+#' @param surfacecallback function to be called after setting the surface.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+m_add_surface <- function(id, type, style, atomsel, allsel, focus, surfacecallback) {
+  method <- "addSurface"
+  callJS()
+}
