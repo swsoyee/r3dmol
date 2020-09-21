@@ -508,3 +508,43 @@ m_add_unit_cell <- function(id, model, spec) {
   method <- "addUnitCell"
   callJS()
 }
+
+#' Add custom shape component from user supplied function
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param spec Style specification
+#' (see: <http://3dmol.csb.pitt.edu/doc/types.html#CustomShapeSpec>).
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' r <- 20
+#'
+#' vertices <- list(m_vector3(0, 0, 0),
+#'                  m_vector3(r, 0, 0),
+#'                  m_vector3(0, r, 0))
+#'
+#' normals <- list(m_vector3(0, 0, 1),
+#'                 m_vector3(0, 0, 1),
+#'                 m_vector3(0, 0, 1))
+#'
+#' colors <- list(list(r = 1, g = 0, b = 0),
+#'                list(r = 0, g = 1, b = 0),
+#'                list(r = 0, g = 0, b = 1))
+#'
+#' faces <- 0:2
+#'
+#' r3dmol() %>%
+#'   m_add_custom(spec = list(
+#'     vertexArr = vertices,
+#'     normalArr = normals,
+#'     faceArr = faces,
+#'     color = colors
+#'   ))
+m_add_custom <- function(id, spec) {
+  method <- "addCustom"
+  callJS()
+}

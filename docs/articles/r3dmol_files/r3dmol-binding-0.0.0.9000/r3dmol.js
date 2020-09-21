@@ -48,7 +48,7 @@ HTMLWidgets.widget({
           "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
           "addSphere", "addShape", "addStyle", "addLabel", "addModel",
           "addVolumetricData", "addPropertyLabels", "addResLabels",
-          "addSurface", "addUnitCell",
+          "addSurface", "addUnitCell", "addCustom",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
@@ -85,6 +85,7 @@ HTMLWidgets.widget({
       addAsOneMolecule: params => view.addAsOneMolecule(validateData(params.data), params.format),
       addBox: params => view.addBox(params.spec),
       addCurve: params => view.addCurve(params.spec),
+      addCustom: params => view.addCustom(params.spec),
       addCylinder: params => view.addCylinder(evalCallback(['callback', 'hover_callback', 'unhover_callback'], params.spec)),
       addLabel: params => view.addLabel(params.text, params.options, params.sel, params.noshow),
       addLine: params => view.addLine(params.spec),
