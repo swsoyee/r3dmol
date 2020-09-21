@@ -491,3 +491,20 @@ m_add_surface <- function(id, type, style, atomsel, allsel, focus, surfacecallba
   method <- "addSurface"
   callJS()
 }
+
+
+#' Create and add unit cell visualization
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param model Model with unit cell information (e.g., pdb derived).
+#' If omitted uses most recently added model.
+#' @param spec Visualization style.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+m_add_unit_cell <- function(id, model, spec) {
+  method <- "addUnitCell"
+  callJS()
+}

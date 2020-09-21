@@ -48,7 +48,7 @@ HTMLWidgets.widget({
           "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
           "addSphere", "addShape", "addStyle", "addLabel", "addModel",
           "addVolumetricData", "addPropertyLabels", "addResLabels",
-          "addSurface",
+          "addSurface", "addUnitCell",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
@@ -94,6 +94,8 @@ HTMLWidgets.widget({
       addShape: params => view.addShape(params.shapeSpec),
       addStyle: params => view.addStyle(params.sel, params.style),
       addModel: params => view.addModel(validateData(params.data), params.format, params.options),
+      // TODO: not working
+      addUnitCell: params => view.addUnitCell(params.model, params.spec),
       // TODO: not working
       addModelsAsFrames: params => view.addModelsAsFrames(validateData(params.data), params.format),
       addIsosurface: params => view.addIsosurface(new $3Dmol.VolumeData(validateData(params.data), "cube"), params.isoSpec),
