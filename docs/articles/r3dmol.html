@@ -121,15 +121,42 @@ H    -0.465979   -0.364991   -0.807088    0.392764    0.342436    0.764260
 
 <span class="fu"><a href="../reference/init.html">r3dmol</a></span>(<span class="kw">width</span> <span class="kw">=</span> <span class="fl">400</span>,
        <span class="kw">height</span> <span class="kw">=</span> <span class="fl">400</span>,
-       <span class="kw">backgroundColor</span> <span class="kw">=</span> <span class="st">"0xeeeeee"</span>) <span class="kw">%&gt;%</span>
+       <span class="kw">backgroundColor</span> <span class="kw">=</span> <span class="st">"0xeeeeee"</span>,
+       <span class="kw">id</span> <span class="kw">=</span> <span class="st">"demo_xyz"</span>,
+       <span class="kw">elementId</span> <span class="kw">=</span> <span class="st">"demo_xyz"</span>) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/m_add_model.html">m_add_model</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">xyz</span>,
               <span class="kw">format</span> <span class="kw">=</span> <span class="st">"xyz"</span>,
               <span class="kw">options</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">vibrate</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">frames</span> <span class="kw">=</span> <span class="fl">10</span>, <span class="kw">amplitude</span> <span class="kw">=</span> <span class="fl">1</span>))) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/m_set_style.html">m_set_style</a></span>(<span class="kw">style</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">stick</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>())) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/m_animate.html">m_animate</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">loop</span> <span class="kw">=</span> <span class="st">"backAndForth"</span>)) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/m_zoom_to.html">m_zoom_to</a></span>()</pre></body></html></div>
-<div id="htmlwidget-c4725f9592ff758dc2cc" style="width:400px;height:400px;" class="r3dmol html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c4725f9592ff758dc2cc">{"x":{"id":"5dcc8fce1723c345be49","configs":{"backgroundColor":"0xeeeeee"},"api":[{"method":"addModel","data":"4\n* (null), Energy   -1000.0000000\nN     0.000005    0.019779   -0.000003   -0.157114    0.000052   -0.012746\nH     0.931955   -0.364989    0.000003    1.507100   -0.601158   -0.004108\nH    -0.465975   -0.364992    0.807088    0.283368    0.257996   -0.583024\nH    -0.465979   -0.364991   -0.807088    0.392764    0.342436    0.764260\n","format":"xyz","options":{"vibrate":{"frames":10,"amplitude":1}}},{"method":"setStyle","sel":[],"style":{"stick":[]}},{"method":"animate","options":{"loop":"backAndForth"}},{"method":"zoomTo"}]},"evals":[],"jsHooks":[]}</script><div id="about-3dmol-js" class="section level2">
+<div id="demo_xyz" style="width:400px;height:400px;" class="r3dmol html-widget"></div>
+<script type="application/json" data-for="demo_xyz">{"x":{"id":"demo_xyz","configs":{"backgroundColor":"0xeeeeee"},"api":[{"method":"addModel","data":"4\n* (null), Energy   -1000.0000000\nN     0.000005    0.019779   -0.000003   -0.157114    0.000052   -0.012746\nH     0.931955   -0.364989    0.000003    1.507100   -0.601158   -0.004108\nH    -0.465975   -0.364992    0.807088    0.283368    0.257996   -0.583024\nH    -0.465979   -0.364991   -0.807088    0.392764    0.342436    0.764260\n","format":"xyz","options":{"vibrate":{"frames":10,"amplitude":1}}},{"method":"setStyle","sel":[],"style":{"stick":[]}},{"method":"animate","options":{"loop":"backAndForth"}},{"method":"zoomTo"}]},"evals":[],"jsHooks":[]}</script><div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">benz</span> <span class="kw">&lt;-</span> <span class="st">"
+     RDKit          3D
+
+  6  6  0  0  0  0  0  0  0  0999 V2000
+   -0.9517    0.7811   -0.6622 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2847    1.3329   -0.3121 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2365    0.5518    0.3512 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9517   -0.7811    0.6644 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2847   -1.3329    0.3144 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.2365   -0.5518   -0.3489 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  2  3  1  0
+  3  4  2  0
+  4  5  1  0
+  5  6  2  0
+  6  1  1  0
+M  END
+$$$$"</span>
+
+<span class="fu"><a href="../reference/init.html">r3dmol</a></span>(<span class="kw">id</span> <span class="kw">=</span> <span class="st">"demo_sdf"</span>, <span class="kw">elementId</span> <span class="kw">=</span> <span class="st">"demo_sdf"</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="../reference/m_add_model.html">m_add_model</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">benz</span>, <span class="kw">format</span> <span class="kw">=</span> <span class="st">"sdf"</span>) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="../reference/m_set_style.html">m_set_style</a></span>(<span class="kw">style</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">stick</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>())) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="../reference/m_set_style.html">m_set_style</a></span>(<span class="kw">sel</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">model</span> <span class="kw">=</span> <span class="fl">0</span>), <span class="kw">style</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">stick</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="kw">colorscheme</span> <span class="kw">=</span> <span class="st">"cyanCarbon"</span>))) <span class="kw">%&gt;%</span>
+  <span class="fu"><a href="../reference/m_zoom_to.html">m_zoom_to</a></span>()</pre></body></html></div>
+<div id="demo_sdf" style="width:100%;height:500px;" class="r3dmol html-widget"></div>
+<script type="application/json" data-for="demo_sdf">{"x":{"id":"demo_sdf","configs":[],"api":[{"method":"addModel","data":"\n     RDKit          3D\n\n  6  6  0  0  0  0  0  0  0  0999 V2000\n   -0.9517    0.7811   -0.6622 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.2847    1.3329   -0.3121 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2365    0.5518    0.3512 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.9517   -0.7811    0.6644 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.2847   -1.3329    0.3144 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.2365   -0.5518   -0.3489 C   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0\n  2  3  1  0\n  3  4  2  0\n  4  5  1  0\n  5  6  2  0\n  6  1  1  0\nM  END\n$$$$","format":"sdf"},{"method":"setStyle","sel":[],"style":{"stick":[]}},{"method":"setStyle","sel":{"model":0},"style":{"stick":{"colorscheme":"cyanCarbon"}}},{"method":"zoomTo"}]},"evals":[],"jsHooks":[]}</script><div id="about-3dmol-js" class="section level2">
 <h2 class="hasAnchor">
 <a href="#about-3dmol-js" class="anchor"></a>About <code>3Dmol.js</code>
 </h2>

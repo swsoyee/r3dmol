@@ -63,12 +63,41 @@ H    -0.465979   -0.364991   -0.807088    0.392764    0.342436    0.764260
 
 r3dmol(width = 400,
        height = 400,
-       backgroundColor = "0xeeeeee") %>%
+       backgroundColor = "0xeeeeee",
+       id = "demo_xyz",
+       elementId = "demo_xyz") %>%
   m_add_model(data = xyz,
               format = "xyz",
               options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
   m_set_style(style = list(stick = list())) %>%
   m_animate(list(loop = "backAndForth")) %>%
+  m_zoom_to()
+```
+
+```{r sdf}
+benz <- "
+     RDKit          3D
+
+  6  6  0  0  0  0  0  0  0  0999 V2000
+   -0.9517    0.7811   -0.6622 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2847    1.3329   -0.3121 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2365    0.5518    0.3512 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9517   -0.7811    0.6644 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2847   -1.3329    0.3144 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.2365   -0.5518   -0.3489 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0
+  2  3  1  0
+  3  4  2  0
+  4  5  1  0
+  5  6  2  0
+  6  1  1  0
+M  END
+$$$$"
+
+r3dmol(id = "demo_sdf", elementId = "demo_sdf") %>%
+  m_add_model(data = benz, format = "sdf") %>%
+  m_set_style(style = list(stick = list())) %>%
+  m_set_style(sel = list(model = 0), style = list(stick = list(colorscheme = "cyanCarbon"))) %>%
   m_zoom_to()
 ```
 
