@@ -150,3 +150,28 @@ m_is_animated <- function(id) {
   method <- "isAnimated"
   callJS()
 }
+
+
+#' Set the default cartoon quality for newly created models
+#'
+#' Set the default cartoon quality for newly created models. Default is \code{5}.
+#' Current models are not affected.
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param quality Default cartoon quality.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_set_default_cartoon_quality(20) %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_zoom_to()
+m_set_default_cartoon_quality <- function(id, quality) {
+  method <- "setDefaultCartoonQuality"
+  callJS()
+}

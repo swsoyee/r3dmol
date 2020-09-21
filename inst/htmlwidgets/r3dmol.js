@@ -123,6 +123,7 @@ HTMLWidgets.widget({
       setHeight: params => view.setHeight(params.height),
       setProjection: params => view.setProjection(params.scheme),
       setZoomLimits: params => view.setZoomLimits(params.lower, params.upper),
+      setDefaultCartoonQuality: params => view.setDefaultCartoonQuality(params.quality),
       stopAnimate: () => { // TODO: not working.
         view.stopAnimate();
       },
