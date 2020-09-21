@@ -193,3 +193,24 @@ m_set_color_by_element <- function(id, sel, colors) {
   method <- "setColorByElement"
   callJS()
 }
+
+#' Set the distance between the model and the camera
+#'
+#' Essentially zooming. Useful while stereo rendering.
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param dist Numeric distance.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_set_preceived_distance(dist = 200)
+m_set_preceived_distance <- function(id, dist) {
+  method <- "setPerceivedDistance"
+  callJS()
+}

@@ -54,7 +54,7 @@ HTMLWidgets.widget({
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
-          "setHoverDuration", "setColorByElement",
+          "setHoverDuration", "setColorByElement", "setPerceivedDistance",
           // remove
           "removeAllLabels", "removeAllModels", "removeAllShapes",
           "removeAllSurfaces", "removeLabel",
@@ -116,6 +116,7 @@ HTMLWidgets.widget({
       },
       setBackgroundColor: params => view.setBackgroundColor(params.hex, params.alpha),
       // TODO: not working
+      setPerceivedDistance: params => view.setPerceivedDistance(params.dist),
       setColorByElement: params => view.setColorByElement(params.sel, params.colors),
       setSlab: params => view.setSlab(params.near, params.far),
       setViewStyle: params => view.setViewStyle(params.style),
