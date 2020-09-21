@@ -24,6 +24,7 @@ reference:
     desc: 'Functions for creating animation.'
   - contents:
       - m_animate
+      - m_vibrate
       - m_center
       - m_rotate
       - m_spin

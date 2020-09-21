@@ -182,3 +182,42 @@ m_zoom_to <- function(id, sel, animationDuration, fixedPath) {
   method <- "zoomTo"
   callJS()
 }
+
+
+#' Add model's vibration
+#'
+#' If atoms have dx, dy, dz properties (in some xyz files),
+#' vibrate populates each model's frame property based on parameters.
+#' Models can then be animated.
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param numFrames Number of frames to be created, default to 10
+#' @param amplitude Amplitude of distortion, default to 1 (full)
+#' @param bothWays If true, extend both in positive and negative directions by numFrames
+#' @param arrowSpec Specification for drawing animated arrows. If color isn't specified,
+#' atom color (sphere, stick, line preference) is used.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' xyz <- "4
+#' * (null), Energy   -1000.0000000
+#' N     0.000005    0.019779   -0.000003   -0.157114    0.000052   -0.012746
+#' H     0.931955   -0.364989    0.000003    1.507100   -0.601158   -0.004108
+#' H    -0.465975   -0.364992    0.807088    0.283368    0.257996   -0.583024
+#' H    -0.465979   -0.364991   -0.807088    0.392764    0.342436    0.764260
+#' "
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = xyz, format = "xyz") %>%
+#'   m_set_style(style = list(stick = list())) %>%
+#'   m_vibrate(numFrames = 10, amplitude = 1) %>%
+#'   m_animate(options = list(loop = "backAndForth", reps = 0)) %>%
+#'   m_zoom_to()
+m_vibrate <- function(id, numFrames, amplitude, bothWays, arrowSpec) {
+  method <- "vibrate"
+  callJS()
+}

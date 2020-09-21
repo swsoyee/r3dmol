@@ -58,7 +58,7 @@ HTMLWidgets.widget({
           "removeAllSurfaces", "removeLabel",
           // animate
           "spin", "rotate", "translate", "translateScene", "zoom", "zoomTo",
-          "enableFog", "center"
+          "enableFog", "center", "vibrate"
         ];
 
         for (let i = 0; i < numApiCalls; i++) {
@@ -127,8 +127,9 @@ HTMLWidgets.widget({
       translate: params => view.translate(params.x, params.y, params.animationDuration, params.fixedPath),
       translateScene: params => view.translateScene(params.x, params.y, params.animationDuration, params.fixedPath),
       zoom: (params) => view.zoom(params.factor, params.animationDuration, params.fixedPath),
-      zoomTo: (params) => view.zoomTo(params.sel, params.animationDuration, params.fixedPath),
-      center: (params) => view.center(params.sel, params.animationDuration, params.fixedPath),
+      zoomTo: params => view.zoomTo(params.sel, params.animationDuration, params.fixedPath),
+      vibrate: params => view.vibrate(params.numFrames, params.amplitude, params.bothWays, params.arrowSpec),
+      center: params => view.center(params.sel, params.animationDuration, params.fixedPath),
     };
   }
 });
