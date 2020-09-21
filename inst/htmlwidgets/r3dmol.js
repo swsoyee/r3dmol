@@ -44,6 +44,8 @@ HTMLWidgets.widget({
         // Save last call function name for auto render function call
         const lastCallFunction = x.api[numApiCalls - 1].method;
         const isAutoRenderFunction = [
+          // Other
+          "createModelFrom",
           // add
           "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
           "addSphere", "addShape", "addStyle", "addLabel", "addModel",
@@ -81,6 +83,7 @@ HTMLWidgets.widget({
       },
       render: () => view.render(),
       rotate: params => view.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath),
+      createModelFrom: params => view.createModelFrom(params.sel, params.extract),
       addArrow: params => view.addArrow(evalCallback(['callback'], params.spec)),
       addAsOneMolecule: params => view.addAsOneMolecule(validateData(params.data), params.format),
       addBox: params => view.addBox(params.spec),

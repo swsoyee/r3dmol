@@ -102,3 +102,22 @@ m_animate <- function(id, options) {
   method <- "animate"
   callJS()
 }
+
+
+#' Create a new model from atoms specified by sel
+#'
+#' Create a new model from atoms specified by sel.
+#' If extract, removes selected atoms from existing models.
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param sel Atom selection specification.
+#' @param extract If true, remove selected atoms from existing models
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+m_create_model_from <- function(id, sel, extract) {
+  method <- "createModelFrom"
+  callJS()
+}
