@@ -55,6 +55,8 @@ HTMLWidgets.widget({
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
           "setHoverDuration", "setColorByElement", "setPerceivedDistance",
+          // get
+          "getModel",
           // remove
           "removeAllLabels", "removeAllModels", "removeAllShapes",
           "removeAllSurfaces", "removeLabel",
@@ -127,6 +129,8 @@ HTMLWidgets.widget({
       setProjection: params => view.setProjection(params.scheme),
       setZoomLimits: params => view.setZoomLimits(params.lower, params.upper),
       setDefaultCartoonQuality: params => view.setDefaultCartoonQuality(params.quality),
+      // TODO: not working.
+      getModel: params => view.getModel(params.modelId),
       stopAnimate: () => { // TODO: not working.
         view.stopAnimate();
       },
