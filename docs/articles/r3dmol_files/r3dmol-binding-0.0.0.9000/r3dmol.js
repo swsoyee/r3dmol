@@ -54,7 +54,7 @@ HTMLWidgets.widget({
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
-          "setHoverDuration",
+          "setHoverDuration", "setColorByElement",
           // remove
           "removeAllLabels", "removeAllModels", "removeAllShapes",
           "removeAllSurfaces", "removeLabel",
@@ -115,6 +115,8 @@ HTMLWidgets.widget({
         return view.isAnimated();
       },
       setBackgroundColor: params => view.setBackgroundColor(params.hex, params.alpha),
+      // TODO: not working
+      setColorByElement: params => view.setColorByElement(params.sel, params.colors),
       setSlab: params => view.setSlab(params.near, params.far),
       setViewStyle: params => view.setViewStyle(params.style),
       setHoverDuration: params => view.setHoverDuration(params.hoverDuration),

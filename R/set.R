@@ -175,3 +175,18 @@ m_set_default_cartoon_quality <- function(id, quality) {
   method <- "setDefaultCartoonQuality"
   callJS()
 }
+
+#' Set color by element
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param sel Atom selection.
+#' @param colors Color hex code or name.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+#' @examples
+m_set_color_by_element <- function(id, sel, colors) {
+  method <- "setColorByElement"
+  callJS()
+}
