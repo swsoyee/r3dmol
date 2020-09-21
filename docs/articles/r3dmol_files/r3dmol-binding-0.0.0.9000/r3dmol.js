@@ -19,6 +19,10 @@ HTMLWidgets.widget({
       return (paramSet);
     }
 
+    const validateData = data => {
+      return (typeof (data) === "string" ? data : data.join("\n"));
+    }
+
     return {
 
       renderValue: function (x) {
@@ -77,7 +81,7 @@ HTMLWidgets.widget({
       render: () => view.render(),
       rotate: params => view.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath),
       addArrow: params => view.addArrow(evalCallback(['callback'], params.spec)),
-      addAsOneMolecule: params => view.addAsOneMolecule(params.data.join("\n"), params.format),
+      addAsOneMolecule: params => view.addAsOneMolecule(validateData(params.data), params.format),
       addBox: params => view.addBox(params.spec),
       addCurve: params => view.addCurve(params.spec),
       addCylinder: params => view.addCylinder(evalCallback(['callback', 'hover_callback', 'unhover_callback'], params.spec)),
@@ -88,10 +92,10 @@ HTMLWidgets.widget({
       addSphere: params => view.addSphere(params.spec),
       addShape: params => view.addShape(params.shapeSpec),
       addStyle: params => view.addStyle(params.sel, params.style),
-      addModel: params => view.addModel(params.data.join("\n"), params.format, params.options),
+      addModel: params => view.addModel(validateData(params.data), params.format, params.options),
       // TODO: not working
-      addModelsAsFrames: params => view.addModelsAsFrames(params.data.join("\n"), params.format),
-      addIsosurface: params => view.addIsosurface(new $3Dmol.VolumeData(params.data.join("\n"), "cube"), params.isoSpec),
+      addModelsAsFrames: params => view.addModelsAsFrames(validateData(params.data), params.format),
+      addIsosurface: params => view.addIsosurface(new $3Dmol.VolumeData(validateData(params.data), "cube"), params.isoSpec),
       removeAllLabels: () => view.removeAllLabels(),
       removeAllModels: () => view.removeAllModels(),
       removeAllShapes: () => view.removeAllShapes(),

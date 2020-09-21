@@ -147,6 +147,26 @@ indicates infinite loop)</p></td>
 
     <p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>r3dmol</span>)
+
+<span class='no'>xyz</span> <span class='kw'>&lt;-</span> <span class='st'>"4
+* (null), Energy   -1000.0000000
+N     0.000005    0.019779   -0.000003   -0.157114    0.000052   -0.012746
+H     0.931955   -0.364989    0.000003    1.507100   -0.601158   -0.004108
+H    -0.465975   -0.364992    0.807088    0.283368    0.257996   -0.583024
+H    -0.465979   -0.364991   -0.807088    0.392764    0.342436    0.764260
+"</span>
+
+<span class='fu'><a href='init.html'>r3dmol</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>400</span>,
+       <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>400</span>,
+       <span class='kw'>backgroundColor</span> <span class='kw'>=</span> <span class='st'>"0xeeeeee"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_add_model.html'>m_add_model</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>xyz</span>,
+              <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"xyz"</span>,
+              <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>vibrate</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>frames</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>amplitude</span> <span class='kw'>=</span> <span class='fl'>1</span>))) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_set_style.html'>m_set_style</a></span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>stick</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>())) <span class='kw'>%&gt;%</span>
+  <span class='fu'>m_animate</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>loop</span> <span class='kw'>=</span> <span class='st'>"backAndForth"</span>)) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>()</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
