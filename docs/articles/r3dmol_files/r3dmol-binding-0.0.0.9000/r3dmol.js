@@ -97,6 +97,7 @@ HTMLWidgets.widget({
       // TODO: not working
       addModelsAsFrames: params => view.addModelsAsFrames(validateData(params.data), params.format),
       addIsosurface: params => view.addIsosurface(new $3Dmol.VolumeData(validateData(params.data), "cube"), params.isoSpec),
+      // TODO: not working
       addSurface: params => view.addSurface(params.type, params.style, params.atomsel, params.allsel, params.focus, evalCallback(['surfacecallback'], params.surfacecallback)),
       removeAllLabels: () => view.removeAllLabels(),
       removeAllModels: () => view.removeAllModels(),

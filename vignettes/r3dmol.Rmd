@@ -101,6 +101,20 @@ r3dmol(id = "demo_sdf", elementId = "demo_sdf") %>%
   m_zoom_to()
 ```
 
+### Dynamic styles
+
+```{r Dynamic styles}
+r3dmol() %>%
+  m_add_model(data = pdb_1j72) %>%
+  m_set_style(style = list(cartoon = list(
+    colorfunc = htmlwidgets::JS("
+  function(atom) {
+    return atom.resi % 2 == 0 ? 'white' : 'green';
+  }")
+  ))) %>%
+  m_zoom_to()
+```
+
 ## About `3Dmol.js`
 
 > Nicholas Rego and David Koes
