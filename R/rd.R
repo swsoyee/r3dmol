@@ -138,3 +138,104 @@ NULL
 #'            ))) %>%
 #'   m_zoom_to()
 NULL
+
+#' Create and add shape
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param spec Shape style specification.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @name m_add_anyShape
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' # Add arrow
+#' r3dmol() %>%
+#'   m_add_arrow(
+#'     spec = list(
+#'       start = m_vector3(-10, 0, 0),
+#'       end = m_vector3(0,-10, 0),
+#'       radius = 1,
+#'       radiusRadio = 1,
+#'       mid = 1,
+#'       clickable = TRUE,
+#'       callback =
+#'         "function(){
+#'           this.color.setHex(0xFF0000FF);
+#'           view.render()
+#'         }"
+#'     )
+#'   )
+#' 
+#' # Add curve
+#' r3dmol() %>%
+#'   m_add_curve(
+#'     spec = list(
+#'       points = list(
+#'         m_vector3(0, 0, 0),
+#'         m_vector3(5, 3, 0),
+#'         m_vector3(5, 7, 0),
+#'         m_vector3(0, 10, 0)
+#'       ),
+#'       radius = 0.5,
+#'       smooth = 10,
+#'       fromArrow = FALSE,
+#'       toArrow = TRUE,
+#'       color = 'orange'
+#'     )
+#'   )
+#' 
+#' # Add cylinder
+#' r3dmol() %>%
+#'   m_add_cylinder(
+#'     spec = list(
+#'       start = list(x = 0.0, y = 0.0, z = 0.0),
+#'       end = list(x = 10.0, y = 0.0, z = 0.0),
+#'       radius = 1.0,
+#'       fromCap = 1,
+#'       toCap = 2,
+#'       color = "red",
+#'       hoverable = TRUE,
+#'       clickable = TRUE,
+#'       callback = "
+#'       function(){
+#'         this.color.setHex(0x00FFFF00);
+#'         view.render();
+#'       }",
+#'       hover_callback = "
+#'       function(){
+#'         view.render();
+#'       }",
+#'       unhover_callback = "
+#'       function(){
+#'         this.color.setHex(0xFF000000);
+#'         view.render();
+#'       }"
+#'     )
+#'   )
+#' 
+#' # Add line
+#' r3dmol() %>%
+#'   m_add_line(spec = list(
+#'     dashed = TRUE,
+#'     start = m_vector3(0, 0, 0),
+#'     end = m_vector3(30, 30, 30)
+#'   ))
+#' 
+#' # Add box
+#' r3dmol() %>%
+#'   m_add_box(spec = list(
+#'     center = m_vector3(0, 5, 0),
+#'     demensions = list(w = 3, h = 4, d = 2),
+#'     color = "magenta"
+#'   ))
+#' 
+#' # Add sphere
+#' r3dmol() %>%
+#'   m_add_sphere(spec = list(
+#'     center = m_vector3(0, 0, 0),
+#'     radius = 10,
+#'     color = "red"
+#'   ))
+NULL
