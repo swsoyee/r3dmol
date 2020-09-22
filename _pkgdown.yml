@@ -1,5 +1,6 @@
 template:
   params:
+    bootswatch: flatly
     ganalytics: UA-131217026-2
 reference:
   - title: 'Common'
