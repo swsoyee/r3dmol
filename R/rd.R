@@ -56,9 +56,14 @@ NULL
 #' Unit cell visualization
 #' 
 #' Use \code{\link{m_add_unit_cell}} to create and add unit cell visualization, 
-#' and \code{\link{m_remove_unit_cell}} to remove it from model.
+#' and \code{\link{m_remove_unit_cell}} to remove it from model. Use 
+#' \code{\link{m_replicate_unit_cell}} to replicate atoms in model to form a super cell
+#' of the specified dimensions. Original cell will be centered as much as possible.
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param a number of times to replicate cell in X dimension.
+#' @param b number of times to replicate cell in Y dimension. If absent, X value is used.
+#' @param c number of times to replicate cell in Z dimension. If absent, Y value is used.
 #' @param model Model with unit cell information (e.g., pdb derived).
 #' If omitted uses most recently added model.
 #' @param spec Visualization style.
@@ -94,4 +99,12 @@ NULL
 #' # Remove unit cell
 #' mol %>%
 #'   m_remove_unit_cell()
+#' 
+#' # Replicate atoms in model to form a super cell
+#' r3dmol() %>%
+#'   m_add_model(data = cif_254385, format = "cif") %>%
+#'   m_set_style(style = list(sphere = list(scale = 0.25))) %>%
+#'   m_add_unit_cell() %>%
+#'   m_zoom_to() %>%
+#'   m_replicate_unit_cell(a = 3, b = 2, c = 1)
 NULL

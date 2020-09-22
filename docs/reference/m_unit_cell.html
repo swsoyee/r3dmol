@@ -41,7 +41,9 @@
 
 <meta property="og:title" content="Unit cell visualization — m_add_unit_cell" />
 <meta property="og:description" content="Use m_add_unit_cell to create and add unit cell visualization,
-and m_remove_unit_cell to remove it from model." />
+and m_remove_unit_cell to remove it from model. Use
+m_replicate_unit_cell to replicate atoms in model to form a super cell
+of the specified dimensions. Original cell will be centered as much as possible." />
 
 
 
@@ -129,10 +131,14 @@ and m_remove_unit_cell to remove it from model." />
 
     <div class="ref-description">
     <p>Use <code>m_add_unit_cell</code> to create and add unit cell visualization,
-and <code>m_remove_unit_cell</code> to remove it from model.</p>
+and <code>m_remove_unit_cell</code> to remove it from model. Use
+<code>m_replicate_unit_cell</code> to replicate atoms in model to form a super cell
+of the specified dimensions. Original cell will be centered as much as possible.</p>
     </div>
 
     <pre class="usage"><span class='fu'>m_add_unit_cell</span>(<span class='no'>id</span>, <span class='no'>model</span>, <span class='no'>spec</span>)
+
+<span class='fu'>m_replicate_unit_cell</span>(<span class='no'>id</span>, <span class='no'>a</span>, <span class='no'>b</span>, <span class='no'>c</span>, <span class='no'>model</span>)
 
 <span class='fu'>m_remove_unit_cell</span>(<span class='no'>id</span>, <span class='no'>model</span>)</pre>
 
@@ -151,6 +157,18 @@ If omitted uses most recently added model.</p></td>
     <tr>
       <th>spec</th>
       <td><p>Visualization style.</p></td>
+    </tr>
+    <tr>
+      <th>a</th>
+      <td><p>number of times to replicate cell in X dimension.</p></td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td><p>number of times to replicate cell in Y dimension. If absent, X value is used.</p></td>
+    </tr>
+    <tr>
+      <th>c</th>
+      <td><p>number of times to replicate cell in Z dimension. If absent, Y value is used.</p></td>
     </tr>
     </table>
 
@@ -185,7 +203,15 @@ If omitted uses most recently added model.</p></td>
 
 <span class='co'># Remove unit cell</span>
 <span class='no'>mol</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'>m_remove_unit_cell</span>()</div></pre>
+  <span class='fu'>m_remove_unit_cell</span>()
+
+<span class='co'># Replicate atoms in model to form a super cell</span>
+<span class='fu'><a href='init.html'>r3dmol</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='add_model.html'>m_add_model</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cif_254385</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"cif"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_set_style.html'>m_set_style</a></span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>sphere</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>0.25</span>))) <span class='kw'>%&gt;%</span>
+  <span class='fu'>m_add_unit_cell</span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'>m_replicate_unit_cell</span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>c</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

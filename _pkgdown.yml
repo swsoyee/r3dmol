@@ -14,6 +14,7 @@ reference:
   - contents:
       - starts_with("m_add")
       - starts_with("m_remove")
+      - m_replicate_unit_cell
   - title: 'Set'
     desc: 'Functions for setting elements to the view.'
   - contents:

@@ -513,6 +513,13 @@ m_add_unit_cell <- function(id, model, spec) {
   callJS()
 }
 
+#' @rdname m_unit_cell
+#' @export
+m_replicate_unit_cell <- function(id, a, b, c, model) {
+  method <- "replicateUnitCell"
+  callJS()
+}
+
 #' Add custom shape component from user supplied function
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})

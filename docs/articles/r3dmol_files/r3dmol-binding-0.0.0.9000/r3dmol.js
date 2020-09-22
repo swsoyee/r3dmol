@@ -48,6 +48,7 @@ HTMLWidgets.widget({
           "addSphere", "addShape", "addStyle", "addLabel", "addModel",
           "addVolumetricData", "addPropertyLabels", "addResLabels",
           "addSurface", "addUnitCell", "addCustom", "addModels",
+          "replicateUnitCell",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
@@ -111,6 +112,7 @@ HTMLWidgets.widget({
       removeAllSurfaces: () => view.removeAllSurfaces(),
       removeLabel: () => view.removeLabel(),
       removeUnitCell: params => view.removeUnitCell(params.model),
+      replicateUnitCell: params => view.replicateUnitCell(params.a, params.b, params.c, params.model),
       setStyle: params => view.setStyle(params.sel, params.style),
       isAnimated: () => {
         return view.isAnimated();
