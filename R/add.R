@@ -231,7 +231,7 @@ m_add_isosurface <- function(id, data, isoSpec) {
   if (length(data) == 1 && file.exists(data)) {
     data <- readLines(data)
   }
-
+  data <- paste0(data, collapse = "\n")
   method <- "addIsosurface"
   callJS()
 }
@@ -367,5 +367,15 @@ m_replicate_unit_cell <- function(id, a, b, c, model) {
 #'   ))
 m_add_custom <- function(id, spec) {
   method <- "addCustom"
+  callJS()
+}
+
+m_add_volumetric_render <- function(id, data, spec) {
+  # If file path is pass in, read the file and store it as a vector
+  if (length(data) == 1 && file.exists(data)) {
+    data <- readLines(data)
+  }
+  data <- paste0(data, collapse = "\\n")
+  method <- "addVolumetricRender"
   callJS()
 }
