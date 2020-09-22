@@ -48,7 +48,7 @@ HTMLWidgets.widget({
           "addSphere", "addShape", "addStyle", "addLabel", "addModel",
           "addVolumetricData", "addPropertyLabels", "addResLabels",
           "addSurface", "addUnitCell", "addCustom", "addModels",
-          "replicateUnitCell",
+          "replicateUnitCell", "addModelsAsFrames",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
@@ -99,7 +99,6 @@ HTMLWidgets.widget({
       addStyle: params => view.addStyle(params.sel, params.style),
       addModel: params => view.addModel(params.data[0].toString(), params.format, params.options),
       addModels: params => view.addModels(params.data.toString(), params.format),
-      // TODO: not working
       addUnitCell: params => view.addUnitCell(params.model, params.spec),
       // TODO: not working
       addModelsAsFrames: params => view.addModelsAsFrames(params.data, params.format),
@@ -118,7 +117,6 @@ HTMLWidgets.widget({
         return view.isAnimated();
       },
       setBackgroundColor: params => view.setBackgroundColor(params.hex, params.alpha),
-      // TODO: not working
       setPerceivedDistance: params => view.setPerceivedDistance(params.dist),
       setColorByElement: params => view.setColorByElement(params.sel, params.colors),
       setSlab: params => view.setSlab(params.near, params.far),

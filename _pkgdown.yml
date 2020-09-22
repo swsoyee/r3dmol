@@ -9,16 +9,13 @@ reference:
       - init
       - m_render
       - m_enable_fog
-  - title: 'Add / Remove'
-    desc: 'Functions for adding and removing elements to the view.'
+  - title: 'Add / Set / Remove'
+    desc: 'Functions for adding, setting and removing elements to the view.'
   - contents:
       - starts_with("m_add")
+      - starts_with("m_set")
       - starts_with("m_remove")
       - m_replicate_unit_cell
-  - title: 'Set'
-    desc: 'Functions for setting elements to the view.'
-  - contents:
-      - starts_with("m_set")
   - title: 'Animate'
     desc: 'Functions for creating animation.'
   - contents:

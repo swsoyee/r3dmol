@@ -445,7 +445,7 @@ m_add_models_as_frames <- function(id, data, format) {
   if (length(data) == 1 && file.exists(data)) {
     data <- readLines(data)
   }
-  data <- paste0(data, collapse = "\n")
+  data <- paste0(data, collapse = "\\n")
   method <- "addModelsAsFrames"
   callJS()
 }
