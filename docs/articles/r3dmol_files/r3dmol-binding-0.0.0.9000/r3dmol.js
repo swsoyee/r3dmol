@@ -56,7 +56,7 @@ HTMLWidgets.widget({
           "getModel",
           // remove
           "removeAllLabels", "removeAllModels", "removeAllShapes",
-          "removeAllSurfaces", "removeLabel",
+          "removeAllSurfaces", "removeLabel", "removeUnitCell",
           // animate
           "spin", "rotate", "translate", "translateScene", "zoom", "zoomTo",
           "enableFog", "center", "vibrate"
@@ -110,6 +110,7 @@ HTMLWidgets.widget({
       removeAllShapes: () => view.removeAllShapes(),
       removeAllSurfaces: () => view.removeAllSurfaces(),
       removeLabel: () => view.removeLabel(),
+      removeUnitCell: params => view.removeUnitCell(params.model),
       setStyle: params => view.setStyle(params.sel, params.style),
       isAnimated: () => {
         return view.isAnimated();

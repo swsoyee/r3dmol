@@ -52,3 +52,46 @@ NULL
 #'   m_add_model(data = sdf_multiple, "sdf") %>%
 #'   m_zoom_to()
 NULL
+
+#' Unit cell visualization
+#' 
+#' Use \code{\link{m_add_unit_cell}} to create and add unit cell visualization, 
+#' and \code{\link{m_remove_unit_cell}} to remove it from model.
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param model Model with unit cell information (e.g., pdb derived).
+#' If omitted uses most recently added model.
+#' @param spec Visualization style.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @name m_unit_cell
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' # Create model
+#' mol <- r3dmol() %>%
+#'   m_add_model(
+#'     data = cif_254385,
+#'     "cif",
+#'     options = list(doAssembly = TRUE, normalizeAssembly = TRUE)
+#'   ) %>%
+#'   m_set_style(style = list(
+#'     sphere = list(colorscheme = "Jmol", scale = 0.25),
+#'     stick = list(colorscheme = "Jmol")
+#'   )) %>%
+#'   m_add_unit_cell(spec = list(
+#'     alabel = "x",
+#'     blabel = "y",
+#'     clabel = "z",
+#'     box = list(hidden = TRUE)
+#'   )) %>%
+#'   m_zoom_to()
+#' 
+#' # Render model
+#' mol
+#' 
+#' # Remove unit cell
+#' mol %>%
+#'   m_remove_unit_cell()
+NULL

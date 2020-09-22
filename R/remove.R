@@ -114,3 +114,10 @@ m_remove_label <- function(id, label) {
   method <- "removeLabel"
   callJS()
 }
+
+#' @rdname m_unit_cell
+#' @export
+m_remove_unit_cell <- function(id, model) {
+  method <- "removeUnitCell"
+  callJS()
+}

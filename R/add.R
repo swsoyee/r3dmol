@@ -506,37 +506,8 @@ m_add_surface <- function(id, type, style, atomsel, allsel, focus, surfacecallba
   callJS()
 }
 
-
-#' Create and add unit cell visualization
-#'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param model Model with unit cell information (e.g., pdb derived).
-#' If omitted uses most recently added model.
-#' @param spec Visualization style.
-#'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @rdname m_unit_cell
 #' @export
-#'
-#' @examples
-#' library(r3dmol)
-#'
-#' r3dmol() %>%
-#'   m_add_model(
-#'     data = cif_254385,
-#'     "cif",
-#'     options = list(doAssembly = TRUE, normalizeAssembly = TRUE)
-#'   ) %>%
-#'   m_set_style(style = list(
-#'     sphere = list(colorscheme = "Jmol", scale = 0.25),
-#'     stick = list(colorscheme = "Jmol")
-#'   )) %>%
-#'   m_add_unit_cell(spec = list(
-#'     alabel = "x",
-#'     blabel = "y",
-#'     clabel = "z",
-#'     box = list(hidden = TRUE)
-#'   )) %>%
-#'   m_zoom_to()
 m_add_unit_cell <- function(id, model, spec) {
   method <- "addUnitCell"
   callJS()
