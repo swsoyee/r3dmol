@@ -9,18 +9,15 @@ reference:
       - init
       - m_render
       - m_enable_fog
-  - title: 'Add'
-    desc: 'Functions for adding elements to the view.'
+  - title: 'Add / Remove'
+    desc: 'Functions for adding and removing elements to the view.'
   - contents:
       - starts_with("m_add")
+      - starts_with("m_remove")
   - title: 'Set'
     desc: 'Functions for setting elements to the view.'
   - contents:
       - starts_with("m_set")
-  - title: 'Remove'
-    desc: 'Functions for removing elements to the view.'
-  - contents:
-      - starts_with("m_remove")
   - title: 'Animate'
     desc: 'Functions for creating animation.'
   - contents:
