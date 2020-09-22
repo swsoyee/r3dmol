@@ -19,3 +19,11 @@
 #'
 #' @format Gaussian cube format
 "bohr_cube"
+
+#' Multiple sdf file example
+#'
+#' @source <https://github.com/3dmol/3Dmol.js/blob/master/tests/test_structs/multiple.sdf>
+#'
+#' @format sdf format
+"sdf_multiple"
+

@@ -19,10 +19,6 @@ HTMLWidgets.widget({
       return (paramSet);
     }
 
-    const validateData = data => {
-      return (typeof (data) === "string" ? data : data.join("\n"));
-    }
-
     return {
 
       renderValue: function (x) {
@@ -37,6 +33,7 @@ HTMLWidgets.widget({
             position: x.position || "relative",
           });
           view = $3Dmol.createViewer($(container), x.configs);
+          console.log(x);
         }
         // Now that the widget is initialized, call any outstanding API
         // functions that the user wantd to run on the widget
@@ -50,7 +47,7 @@ HTMLWidgets.widget({
           "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
           "addSphere", "addShape", "addStyle", "addLabel", "addModel",
           "addVolumetricData", "addPropertyLabels", "addResLabels",
-          "addSurface", "addUnitCell", "addCustom",
+          "addSurface", "addUnitCell", "addCustom", "addModels",
           // set
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
@@ -87,7 +84,7 @@ HTMLWidgets.widget({
       rotate: params => view.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath),
       createModelFrom: params => view.createModelFrom(params.sel, params.extract),
       addArrow: params => view.addArrow(evalCallback(['callback'], params.spec)),
-      addAsOneMolecule: params => view.addAsOneMolecule(validateData(params.data), params.format),
+      addAsOneMolecule: params => view.addAsOneMolecule(params.data, params.format),
       addBox: params => view.addBox(params.spec),
       addCurve: params => view.addCurve(params.spec),
       addCustom: params => view.addCustom(params.spec),
@@ -99,12 +96,13 @@ HTMLWidgets.widget({
       addSphere: params => view.addSphere(params.spec),
       addShape: params => view.addShape(params.shapeSpec),
       addStyle: params => view.addStyle(params.sel, params.style),
-      addModel: params => view.addModel(validateData(params.data), params.format, params.options),
+      addModel: params => view.addModel(params.data[0].toString(), params.format, params.options),
+      addModels: params => view.addModels(params.data.toString(), params.format),
       // TODO: not working
       addUnitCell: params => view.addUnitCell(params.model, params.spec),
       // TODO: not working
-      addModelsAsFrames: params => view.addModelsAsFrames(validateData(params.data), params.format),
-      addIsosurface: params => view.addIsosurface(new $3Dmol.VolumeData(validateData(params.data), "cube"), params.isoSpec),
+      addModelsAsFrames: params => view.addModelsAsFrames(params.data, params.format),
+      addIsosurface: params => view.addIsosurface(new $3Dmol.VolumeData(params.data, "cube"), params.isoSpec),
       // TODO: not working
       addSurface: params => view.addSurface(params.type, params.style, params.atomsel, params.allsel, params.focus, evalCallback(['surfacecallback'], params.surfacecallback)),
       removeAllLabels: () => view.removeAllLabels(),

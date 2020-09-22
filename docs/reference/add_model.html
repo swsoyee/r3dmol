@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zoom current view by a constant factor — m_zoom • r3dmol</title>
+<title>Create and add model to viewer — m_add_model • r3dmol</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,10 @@
 
 
 
-<meta property="og:title" content="Zoom current view by a constant factor — m_zoom" />
-<meta property="og:description" content="Zoom current view by a constant factor" />
+<meta property="og:title" content="Create and add model to viewer — m_add_model" />
+<meta property="og:description" content="Create and add model to viewer, given molecular data and its format. If multi-model
+file is provided, use m_add_models adding atom data to the viewer as
+separate models." />
 
 
 
@@ -116,16 +118,20 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Zoom current view by a constant factor</h1>
+    <h1>Create and add model to viewer</h1>
     
-    <div class="hidden name"><code>m_zoom.Rd</code></div>
+    <div class="hidden name"><code>add_model.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Zoom current view by a constant factor</p>
+    <p>Create and add model to viewer, given molecular data and its format. If multi-model
+file is provided, use <code>m_add_models</code> adding atom data to the viewer as
+separate models.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>m_zoom</span>(<span class='no'>id</span>, <span class='kw'>factor</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='no'>animationDuration</span>, <span class='no'>fixedPath</span>)</pre>
+    <pre class="usage"><span class='fu'>m_add_model</span>(<span class='no'>id</span>, <span class='no'>data</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"pdb"</span>, <span class='st'>"sdf"</span>, <span class='st'>"xyz"</span>, <span class='st'>"pqr"</span>, <span class='st'>"mol2"</span>), <span class='no'>options</span>)
+
+<span class='fu'>m_add_models</span>(<span class='no'>id</span>, <span class='no'>data</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"pdb"</span>, <span class='st'>"sdf"</span>, <span class='st'>"xyz"</span>, <span class='st'>"pqr"</span>, <span class='st'>"mol2"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,19 +141,17 @@
       <td><p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p></td>
     </tr>
     <tr>
-      <th>factor</th>
-      <td><p>Magnification <code>numeric</code> factor. Values greater than <code>1</code> will
-zoom in, less than one will zoom out. Default <code>2</code>.</p></td>
+      <th>data</th>
+      <td><p>Path of input data path or a vector of data.</p></td>
     </tr>
     <tr>
-      <th>animationDuration</th>
-      <td><p>an optional parameter of milliseconds <code>numeric</code> that
-denotes the duration of a zoom animation</p></td>
+      <th>format</th>
+      <td><p>Input format (<code>'pdb'</code>, <code>'sdf'</code>, <code>'xyz'</code>, <code>'pqr'</code>,
+or <code>'mol2'</code>).</p></td>
     </tr>
     <tr>
-      <th>fixedPath</th>
-      <td><p>if <code>true</code> animation is constrained to
-requested motion, overriding updates that happen during the animation</p></td>
+      <th>options</th>
+      <td><p>Format dependent options. Attributes depend on the input file format.</p></td>
     </tr>
     </table>
 
@@ -158,10 +162,19 @@ requested motion, overriding updates that happen during the animation</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>r3dmol</span>)
 
+<span class='co'># Single-model file with m_add_model() function</span>
 <span class='fu'><a href='init.html'>r3dmol</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='add_model.html'>m_add_model</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>pdb_6zsl</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"pdb"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'>m_zoom</span>(<span class='kw'>factor</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>animationDuration</span> <span class='kw'>=</span> <span class='fl'>1000</span>)</div></pre>
+  <span class='fu'>m_add_model</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>pdb_6zsl</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"pdb"</span>)
+
+<span class='co'># Multi-model file with m_add_models() function</span>
+<span class='fu'><a href='init.html'>r3dmol</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'>m_add_models</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>sdf_multiple</span>, <span class='st'>"sdf"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>()
+
+<span class='co'># Multi-model file with m_add_model() function</span>
+<span class='fu'><a href='init.html'>r3dmol</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'>m_add_model</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>sdf_multiple</span>, <span class='st'>"sdf"</span>) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>()</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

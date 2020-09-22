@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Zoom current view by a constant factor — m_zoom • r3dmol</title>
+<title>Multiple sdf file example — sdf_multiple • r3dmol</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Zoom current view by a constant factor — m_zoom" />
-<meta property="og:description" content="Zoom current view by a constant factor" />
+<meta property="og:title" content="Multiple sdf file example — sdf_multiple" />
+<meta property="og:description" content="Multiple sdf file example" />
 
 
 
@@ -116,52 +116,25 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Zoom current view by a constant factor</h1>
+    <h1>Multiple sdf file example</h1>
     
-    <div class="hidden name"><code>m_zoom.Rd</code></div>
+    <div class="hidden name"><code>sdf_multiple.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Zoom current view by a constant factor</p>
+    <p>Multiple sdf file example</p>
     </div>
 
-    <pre class="usage"><span class='fu'>m_zoom</span>(<span class='no'>id</span>, <span class='kw'>factor</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='no'>animationDuration</span>, <span class='no'>fixedPath</span>)</pre>
+    <pre class="usage"><span class='no'>sdf_multiple</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>id</th>
-      <td><p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p></td>
-    </tr>
-    <tr>
-      <th>factor</th>
-      <td><p>Magnification <code>numeric</code> factor. Values greater than <code>1</code> will
-zoom in, less than one will zoom out. Default <code>2</code>.</p></td>
-    </tr>
-    <tr>
-      <th>animationDuration</th>
-      <td><p>an optional parameter of milliseconds <code>numeric</code> that
-denotes the duration of a zoom animation</p></td>
-    </tr>
-    <tr>
-      <th>fixedPath</th>
-      <td><p>if <code>true</code> animation is constrained to
-requested motion, overriding updates that happen during the animation</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p>
+    <p>sdf format</p>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>r3dmol</span>)
+    <p><a href='https://github.com/3dmol/3Dmol.js/blob/master/tests/test_structs/multiple.sdf'>https://github.com/3dmol/3Dmol.js/blob/master/tests/test_structs/multiple.sdf</a></p>
 
-<span class='fu'><a href='init.html'>r3dmol</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='add_model.html'>m_add_model</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>pdb_6zsl</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"pdb"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'>m_zoom</span>(<span class='kw'>factor</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>animationDuration</span> <span class='kw'>=</span> <span class='fl'>1000</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

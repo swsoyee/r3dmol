@@ -344,24 +344,8 @@ m_add_label <-
     callJS()
   }
 
-#' Create and add model to viewer
-#'
-#' Create and add model to viewer, given molecular data and its format
-#'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param data Path of input data path or a vector of data.
-#' @param format Input format (\code{'pdb'}, \code{'sdf'}, \code{'xyz'}, \code{'pqr'},
-#'  or \code{'mol2'})
-#' @param options Format dependent options. Attributes depend on the input file format.
-#'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @rdname add_model
 #' @export
-#'
-#' @examples
-#' library(r3dmol)
-#'
-#' r3dmol() %>%
-#'   m_add_model(data = pdb_6zsl, format = "pdb")
 m_add_model <-
   function(id,
            data,
@@ -369,12 +353,42 @@ m_add_model <-
            options) {
     format <- match.arg(format)
 
+    if (!is.list(data)) {
+      data <- list(data)
+    }
+
+    entries <- data
+    data <- list()
+
+    for (entry in entries) {
+      # If file path is pass in, read the file and store it as a vector
+      if (length(entry) == 1 && file.exists(entry)) {
+        entry <- readLines(entry)
+      }
+      entry <- paste0(entry, collapse = "\n")
+      data <- append(data, entry)
+    }
+
+    rm(entries, entry)
+
+    method <- "addModel"
+    callJS()
+  }
+
+#' @rdname add_model
+#' @export
+m_add_models <-
+  function(id,
+           data,
+           format = c("pdb", "sdf", "xyz", "pqr", "mol2")) {
+    format <- match.arg(format)
+
     # If file path is pass in, read the file and store it as a vector
     if (length(data) == 1 && file.exists(data)) {
       data <- readLines(data)
     }
-
-    method <- "addModel"
+    data <- paste0(data, collapse = "\n")
+    method <- "addModels"
     callJS()
   }
 
@@ -431,7 +445,7 @@ m_add_models_as_frames <- function(id, data, format) {
   if (length(data) == 1 && file.exists(data)) {
     data <- readLines(data)
   }
-
+  data <- paste0(data, collapse = "\n")
   method <- "addModelsAsFrames"
   callJS()
 }

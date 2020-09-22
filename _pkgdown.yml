@@ -39,4 +39,5 @@ reference:
     desc: 'Datasets provide by package for demo'
   - contents:
       - starts_with("pdb")
+      - starts_with("sdf")
       - bohr_cube
