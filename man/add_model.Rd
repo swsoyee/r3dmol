@@ -6,9 +6,14 @@
 \alias{add_model}
 \title{Create and add model to viewer}
 \usage{
-m_add_model(id, data, format = c("pdb", "sdf", "xyz", "pqr", "mol2"), options)
+m_add_model(
+  id,
+  data,
+  format = c("pdb", "sdf", "xyz", "pqr", "mol2", "cif"),
+  options
+)
 
-m_add_models(id, data, format = c("pdb", "sdf", "xyz", "pqr", "mol2"))
+m_add_models(id, data, format = c("pdb", "sdf", "xyz", "pqr", "mol2", "cif"))
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}

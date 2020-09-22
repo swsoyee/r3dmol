@@ -154,6 +154,26 @@ If omitted uses most recently added model.</p></td>
 
     <p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>r3dmol</span>)
+
+<span class='fu'><a href='init.html'>r3dmol</a></span>() <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='add_model.html'>m_add_model</a></span>(
+    <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cif_254385</span>,
+    <span class='st'>"cif"</span>,
+    <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>doAssembly</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>normalizeAssembly</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+  ) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_set_style.html'>m_set_style</a></span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+    <span class='kw'>sphere</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>colorscheme</span> <span class='kw'>=</span> <span class='st'>"Jmol"</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>0.25</span>),
+    <span class='kw'>stick</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>colorscheme</span> <span class='kw'>=</span> <span class='st'>"Jmol"</span>)
+  )) <span class='kw'>%&gt;%</span>
+  <span class='fu'>m_add_unit_cell</span>(<span class='kw'>spec</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+    <span class='kw'>alabel</span> <span class='kw'>=</span> <span class='st'>"x"</span>,
+    <span class='kw'>blabel</span> <span class='kw'>=</span> <span class='st'>"y"</span>,
+    <span class='kw'>clabel</span> <span class='kw'>=</span> <span class='st'>"z"</span>,
+    <span class='kw'>box</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>hidden</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+  )) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>()</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

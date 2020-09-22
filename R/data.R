@@ -27,3 +27,9 @@
 #' @format sdf format
 "sdf_multiple"
 
+#' Cif file example
+#'
+#' @source <https://github.com/3dmol/3Dmol.js/blob/master/tests/auto/data/254385.cif>
+#'
+#' @format cif format
+"cif_254385"

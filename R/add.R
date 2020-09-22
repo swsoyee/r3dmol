@@ -349,7 +349,7 @@ m_add_label <-
 m_add_model <-
   function(id,
            data,
-           format = c("pdb", "sdf", "xyz", "pqr", "mol2"),
+           format = c("pdb", "sdf", "xyz", "pqr", "mol2", "cif"),
            options) {
     format <- match.arg(format)
 
@@ -380,7 +380,7 @@ m_add_model <-
 m_add_models <-
   function(id,
            data,
-           format = c("pdb", "sdf", "xyz", "pqr", "mol2")) {
+           format = c("pdb", "sdf", "xyz", "pqr", "mol2", "cif")) {
     format <- match.arg(format)
 
     # If file path is pass in, read the file and store it as a vector
@@ -518,6 +518,25 @@ m_add_surface <- function(id, type, style, atomsel, allsel, focus, surfacecallba
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(
+#'     data = cif_254385,
+#'     "cif",
+#'     options = list(doAssembly = TRUE, normalizeAssembly = TRUE)
+#'   ) %>%
+#'   m_set_style(style = list(
+#'     sphere = list(colorscheme = "Jmol", scale = 0.25),
+#'     stick = list(colorscheme = "Jmol")
+#'   )) %>%
+#'   m_add_unit_cell(spec = list(
+#'     alabel = "x",
+#'     blabel = "y",
+#'     clabel = "z",
+#'     box = list(hidden = TRUE)
+#'   )) %>%
+#'   m_zoom_to()
 m_add_unit_cell <- function(id, model, spec) {
   method <- "addUnitCell"
   callJS()

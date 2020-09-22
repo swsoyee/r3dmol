@@ -41,4 +41,5 @@ reference:
   - contents:
       - starts_with("pdb")
       - starts_with("sdf")
+      - starts_with("cif")
       - bohr_cube

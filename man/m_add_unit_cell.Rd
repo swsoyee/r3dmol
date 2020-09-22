@@ -20,3 +20,24 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 \description{
 Create and add unit cell visualization
 }
+\examples{
+library(r3dmol)
+
+r3dmol() \%>\%
+  m_add_model(
+    data = cif_254385,
+    "cif",
+    options = list(doAssembly = TRUE, normalizeAssembly = TRUE)
+  ) \%>\%
+  m_set_style(style = list(
+    sphere = list(colorscheme = "Jmol", scale = 0.25),
+    stick = list(colorscheme = "Jmol")
+  )) \%>\%
+  m_add_unit_cell(spec = list(
+    alabel = "x",
+    blabel = "y",
+    clabel = "z",
+    box = list(hidden = TRUE)
+  )) \%>\%
+  m_zoom_to()
+}
