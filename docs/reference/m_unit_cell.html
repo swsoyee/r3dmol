@@ -186,7 +186,7 @@ If omitted uses most recently added model.</p></td>
     <span class='st'>"cif"</span>,
     <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>doAssembly</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>normalizeAssembly</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
   ) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='m_set_style.html'>m_set_style</a></span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+  <span class='fu'><a href='m_style.html'>m_set_style</a></span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
     <span class='kw'>sphere</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>colorscheme</span> <span class='kw'>=</span> <span class='st'>"Jmol"</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>0.25</span>),
     <span class='kw'>stick</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>colorscheme</span> <span class='kw'>=</span> <span class='st'>"Jmol"</span>)
   )) <span class='kw'>%&gt;%</span>
@@ -208,7 +208,7 @@ If omitted uses most recently added model.</p></td>
 <span class='co'># Replicate atoms in model to form a super cell</span>
 <span class='fu'><a href='init.html'>r3dmol</a></span>() <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='add_model.html'>m_add_model</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cif_254385</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"cif"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='m_set_style.html'>m_set_style</a></span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>sphere</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>0.25</span>))) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='m_style.html'>m_set_style</a></span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>sphere</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>0.25</span>))) <span class='kw'>%&gt;%</span>
   <span class='fu'>m_add_unit_cell</span>() <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>() <span class='kw'>%&gt;%</span>
   <span class='fu'>m_replicate_unit_cell</span>(<span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>b</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>c</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div></pre>

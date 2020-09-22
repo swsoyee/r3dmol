@@ -1,23 +1,5 @@
-#' Set style properties to all selected atoms
-#'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param sel Atom selection specification
-#' @param style Style spec to apply to specified atoms
-#'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @rdname m_style
 #' @export
-#'
-#' @examples
-#' library(r3dmol)
-#' r3dmol() %>%
-#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list())) %>%
-#'   m_set_style(sel = list(chain = "A"),
-#'            style = list(stick = list(
-#'              radius = 0.5,
-#'              colorscheme = "magentaCarbon"
-#'            ))) %>%
-#'   m_zoom_to()
 m_set_style <- function(id, sel = list(), style = list()) {
   if (missing(style)) {
     stop("The `style` argument must be passed.")

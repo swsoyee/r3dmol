@@ -108,3 +108,33 @@ NULL
 #'   m_zoom_to() %>%
 #'   m_replicate_unit_cell(a = 3, b = 2, c = 1)
 NULL
+
+#' Set or set style properties to all selected atoms
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param sel Atom selection specification
+#' @param style Style spec to apply to specified atoms
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @name m_style
+#'
+#' @examples
+#' library(r3dmol)
+#' 
+#' # Add style to model
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_add_style(style = list(cartoon = list())) %>%
+#'   m_zoom_to()
+#' 
+#' # Set style to model
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_set_style(sel = list(chain = "A"),
+#'            style = list(stick = list(
+#'              radius = 0.5,
+#'              colorscheme = "magentaCarbon"
+#'            ))) %>%
+#'   m_zoom_to()
+NULL
