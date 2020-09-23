@@ -20,6 +20,28 @@
 #'  m_set_background_color("#666666", alpha = 0.9)
 NULL
 
+#' Sets the view to the specified translation, zoom, rotation and style
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param arg Vector formatted view setting,
+#' \code{c(pos.x, pos.y, pos.z, rotationGroup.position.z, q.x, q.y, q.z, q.w)}. Requires
+#' any one of \code{q.x}, \code{q.y}, \code{q.z}, \code{q.w} to be set to \code{1} to
+#' enable mouse control, otherwise only static image is rendered.
+#' @param style css style object in list.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @name m_set_view
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_set_view(arg = c(20,-20, 10,-200, 0, 1, 0, 0)) %>%
+#'   m_set_view_style(style = list(style = "outline", color = "blue"))
+NULL
+
 #' Create and add model to viewer
 #'
 #' Create and add model to viewer, given molecular data and its format. If multi-model

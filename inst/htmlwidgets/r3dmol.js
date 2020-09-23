@@ -33,7 +33,6 @@ HTMLWidgets.widget({
             position: x.position || "relative",
           });
           view = $3Dmol.createViewer($(container), x.configs);
-          console.log(x);
         }
         // Now that the widget is initialized, call any outstanding API
         // functions that the user wantd to run on the widget
@@ -53,6 +52,7 @@ HTMLWidgets.widget({
           "setStyle", "setBackgroundColor", "setWidth", "setProjection",
           "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
           "setHoverDuration", "setColorByElement", "setPerceivedDistance",
+          "setView",
           // get
           "getModel",
           // remove
@@ -122,6 +122,7 @@ HTMLWidgets.widget({
       setColorByElement: params => view.setColorByElement(params.sel, params.colors),
       setSlab: params => view.setSlab(params.near, params.far),
       setViewStyle: params => view.setViewStyle(params.style),
+      setView: params => view.setView(params.arg),
       setHoverDuration: params => view.setHoverDuration(params.hoverDuration),
       spin: params => view.spin(params.axis),
       setWidth: params => view.setWidth(params.width),

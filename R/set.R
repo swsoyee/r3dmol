@@ -84,26 +84,6 @@ m_set_slab <- function(id, near, far) {
   callJS()
 }
 
-#' Set global view styles
-#'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param style css style object in list.
-#'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @export
-#'
-#' @examples
-#' library(r3dmol)
-#'
-#' r3dmol() %>%
-#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_set_style(style = list(stick = list())) %>%
-#'   m_zoom_to() %>%
-#'   m_set_view_style(style = list(style = "outline", color = "blue"))
-m_set_view_style <- function(id, style) {
-  method <- "setViewStyle"
-  callJS()
-}
 
 
 #' Set the duration of the hover delay
@@ -194,5 +174,20 @@ m_set_color_by_element <- function(id, sel, colors) {
 #'   m_set_preceived_distance(dist = 200)
 m_set_preceived_distance <- function(id, dist) {
   method <- "setPerceivedDistance"
+  callJS()
+}
+
+#' @rdname m_set_view
+#' @export
+m_set_view <- function(id, arg) {
+  method <- "setView"
+  callJS()
+}
+
+
+#' @rdname m_set_view
+#' @export
+m_set_view_style <- function(id, style) {
+  method <- "setViewStyle"
   callJS()
 }
