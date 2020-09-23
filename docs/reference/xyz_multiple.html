@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create and add model to viewer — m_add_models_as_frames • r3dmol</title>
+<title>Multiple xyz file example — xyz_multiple • r3dmol</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,8 @@
 
 
 
-<meta property="og:title" content="Create and add model to viewer — m_add_models_as_frames" />
-<meta property="og:description" content="Create and add model to viewer. Given multimodel file and its format,
-different atomlists are stored in model's frame
-property and model's atoms are set to the 0th frame" />
+<meta property="og:title" content="Multiple xyz file example — xyz_multiple" />
+<meta property="og:description" content="Multiple xyz file example" />
 
 
 
@@ -123,48 +121,25 @@ property and model's atoms are set to the 0th frame" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create and add model to viewer</h1>
-    <small class="dont-index">Source: <a href='https://github.com/swsoyee/r3dmol/blob/master/R/add.R'><code>R/add.R</code></a></small>
-    <div class="hidden name"><code>m_add_models_as_frames.Rd</code></div>
+    <h1>Multiple xyz file example</h1>
+    <small class="dont-index">Source: <a href='https://github.com/swsoyee/r3dmol/blob/master/R/data.R'><code>R/data.R</code></a></small>
+    <div class="hidden name"><code>xyz_multiple.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create and add model to viewer. Given multimodel file and its format,
-different atomlists are stored in model's frame
-property and model's atoms are set to the 0th frame</p>
+    <p>Multiple xyz file example</p>
     </div>
 
-    <pre class="usage"><span class='fu'>m_add_models_as_frames</span>(<span class='no'>id</span>, <span class='no'>data</span>, <span class='no'>format</span>)</pre>
+    <pre class="usage"><span class='no'>xyz_multiple</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>id</th>
-      <td><p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p></td>
-    </tr>
-    <tr>
-      <th>data</th>
-      <td><p>Path of input data path or a vector of data.</p></td>
-    </tr>
-    <tr>
-      <th>format</th>
-      <td><p>Input format (see <a href='http://3dmol.csb.pitt.edu/doc/types.html#FileFormats'>http://3dmol.csb.pitt.edu/doc/types.html#FileFormats</a>).</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p>
+    <p>xyz format</p>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>r3dmol</span>)
+    <p><a href='https://github.com/3dmol/3Dmol.js/blob/master/tests/test_structs/multiple2.xyz'>https://github.com/3dmol/3Dmol.js/blob/master/tests/test_structs/multiple2.xyz</a></p>
 
-<span class='fu'><a href='init.html'>r3dmol</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'>m_add_models_as_frames</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>xyz_multiple</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"xyz"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='m_animate.html'>m_animate</a></span>(<span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>loop</span> <span class='kw'>=</span> <span class='st'>"forward"</span>, <span class='kw'>reps</span> <span class='kw'>=</span> <span class='fl'>1</span>)) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='m_style.html'>m_set_style</a></span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>stick</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>colorscheme</span> <span class='kw'>=</span> <span class='st'>"magentaCarbon"</span>))) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>()</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

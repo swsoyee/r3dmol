@@ -21,3 +21,12 @@ Create and add model to viewer. Given multimodel file and its format,
 different atomlists are stored in model's frame
 property and model's atoms are set to the 0th frame
 }
+\examples{
+library(r3dmol)
+
+r3dmol() \%>\%
+  m_add_models_as_frames(data = xyz_multiple, format = "xyz") \%>\%
+  m_animate(options = list(loop = "forward", reps = 1)) \%>\%
+  m_set_style(style = list(stick = list(colorscheme = "magentaCarbon"))) \%>\%
+  m_zoom_to()
+}

@@ -250,12 +250,19 @@ m_add_isosurface <- function(id, data, isoSpec) {
 #' @export
 #'
 #' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#'   m_add_models_as_frames(data = xyz_multiple, format = "xyz") %>%
+#'   m_animate(options = list(loop = "forward", reps = 1)) %>%
+#'   m_set_style(style = list(stick = list(colorscheme = "magentaCarbon"))) %>%
+#'   m_zoom_to()
 m_add_models_as_frames <- function(id, data, format) {
   # If file path is pass in, read the file and store it as a vector
   if (length(data) == 1 && file.exists(data)) {
     data <- readLines(data)
   }
-  data <- paste0(data, collapse = "\\n")
+  data <- paste0(data, collapse = "\n")
   method <- "addModelsAsFrames"
   callJS()
 }

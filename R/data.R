@@ -27,6 +27,13 @@
 #' @format sdf format
 "sdf_multiple"
 
+#' Multiple xyz file example
+#'
+#' @source <https://github.com/3dmol/3Dmol.js/blob/master/tests/test_structs/multiple2.xyz>
+#'
+#' @format xyz format
+"xyz_multiple"
+
 #' Cif file example
 #'
 #' @source <https://github.com/3dmol/3Dmol.js/blob/master/tests/auto/data/254385.cif>

@@ -102,7 +102,6 @@ HTMLWidgets.widget({
       addUnitCell: params => view.addUnitCell(params.model, params.spec),
       // TODO: not working
       addVolumetricRender: params => view.addVolumetricRender(new $3Dmol.VolumeData(params.data.toString(), "cube"), params.spec),
-      // TODO: not working
       addModelsAsFrames: params => view.addModelsAsFrames(params.data, params.format),
       addIsosurface: params => view.addIsosurface(new $3Dmol.VolumeData(params.data.toString(), "cube"), params.isoSpec),
       // TODO: not working
