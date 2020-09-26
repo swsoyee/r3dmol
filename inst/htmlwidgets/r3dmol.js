@@ -164,6 +164,9 @@ if (HTMLWidgets.shinyMode) {
           if (el) {
             delete message['id'];
             el.widget[fxn](message);
+            if (isAutoRenderFunction.findIndex(el => el === fxn) > -1) {
+              el.widget.render();
+            }
           }
         }
       );

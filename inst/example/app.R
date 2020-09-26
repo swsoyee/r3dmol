@@ -17,7 +17,9 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$set_background_color, {
-    m_set_background_color(id = "r3dmol", hex = "black", alpha = "0.5")
+    m_set_background_color(id = "r3dmol",
+                           hex = "black",
+                           alpha = "0.5")
   })
 
   observeEvent(input$spin, {
@@ -33,8 +35,14 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$set_style, {
-    m_set_style(id = "r3dmol", style = list(cartoon = list())) %>%
-      m_render()
+    m_set_style(
+      id = "r3dmol",
+      sel = list(chain = "A"),
+      style = list(stick = list(
+        radius = 0.5,
+        colorscheme = "magentaCarbon"
+      ))
+    )
   })
 
 }
