@@ -1,32 +1,55 @@
 library(shiny)
 library(r3dmol)
+library(colourpicker)
 
-ui <- fluidPage(
-  actionButton(inputId = "set_background_color", label = "Set Background Color"),
-  actionButton(inputId = "set_style", label = "Set Cartoon Style"),
-  actionButton(inputId = "zoom_to", label = "Zoom to"),
-  actionButton(inputId = "spin", label = "Spin"),
-  actionButton(inputId = "stop", label = "Stop Animate"),
-  r3dmolOutput(outputId = "r3dmol", height = "800px")
-)
+ui <- fluidPage(fluidRow(column(
+  width = 12,
+  titlePanel("{r3dmol} Shiny Demo"),
+  tags$h3(
+    "6ZSL: Crystal structure of the SARS-CoV-2 helicase at 1.94 Angstrom resolution"
+  )
+)),
+fluidRow(column(
+  width = 4,
+  wellPanel(
+    colourInput(
+      inputId = "set_background_color",
+      label = "Set background color",
+      closeOnClick = TRUE,
+      value = "#000000"
+    ),
+    selectInput(
+      inputId = "set_style",
+      label = "Set Style",
+      choices = c("Line", "Cross", "Stick", "Sphere", "Cartoon"),
+      selected = "Line"
+    ),
+    actionButton(inputId = "zoom_to", label = "Zoom to"),
+    actionButton(inputId = "spin", label = "Spin")
+  )
+),
+column(
+  width = 8,
+  r3dmolOutput(outputId = "r3dmol", height = "600px")
+)))
 
 server <- function(input, output, session) {
   output$r3dmol <- renderR3dmol({
-    r3dmol() %>%
+    r3dmol(
+      cartoonQuality = 10,
+      lowerZoomLimit = 50,
+      upperZoomLimit = 350,
+      backgroundColor = "#000000"
+    ) %>%
       m_add_model(data = pdb_6zsl, format = "pdb")
   })
 
   observeEvent(input$set_background_color, {
     m_set_background_color(id = "r3dmol",
-                           hex = "black",
-                           alpha = "0.5")
+                           hex = input$set_background_color)
   })
 
   observeEvent(input$spin, {
-    m_spin(id = "r3dmol")
-  })
-
-  observeEvent(input$stop, {
     m_spin(id = "r3dmol")
   })
 
@@ -35,14 +58,17 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$set_style, {
-    m_set_style(
-      id = "r3dmol",
-      sel = list(chain = "A"),
-      style = list(stick = list(
-        radius = 0.5,
-        colorscheme = "magentaCarbon"
-      ))
+    style <- switch(
+      input$set_style,
+      "Line" = list(line = list()),
+      "Cartoon" = list(cartoon = list()),
+      "Stick" = list(stick = list()),
+      "Cross" = list(cross = list()),
+      "Sphere" = list(sphere = list())
     )
+
+    m_set_style(id = "r3dmol",
+                style = style)
   })
 
 }
