@@ -8,6 +8,7 @@ reference:
   - contents:
       - init
       - m_render
+      - m_clear
       - m_enable_fog
       - m_shiny_demo
       - r3dmol-shiny

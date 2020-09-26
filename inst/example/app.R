@@ -50,7 +50,8 @@ fluidRow(column(
       label = "Zoom out",
       icon = icon("minus")
     ),
-    actionButton(inputId = "spin", label = "Spin")
+    actionButton(inputId = "spin", label = "Spin"),
+    actionButton(inputId = "clear", label = "Clear")
   )
 ),
 column(
@@ -107,6 +108,10 @@ server <- function(input, output, session) {
 
   observeEvent(input$set_projection, {
     m_set_projection(id = "r3dmol", scheme = input$set_projection)
+  })
+
+  observeEvent(input$clear, {
+    m_clear(id = "r3dmol")
   })
 
   observeEvent(input$set_slab, {

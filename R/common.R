@@ -120,3 +120,15 @@ m_create_model_from <- function(id, sel, extract) {
   method <- "createModelFrom"
   callJS()
 }
+
+#' Clear scene of all objects
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @export
+#'
+m_clear <- function(id) {
+  method <- "clear"
+  callJS()
+}

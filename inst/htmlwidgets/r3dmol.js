@@ -1,6 +1,6 @@
 const isAutoRenderFunction = [
   // Other
-  "createModelFrom",
+  "createModelFrom", "clear",
   // add
   "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
   "addSphere", "addShape", "addStyle", "addLabel", "addModel",
@@ -150,6 +150,7 @@ HTMLWidgets.widget({
       zoomTo: params => view.zoomTo(params.sel, params.animationDuration, params.fixedPath),
       vibrate: params => view.vibrate(params.numFrames, params.amplitude, params.bothWays, params.arrowSpec),
       center: params => view.center(params.sel, params.animationDuration, params.fixedPath),
+      clear: () => view.clear(),
     };
   }
 });
