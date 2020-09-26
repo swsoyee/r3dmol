@@ -3,8 +3,8 @@ title: "Introduction to r3dmol"
 author: "Wei Su"
 date: "`r Sys.Date()`"
 output:
-  md_document:
-    pandoc_args: ["--wrap=preserve"]
+  # md_document:
+  #   pandoc_args: ["--wrap=preserve"]
   html_document:
     theme: flatly
 ---

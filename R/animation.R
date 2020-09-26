@@ -56,7 +56,6 @@ m_spin <- function(id, axis = "y") {
 #'
 #' @export
 #'
-#' @examples
 m_stop_animate <- function(id) {
   method <- "stopAnimate"
   callJS()

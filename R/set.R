@@ -17,7 +17,6 @@ m_set_style <- function(id, sel = list(), style = list()) {
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
-#' @examples
 m_set_zoom_limits <- function(id, lower = 0, upper = Inf) {
   method <- "setZoomLimits"
   callJS()
@@ -78,7 +77,6 @@ m_set_projection <- function(id, scheme = c("perspective", "orthographic")) {
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
-#' @examples
 m_set_slab <- function(id, near, far) {
   method <- "setSlab"
   callJS()
@@ -109,7 +107,6 @@ m_set_hover_duration <- function(id, hoverDuration) {
 #' @return \code{logical}
 #' @export
 #'
-#' @examples
 m_is_animated <- function(id) {
   # TODO Fix return value in callJS()
   method <- "isAnimated"
@@ -150,7 +147,6 @@ m_set_default_cartoon_quality <- function(id, quality) {
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
-#' @examples
 m_set_color_by_element <- function(id, sel, colors) {
   method <- "setColorByElement"
   callJS()

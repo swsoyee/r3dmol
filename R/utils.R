@@ -3,7 +3,7 @@ callJS <- function() {
   message <- Filter(function(x) !is.symbol(x), as.list(parent.frame(1)))
   session <- shiny::getDefaultReactiveDomain()
 
-  # If a r3dmol widget was passed in, this is during a chain pipeline in the
+  # If a {r3dmol} widget was passed in, this is during a chain pipeline in the
   # initialization of the widget, so keep track of the desired function call
   # by adding it to a list of functions that should be performed when the widget
   # is ready
@@ -26,14 +26,6 @@ callJS <- function() {
   }
 }
 
-#' Pipe operator
-#'
-#' See \link[=magrittr]{\%>\%} for details.
-#'
-#' @name %>%
-#' @rdname pipe
-#' @keywords internal
-#' @export
 #' @importFrom magrittr %>%
-#' @usage lhs \%>\% rhs
-NULL
+#' @export
+magrittr::`%>%`

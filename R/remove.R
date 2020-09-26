@@ -95,7 +95,6 @@ m_remove_all_shapes <- function(id) {
 #' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
-#' @examples
 m_remove_all_surfaces <- function(id) {
   method <- "removeAllSurfaces"
   callJS()
@@ -109,7 +108,6 @@ m_remove_all_surfaces <- function(id) {
 #' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
-#' @examples
 m_remove_label <- function(id, label) {
   method <- "removeLabel"
   callJS()

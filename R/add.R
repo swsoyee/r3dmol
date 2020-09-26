@@ -19,7 +19,6 @@ m_add_style <- function(id, sel = list(), style = list()) {
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
-#' @examples
 m_add_as_one_molecule <- function(id, data, format) {
   data <- readLines(data) # TODO Need refactor
   method <- "addAsOneMolecule"
@@ -112,7 +111,6 @@ m_add_property_labels <- function(id, prop, sel, style) {
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
-#' @examples
 m_add_shape <- function(id, shapeSpec = list()) {
   method <- "addShape" # TODO Not work now.
   callJS()
@@ -317,7 +315,6 @@ m_add_res_labels <- function(id, sel, style, byframe) {
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
-#' @examples
 m_add_surface <- function(id, type, style, atomsel, allsel, focus, surfacecallback) {
   method <- "addSurface"
   callJS()
