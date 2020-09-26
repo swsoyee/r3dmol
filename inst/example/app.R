@@ -24,21 +24,32 @@ fluidRow(column(
       choices = c("Line", "Cross", "Stick", "Sphere", "Cartoon"),
       selected = "Line"
     ),
-    sliderInput(inputId = "set_slab",
-                label = "Set slab of view",
-                min = -150,
-                value = c(-50, 50),
-                animate = TRUE,
-                step = 10,
-                max = 150,
-                dragRange = TRUE),
+    sliderInput(
+      inputId = "set_slab",
+      label = "Set slab of view",
+      min = -150,
+      value = c(-50, 50),
+      animate = TRUE,
+      step = 10,
+      max = 150,
+      dragRange = TRUE
+    ),
     radioButtons(
       inputId = "set_projection",
       label = "Set view projection scheme",
       choices = c("perspective", "orthographic"),
       inline = TRUE
     ),
-    actionButton(inputId = "zoom_to", label = "Zoom to"),
+    actionButton(
+      inputId = "zoom_in",
+      label = "Zoom in",
+      icon = icon("plus")
+    ),
+    actionButton(
+      inputId = "zoom_out",
+      label = "Zoom out",
+      icon = icon("minus")
+    ),
     actionButton(inputId = "spin", label = "Spin")
   )
 ),
@@ -55,7 +66,8 @@ server <- function(input, output, session) {
       upperZoomLimit = 350,
       backgroundColor = "#000000"
     ) %>%
-      m_add_model(data = pdb_6zsl, format = "pdb")
+      m_add_model(data = pdb_6zsl, format = "pdb") %>%
+      m_zoom_to()
   })
 
   observeEvent(input$set_background_color, {
@@ -67,8 +79,16 @@ server <- function(input, output, session) {
     m_spin(id = "r3dmol")
   })
 
-  observeEvent(input$zoom_to, {
-    m_zoom_to(id = "r3dmol", animationDuration = 1000)
+  observeEvent(input$zoom_out, {
+    m_zoom(id = "r3dmol",
+           factor = 0.7,
+           animationDuration = 1000)
+  })
+
+  observeEvent(input$zoom_in, {
+    m_zoom(id = "r3dmol",
+           factor = 1.3,
+           animationDuration = 1000)
   })
 
   observeEvent(input$set_style, {
@@ -90,7 +110,9 @@ server <- function(input, output, session) {
   })
 
   observeEvent(input$set_slab, {
-    m_set_slab(id = "r3dmol", near = input$set_slab[1], far = input$set_slab[2])
+    m_set_slab(id = "r3dmol",
+               near = input$set_slab[1],
+               far = input$set_slab[2])
   })
 
 }
