@@ -77,6 +77,14 @@ m_set_projection <- function(id, scheme = c("perspective", "orthographic")) {
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
 #'
+#' @examples
+#' library(r3dmol)
+#'
+#' r3dmol() %>%
+#' m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_zoom_to() %>%
+#'   m_set_slab(near = -90, far = 0)
 m_set_slab <- function(id, near, far) {
   method <- "setSlab"
   callJS()

@@ -24,6 +24,14 @@ fluidRow(column(
       choices = c("Line", "Cross", "Stick", "Sphere", "Cartoon"),
       selected = "Line"
     ),
+    sliderInput(inputId = "set_slab",
+                label = "Set slab of view",
+                min = -150,
+                value = c(-50, 50),
+                animate = TRUE,
+                step = 10,
+                max = 150,
+                dragRange = TRUE),
     radioButtons(
       inputId = "set_projection",
       label = "Set view projection scheme",
@@ -79,6 +87,10 @@ server <- function(input, output, session) {
 
   observeEvent(input$set_projection, {
     m_set_projection(id = "r3dmol", scheme = input$set_projection)
+  })
+
+  observeEvent(input$set_slab, {
+    m_set_slab(id = "r3dmol", near = input$set_slab[1], far = input$set_slab[2])
   })
 
 }
