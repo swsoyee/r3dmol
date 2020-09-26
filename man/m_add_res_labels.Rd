@@ -22,7 +22,7 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
 Add residue labels. This will generate one label per a
 residue within the selected atoms. The label will be at the
 centroid of the atoms and styled according to the passed style.
-The label text will be \link[=resi]{resn}
+The label text will be \code{resn}\code{resi}
 }
 \examples{
 library(r3dmol)

@@ -82,7 +82,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">r3dmol</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
       </span>
     </div>
 
@@ -143,6 +143,25 @@
       <th>...</th>
       <td><p>Viewer input specification, see <a href='http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec'>http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec</a>
 for more details.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>Fixed width for viewer (in css units). Ignored when used in a
+Shiny app -- use the <code>width</code> parameter in
+<code><a href='r3dmol-shiny.html'>r3dmolOutput</a></code>.
+It is not recommended to use this parameter because the widget knows how to
+adjust its width automatically.</p></td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td><p>Fixed height for viewer (in css units). It is recommended to
+not use this parameter since the widget knows how to adjust its height
+automatically.</p></td>
+    </tr>
+    <tr>
+      <th>elementId</th>
+      <td><p>Use an explicit element ID for the widget (rather than an
+automatically generated one). Ignored when used in a Shiny app.</p></td>
     </tr>
     </table>
 

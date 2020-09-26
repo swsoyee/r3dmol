@@ -12,6 +12,19 @@ r3dmol(id = NULL, ..., width = NULL, height = NULL, elementId = NULL)
 
 \item{...}{Viewer input specification, see \url{http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec}
 for more details.}
+
+\item{width}{Fixed width for viewer (in css units). Ignored when used in a
+Shiny app -- use the \code{width} parameter in
+\code{\link[r3dmol]{r3dmolOutput}}.
+It is not recommended to use this parameter because the widget knows how to
+adjust its width automatically.}
+
+\item{height}{Fixed height for viewer (in css units). It is recommended to
+not use this parameter since the widget knows how to adjust its height
+automatically.}
+
+\item{elementId}{Use an explicit element ID for the widget (rather than an
+automatically generated one). Ignored when used in a Shiny app.}
 }
 \description{
 Create and initialize an appropriate viewer at supplied HTML element using specification in config

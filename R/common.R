@@ -33,7 +33,7 @@ m_render <- function(id) {
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_set_style(style = list(cartoon = list())) %>%
-#'   m_enable_fog(fog = F)
+#'   m_enable_fog(fog = FALSE)
 m_enable_fog <- function(id, fog = TRUE) {
   method <- "enableFog"
   callJS()

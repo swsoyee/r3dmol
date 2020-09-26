@@ -5,6 +5,16 @@
 #' @param id HTML element id of viewer.
 #' @param ... Viewer input specification, see <http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec>
 #' for more details.
+#' @param width Fixed width for viewer (in css units). Ignored when used in a
+#' Shiny app -- use the \code{width} parameter in
+#' \code{\link[r3dmol]{r3dmolOutput}}.
+#' It is not recommended to use this parameter because the widget knows how to
+#' adjust its width automatically.
+#' @param height Fixed height for viewer (in css units). It is recommended to
+#' not use this parameter since the widget knows how to adjust its height
+#' automatically.
+#' @param elementId Use an explicit element ID for the widget (rather than an
+#' automatically generated one). Ignored when used in a Shiny app.
 #'
 #' @import htmlwidgets
 #'
