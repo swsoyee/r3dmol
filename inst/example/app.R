@@ -24,6 +24,12 @@ fluidRow(column(
       choices = c("Line", "Cross", "Stick", "Sphere", "Cartoon"),
       selected = "Line"
     ),
+    radioButtons(
+      inputId = "set_projection",
+      label = "Set view projection scheme",
+      choices = c("perspective", "orthographic"),
+      inline = TRUE
+    ),
     actionButton(inputId = "zoom_to", label = "Zoom to"),
     actionButton(inputId = "spin", label = "Spin")
   )
@@ -69,6 +75,10 @@ server <- function(input, output, session) {
 
     m_set_style(id = "r3dmol",
                 style = style)
+  })
+
+  observeEvent(input$set_projection, {
+    m_set_projection(id = "r3dmol", scheme = input$set_projection)
   })
 
 }
