@@ -10,7 +10,7 @@ ui <- fluidPage(fluidRow(column(
   )
 )),
 fluidRow(column(
-  width = 4,
+  width = 3,
   wellPanel(
     colourInput(
       inputId = "set_background_color",
@@ -50,13 +50,21 @@ fluidRow(column(
       label = "Zoom out",
       icon = icon("minus")
     ),
-    actionButton(inputId = "spin", label = "Spin"),
-    actionButton(inputId = "clear", label = "Clear")
+    actionButton(
+      inputId = "spin",
+      label = "Spin",
+      icon = icon("sync-alt")
+    ),
+    actionButton(
+      inputId = "clear",
+      label = "Clear",
+      icon = icon("trash-alt")
+    )
   )
 ),
 column(
-  width = 8,
-  r3dmolOutput(outputId = "r3dmol", height = "600px")
+  width = 6,
+  r3dmolOutput(outputId = "r3dmol", height = "700px")
 )))
 
 server <- function(input, output, session) {
