@@ -1,3 +1,27 @@
+const isAutoRenderFunction = [
+  // Other
+  "createModelFrom",
+  // add
+  "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
+  "addSphere", "addShape", "addStyle", "addLabel", "addModel",
+  "addVolumetricData", "addPropertyLabels", "addResLabels",
+  "addSurface", "addUnitCell", "addCustom", "addModels", "addIsosurface",
+  "replicateUnitCell", "addModelsAsFrames", "addVolumetricRender",
+  // set
+  "setStyle", "setBackgroundColor", "setWidth", "setProjection",
+  "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
+  "setHoverDuration", "setColorByElement", "setPerceivedDistance",
+  "setView",
+  // get
+  "getModel",
+  // remove
+  "removeAllLabels", "removeAllModels", "removeAllShapes",
+  "removeAllSurfaces", "removeLabel", "removeUnitCell",
+  // animate
+  "spin", "rotate", "translate", "translateScene", "zoom", "zoomTo",
+  "enableFog", "center", "vibrate"
+];
+
 HTMLWidgets.widget({
 
   name: 'r3dmol',
@@ -33,35 +57,20 @@ HTMLWidgets.widget({
             position: x.position || "relative",
           });
           view = $3Dmol.createViewer($(container), x.configs);
+
+          // set listeners to events and pass data back to Shiny
+          // if (HTMLWidgets.shinyMode) {
+          //   Shiny.onInputChange(
+          //     elementId + "_selected",
+          //     console.log(elementId)
+          //   );
+          // }
         }
         // Now that the widget is initialized, call any outstanding API
         // functions that the user wantd to run on the widget
         const numApiCalls = x.api.length;
         // Save last call function name for auto render function call
         const lastCallFunction = x.api[numApiCalls - 1].method;
-        const isAutoRenderFunction = [
-          // Other
-          "createModelFrom",
-          // add
-          "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
-          "addSphere", "addShape", "addStyle", "addLabel", "addModel",
-          "addVolumetricData", "addPropertyLabels", "addResLabels",
-          "addSurface", "addUnitCell", "addCustom", "addModels", "addIsosurface",
-          "replicateUnitCell", "addModelsAsFrames", "addVolumetricRender",
-          // set
-          "setStyle", "setBackgroundColor", "setWidth", "setProjection",
-          "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
-          "setHoverDuration", "setColorByElement", "setPerceivedDistance",
-          "setView",
-          // get
-          "getModel",
-          // remove
-          "removeAllLabels", "removeAllModels", "removeAllShapes",
-          "removeAllSurfaces", "removeLabel", "removeUnitCell",
-          // animate
-          "spin", "rotate", "translate", "translateScene", "zoom", "zoomTo",
-          "enableFog", "center", "vibrate"
-        ];
 
         for (let i = 0; i < numApiCalls; i++) {
           let call = x.api[i];
@@ -132,17 +141,39 @@ HTMLWidgets.widget({
       setDefaultCartoonQuality: params => view.setDefaultCartoonQuality(params.quality),
       // TODO: not working.
       getModel: params => view.getModel(params.modelId),
-      stopAnimate: () => { // TODO: not working.
-        view.stopAnimate();
-      },
+      stopAnimate: () => view.stopAnimate(),
       animate: params => view.animate(params.options),
       enableFog: params => view.enableFog(params.fog),
       translate: params => view.translate(params.x, params.y, params.animationDuration, params.fixedPath),
       translateScene: params => view.translateScene(params.x, params.y, params.animationDuration, params.fixedPath),
-      zoom: (params) => view.zoom(params.factor, params.animationDuration, params.fixedPath),
+      zoom: params => view.zoom(params.factor, params.animationDuration, params.fixedPath),
       zoomTo: params => view.zoomTo(params.sel, params.animationDuration, params.fixedPath),
       vibrate: params => view.vibrate(params.numFrames, params.amplitude, params.bothWays, params.arrowSpec),
       center: params => view.center(params.sel, params.animationDuration, params.fixedPath),
     };
   }
 });
+
+// Attach message handlers if in shiny mode (these correspond to API)
+if (HTMLWidgets.shinyMode) {
+  const addShinyHandler = (fxn) => {
+    return () => {
+      Shiny.addCustomMessageHandler(
+        "r3dmol:" + fxn, (message) => {
+          const el = document.getElementById(message.id);
+          if (el) {
+            delete message['id'];
+            el.widget[fxn](message);
+            if (isAutoRenderFunction.findIndex(el => el === fxn) > -1) {
+              el.widget.render();
+            }
+          }
+        }
+      );
+    }
+  };
+
+  for (let i = 0; i < isAutoRenderFunction.length; i++) {
+    addShinyHandler(isAutoRenderFunction[i])();
+  }
+}

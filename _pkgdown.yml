@@ -9,6 +9,8 @@ reference:
       - init
       - m_render
       - m_enable_fog
+      - m_shiny_demo
+      - r3dmol-shiny
   - title: 'Add / Set / Remove'
     desc: 'Functions for adding, setting and removing elements to the view.'
   - contents:
