@@ -62,68 +62,15 @@ m_stop_animate <- function(id) {
 }
 
 
-#' Translate current view by x,y screen coordinates
-#'
-#' This pans the camera rather than translating the model.
-#'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param x Relative change \code{numeric} in view coordinates of camera
-#' @param y Relative change \code{numeric} in view coordinates of camera
-#' @param animationDuration an optional parameter of milliseconds \code{numeric} that
-#' denotes the duration of a zoom animation
-#' @param fixedPath if \code{true} animation is constrained to
-#' requested motion, overriding updates that happen during the animation
-#'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @rdname m_translate
 #' @export
-#'
-#' @examples
-#' library(r3dmol)
-#'
-#' r3dmol() %>%
-#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list(), stick = list())) %>%
-#'   m_translate(x = 200,
-#'               y = 50,
-#'               animationDuration = 1000) %>%
-#'   m_rotate(angle = 90,
-#'            axis = "z",
-#'            animationDuration = 1000) %>%
-#'   m_zoom_to()
 m_translate <- function(id, x, y, animationDuration, fixedPath) {
   method <- "translate"
   callJS()
 }
 
-#' Translate current models by x,y screen coordinates
-#'
-#' This translates the models relative to the current view. It does
-#' not change the center of rotation.
-#'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param x Relative change \code{numeric} in view coordinates of camera
-#' @param y Relative change \code{numeric} in view coordinates of camera
-#' @param animationDuration an optional parameter of milliseconds \code{numeric} that
-#' denotes the duration of a zoom animation
-#' @param fixedPath if \code{true} animation is constrained to
-#' requested motion, overriding updates that happen during the animation
-#'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @rdname m_translate
 #' @export
-#'
-#' @examples
-#' library(r3dmol)
-#'
-#' r3dmol() %>%
-#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list(), stick = list())) %>%
-#'   m_translate_scene(x = 200,
-#'                     y = 50,
-#'                     animationDuration = 1000) %>%
-#'   m_rotate(angle = 90,
-#'            axis = "z",
-#'            animationDuration = 1000) %>%
-#'   m_zoom_to()
 m_translate_scene <- function(id, x, y, animationDuration, fixedPath) {
   method <- "translateScene"
   callJS()
