@@ -9,75 +9,76 @@ ui <- fluidPage(fluidRow(column(
     "6ZSL: Crystal structure of the SARS-CoV-2 helicase at 1.94 Angstrom resolution"
   )
 )),
-fluidRow(column(
-  width = 3,
-  wellPanel(
-    colourInput(
-      inputId = "set_background_color",
-      label = "Set background color",
-      closeOnClick = TRUE,
-      value = "#000000"
-    ),
-    selectInput(
-      inputId = "set_style",
-      label = "Set Style",
-      choices = c("Line", "Cross", "Stick", "Sphere", "Cartoon"),
-      selected = "Line"
-    ),
-    sliderInput(
-      inputId = "set_slab",
-      label = "Set slab of view",
-      min = -150,
-      value = c(-50, 50),
-      animate = TRUE,
-      step = 10,
-      max = 150,
-      dragRange = TRUE
-    ),
-    radioButtons(
-      inputId = "set_projection",
-      label = "Set view projection scheme",
-      choices = c("perspective", "orthographic"),
-      inline = TRUE
-    ),
-    sliderInput(
-      inputId = "set_perceived_distance",
-      label = "Set perceived distance",
-      min = 0,
-      max = 500,
-      value = 300
-    ),
-    actionButton(
-      inputId = "zoom_in",
-      label = "Zoom in",
-      icon = icon("plus")
-    ),
-    actionButton(
-      inputId = "zoom_out",
-      label = "Zoom out",
-      icon = icon("minus")
-    ),
-    actionButton(
-      inputId = "spin",
-      label = "Spin",
-      icon = icon("sync-alt")
-    ),
-    actionButton(
-      inputId = "clear",
-      label = "Clear",
-      icon = icon("trash-alt")
-    ),
-    # tags$b("Is animated"),
-    # textOutput(outputId = "is_animated", inline = TRUE),
-    # actionButton(inputId = "get_perceived_distance",
-    #              label = "Get perceived distance"),
-    # textOutput(outputId = "get_perceived_distance", inline = TRUE)
-  )
-),
-column(
-  width = 6,
-  r3dmolOutput(outputId = "r3dmol", height = "700px")
-)))
+fluidRow(
+  column(
+    width = 3,
+    wellPanel(
+      colourInput(
+        inputId = "set_background_color",
+        label = "Set background color",
+        closeOnClick = TRUE,
+        value = "#000000"
+      ),
+      selectInput(
+        inputId = "set_style",
+        label = "Set Style",
+        choices = c("Line", "Cross", "Stick", "Sphere", "Cartoon"),
+        selected = "Line"
+      ),
+      sliderInput(
+        inputId = "set_slab",
+        label = "Set slab of view",
+        min = -150,
+        value = c(-50, 50),
+        animate = TRUE,
+        step = 10,
+        max = 150,
+        dragRange = TRUE
+      ),
+      radioButtons(
+        inputId = "set_projection",
+        label = "Set view projection scheme",
+        choices = c("perspective", "orthographic"),
+        inline = TRUE
+      ),
+      sliderInput(
+        inputId = "set_perceived_distance",
+        label = "Set perceived distance",
+        min = 0,
+        max = 500,
+        value = 300
+      ),
+      actionButton(
+        inputId = "zoom_in",
+        label = "Zoom in",
+        icon = icon("plus")
+      ),
+      actionButton(
+        inputId = "zoom_out",
+        label = "Zoom out",
+        icon = icon("minus")
+      ),
+      actionButton(
+        inputId = "spin",
+        label = "Spin",
+        icon = icon("sync-alt")
+      ),
+      actionButton(
+        inputId = "clear",
+        label = "Clear",
+        icon = icon("trash-alt")
+      ),
+      # tags$b("Is animated"),
+      # textOutput(outputId = "is_animated", inline = TRUE),
+    )
+  ),
+  column(width = 6,
+         r3dmolOutput(outputId = "r3dmol", height = "700px")),
+  column(width = 3,
+         wellPanel(
+           verbatimTextOutput(outputId = "props")
+         ))
+))
 
 server <- function(input, output, session) {
   output$r3dmol <- renderR3dmol({
@@ -146,10 +147,11 @@ server <- function(input, output, session) {
 
   observeEvent(input$set_perceived_distance, {
     m_set_preceived_distance(id = "r3dmol", dist = input$set_perceived_distance)
-  })
-  observeEvent(input$get_perceived_distance, {
-    output$get_perceived_distance <- renderText({
-      input$r3dmol_get_perceived_distance
+
+    output$props <- renderPrint({
+      list(
+        m_get_perceived_distance = input$r3dmol_get_perceived_distance
+      )
     })
   })
 }

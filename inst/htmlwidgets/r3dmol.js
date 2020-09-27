@@ -78,10 +78,12 @@ HTMLWidgets.widget({
         }
 
         // set listeners to events and pass data back to Shiny
-        // if (HTMLWidgets.shinyMode) {
-        //   Shiny.onInputChange(elementId + "_is_animated", view.isAnimated());
-        //   Shiny.onInputChange(elementId + "_get_perceived_distance", console.log("aaaa"));
-        // }
+        if (HTMLWidgets.shinyMode) {
+          view.setStateChangeCallback(() => {
+            // Shiny.onInputChange(elementId + "_is_animated", view.isAnimated());
+            Shiny.onInputChange(elementId + "_get_perceived_distance", view.getPerceivedDistance());
+          });
+        }
       },
 
       resize: (width, height) => {
