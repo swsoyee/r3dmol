@@ -40,6 +40,13 @@ fluidRow(column(
       choices = c("perspective", "orthographic"),
       inline = TRUE
     ),
+    sliderInput(
+      inputId = "set_perceived_distance",
+      label = "Set perceived distance",
+      min = 0,
+      max = 500,
+      value = 300
+    ),
     actionButton(
       inputId = "zoom_in",
       label = "Zoom in",
@@ -59,7 +66,12 @@ fluidRow(column(
       inputId = "clear",
       label = "Clear",
       icon = icon("trash-alt")
-    )
+    ),
+    # tags$b("Is animated"),
+    # textOutput(outputId = "is_animated", inline = TRUE),
+    # actionButton(inputId = "get_perceived_distance",
+    #              label = "Get perceived distance"),
+    # textOutput(outputId = "get_perceived_distance", inline = TRUE)
   )
 ),
 column(
@@ -128,6 +140,18 @@ server <- function(input, output, session) {
                far = input$set_slab[2])
   })
 
+  output$is_animated <- renderText({
+    input$r3dmol_is_animated
+  })
+
+  observeEvent(input$set_perceived_distance, {
+    m_set_preceived_distance(id = "r3dmol", dist = input$set_perceived_distance)
+  })
+  observeEvent(input$get_perceived_distance, {
+    output$get_perceived_distance <- renderText({
+      input$r3dmol_get_perceived_distance
+    })
+  })
 }
 
 shinyApp(ui, server)
