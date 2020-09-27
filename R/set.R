@@ -105,23 +105,6 @@ m_set_hover_duration <- function(id, hoverDuration) {
   callJS()
 }
 
-
-#' Get viewer animate status
-#'
-#' Return true if viewer is currently being animated, false otherwise
-#'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#'
-#' @return \code{logical}
-#' @export
-#'
-m_is_animated <- function(id) {
-  # TODO Fix return value in callJS()
-  method <- "isAnimated"
-  callJS()
-}
-
-
 #' Set the default cartoon quality for newly created models
 #'
 #' Set the default cartoon quality for newly created models. Default is \code{5}.
