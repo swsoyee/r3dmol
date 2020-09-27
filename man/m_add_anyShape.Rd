@@ -49,7 +49,7 @@ r3dmol() \%>\%
       callback =
         "function(){
           this.color.setHex(0xFF0000FF);
-          view.render()
+          viewer.render()
         }"
     )
   )
@@ -87,16 +87,16 @@ r3dmol() \%>\%
       callback = "
       function(){
         this.color.setHex(0x00FFFF00);
-        view.render();
+        viewer.render();
       }",
       hover_callback = "
       function(){
-        view.render();
+        viewer.render();
       }",
       unhover_callback = "
       function(){
         this.color.setHex(0xFF000000);
-        view.render();
+        viewer.render();
       }"
     )
   )

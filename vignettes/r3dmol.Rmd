@@ -1,7 +1,7 @@
 ---
-title: "Introduction to r3dmol"
-author: "Wei Su"
-date: "`r Sys.Date()`"
+title: 'Introduction to r3dmol'
+author: 'Wei Su'
+date: '`r Sys.Date()`'
 output:
   # md_document:
   #   pandoc_args: ["--wrap=preserve"]
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This is an R package that provides support for [`3Dmol.js`](https://3dmol.csb.pitt.edu/index.html) as a [`htmlwidgets`](https://www.htmlwidgets.org/). 
+This is an R package that provides support for [`3Dmol.js`](https://3dmol.csb.pitt.edu/index.html) as a [`htmlwidgets`](https://www.htmlwidgets.org/).
 
 > This package is still very early in its development stages, everything will be changed very often! Please give me a star on Github if you find it useful and I will speed up the development process!
 
@@ -39,7 +39,7 @@ r3dmol(                                             # Set viewer
   upperZoomLimit = 350,
   id = "demo",
   elementId = "demo"
-) %>%                                               
+) %>%
   m_add_model(data = pdb_6zsl, format = "pdb") %>%  # Add model
   m_zoom_to() %>%                                   # Zoom to center
   m_set_style(                                      # Draw cartoon representation of secondary structure
@@ -48,7 +48,7 @@ r3dmol(                                             # Set viewer
               style = list(cartoon = list(color = '#636efa', arrows = TRUE))) %>%
   m_set_style(sel = list(ss = 'h'),                 # Style alpha helix
               style = list(cartoon = list(color = '#ff7f0e'))) %>%
-  m_rotate(angle = 90, axis = 'y') %>%              # Set the initial angle of rotation 
+  m_rotate(angle = 90, axis = 'y') %>%              # Set the initial angle of rotation
   m_spin()                                          # Spin it!
 ```
 
@@ -106,18 +106,19 @@ r3dmol(id = "demo_sdf", elementId = "demo_sdf") %>%
 ```{r Dynamic styles}
 r3dmol() %>%
   m_add_model(data = pdb_1j72) %>%
-  m_set_style(style = list(cartoon = list(
-    colorfunc = htmlwidgets::JS("
-  function(atom) {
-    return atom.resi % 2 == 0 ? 'white' : 'green';
-  }")
-  ))) %>%
+  m_set_style(style = list(
+    cartoon = list(
+      colorfunc = "
+        function(atom) {
+          return atom.resi % 2 == 0 ? 'white' : 'green';
+        }"
+    )
+  )) %>%
   m_zoom_to()
 ```
 
 ## About `3Dmol.js`
 
 > Nicholas Rego and David Koes
-3Dmol.js: molecular visualization with WebGL
-Bioinformatics (2015) 31 (8): 1322-1324 [doi:10.1093/bioinformatics/btu829](http://doi.org/10.1093/bioinformatics/btu829)
-
+> 3Dmol.js: molecular visualization with WebGL
+> Bioinformatics (2015) 31 (8): 1322-1324 [doi:10.1093/bioinformatics/btu829](http://doi.org/10.1093/bioinformatics/btu829)

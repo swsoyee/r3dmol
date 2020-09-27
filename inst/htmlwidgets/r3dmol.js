@@ -35,12 +35,16 @@ HTMLWidgets.widget({
     const container = document.getElementById(elementId);
     let viewer;
 
-    const evalCallback = (callbackArray, paramSet) => {
-      while (callbackArray.length) {
-        let name = callbackArray.shift();
-        paramSet[name] = eval('(' + paramSet[name] + ')');
-      }
-      return (paramSet);
+    const evalFun = (object) => {
+      Object.keys(object).forEach((key) => {
+        if (object[key] !== null && typeof object[key] === 'object') {
+          evalFun(object[key]);
+          return;
+        }
+        if (object[key].toString().match('function') != null) {
+          object[key] = eval('(' + object[key] + ')');
+        }
+      });
     }
 
     return {
@@ -77,6 +81,8 @@ HTMLWidgets.widget({
           const method = call.method;
           delete call.method;
           try {
+            console.log(call);
+            evalFun(call);
             that[method](call);
           } catch (err) { }
         }
@@ -93,12 +99,12 @@ HTMLWidgets.widget({
       render: () => viewer.render(),
       rotate: params => viewer.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath),
       createModelFrom: params => viewer.createModelFrom(params.sel, params.extract),
-      addArrow: params => viewer.addArrow(evalCallback(['callback'], params.spec)),
+      addArrow: params => viewer.addArrow(params.spec),
       addAsOneMolecule: params => viewer.addAsOneMolecule(params.data, params.format),
       addBox: params => viewer.addBox(params.spec),
       addCurve: params => viewer.addCurve(params.spec),
       addCustom: params => viewer.addCustom(params.spec),
-      addCylinder: params => viewer.addCylinder(evalCallback(['callback', 'hover_callback', 'unhover_callback'], params.spec)),
+      addCylinder: params => viewer.addCylinder(params.spec),
       addLabel: params => viewer.addLabel(params.text, params.options, params.sel, params.noshow),
       addLine: params => viewer.addLine(params.spec),
       addPropertyLabels: params => viewer.addPropertyLabels(params.prop, params.sel, params.style),
@@ -114,7 +120,7 @@ HTMLWidgets.widget({
       addModelsAsFrames: params => viewer.addModelsAsFrames(params.data, params.format),
       addIsosurface: params => viewer.addIsosurface(new $3Dmol.VolumeData(params.data.toString(), "cube"), params.isoSpec),
       // TODO: not working
-      addSurface: params => viewer.addSurface(params.type, params.style, params.atomsel, params.allsel, params.focus, evalCallback(['surfacecallback'], params.surfacecallback)),
+      addSurface: params => viewer.addSurface(params.type, params.style, params.atomsel, params.allsel, params.focus, params.surfacecallback),
       removeAllLabels: () => viewer.removeAllLabels(),
       removeAllModels: () => viewer.removeAllModels(),
       removeAllShapes: () => viewer.removeAllShapes(),
