@@ -5,9 +5,6 @@ library(colourpicker)
 ui <- fluidPage(fluidRow(column(
   width = 12,
   titlePanel("{r3dmol} Shiny Demo"),
-  tags$h3(
-    "6ZSL: Crystal structure of the SARS-CoV-2 helicase at 1.94 Angstrom resolution"
-  )
 )),
 fluidRow(
   column(
@@ -19,35 +16,7 @@ fluidRow(
         closeOnClick = TRUE,
         value = "#000000"
       ),
-      selectInput(
-        inputId = "set_style",
-        label = "Set Style",
-        choices = c("Line", "Cross", "Stick", "Sphere", "Cartoon"),
-        selected = "Line"
-      ),
-      sliderInput(
-        inputId = "set_slab",
-        label = "Set slab of view",
-        min = -150,
-        value = c(-50, 50),
-        animate = TRUE,
-        step = 10,
-        max = 150,
-        dragRange = TRUE
-      ),
-      radioButtons(
-        inputId = "set_projection",
-        label = "Set view projection scheme",
-        choices = c("perspective", "orthographic"),
-        inline = TRUE
-      ),
-      sliderInput(
-        inputId = "set_perceived_distance",
-        label = "Set perceived distance",
-        min = 0,
-        max = 500,
-        value = 300
-      ),
+      uiOutput(outputId = "select_panel"),
       actionButton(
         inputId = "zoom_in",
         label = "Zoom in",
@@ -67,29 +36,112 @@ fluidRow(
         inputId = "clear",
         label = "Clear",
         icon = icon("trash-alt")
-      ),
-      # tags$b("Is animated"),
-      # textOutput(outputId = "is_animated", inline = TRUE),
+      )
     )
   ),
-  column(width = 6,
-         r3dmolOutput(outputId = "r3dmol", height = "700px")),
+  column(
+    width = 6,
+    column(
+      width = 12,
+      selectizeInput(
+        inputId = "select_single_model",
+        label = "Select Model",
+        choices = list(
+          "6ZSL: Crystal structure of the SARS-CoV-2 helicase at 1.94 Angstrom resolution" = "6zsl",
+          "Animate Sample" = "animate_sample"
+        ),
+      )
+    ),
+    r3dmolOutput(outputId = "r3dmol", height = "700px")
+  ),
   column(width = 3,
-         wellPanel(
-           verbatimTextOutput(outputId = "props")
-         ))
+         wellPanel(verbatimTextOutput(outputId = "props")))
 ))
 
 server <- function(input, output, session) {
   output$r3dmol <- renderR3dmol({
-    r3dmol(
-      cartoonQuality = 10,
-      lowerZoomLimit = 50,
-      upperZoomLimit = 350,
-      backgroundColor = "#000000"
-    ) %>%
-      m_add_model(data = pdb_6zsl, format = "pdb") %>%
-      m_zoom_to()
+    if (input$select_single_model == "6zsl") {
+      return(
+        r3dmol(
+          cartoonQuality = 10,
+          lowerZoomLimit = 50,
+          upperZoomLimit = 350,
+          backgroundColor = "#000000"
+        ) %>%
+          m_add_model(data = pdb_6zsl, format = "pdb") %>%
+          m_zoom_to()
+      )
+    } else if (input$select_single_model == "animate_sample") {
+      xyz <- "4
+      * (null), Energy   -1000.0000000
+      N     0.000005    0.019779   -0.000003   -0.157114    0.000052   -0.012746
+      H     0.931955   -0.364989    0.000003    1.507100   -0.601158   -0.004108
+      H    -0.465975   -0.364992    0.807088    0.283368    0.257996   -0.583024
+      H    -0.465979   -0.364991   -0.807088    0.392764    0.342436    0.764260
+      "
+
+      r3dmol(
+        cartoonQuality = 10,
+        lowerZoomLimit = 50,
+        upperZoomLimit = 350,
+        backgroundColor = "#000000"
+      ) %>%
+        m_add_model(
+          data = xyz,
+          format = "xyz",
+          options = list(vibrate = list(
+            frames = 10, amplitude = 1
+          ))
+        ) %>%
+        m_zoom_to()
+    }
+  })
+
+  observeEvent(input$select_single_model, {
+    output$select_panel <- renderUI({
+      animate_panel <- switch (
+        input$select_single_model,
+        "animate_sample" = radioButtons(
+          inputId = "animate",
+          label = "Animate",
+          choices = c(FALSE, TRUE),
+          inline = TRUE
+        )
+      )
+
+      tagList(
+        selectInput(
+          inputId = "set_style",
+          label = "Set Style",
+          choices = c("Line", "Cross", "Stick", "Sphere", "Cartoon"),
+          selected = "Line"
+        ),
+        sliderInput(
+          inputId = "set_slab",
+          label = "Set slab of view",
+          min = -150,
+          value = c(-50, 50),
+          animate = TRUE,
+          step = 10,
+          max = 150,
+          dragRange = TRUE
+        ),
+        radioButtons(
+          inputId = "set_projection",
+          label = "Set view projection scheme",
+          choices = c("perspective", "orthographic"),
+          inline = TRUE
+        ),
+        sliderInput(
+          inputId = "set_perceived_distance",
+          label = "Set perceived distance",
+          min = 0,
+          max = 500,
+          value = 300
+        ),
+        animate_panel
+      )
+    })
   })
 
   observeEvent(input$set_background_color, {
@@ -99,6 +151,14 @@ server <- function(input, output, session) {
 
   observeEvent(input$spin, {
     m_spin(id = "r3dmol")
+  })
+
+  observeEvent(input$animate, {
+    if (input$animate) {
+      m_animate(id = "r3dmol", list(loop = "backAndForth"))
+    } else {
+      m_stop_animate(id = "r3dmol")
+    }
   })
 
   observeEvent(input$zoom_out, {
@@ -141,18 +201,15 @@ server <- function(input, output, session) {
                far = input$set_slab[2])
   })
 
-  output$is_animated <- renderText({
-    input$r3dmol_is_animated
-  })
-
   observeEvent(input$set_perceived_distance, {
     m_set_preceived_distance(id = "r3dmol", dist = input$set_perceived_distance)
+  })
 
-    output$props <- renderPrint({
-      list(
-        m_get_perceived_distance = input$r3dmol_get_perceived_distance
-      )
-    })
+  output$props <- renderPrint({
+    list(
+      m_get_perceived_distance = input$r3dmol_get_perceived_distance,
+      m_is_animated = input$r3dmol_is_animated
+    )
   })
 }
 

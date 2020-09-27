@@ -1,6 +1,6 @@
 const isAutoRenderFunction = [
   // Other
-  "createModelFrom", "clear",
+  "createModelFrom",
   // add
   "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
   "addSphere", "addShape", "addStyle", "addLabel", "addModel",
@@ -57,14 +57,14 @@ HTMLWidgets.widget({
             position: x.position || "relative",
           });
           view = $3Dmol.createViewer($(container), x.configs);
-
-          // set listeners to events and pass data back to Shiny
-          // if (HTMLWidgets.shinyMode) {
-          //   Shiny.onInputChange(
-          //     elementId + "_selected",
-          //     console.log(elementId)
-          //   );
-          // }
+        }
+        // set listeners to events and pass data back to Shiny
+        if (HTMLWidgets.shinyMode) {
+          view.clear();
+          view.setStateChangeCallback(() => {
+            // Shiny.onInputChange(elementId + "_is_animated", view.isAnimated());
+            Shiny.onInputChange(elementId + "_get_perceived_distance", view.getPerceivedDistance());
+          });
         }
         // Now that the widget is initialized, call any outstanding API
         // functions that the user wantd to run on the widget
@@ -123,9 +123,6 @@ HTMLWidgets.widget({
       removeUnitCell: params => view.removeUnitCell(params.model),
       replicateUnitCell: params => view.replicateUnitCell(params.a, params.b, params.c, params.model),
       setStyle: params => view.setStyle(params.sel, params.style),
-      isAnimated: () => {
-        return view.isAnimated();
-      },
       setBackgroundColor: params => view.setBackgroundColor(params.hex, params.alpha),
       setPerceivedDistance: params => view.setPerceivedDistance(params.dist),
       setColorByElement: params => view.setColorByElement(params.sel, params.colors),
@@ -139,6 +136,8 @@ HTMLWidgets.widget({
       setProjection: params => view.setProjection(params.scheme),
       setZoomLimits: params => view.setZoomLimits(params.lower, params.upper),
       setDefaultCartoonQuality: params => view.setDefaultCartoonQuality(params.quality),
+      // TODO: not working.
+      isAnimated: () => view.isAnimated(),
       // TODO: not working.
       getModel: params => view.getModel(params.modelId),
       stopAnimate: () => view.stopAnimate(),
@@ -157,12 +156,35 @@ HTMLWidgets.widget({
 
 // Attach message handlers if in shiny mode (these correspond to API)
 if (HTMLWidgets.shinyMode) {
+  const functionList = [
+    // Other
+    "createModelFrom", "clear", "isAnimated",
+    // add
+    "addArrow", "addBox", "addCurve", "addCylinder", "addLine",
+    "addSphere", "addShape", "addStyle", "addLabel", "addModel",
+    "addVolumetricData", "addPropertyLabels", "addResLabels",
+    "addSurface", "addUnitCell", "addCustom", "addModels", "addIsosurface",
+    "replicateUnitCell", "addModelsAsFrames", "addVolumetricRender",
+    // set
+    "setStyle", "setBackgroundColor", "setWidth", "setProjection",
+    "setZoomLimits", "setHeight", "setSlab", "setViewStyle", "resize_m",
+    "setHoverDuration", "setColorByElement", "setPerceivedDistance",
+    "setView",
+    // get
+    "getModel", "getPerceivedDistance",
+    // remove
+    "removeAllLabels", "removeAllModels", "removeAllShapes",
+    "removeAllSurfaces", "removeLabel", "removeUnitCell",
+    // animate
+    "spin", "rotate", "translate", "translateScene", "zoom", "zoomTo",
+    "enableFog", "center", "vibrate", "stopAnimate", "animate"
+  ];
   const addShinyHandler = (fxn) => {
     return () => {
       Shiny.addCustomMessageHandler(
         "r3dmol:" + fxn, (message) => {
           const el = document.getElementById(message.id);
-          if (el) {
+          if (el && el.widget) {
             delete message['id'];
             el.widget[fxn](message);
             if (isAutoRenderFunction.findIndex(el => el === fxn) > -1) {
@@ -174,7 +196,7 @@ if (HTMLWidgets.shinyMode) {
     }
   };
 
-  for (let i = 0; i < isAutoRenderFunction.length; i++) {
-    addShinyHandler(isAutoRenderFunction[i])();
+  for (let i = 0; i < functionList.length; i++) {
+    addShinyHandler(functionList[i])();
   }
 }

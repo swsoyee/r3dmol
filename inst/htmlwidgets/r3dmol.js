@@ -58,6 +58,14 @@ HTMLWidgets.widget({
           });
           view = $3Dmol.createViewer($(container), x.configs);
         }
+        // set listeners to events and pass data back to Shiny
+        if (HTMLWidgets.shinyMode) {
+          view.clear();
+          view.setStateChangeCallback(() => {
+            // Shiny.onInputChange(elementId + "_is_animated", view.isAnimated());
+            Shiny.onInputChange(elementId + "_get_perceived_distance", view.getPerceivedDistance());
+          });
+        }
         // Now that the widget is initialized, call any outstanding API
         // functions that the user wantd to run on the widget
         const numApiCalls = x.api.length;
@@ -75,14 +83,6 @@ HTMLWidgets.widget({
         // Auto render
         if (isAutoRenderFunction.findIndex(el => el === lastCallFunction) > -1) {
           view.render();
-        }
-
-        // set listeners to events and pass data back to Shiny
-        if (HTMLWidgets.shinyMode) {
-          view.setStateChangeCallback(() => {
-            // Shiny.onInputChange(elementId + "_is_animated", view.isAnimated());
-            Shiny.onInputChange(elementId + "_get_perceived_distance", view.getPerceivedDistance());
-          });
         }
       },
 
@@ -137,6 +137,8 @@ HTMLWidgets.widget({
       setZoomLimits: params => view.setZoomLimits(params.lower, params.upper),
       setDefaultCartoonQuality: params => view.setDefaultCartoonQuality(params.quality),
       // TODO: not working.
+      isAnimated: () => view.isAnimated(),
+      // TODO: not working.
       getModel: params => view.getModel(params.modelId),
       stopAnimate: () => view.stopAnimate(),
       animate: params => view.animate(params.options),
@@ -175,7 +177,7 @@ if (HTMLWidgets.shinyMode) {
     "removeAllSurfaces", "removeLabel", "removeUnitCell",
     // animate
     "spin", "rotate", "translate", "translateScene", "zoom", "zoomTo",
-    "enableFog", "center", "vibrate"
+    "enableFog", "center", "vibrate", "stopAnimate", "animate"
   ];
   const addShinyHandler = (fxn) => {
     return () => {
