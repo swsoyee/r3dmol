@@ -207,8 +207,8 @@ server <- function(input, output, session) {
 
   output$props <- renderPrint({
     list(
-      m_get_perceived_distance = input$r3dmol_get_perceived_distance,
-      m_is_animated = input$r3dmol_is_animated
+      m_get_perceived_distance = input$r3dmol_get_perceived_distance#,
+      # m_is_animated = input$r3dmol_is_animated
     )
   })
 }
