@@ -31,6 +31,6 @@ library(r3dmol)
 r3dmol() \%>\%
   m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
   m_set_style(style = list(cartoon = list())) \%>\%
-  m_set_view(arg = c(20,-20, 10,-200, 0, 1, 0, 0)) \%>\%
+  m_set_view(arg = c(20, -20, 10, -200, 0, 1, 0, 0)) \%>\%
   m_set_view_style(style = list(style = "outline", color = "blue"))
 }

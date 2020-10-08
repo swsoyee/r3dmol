@@ -23,7 +23,7 @@ mol <- r3dmol() \%>\%
   m_add_sphere(spec = list(
     center = list(x = 0, y = 0, z = 0),
     radius = 10.0,
-    color = 'red'
+    color = "red"
   ))
 
 # Render model with shape

@@ -23,17 +23,23 @@ library(r3dmol)
 
 r <- 20
 
-vertices <- list(m_vector3(0, 0, 0),
-                 m_vector3(r, 0, 0),
-                 m_vector3(0, r, 0))
+vertices <- list(
+  m_vector3(0, 0, 0),
+  m_vector3(r, 0, 0),
+  m_vector3(0, r, 0)
+)
 
-normals <- list(m_vector3(0, 0, 1),
-                m_vector3(0, 0, 1),
-                m_vector3(0, 0, 1))
+normals <- list(
+  m_vector3(0, 0, 1),
+  m_vector3(0, 0, 1),
+  m_vector3(0, 0, 1)
+)
 
-colors <- list(list(r = 1, g = 0, b = 0),
-               list(r = 0, g = 1, b = 0),
-               list(r = 0, g = 0, b = 1))
+colors <- list(
+  list(r = 1, g = 0, b = 0),
+  list(r = 0, g = 1, b = 0),
+  list(r = 0, g = 0, b = 1)
+)
 
 faces <- 0:2
 

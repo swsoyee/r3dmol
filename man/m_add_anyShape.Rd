@@ -41,7 +41,7 @@ r3dmol() \%>\%
   m_add_arrow(
     spec = list(
       start = m_vector3(-10, 0, 0),
-      end = m_vector3(0,-10, 0),
+      end = m_vector3(0, -10, 0),
       radius = 1,
       radiusRadio = 1,
       mid = 1,
@@ -68,7 +68,7 @@ r3dmol() \%>\%
       smooth = 10,
       fromArrow = FALSE,
       toArrow = TRUE,
-      color = 'orange'
+      color = "orange"
     )
   )
 

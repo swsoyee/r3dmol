@@ -31,7 +31,7 @@ r3dmol() \%>\%
   m_zoom_to() \%>\%
   m_add_property_labels(
     prop = "index",
-    sel = list(not = list(elem = 'H')),
+    sel = list(not = list(elem = "H")),
     style = list(
       fontColor = "black",
       font = "sans-serif",

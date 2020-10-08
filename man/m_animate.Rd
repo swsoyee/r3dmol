@@ -31,12 +31,16 @@ H    -0.465975   -0.364992    0.807088    0.283368    0.257996   -0.583024
 H    -0.465979   -0.364991   -0.807088    0.392764    0.342436    0.764260
 "
 
-r3dmol(width = 400,
-       height = 400,
-       backgroundColor = "0xeeeeee") \%>\%
-  m_add_model(data = xyz,
-              format = "xyz",
-              options = list(vibrate = list(frames = 10, amplitude = 1))) \%>\%
+r3dmol(
+  width = 400,
+  height = 400,
+  backgroundColor = "0xeeeeee"
+) \%>\%
+  m_add_model(
+    data = xyz,
+    format = "xyz",
+    options = list(vibrate = list(frames = 10, amplitude = 1))
+  ) \%>\%
   m_set_style(style = list(stick = list())) \%>\%
   m_animate(list(loop = "backAndForth")) \%>\%
   m_zoom_to()

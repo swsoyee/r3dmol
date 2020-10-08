@@ -33,8 +33,8 @@ The viewer size can be adjusted automatically under normal circumstances.
 library(r3dmol)
 
 r3dmol() \%>\%
- m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
- m_zoom_to() \%>\%
- m_set_width(300) \%>\%
- m_set_background_color("#666666", alpha = 0.9)
+  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
+  m_zoom_to() \%>\%
+  m_set_width(300) \%>\%
+  m_set_background_color("#666666", alpha = 0.9)
 }
