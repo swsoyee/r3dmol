@@ -166,12 +166,16 @@ H    -0.465975   -0.364992    0.807088    0.283368    0.257996   -0.583024
 H    -0.465979   -0.364991   -0.807088    0.392764    0.342436    0.764260
 "</span>
 
-<span class='fu'><a href='init.html'>r3dmol</a></span>(<span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>400</span>,
-       <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>400</span>,
-       <span class='kw'>backgroundColor</span> <span class='kw'>=</span> <span class='st'>"0xeeeeee"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='add_model.html'>m_add_model</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>xyz</span>,
-              <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"xyz"</span>,
-              <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>vibrate</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>frames</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>amplitude</span> <span class='kw'>=</span> <span class='fl'>1</span>))) <span class='kw'>%&gt;%</span>
+<span class='fu'><a href='init.html'>r3dmol</a></span>(
+  <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>400</span>,
+  <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>400</span>,
+  <span class='kw'>backgroundColor</span> <span class='kw'>=</span> <span class='st'>"0xeeeeee"</span>
+) <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='add_model.html'>m_add_model</a></span>(
+    <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>xyz</span>,
+    <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"xyz"</span>,
+    <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>vibrate</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>frames</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>amplitude</span> <span class='kw'>=</span> <span class='fl'>1</span>))
+  ) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='m_style.html'>m_set_style</a></span>(<span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>stick</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>())) <span class='kw'>%&gt;%</span>
   <span class='fu'>m_animate</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>loop</span> <span class='kw'>=</span> <span class='st'>"backAndForth"</span>)) <span class='kw'>%&gt;%</span>
   <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span>()</div></pre>
