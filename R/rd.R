@@ -14,10 +14,10 @@
 #' library(r3dmol)
 #'
 #' r3dmol() %>%
-#'  m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'  m_zoom_to() %>%
-#'  m_set_width(300) %>%
-#'  m_set_background_color("#666666", alpha = 0.9)
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_zoom_to() %>%
+#'   m_set_width(300) %>%
+#'   m_set_background_color("#666666", alpha = 0.9)
 NULL
 
 #' Sets the view to the specified translation, zoom, rotation and style
@@ -38,14 +38,14 @@ NULL
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_set_style(style = list(cartoon = list())) %>%
-#'   m_set_view(arg = c(20,-20, 10,-200, 0, 1, 0, 0)) %>%
+#'   m_set_view(arg = c(20, -20, 10, -200, 0, 1, 0, 0)) %>%
 #'   m_set_view_style(style = list(style = "outline", color = "blue"))
 NULL
 
 #' Create and add model to viewer
 #'
 #' Create and add model to viewer, given molecular data and its format. If multi-model
-#' file is provided, use \code{\link{m_add_models}} adding atom data to the viewer as 
+#' file is provided, use \code{\link{m_add_models}} adding atom data to the viewer as
 #' separate models.
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
@@ -59,7 +59,7 @@ NULL
 #' @name add_model
 #' @examples
 #' library(r3dmol)
-#' 
+#'
 #' # Single-model file with m_add_model() function
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb")
@@ -76,9 +76,9 @@ NULL
 NULL
 
 #' Unit cell visualization
-#' 
-#' Use \code{\link{m_add_unit_cell}} to create and add unit cell visualization, 
-#' and \code{\link{m_remove_unit_cell}} to remove it from model. Use 
+#'
+#' Use \code{\link{m_add_unit_cell}} to create and add unit cell visualization,
+#' and \code{\link{m_remove_unit_cell}} to remove it from model. Use
 #' \code{\link{m_replicate_unit_cell}} to replicate atoms in model to form a super cell
 #' of the specified dimensions. Original cell will be centered as much as possible.
 #'
@@ -114,14 +114,14 @@ NULL
 #'     box = list(hidden = TRUE)
 #'   )) %>%
 #'   m_zoom_to()
-#' 
+#'
 #' # Render model
 #' mol
-#' 
+#'
 #' # Remove unit cell
 #' mol %>%
 #'   m_remove_unit_cell()
-#' 
+#'
 #' # Replicate atoms in model to form a super cell
 #' r3dmol() %>%
 #'   m_add_model(data = cif_254385, format = "cif") %>%
@@ -142,22 +142,24 @@ NULL
 #'
 #' @examples
 #' library(r3dmol)
-#' 
+#'
 #' # Add style to model
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
 #'   m_add_style(style = list(cartoon = list())) %>%
 #'   m_zoom_to()
-#' 
+#'
 #' # Set style to model
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_set_style(style = list(cartoon = list())) %>%
-#'   m_set_style(sel = list(chain = "A"),
-#'            style = list(stick = list(
-#'              radius = 0.5,
-#'              colorscheme = "magentaCarbon"
-#'            ))) %>%
+#'   m_set_style(
+#'     sel = list(chain = "A"),
+#'     style = list(stick = list(
+#'       radius = 0.5,
+#'       colorscheme = "magentaCarbon"
+#'     ))
+#'   ) %>%
 #'   m_zoom_to()
 NULL
 
@@ -177,7 +179,7 @@ NULL
 #'   m_add_arrow(
 #'     spec = list(
 #'       start = m_vector3(-10, 0, 0),
-#'       end = m_vector3(0,-10, 0),
+#'       end = m_vector3(0, -10, 0),
 #'       radius = 1,
 #'       radiusRadio = 1,
 #'       mid = 1,
@@ -189,7 +191,7 @@ NULL
 #'         }"
 #'     )
 #'   )
-#' 
+#'
 #' # Add curve
 #' r3dmol() %>%
 #'   m_add_curve(
@@ -204,10 +206,10 @@ NULL
 #'       smooth = 10,
 #'       fromArrow = FALSE,
 #'       toArrow = TRUE,
-#'       color = 'orange'
+#'       color = "orange"
 #'     )
 #'   )
-#' 
+#'
 #' # Add cylinder
 #' r3dmol() %>%
 #'   m_add_cylinder(
@@ -236,7 +238,7 @@ NULL
 #'       }"
 #'     )
 #'   )
-#' 
+#'
 #' # Add line
 #' r3dmol() %>%
 #'   m_add_line(spec = list(
@@ -244,7 +246,7 @@ NULL
 #'     start = m_vector3(0, 0, 0),
 #'     end = m_vector3(30, 30, 30)
 #'   ))
-#' 
+#'
 #' # Add box
 #' r3dmol() %>%
 #'   m_add_box(spec = list(
@@ -252,7 +254,7 @@ NULL
 #'     demensions = list(w = 3, h = 4, d = 2),
 #'     color = "magenta"
 #'   ))
-#' 
+#'
 #' # Add sphere
 #' r3dmol() %>%
 #'   m_add_sphere(spec = list(
@@ -286,23 +288,31 @@ NULL
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
 #'   m_set_style(style = list(cartoon = list(), stick = list())) %>%
-#'   m_translate(x = 200,
-#'               y = 50,
-#'               animationDuration = 1000) %>%
-#'   m_rotate(angle = 90,
-#'            axis = "z",
-#'            animationDuration = 1000) %>%
+#'   m_translate(
+#'     x = 200,
+#'     y = 50,
+#'     animationDuration = 1000
+#'   ) %>%
+#'   m_rotate(
+#'     angle = 90,
+#'     axis = "z",
+#'     animationDuration = 1000
+#'   ) %>%
 #'   m_zoom_to()
-#' 
+#'
 #' # Translate current models by x,y screen coordinates
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
 #'   m_set_style(style = list(cartoon = list(), stick = list())) %>%
-#'   m_translate_scene(x = 200,
-#'                     y = 50,
-#'                     animationDuration = 1000) %>%
-#'   m_rotate(angle = 90,
-#'            axis = "z",
-#'            animationDuration = 1000) %>%
+#'   m_translate_scene(
+#'     x = 200,
+#'     y = 50,
+#'     animationDuration = 1000
+#'   ) %>%
+#'   m_rotate(
+#'     angle = 90,
+#'     axis = "z",
+#'     animationDuration = 1000
+#'   ) %>%
 #'   m_zoom_to()
 NULL

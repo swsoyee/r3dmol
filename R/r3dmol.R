@@ -41,28 +41,33 @@ r3dmol <-
            width = NULL,
            height = NULL,
            elementId = NULL) {
-    if (missing(id))
+    if (missing(id)) {
       id <-
         paste(format(as.hexmode(sample(256, 10, replace = TRUE) - 1), width = 2),
-              collapse = "")
+          collapse = ""
+        )
+    }
 
     if (!is.null(elementId) &&
-        !grepl(pattern = "^[#,.]{0,1}[A-Za-z][0-9A-Za-z\\-\\._:]*$", elementId))
+      !grepl(pattern = "^[#,.]{0,1}[A-Za-z][0-9A-Za-z\\-\\._:]*$", elementId)) {
       stop("The elementId is not a validate id. Please use an id that starts with a letter.")
+    }
     # forward options using x
-    x <- list(id = id,
-              configs = list(...))
+    x <- list(
+      id = id,
+      configs = list(...)
+    )
     # Allow a list of API functions to be called on the r3dmol after
     # initialization
     x$api <- list()
 
     # create widget
     widget <- htmlwidgets::createWidget(
-      name = 'r3dmol',
+      name = "r3dmol",
       x,
       width = width,
       height = height,
-      package = 'r3dmol',
+      package = "r3dmol",
       elementId = elementId,
       sizingPolicy = htmlwidgets::sizingPolicy(
         defaultWidth = "100%",
@@ -94,9 +99,9 @@ r3dmol <-
 #' @export
 r3dmolOutput <-
   function(outputId,
-           width = '100%',
-           height = '400px') {
-    htmlwidgets::shinyWidgetOutput(outputId, 'r3dmol', width, height, package = 'r3dmol')
+           width = "100%",
+           height = "400px") {
+    htmlwidgets::shinyWidgetOutput(outputId, "r3dmol", width, height, package = "r3dmol")
   }
 
 #' @rdname r3dmol-shiny

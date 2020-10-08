@@ -14,7 +14,7 @@
 #'   m_zoom_to() %>%
 #'   m_add_property_labels(
 #'     prop = "index",
-#'     sel = list(not = list(elem = 'H')),
+#'     sel = list(not = list(elem = "H")),
 #'     style = list(
 #'       fontColor = "black",
 #'       font = "sans-serif",
@@ -74,7 +74,7 @@ m_remove_all_models <- function(id) {
 #'   m_add_sphere(spec = list(
 #'     center = list(x = 0, y = 0, z = 0),
 #'     radius = 10.0,
-#'     color = 'red'
+#'     color = "red"
 #'   ))
 #'
 #' # Render model with shape

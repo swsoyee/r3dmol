@@ -89,7 +89,7 @@ m_add_sphere <- function(id, spec = list()) {
 #'   m_zoom_to() %>%
 #'   m_add_property_labels(
 #'     prop = "index",
-#'     sel = list(not = list(elem = 'H')),
+#'     sel = list(not = list(elem = "H")),
 #'     style = list(
 #'       fontColor = "black",
 #'       font = "sans-serif",
@@ -221,8 +221,10 @@ m_add_models <-
 #'       opacity = 0.95
 #'     )
 #'   ) %>%
-#'   m_set_style(sel = list(cartoon = list()),
-#'               style = list(stick = list())) %>%
+#'   m_set_style(
+#'     sel = list(cartoon = list()),
+#'     style = list(stick = list())
+#'   ) %>%
 #'   m_zoom_to()
 m_add_isosurface <- function(id, data, isoSpec) {
   # If file path is pass in, read the file and store it as a vector
@@ -348,17 +350,23 @@ m_replicate_unit_cell <- function(id, a, b, c, model) {
 #'
 #' r <- 20
 #'
-#' vertices <- list(m_vector3(0, 0, 0),
-#'                  m_vector3(r, 0, 0),
-#'                  m_vector3(0, r, 0))
+#' vertices <- list(
+#'   m_vector3(0, 0, 0),
+#'   m_vector3(r, 0, 0),
+#'   m_vector3(0, r, 0)
+#' )
 #'
-#' normals <- list(m_vector3(0, 0, 1),
-#'                 m_vector3(0, 0, 1),
-#'                 m_vector3(0, 0, 1))
+#' normals <- list(
+#'   m_vector3(0, 0, 1),
+#'   m_vector3(0, 0, 1),
+#'   m_vector3(0, 0, 1)
+#' )
 #'
-#' colors <- list(list(r = 1, g = 0, b = 0),
-#'                list(r = 0, g = 1, b = 0),
-#'                list(r = 0, g = 0, b = 1))
+#' colors <- list(
+#'   list(r = 1, g = 0, b = 0),
+#'   list(r = 0, g = 1, b = 0),
+#'   list(r = 0, g = 0, b = 1)
+#' )
 #'
 #' faces <- 0:2
 #'

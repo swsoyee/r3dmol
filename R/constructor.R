@@ -13,21 +13,28 @@
 m_vector3 <- function(x = 0,
                       y = 0,
                       z = 0) {
-  if (missing(x) || missing(y) || missing(z))
+  if (missing(x) || missing(y) || missing(z)) {
     stop("3 dimensional should by passed.")
+  }
 
   vector_char <- as.character(c(x, y, z))
-  vector_number <- tryCatch({
-    as.numeric(vector_char)
-  }, warning = function(w) {
-    stop("Dimensional is not number.")
-  }, error = function(e) {
-    stop("Dimensional format error.")
-  })
+  vector_number <- tryCatch(
+    {
+      as.numeric(vector_char)
+    },
+    warning = function(w) {
+      stop("Dimensional is not number.")
+    },
+    error = function(e) {
+      stop("Dimensional format error.")
+    }
+  )
 
-  result <- list(x = vector_number[1],
-                 y = vector_number[2],
-                 z = vector_number[3])
+  result <- list(
+    x = vector_number[1],
+    y = vector_number[2],
+    z = vector_number[3]
+  )
   class(result) <- "Vector3"
   return(result)
 }
