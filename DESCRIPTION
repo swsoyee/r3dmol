@@ -21,7 +21,8 @@ Suggests:
     knitr,
     rmarkdown,
     shiny,
-    colourpicker
+    colourpicker,
+    covr
 VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)

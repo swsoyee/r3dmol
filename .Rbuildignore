@@ -8,3 +8,5 @@
 ^README\.Rmd$
 ^data-raw$
 ^test.html$
+^codecov\.yml$
+^\.github$
