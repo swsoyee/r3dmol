@@ -1,5 +1,5 @@
 Package: r3dmol
-Title: An R Package for Visualizing Molecular Data in 3D
+Title: Create Interactive 3D Visualizations of Molecular Data in R
 Version: 0.1.0
 Authors@R: 
     person(given = "Wei",
@@ -7,7 +7,12 @@ Authors@R:
            role = c("aut", "cre"),
            email = "swsoyee@gmail.com")
 Maintainer: Wei Su <swsoyee@gmail.com>
-Description: An R package that provides support for '3Dmol.js' as a 'htmlwidgets'.
+Description: Create rich and fully interactive 3D visualizations of molecular data.
+    Visualizations can be included in Shiny apps and R markdown documents, or viewed
+    from the R console and 'RStudio' Viewer. 'r3dmol' includes an extensive API
+    to manipulate the visualization after creation, and supports getting data out of
+    the visualization into R. Based on the '3dmol.js' JavaScript library and the
+    'htmlwidgets' R package.
 License: BSD_3_clause + file LICENSE
 Encoding: UTF-8
 LazyData: true
