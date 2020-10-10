@@ -1,16 +1,21 @@
 #' Rotate scene by angle degrees around axis
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param angle Angle, in degrees \code{numeric}, to rotate by.
-#' @param axis Axis (\code{"x"}, \code{"y"}, \code{"z"}, \code{"vx"}, \code{"vy"}, \code{"vz"})
-#' to rotate around. Default \code{"y"}. View relative (rather than model relative) axes are
-#'  prefixed with \code{"v"}. Axis can also be specified as a vector.
-#' @param animationDuration an optional parameter of milliseconds \code{numeric} that denotes
-#' the duration of the rotation animation. Default \code{0} (no animation)
+#' @param axis Axis (\code{"x"}, \code{"y"}, \code{"z"}, \code{"vx"},
+#' \code{"vy"}, \code{"vz"})
+#' to rotate around. Default \code{"y"}. View relative (rather than model
+#' relative) axes are prefixed with \code{"v"}. Axis can also be specified as a
+#' vector.
+#' @param animationDuration an optional parameter of milliseconds \code{numeric}
+#' that denotes the duration of the rotation animation. Default \code{0} (no
+#' animation)
 #' @param fixedPath if \code{true} animation is constrained to
 #' requested motion, overriding updates that happen during the animation
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -19,7 +24,8 @@
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_rotate(angle = 90, axis = "y", animationDuration = 1000)
 m_rotate <- function(id, angle, axis = "v", animationDuration = 0, fixedPath) {
-  if (!axis %in% c("x", "y", "z", "vx", "vy", "vz") && class(axis) != "Vector3") {
+  if (!axis %in% c("x", "y", "z", "vx", "vy", "vz")
+  && class(axis) != "Vector3") {
     stop("Unknow axis.")
   }
   method <- "rotate"
@@ -28,10 +34,12 @@ m_rotate <- function(id, angle, axis = "v", animationDuration = 0, fixedPath) {
 
 #' Continuously rotate a scene around the specified axis
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param axis Axis (\code{"x"}, \code{"y"}, \code{"z"}, \code{"vx"}, \code{"vy"}, \code{"vz"})
-#' to rotate around. Default \code{"y"}. View relative (rather than model relative) axes are
-#'  prefixed with \code{"v"}.
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#' @param axis Axis (\code{"x"}, \code{"y"}, \code{"z"}, \code{"vx"},
+#' \code{"vy"}, \code{"vz"})
+#' to rotate around. Default \code{"y"}. View relative (rather than model
+#' relative) axes are prefixed with \code{"v"}.
 #'
 #' @return R3dmol id or a \code{r3dmol} object (the output from \code{r3dmol()})
 #' @export
@@ -52,7 +60,8 @@ m_spin <- function(id, axis = "y") {
 
 #' Stop animation of all models in viewer
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #'
 #' @export
 #'
@@ -79,15 +88,18 @@ m_translate_scene <- function(id, x, y, animationDuration, fixedPath) {
 
 #' Zoom current view by a constant factor
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param factor Magnification \code{numeric} factor. Values greater than \code{1} will
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#' @param factor Magnification \code{numeric} factor. Values greater than
+#' \code{1} will
 #' zoom in, less than one will zoom out. Default \code{2}.
-#' @param animationDuration an optional parameter of milliseconds \code{numeric} that
-#' denotes the duration of a zoom animation
+#' @param animationDuration an optional parameter of milliseconds \code{numeric}
+#' that denotes the duration of a zoom animation
 #' @param fixedPath if \code{true} animation is constrained to
 #' requested motion, overriding updates that happen during the animation
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -105,17 +117,20 @@ m_zoom <- function(id, factor = 2, animationDuration, fixedPath) {
 #' Zoom to center of atom selection
 #'
 #' Zoom to center of atom selection. The slab will be set appropriately for
-#' the selection, unless an empty selection is provided, in which case there will be no slab.
+#' the selection, unless an empty selection is provided, in which case there
+#' will be no slab.
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#'  \code{r3dmol()})
 #' @param sel Selection specification specifying model and atom
 #' properties to select. Default: all atoms in viewer.
-#' @param animationDuration an optional parameter of milliseconds \code{numeric} that
-#' denotes the duration of a zoom animation
+#' @param animationDuration an optional parameter of milliseconds \code{numeric}
+#' that denotes the duration of a zoom animation
 #' @param fixedPath if \code{true} animation is constrained to
 #' requested motion, overriding updates that happen during the animation
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -136,14 +151,18 @@ m_zoom_to <- function(id, sel, animationDuration, fixedPath) {
 #' vibrate populates each model's frame property based on parameters.
 #' Models can then be animated.
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param numFrames Number of frames to be created, default to 10
 #' @param amplitude Amplitude of distortion, default to 1 (full)
-#' @param bothWays If true, extend both in positive and negative directions by numFrames
-#' @param arrowSpec Specification for drawing animated arrows. If color isn't specified,
+#' @param bothWays If true, extend both in positive and negative directions by
+#' numFrames
+#' @param arrowSpec Specification for drawing animated arrows. If color isn't
+#' specified,
 #' atom color (sphere, stick, line preference) is used.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples

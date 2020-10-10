@@ -7,19 +7,22 @@
 m_zoom(id, factor = 2, animationDuration, fixedPath)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
-\item{factor}{Magnification \code{numeric} factor. Values greater than \code{1} will
+\item{factor}{Magnification \code{numeric} factor. Values greater than
+\code{1} will
 zoom in, less than one will zoom out. Default \code{2}.}
 
-\item{animationDuration}{an optional parameter of milliseconds \code{numeric} that
-denotes the duration of a zoom animation}
+\item{animationDuration}{an optional parameter of milliseconds \code{numeric}
+that denotes the duration of a zoom animation}
 
 \item{fixedPath}{if \code{true} animation is constrained to
 requested motion, overriding updates that happen during the animation}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Zoom current view by a constant factor

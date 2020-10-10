@@ -7,7 +7,8 @@
 m_stop_animate(id)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 }
 \description{
 Stop animation of all models in viewer

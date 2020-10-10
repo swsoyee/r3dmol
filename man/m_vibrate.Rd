@@ -7,19 +7,23 @@
 m_vibrate(id, numFrames, amplitude, bothWays, arrowSpec)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{numFrames}{Number of frames to be created, default to 10}
 
 \item{amplitude}{Amplitude of distortion, default to 1 (full)}
 
-\item{bothWays}{If true, extend both in positive and negative directions by numFrames}
+\item{bothWays}{If true, extend both in positive and negative directions by
+numFrames}
 
-\item{arrowSpec}{Specification for drawing animated arrows. If color isn't specified,
+\item{arrowSpec}{Specification for drawing animated arrows. If color isn't
+specified,
 atom color (sphere, stick, line preference) is used.}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 If atoms have dx, dy, dz properties (in some xyz files),
