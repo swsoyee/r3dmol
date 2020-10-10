@@ -81,7 +81,6 @@ HTMLWidgets.widget({
           const method = call.method;
           delete call.method;
           try {
-            console.log(call);
             evalFun(call);
             that[method](call);
           } catch (err) { }
