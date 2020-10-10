@@ -7,7 +7,8 @@
 m_add_label(id, text, options = list(), sel = list(), noshow = TRUE)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{text}{Label text}
 
@@ -15,11 +16,13 @@ m_add_label(id, text, options = list(), sel = list(), noshow = TRUE)
 
 \item{sel}{Set position of label to center of this selection}
 
-\item{noshow}{if \code{TRUE}, do not immediately display label - when adding multiple
+\item{noshow}{if \code{TRUE}, do not immediately display label - when adding
+multiple
 labels this is more efficient}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Add label to viewer

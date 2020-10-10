@@ -7,13 +7,15 @@
 m_add_custom(id, spec)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{spec}{Style specification
 (see: \url{http://3dmol.csb.pitt.edu/doc/types.html#CustomShapeSpec}).}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Add custom shape component from user supplied function

@@ -7,7 +7,8 @@
 m_add_property_labels(id, prop, sel, style)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{prop}{Property name}
 
@@ -16,7 +17,8 @@ m_add_property_labels(id, prop, sel, style)
 \item{style}{Style spec to add to specified atoms}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 This will generate one label per a selected

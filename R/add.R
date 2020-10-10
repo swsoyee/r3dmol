@@ -12,11 +12,13 @@ m_add_style <- function(id, sel = list(), style = list()) {
 #'
 #' Given multimodel file and its format, all atoms are added to one model
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param data Input data
 #' @param format Input format
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 m_add_as_one_molecule <- function(id, data, format) {
@@ -72,12 +74,14 @@ m_add_sphere <- function(id, spec = list()) {
 #' This will generate one label per a selected
 #' atom at the atom's coordinates with the property value as the label text.
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param prop Property name
 #' @param sel Atom selection specification
 #' @param style Style spec to add to specified atoms
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -105,10 +109,12 @@ m_add_property_labels <- function(id, prop, sel, style) {
 
 #' Add shape object to viewer
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param shapeSpec Style specification for label
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 m_add_shape <- function(id, shapeSpec = list()) {
@@ -118,14 +124,17 @@ m_add_shape <- function(id, shapeSpec = list()) {
 
 #' Add label to viewer
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param text Label text
 #' @param options Label style specification
 #' @param sel Set position of label to center of this selection
-#' @param noshow if \code{TRUE}, do not immediately display label - when adding multiple
+#' @param noshow if \code{TRUE}, do not immediately display label - when adding
+#' multiple
 #' labels this is more efficient
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -202,11 +211,13 @@ m_add_models <-
 
 #' Construct isosurface from volumetric data in gaussian cube format
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param data Path of input data path or a vector of data.
 #' @param isoSpec Volumetric data shape specification
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -242,11 +253,14 @@ m_add_isosurface <- function(id, data, isoSpec) {
 #' different atomlists are stored in model's frame
 #' property and model's atoms are set to the 0th frame
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param data Path of input data path or a vector of data.
-#' @param format Input format (see <http://3dmol.csb.pitt.edu/doc/types.html#FileFormats>).
+#' @param format Input format (see
+#' <http://3dmol.csb.pitt.edu/doc/types.html#FileFormats>).
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -274,12 +288,15 @@ m_add_models_as_frames <- function(id, data, format) {
 #' centroid of the atoms and styled according to the passed style.
 #' The label text will be \code{resn}\code{resi}
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param sel Atom selection specification
 #' @param style Style spec to add to specified atoms
-#' @param byframe if true, create labels for every individual frame, not just current
+#' @param byframe if true, create labels for every individual frame, not just
+#' current
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -287,7 +304,9 @@ m_add_models_as_frames <- function(id, data, format) {
 #'
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
-#'   m_set_style(style = list(stick = list(radius = 0.15), cartoon = list())) %>%
+#'   m_set_style(
+#'     style = list(stick = list(radius = 0.15), cartoon = list())
+#'   ) %>%
 #'   m_add_res_labels(
 #'     sel = list(resn = "GLY"),
 #'     style = list(
@@ -306,18 +325,28 @@ m_add_res_labels <- function(id, sel, style, byframe) {
 
 #' Add surface representation to atoms
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param type Surface type (VDW, MS, SAS, or SES)
-#' @param style Optional style specification for surface material (e.g. for different coloring scheme, etc).
+#' @param style Optional style specification for surface material (e.g. for
+#' different coloring scheme, etc).
 #' @param atomsel Show surface for atoms in this selection.
-#' @param allsel Use atoms in this selection to calculate surface; may be larger group than \code{atomsel}.
+#' @param allsel Use atoms in this selection to calculate surface; may be larger
+#' group than \code{atomsel}.
 #' @param focus Optionally begin rendering surface specified atoms.
 #' @param surfacecallback function to be called after setting the surface.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
-m_add_surface <- function(id, type, style, atomsel, allsel, focus, surfacecallback) {
+m_add_surface <- function(id,
+                          type,
+                          style,
+                          atomsel,
+                          allsel,
+                          focus,
+                          surfacecallback) {
   method <- "addSurface"
   callJS()
 }
@@ -338,11 +367,13 @@ m_replicate_unit_cell <- function(id, a, b, c, model) {
 
 #' Add custom shape component from user supplied function
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param spec Style specification
 #' (see: <http://3dmol.csb.pitt.edu/doc/types.html#CustomShapeSpec>).
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples

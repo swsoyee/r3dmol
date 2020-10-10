@@ -7,14 +7,17 @@
 m_add_models_as_frames(id, data, format)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{data}{Path of input data path or a vector of data.}
 
-\item{format}{Input format (see \url{http://3dmol.csb.pitt.edu/doc/types.html#FileFormats}).}
+\item{format}{Input format (see
+\url{http://3dmol.csb.pitt.edu/doc/types.html#FileFormats}).}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Create and add model to viewer. Given multimodel file and its format,

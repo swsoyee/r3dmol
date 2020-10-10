@@ -7,16 +7,19 @@
 m_add_res_labels(id, sel, style, byframe)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{sel}{Atom selection specification}
 
 \item{style}{Style spec to add to specified atoms}
 
-\item{byframe}{if true, create labels for every individual frame, not just current}
+\item{byframe}{if true, create labels for every individual frame, not just
+current}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Add residue labels. This will generate one label per a
@@ -29,7 +32,9 @@ library(r3dmol)
 
 r3dmol() \%>\%
   m_add_model(data = pdb_1j72, format = "pdb") \%>\%
-  m_set_style(style = list(stick = list(radius = 0.15), cartoon = list())) \%>\%
+  m_set_style(
+    style = list(stick = list(radius = 0.15), cartoon = list())
+  ) \%>\%
   m_add_res_labels(
     sel = list(resn = "GLY"),
     style = list(

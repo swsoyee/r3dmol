@@ -7,14 +7,16 @@
 m_add_isosurface(id, data, isoSpec)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{data}{Path of input data path or a vector of data.}
 
 \item{isoSpec}{Volumetric data shape specification}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Construct isosurface from volumetric data in gaussian cube format
