@@ -11,3 +11,4 @@
 ^test.html$
 ^codecov\.yml$
 ^\.github$
+^.lintr$
