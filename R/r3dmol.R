@@ -1,9 +1,11 @@
 #' Initialise a WebGL-based viewer
 #'
-#' Create and initialize an appropriate viewer at supplied HTML element using specification in config
+#' Create and initialize an appropriate viewer at supplied HTML element using
+#' specification in config
 #'
 #' @param id HTML element id of viewer.
-#' @param ... Viewer input specification, see <http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec>
+#' @param ... Viewer input specification, see
+#' <http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec>
 #' for more details.
 #' @param width Fixed width for viewer (in css units). Ignored when used in a
 #' Shiny app -- use the \code{width} parameter in
@@ -42,15 +44,15 @@ r3dmol <-
            height = NULL,
            elementId = NULL) {
     if (missing(id)) {
-      id <-
-        paste(format(as.hexmode(sample(256, 10, replace = TRUE) - 1), width = 2),
-          collapse = ""
-        )
+      id <- (sample(256, 10, replace = TRUE) - 1) %>%
+        as.hexmode() %>%
+        format(width = 2) %>%
+        paste(collapse = "")
     }
 
     if (!is.null(elementId) &&
       !grepl(pattern = "^[#,.]{0,1}[A-Za-z][0-9A-Za-z\\-\\._:]*$", elementId)) {
-      stop("The elementId is not a validate id. Please use an id that starts with a letter.")
+      stop("ElementId is not validate. Please use id that starts with letter.")
     }
     # forward options using x
     x <- list(
@@ -101,7 +103,10 @@ r3dmolOutput <-
   function(outputId,
            width = "100%",
            height = "400px") {
-    htmlwidgets::shinyWidgetOutput(outputId, "r3dmol", width, height, package = "r3dmol")
+    htmlwidgets::shinyWidgetOutput(
+      outputId, "r3dmol", width, height,
+      package = "r3dmol"
+    )
   }
 
 #' @rdname r3dmol-shiny

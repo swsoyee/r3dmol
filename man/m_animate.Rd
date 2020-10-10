@@ -7,15 +7,17 @@
 m_animate(id, options)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
-\item{options}{can specify \code{interval} (speed of animation), \code{loop} (direction
-of looping, \code{'backward'}, \code{'forward'} or \code{'backAndForth'}), step interval
-between frames (\code{'step'}), and \code{reps} (number of repetitions, \code{0}
-indicates infinite loop)}
+\item{options}{can specify \code{interval} (speed of animation), \code{loop}
+(direction of looping, \code{'backward'}, \code{'forward'} or
+\code{'backAndForth'}), step interval between frames (\code{'step'}), and
+\code{reps} (number of repetitions, \code{0} indicates infinite loop)}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Animate all models in viewer from their respective frames

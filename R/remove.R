@@ -1,8 +1,10 @@
 #' Remove all labels from viewer
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #'
-#' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -37,9 +39,11 @@ m_remove_all_labels <- function(id) {
 
 #' Delete all existing models
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #'
-#' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -61,9 +65,11 @@ m_remove_all_models <- function(id) {
 
 #' Remove all shape objects from viewer
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #'
-#' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -90,9 +96,11 @@ m_remove_all_shapes <- function(id) {
 
 #' Remove all labels from viewer
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #'
-#' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 m_remove_all_surfaces <- function(id) {
@@ -102,10 +110,12 @@ m_remove_all_surfaces <- function(id) {
 
 #' Remove label from viewer
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param label R3dmol object label
 #'
-#' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 m_remove_label <- function(id, label) {

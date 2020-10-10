@@ -7,23 +7,26 @@
 m_zoom_to(id, sel, animationDuration, fixedPath)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{sel}{Selection specification specifying model and atom
 properties to select. Default: all atoms in viewer.}
 
-\item{animationDuration}{an optional parameter of milliseconds \code{numeric} that
-denotes the duration of a zoom animation}
+\item{animationDuration}{an optional parameter of milliseconds \code{numeric}
+that denotes the duration of a zoom animation}
 
 \item{fixedPath}{if \code{true} animation is constrained to
 requested motion, overriding updates that happen during the animation}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Zoom to center of atom selection. The slab will be set appropriately for
-the selection, unless an empty selection is provided, in which case there will be no slab.
+the selection, unless an empty selection is provided, in which case there
+will be no slab.
 }
 \examples{
 library(r3dmol)

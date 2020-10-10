@@ -10,25 +10,27 @@ m_translate(id, x, y, animationDuration, fixedPath)
 m_translate_scene(id, x, y, animationDuration, fixedPath)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{x}{Relative change \code{numeric} in view coordinates of camera}
 
 \item{y}{Relative change \code{numeric} in view coordinates of camera}
 
-\item{animationDuration}{an optional parameter of milliseconds \code{numeric} that
-denotes the duration of a zoom animation}
+\item{animationDuration}{an optional parameter of milliseconds \code{numeric}
+that denotes the duration of a zoom animation}
 
 \item{fixedPath}{if \code{true} animation is constrained to
 requested motion, overriding updates that happen during the animation}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 \code{m_translate()} pans the camera rather than translating the model.
-\code{m_translate_scene()} translates the models relative to the current view. It does
-not change the center of rotation.
+\code{m_translate_scene()} translates the models relative to the current
+view. It does not change the center of rotation.
 }
 \examples{
 library(r3dmol)

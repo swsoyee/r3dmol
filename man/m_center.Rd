@@ -7,22 +7,26 @@
 m_center(id, sel, animationDuration, fixedPath)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{sel}{Selection specification specifying model and atom
 properties to select. Default: all atoms in viewer}
 
-\item{animationDuration}{an optional parameter of milliseconds \code{numeric} that
+\item{animationDuration}{an optional parameter of milliseconds \code{numeric}
+that
 denotes the duration of a zoom animation}
 
 \item{fixedPath}{if \code{true} animation is constrained to
 requested motion, overriding updates that happen during the animation}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
-Re-center the viewer around the provided selection (unlike zoomTo, does not zoom).
+Re-center the viewer around the provided selection (unlike zoomTo, does not
+zoom).
 }
 \examples{
 library(r3dmol)

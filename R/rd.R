@@ -1,14 +1,18 @@
 #' Set viewer properties
 #'
-#' Functions of setting viewer properties, such as width, height, background color, etc.
+#' Functions of setting viewer properties, such as width, height, background
+#' color, etc.
 #' The viewer size can be adjusted automatically under normal circumstances.
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param width,height Weight and height \code{numeric} in pixels
-#' @param hex Hex code specified background color, or standard color spec \code{character}
+#' @param hex Hex code specified background color, or standard color spec
+#' \code{character}
 #' @param alpha Alpha level \code{numeric} (default \code{1.0})
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @name m_set_viewer
 #' @examples
 #' library(r3dmol)
@@ -22,14 +26,16 @@ NULL
 
 #' Sets the view to the specified translation, zoom, rotation and style
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param arg Vector formatted view setting,
-#' \code{c(pos.x, pos.y, pos.z, rotationGroup.position.z, q.x, q.y, q.z, q.w)}. Requires
-#' any one of \code{q.x}, \code{q.y}, \code{q.z}, \code{q.w} to be set to \code{1} to
-#' enable mouse control, otherwise only static image is rendered.
+#' \code{c(pos.x, pos.y, pos.z, rotationGroup.position.z, q.x, q.y, q.z, q.w)}.
+#' Requires any one of \code{q.x}, \code{q.y}, \code{q.z}, \code{q.w} to be set
+#' to \code{1} to enable mouse control, otherwise only static image is rendered.
 #' @param style css style object in list.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @name m_set_view
 #'
 #' @examples
@@ -44,17 +50,20 @@ NULL
 
 #' Create and add model to viewer
 #'
-#' Create and add model to viewer, given molecular data and its format. If multi-model
-#' file is provided, use \code{\link{m_add_models}} adding atom data to the viewer as
-#' separate models.
+#' Create and add model to viewer, given molecular data and its format. If
+#' multi-model file is provided, use \code{\link{m_add_models}} adding atom data
+#' to the viewer as separate models.
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param data Path of input data path or a vector of data.
-#' @param format Input format (\code{'pdb'}, \code{'sdf'}, \code{'xyz'}, \code{'pqr'},
-#'  or \code{'mol2'}).
-#' @param options Format dependent options. Attributes depend on the input file format.
+#' @param format Input format (\code{'pdb'}, \code{'sdf'}, \code{'xyz'},
+#' \code{'pqr'}, or \code{'mol2'}).
+#' @param options Format dependent options. Attributes depend on the input file
+#' format.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #'
 #' @name add_model
 #' @examples
@@ -79,18 +88,23 @@ NULL
 #'
 #' Use \code{\link{m_add_unit_cell}} to create and add unit cell visualization,
 #' and \code{\link{m_remove_unit_cell}} to remove it from model. Use
-#' \code{\link{m_replicate_unit_cell}} to replicate atoms in model to form a super cell
-#' of the specified dimensions. Original cell will be centered as much as possible.
+#' \code{\link{m_replicate_unit_cell}} to replicate atoms in model to form a
+#' super cell of the specified dimensions. Original cell will be centered as
+#' much as possible.
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param a number of times to replicate cell in X dimension.
-#' @param b number of times to replicate cell in Y dimension. If absent, X value is used.
-#' @param c number of times to replicate cell in Z dimension. If absent, Y value is used.
+#' @param b number of times to replicate cell in Y dimension. If absent, X value
+#' is used.
+#' @param c number of times to replicate cell in Z dimension. If absent, Y value
+#' is used.
 #' @param model Model with unit cell information (e.g., pdb derived).
 #' If omitted uses most recently added model.
 #' @param spec Visualization style.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @name m_unit_cell
 #'
 #' @examples
@@ -133,11 +147,13 @@ NULL
 
 #' Set or set style properties to all selected atoms
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param sel Atom selection specification
 #' @param style Style spec to apply to specified atoms
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @name m_style
 #'
 #' @examples
@@ -165,10 +181,12 @@ NULL
 
 #' Create and add shape
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param spec Shape style specification.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @name m_add_anyShape
 #'
 #' @examples
@@ -185,7 +203,7 @@ NULL
 #'       mid = 1,
 #'       clickable = TRUE,
 #'       callback =
-#'         "function(){
+#'         "function() {
 #'           this.color.setHex(0xFF0000FF);
 #'           viewer.render()
 #'         }"
@@ -223,16 +241,16 @@ NULL
 #'       hoverable = TRUE,
 #'       clickable = TRUE,
 #'       callback = "
-#'       function(){
+#'       function() {
 #'         this.color.setHex(0x00FFFF00);
 #'         viewer.render();
 #'       }",
 #'       hover_callback = "
-#'       function(){
+#'       function() {
 #'         viewer.render();
 #'       }",
 #'       unhover_callback = "
-#'       function(){
+#'       function() {
 #'         this.color.setHex(0xFF000000);
 #'         viewer.render();
 #'       }"
@@ -267,18 +285,20 @@ NULL
 #' Translate current view or models by x,y screen coordinates
 #'
 #' \code{m_translate()} pans the camera rather than translating the model.
-#' \code{m_translate_scene()} translates the models relative to the current view. It does
-#' not change the center of rotation.
+#' \code{m_translate_scene()} translates the models relative to the current
+#' view. It does not change the center of rotation.
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param x Relative change \code{numeric} in view coordinates of camera
 #' @param y Relative change \code{numeric} in view coordinates of camera
-#' @param animationDuration an optional parameter of milliseconds \code{numeric} that
-#' denotes the duration of a zoom animation
+#' @param animationDuration an optional parameter of milliseconds \code{numeric}
+#' that denotes the duration of a zoom animation
 #' @param fixedPath if \code{true} animation is constrained to
 #' requested motion, overriding updates that happen during the animation
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @name m_translate
 #'
 #' @examples

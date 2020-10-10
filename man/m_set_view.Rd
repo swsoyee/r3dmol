@@ -10,17 +10,19 @@ m_set_view(id, arg)
 m_set_view_style(id, style)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{arg}{Vector formatted view setting,
-\code{c(pos.x, pos.y, pos.z, rotationGroup.position.z, q.x, q.y, q.z, q.w)}. Requires
-any one of \code{q.x}, \code{q.y}, \code{q.z}, \code{q.w} to be set to \code{1} to
-enable mouse control, otherwise only static image is rendered.}
+\code{c(pos.x, pos.y, pos.z, rotationGroup.position.z, q.x, q.y, q.z, q.w)}.
+Requires any one of \code{q.x}, \code{q.y}, \code{q.z}, \code{q.w} to be set
+to \code{1} to enable mouse control, otherwise only static image is rendered.}
 
 \item{style}{css style object in list.}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Sets the view to the specified translation, zoom, rotation and style

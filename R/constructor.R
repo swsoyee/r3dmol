@@ -19,9 +19,7 @@ m_vector3 <- function(x = 0,
 
   vector_char <- as.character(c(x, y, z))
   vector_number <- tryCatch(
-    {
-      as.numeric(vector_char)
-    },
+    as.numeric(vector_char),
     warning = function(w) {
       stop("Dimensional is not number.")
     },

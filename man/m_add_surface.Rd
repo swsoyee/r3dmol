@@ -7,22 +7,26 @@
 m_add_surface(id, type, style, atomsel, allsel, focus, surfacecallback)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{type}{Surface type (VDW, MS, SAS, or SES)}
 
-\item{style}{Optional style specification for surface material (e.g. for different coloring scheme, etc).}
+\item{style}{Optional style specification for surface material (e.g. for
+different coloring scheme, etc).}
 
 \item{atomsel}{Show surface for atoms in this selection.}
 
-\item{allsel}{Use atoms in this selection to calculate surface; may be larger group than \code{atomsel}.}
+\item{allsel}{Use atoms in this selection to calculate surface; may be larger
+group than \code{atomsel}.}
 
 \item{focus}{Optionally begin rendering surface specified atoms.}
 
 \item{surfacecallback}{function to be called after setting the surface.}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Add surface representation to atoms

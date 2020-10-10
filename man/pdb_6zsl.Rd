@@ -3,7 +3,8 @@
 \docType{data}
 \name{pdb_6zsl}
 \alias{pdb_6zsl}
-\title{Crystal structure of the SARS-CoV-2 helicase at 1.94 Angstrom resolution in PDB format}
+\title{Crystal structure of the SARS-CoV-2 helicase at 1.94 Angstrom resolution in
+PDB format}
 \format{
 PDB Format.
 }
@@ -14,6 +15,7 @@ DOI: 10.2210/pdb6ZSL/pdb. \url{https://www.rcsb.org/structure/6zsl}
 pdb_6zsl
 }
 \description{
-Crystal structure of the SARS-CoV-2 helicase at 1.94 Angstrom resolution in PDB format
+Crystal structure of the SARS-CoV-2 helicase at 1.94 Angstrom resolution in
+PDB format
 }
 \keyword{datasets}

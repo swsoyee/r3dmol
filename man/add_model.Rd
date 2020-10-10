@@ -16,22 +16,25 @@ m_add_model(
 m_add_models(id, data, format = c("pdb", "sdf", "xyz", "pqr", "mol2", "cif"))
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{data}{Path of input data path or a vector of data.}
 
-\item{format}{Input format (\code{'pdb'}, \code{'sdf'}, \code{'xyz'}, \code{'pqr'},
-or \code{'mol2'}).}
+\item{format}{Input format (\code{'pdb'}, \code{'sdf'}, \code{'xyz'},
+\code{'pqr'}, or \code{'mol2'}).}
 
-\item{options}{Format dependent options. Attributes depend on the input file format.}
+\item{options}{Format dependent options. Attributes depend on the input file
+format.}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
-Create and add model to viewer, given molecular data and its format. If multi-model
-file is provided, use \code{\link{m_add_models}} adding atom data to the viewer as
-separate models.
+Create and add model to viewer, given molecular data and its format. If
+multi-model file is provided, use \code{\link{m_add_models}} adding atom data
+to the viewer as separate models.
 }
 \examples{
 library(r3dmol)

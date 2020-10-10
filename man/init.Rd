@@ -10,7 +10,8 @@ r3dmol(id = NULL, ..., width = NULL, height = NULL, elementId = NULL)
 \arguments{
 \item{id}{HTML element id of viewer.}
 
-\item{...}{Viewer input specification, see \url{http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec}
+\item{...}{Viewer input specification, see
+\url{http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec}
 for more details.}
 
 \item{width}{Fixed width for viewer (in css units). Ignored when used in a
@@ -27,7 +28,8 @@ automatically.}
 automatically generated one). Ignored when used in a Shiny app.}
 }
 \description{
-Create and initialize an appropriate viewer at supplied HTML element using specification in config
+Create and initialize an appropriate viewer at supplied HTML element using
+specification in config
 }
 \examples{
 library(r3dmol)

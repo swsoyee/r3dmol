@@ -4,7 +4,8 @@
 #' applying styles, etc. In most cases, the model will render automatically,
 #' only call it when manual rendering is required.
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #'
 #' @export
 #'
@@ -21,10 +22,12 @@ m_render <- function(id) {
 
 #' Enable/disable fog for content far from the camera
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param fog whether to enable or disable the fog, default is \code{TRUE}.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -42,17 +45,21 @@ m_enable_fog <- function(id, fog = TRUE) {
 
 #' Re-center the viewer around the provided selection
 #'
-#' Re-center the viewer around the provided selection (unlike zoomTo, does not zoom).
+#' Re-center the viewer around the provided selection (unlike zoomTo, does not
+#' zoom).
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param sel Selection specification specifying model and atom
 #' properties to select. Default: all atoms in viewer
-#' @param animationDuration an optional parameter of milliseconds \code{numeric} that
+#' @param animationDuration an optional parameter of milliseconds \code{numeric}
+#' that
 #' denotes the duration of a zoom animation
 #' @param fixedPath  if \code{true} animation is constrained to
 #' requested motion, overriding updates that happen during the animation
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -69,13 +76,15 @@ m_center <- function(id, sel, animationDuration, fixedPath) {
 
 #' Animate all models in viewer from their respective frames
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param options can specify \code{interval} (speed of animation), \code{loop} (direction
-#' of looping, \code{'backward'}, \code{'forward'} or \code{'backAndForth'}), step interval
-#' between frames (\code{'step'}), and \code{reps} (number of repetitions, \code{0}
-#' indicates infinite loop)
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#' @param options can specify \code{interval} (speed of animation), \code{loop}
+#' (direction of looping, \code{'backward'}, \code{'forward'} or
+#' \code{'backAndForth'}), step interval between frames (\code{'step'}), and
+#' \code{reps} (number of repetitions, \code{0} indicates infinite loop)
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -113,11 +122,13 @@ m_animate <- function(id, options) {
 #' Create a new model from atoms specified by sel.
 #' If extract, removes selected atoms from existing models.
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param sel Atom selection specification.
 #' @param extract If true, remove selected atoms from existing models
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 m_create_model_from <- function(id, sel, extract) {
@@ -127,9 +138,11 @@ m_create_model_from <- function(id, sel, extract) {
 
 #' Clear scene of all objects
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 m_clear <- function(id) {

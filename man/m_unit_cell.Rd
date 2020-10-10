@@ -14,7 +14,8 @@ m_replicate_unit_cell(id, a, b, c, model)
 m_remove_unit_cell(id, model)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{model}{Model with unit cell information (e.g., pdb derived).
 If omitted uses most recently added model.}
@@ -23,18 +24,22 @@ If omitted uses most recently added model.}
 
 \item{a}{number of times to replicate cell in X dimension.}
 
-\item{b}{number of times to replicate cell in Y dimension. If absent, X value is used.}
+\item{b}{number of times to replicate cell in Y dimension. If absent, X value
+is used.}
 
-\item{c}{number of times to replicate cell in Z dimension. If absent, Y value is used.}
+\item{c}{number of times to replicate cell in Z dimension. If absent, Y value
+is used.}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Use \code{\link{m_add_unit_cell}} to create and add unit cell visualization,
 and \code{\link{m_remove_unit_cell}} to remove it from model. Use
-\code{\link{m_replicate_unit_cell}} to replicate atoms in model to form a super cell
-of the specified dimensions. Original cell will be centered as much as possible.
+\code{\link{m_replicate_unit_cell}} to replicate atoms in model to form a
+super cell of the specified dimensions. Original cell will be centered as
+much as possible.
 }
 \examples{
 library(r3dmol)

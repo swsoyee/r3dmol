@@ -1,9 +1,11 @@
 #' Return specified model
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param modelId Retrieve model with specified id
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 m_get_model <- function(id, modelId) {
@@ -16,7 +18,8 @@ m_get_model <- function(id, modelId) {
 #'
 #' Return true if viewer is currently being animated, false otherwise
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #'
 #' @return \code{logical}
 #' @export

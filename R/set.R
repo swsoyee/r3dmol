@@ -10,11 +10,15 @@ m_set_style <- function(id, sel = list(), style = list()) {
 
 #' Set lower and upper limit stops for zoom
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
-#' @param lower limit on zoom in (positive \code{numeric} number). Default \code{0}.
-#' @param upper limit on zoom out (positive \code{numeric} number). Default \code{Inf}.
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#' @param lower limit on zoom in (positive \code{numeric} number). Default
+#' \code{0}.
+#' @param upper limit on zoom out (positive \code{numeric} number). Default
+#' \code{Inf}.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 m_set_zoom_limits <- function(id, lower = 0, upper = Inf) {
@@ -45,12 +49,14 @@ m_set_background_color <- function(id, hex, alpha) {
 
 #' Set view projection scheme
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param scheme Either \code{orthographic} or \code{perspective}.
-#' Default is \code{perspective}. Orthographic can also be enabled on viewer creation
-#' by setting \code{orthographic} to true in the config object.
+#' Default is \code{perspective}. Orthographic can also be enabled on viewer
+#' creation by setting \code{orthographic} to true in the config object.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -70,11 +76,13 @@ m_set_projection <- function(id, scheme = c("perspective", "orthographic")) {
 #'
 #' Set slab of view (contents outside of slab are clipped).
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param near near clipping plane distance
 #' @param far far clipping plane distance
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -94,11 +102,14 @@ m_set_slab <- function(id, near, far) {
 
 #' Set the duration of the hover delay
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param hoverDuration an optional parameter that denotes
-#' the duration of the hover delay (in milliseconds) before the hover action is called
+#' the duration of the hover delay (in milliseconds) before the hover action is
+#' called
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 m_set_hover_duration <- function(id, hoverDuration) {
   method <- "setHoverDuration"
@@ -107,13 +118,16 @@ m_set_hover_duration <- function(id, hoverDuration) {
 
 #' Set the default cartoon quality for newly created models
 #'
-#' Set the default cartoon quality for newly created models. Default is \code{5}.
+#' Set the default cartoon quality for newly created models. Default is
+#' \code{5}.
 #' Current models are not affected.
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param quality Default cartoon quality.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
@@ -131,11 +145,13 @@ m_set_default_cartoon_quality <- function(id, quality) {
 
 #' Set color by element
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param sel Atom selection.
 #' @param colors Color hex code or name.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 m_set_color_by_element <- function(id, sel, colors) {
@@ -147,10 +163,12 @@ m_set_color_by_element <- function(id, sel, colors) {
 #'
 #' Essentially zooming. Useful while stereo rendering.
 #'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @param dist Numeric distance.
 #'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
