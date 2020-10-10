@@ -11,8 +11,7 @@ Description: Create rich and fully interactive 3D visualizations of molecular da
     Visualizations can be included in Shiny apps and R markdown documents, or viewed
     from the R console and 'RStudio' Viewer. 'r3dmol' includes an extensive API
     to manipulate the visualization after creation, and supports getting data out of
-    the visualization into R. Based on the '3dmol.js' JavaScript library and the
-    'htmlwidgets' R package.
+    the visualization into R. Based on the '3dmol.js' and the 'htmlwidgets' R package.
 License: BSD_3_clause + file LICENSE
 Encoding: UTF-8
 LazyData: true
