@@ -7,14 +7,16 @@
 m_set_projection(id, scheme = c("perspective", "orthographic"))
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{scheme}{Either \code{orthographic} or \code{perspective}.
-Default is \code{perspective}. Orthographic can also be enabled on viewer creation
-by setting \code{orthographic} to true in the config object.}
+Default is \code{perspective}. Orthographic can also be enabled on viewer
+creation by setting \code{orthographic} to true in the config object.}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Set view projection scheme

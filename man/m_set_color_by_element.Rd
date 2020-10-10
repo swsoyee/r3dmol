@@ -7,14 +7,16 @@
 m_set_color_by_element(id, sel, colors)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{sel}{Atom selection.}
 
 \item{colors}{Color hex code or name.}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Set color by element

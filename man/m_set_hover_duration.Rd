@@ -7,13 +7,16 @@
 m_set_hover_duration(id, hoverDuration)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{hoverDuration}{an optional parameter that denotes
-the duration of the hover delay (in milliseconds) before the hover action is called}
+the duration of the hover delay (in milliseconds) before the hover action is
+called}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Set the duration of the hover delay

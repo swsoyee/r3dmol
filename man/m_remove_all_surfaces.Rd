@@ -7,10 +7,12 @@
 m_remove_all_surfaces(id)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 }
 \value{
-id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+id R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Remove all labels from viewer

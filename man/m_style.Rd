@@ -11,14 +11,16 @@ m_add_style(id, sel = list(), style = list())
 m_set_style(id, sel = list(), style = list())
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{sel}{Atom selection specification}
 
 \item{style}{Style spec to apply to specified atoms}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Set or set style properties to all selected atoms

@@ -14,19 +14,23 @@ m_set_height(id, height)
 m_set_background_color(id, hex, alpha)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{width, height}{Weight and height \code{numeric} in pixels}
 
-\item{hex}{Hex code specified background color, or standard color spec \code{character}}
+\item{hex}{Hex code specified background color, or standard color spec
+\code{character}}
 
 \item{alpha}{Alpha level \code{numeric} (default \code{1.0})}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
-Functions of setting viewer properties, such as width, height, background color, etc.
+Functions of setting viewer properties, such as width, height, background
+color, etc.
 The viewer size can be adjusted automatically under normal circumstances.
 }
 \examples{

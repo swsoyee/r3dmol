@@ -23,12 +23,14 @@ m_add_line(id, spec = list())
 m_add_sphere(id, spec = list())
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{spec}{Shape style specification.}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Create and add shape
@@ -47,7 +49,7 @@ r3dmol() \%>\%
       mid = 1,
       clickable = TRUE,
       callback =
-        "function(){
+        "function() {
           this.color.setHex(0xFF0000FF);
           viewer.render()
         }"
@@ -85,16 +87,16 @@ r3dmol() \%>\%
       hoverable = TRUE,
       clickable = TRUE,
       callback = "
-      function(){
+      function() {
         this.color.setHex(0x00FFFF00);
         viewer.render();
       }",
       hover_callback = "
-      function(){
+      function() {
         viewer.render();
       }",
       unhover_callback = "
-      function(){
+      function() {
         this.color.setHex(0xFF000000);
         viewer.render();
       }"

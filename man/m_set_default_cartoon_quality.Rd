@@ -7,15 +7,18 @@
 m_set_default_cartoon_quality(id, quality)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{quality}{Default cartoon quality.}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
-Set the default cartoon quality for newly created models. Default is \code{5}.
+Set the default cartoon quality for newly created models. Default is
+\code{5}.
 Current models are not affected.
 }
 \examples{

@@ -7,14 +7,18 @@
 m_set_zoom_limits(id, lower = 0, upper = Inf)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
-\item{lower}{limit on zoom in (positive \code{numeric} number). Default \code{0}.}
+\item{lower}{limit on zoom in (positive \code{numeric} number). Default
+\code{0}.}
 
-\item{upper}{limit on zoom out (positive \code{numeric} number). Default \code{Inf}.}
+\item{upper}{limit on zoom out (positive \code{numeric} number). Default
+\code{Inf}.}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Set lower and upper limit stops for zoom

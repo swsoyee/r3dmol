@@ -7,10 +7,12 @@
 m_remove_all_models(id)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 }
 \value{
-id R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+id R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Delete all existing models
