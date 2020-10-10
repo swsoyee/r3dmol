@@ -7,12 +7,12 @@
 #' }
 #' @export
 m_shiny_demo <- function() {
-  appDir <- system.file("example", package = "r3dmol")
-  if (appDir == "") {
+  app_dir <- system.file("example", package = "r3dmol")
+  if (app_dir == "") {
     stop("Could not find example directory. Try re-installing `r3dmol`.",
       call. = FALSE
     )
   }
 
-  shiny::runApp(appDir, display.mode = "normal")
+  shiny::runApp(app_dir, display.mode = "normal")
 }

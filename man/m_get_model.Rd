@@ -7,12 +7,14 @@
 m_get_model(id, modelId)
 }
 \arguments{
-\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})}
+\item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})}
 
 \item{modelId}{Retrieve model with specified id}
 }
 \value{
-R3dmol \code{id} or a \code{r3dmol} object (the output from \code{r3dmol()})
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Return specified model
