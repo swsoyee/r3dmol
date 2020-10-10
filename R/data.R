@@ -14,30 +14,38 @@
 #' @format PDB Format.
 "pdb_1j72"
 
+# nolint start
 #' Gaussian cube file example
 #'
 #' @source <https://github.com/3dmol/3Dmol.js/blob/master/tests/auto/data/bohr.cube>
 #'
 #' @format Gaussian cube format
+# nolint end
 "bohr_cube"
 
+# nolint start
 #' Multiple sdf file example
 #'
 #' @source <https://github.com/3dmol/3Dmol.js/blob/master/tests/test_structs/multiple.sdf>
 #'
 #' @format sdf format
+# nolint end
 "sdf_multiple"
 
+# nolint start
 #' Multiple xyz file example
 #'
 #' @source <https://github.com/3dmol/3Dmol.js/blob/master/tests/test_structs/multiple2.xyz>
 #'
 #' @format xyz format
+# nolint end
 "xyz_multiple"
 
+# nolint start
 #' Cif file example
 #'
 #' @source <https://github.com/3dmol/3Dmol.js/blob/master/tests/auto/data/254385.cif>
 #'
 #' @format cif format
+# nolint end
 "cif_254385"
