@@ -1,5 +1,5 @@
 Package: r3dmol
-Title: Create Interactive 3D Visualizations of Molecular Data in R
+Title: Create Interactive 3D Visualizations of Molecular Data
 Version: 0.1.0
 Authors@R: 
     person(given = "Wei",
