@@ -12,3 +12,6 @@
 ^codecov\.yml$
 ^\.github$
 ^.lintr$
+^inst/htmlwidgets/lib/3Dmol-1\.5\.4/3Dmol-nojquery\.js$
+^inst/htmlwidgets/lib/3Dmol-1\.5\.4/3Dmol\.min\.js$
+^inst/htmlwidgets/lib/3Dmol-1\.5\.4/3Dmol\.js$
