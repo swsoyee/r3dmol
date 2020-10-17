@@ -42,8 +42,9 @@
 <meta property="og:title" content="Unit cell visualization — m_add_unit_cell" />
 <meta property="og:description" content="Use m_add_unit_cell to create and add unit cell visualization,
 and m_remove_unit_cell to remove it from model. Use
-m_replicate_unit_cell to replicate atoms in model to form a super cell
-of the specified dimensions. Original cell will be centered as much as possible." />
+m_replicate_unit_cell to replicate atoms in model to form a
+super cell of the specified dimensions. Original cell will be centered as
+much as possible." />
 
 
 
@@ -135,8 +136,9 @@ of the specified dimensions. Original cell will be centered as much as possible.
     <div class="ref-description">
     <p>Use <code>m_add_unit_cell</code> to create and add unit cell visualization,
 and <code>m_remove_unit_cell</code> to remove it from model. Use
-<code>m_replicate_unit_cell</code> to replicate atoms in model to form a super cell
-of the specified dimensions. Original cell will be centered as much as possible.</p>
+<code>m_replicate_unit_cell</code> to replicate atoms in model to form a
+super cell of the specified dimensions. Original cell will be centered as
+much as possible.</p>
     </div>
 
     <pre class="usage"><span class='fu'>m_add_unit_cell</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>model</span>, <span class='va'>spec</span><span class='op'>)</span>
@@ -150,7 +152,8 @@ of the specified dimensions. Original cell will be centered as much as possible.
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>id</th>
-      <td><p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p></td>
+      <td><p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from
+<code><a href='init.html'>r3dmol()</a></code>)</p></td>
     </tr>
     <tr>
       <th>model</th>
@@ -167,17 +170,20 @@ If omitted uses most recently added model.</p></td>
     </tr>
     <tr>
       <th>b</th>
-      <td><p>number of times to replicate cell in Y dimension. If absent, X value is used.</p></td>
+      <td><p>number of times to replicate cell in Y dimension. If absent, X value
+is used.</p></td>
     </tr>
     <tr>
       <th>c</th>
-      <td><p>number of times to replicate cell in Z dimension. If absent, Y value is used.</p></td>
+      <td><p>number of times to replicate cell in Z dimension. If absent, Y value
+is used.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from <code><a href='init.html'>r3dmol()</a></code>)</p>
+    <p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from
+<code><a href='init.html'>r3dmol()</a></code>)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/swsoyee/r3dmol'>r3dmol</a></span><span class='op'>)</span>
