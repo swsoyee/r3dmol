@@ -17,11 +17,11 @@
 # nolint start
 #' Gaussian cube file example
 #'
-#' @source <https://github.com/3dmol/3Dmol.js/blob/master/tests/auto/data/bohr.cube>
+#' @source <https://github.com/3dmol/3Dmol.js/blob/master/tests/test_structs/benzene-homo.cube>
 #'
 #' @format Gaussian cube format
 # nolint end
-"bohr_cube"
+"cube_benzene_homo"
 
 # nolint start
 #' Multiple sdf file example

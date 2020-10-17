@@ -225,7 +225,7 @@ m_add_models <-
 #'
 #' r3dmol() %>%
 #'   m_add_isosurface(
-#'     data = bohr_cube,
+#'     data = cube_benzene_homo,
 #'     isoSpec = list(
 #'       isoval = -0.01,
 #'       color = "red",
