@@ -5,7 +5,7 @@
 \title{Specify styling for Cartoon}
 \usage{
 m_cartoon_style(
-  color = "default",
+  color = "spectrum",
   style = "default",
   ribbon = F,
   arrows = F,

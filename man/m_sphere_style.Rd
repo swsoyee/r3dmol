@@ -20,8 +20,7 @@ m_sphere_style(
 
 \item{scale}{Scale radius by specified amount.}
 
-\item{colorscheme}{Specify scheme to color the atoms by. Default is "default".
-Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
+\item{colorscheme}{Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
 "shapely", "nucleic", "chain", "chainHetatm", "prop".}
 
 \item{color}{Discrete, fixed coloring, overrides any colorscheme.}

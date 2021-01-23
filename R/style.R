@@ -6,8 +6,7 @@
 #'@param hidden Boolean - do not show atom. Default \code{FALSE}
 #'@param radius Override van der waals radius.
 #'@param scale Scale radius by specified amount.
-#'@param colorscheme Specify scheme to color the atoms by. Default is "default".
-#'Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
+#'@param colorscheme Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
 #'"shapely", "nucleic", "chain", "chainHetatm", "prop".
 #'@param color Discrete, fixed coloring, overrides any colorscheme.
 #'@param opacity Opacity of spheres, 0 being invisible. Must be the same for
@@ -27,14 +26,14 @@ m_sphere_style <- function(hidden=F,
                            opacity=0) {
 
   if (!is.logical(hidden)){
-    break("Hidden must be TRUE or FALSE.")
+    stop("Hidden must be TRUE or FALSE.")
   }
 
   if (!is.numeric(radius)) {
-    break("Radius must be numeric.")
+    stop("Radius must be numeric.")
   }
   if (!is.numeric(scale)) {
-    break("scale must be numeric.")
+    stop("scale must be numeric.")
   }
 
   sphere_style <- list(
@@ -75,9 +74,10 @@ m_sphere_style <- function(hidden=F,
 #'@param opacity set opacity from 0-1; transparency is set per-chain with a
 #'warning outputted in the event of ambiguity
 #'
+#'@export
 
 m_cartoon_style <- function(
-  color="default",
+  color="spectrum",
   style = "default",
   ribbon = F,
   arrows = F,
@@ -112,7 +112,7 @@ m_cartoon_style <- function(
 #'@param colorscheme element based coloring
 #'@param color fixed coloring, overrides colorscheme
 #'@param opacity opacity, must be the same for all atoms in the model
-#'
+#'@export
 
 m_stick_style <- function(
   hidden = F,
@@ -134,3 +134,7 @@ m_stick_style <- function(
 
   stick_style
 }
+
+
+
+
