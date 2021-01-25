@@ -5,12 +5,12 @@
 \title{Specify styling for Stick}
 \usage{
 m_stick_style(
-  hidden = F,
-  radius = 1,
-  singleBonds = T,
-  colorscheme = "default",
-  color = "default",
-  opacity = 1
+  hidden = NULL,
+  radius = NULL,
+  singleBonds = NULL,
+  colorscheme = NULL,
+  color = NULL,
+  opacity = NULL
 )
 }
 \arguments{
@@ -28,5 +28,5 @@ m_stick_style(
 }
 \description{
 Returns a list for the \code{style = list(cartoon = list())} function,
-for setting the cartoon specifications.
+for setting the stick specifications.
 }

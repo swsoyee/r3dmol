@@ -5,12 +5,12 @@
 \title{Specify styling for Sphere}
 \usage{
 m_sphere_style(
-  hidden = F,
-  radius = 1,
-  scale = 1,
-  colorscheme = "default",
+  hidden = NULL,
+  radius = NULL,
+  scale = NULL,
+  colorscheme = NULL,
   color = NULL,
-  opacity = 0
+  opacity = NULL
 )
 }
 \arguments{

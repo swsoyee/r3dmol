@@ -5,14 +5,14 @@
 \title{Specify styling for Cartoon}
 \usage{
 m_cartoon_style(
-  color = "spectrum",
-  style = "default",
-  ribbon = F,
-  arrows = F,
-  tubes = F,
-  thickness = 0.4,
-  width = 1,
-  opacity = 1
+  color = NULL,
+  style = NULL,
+  ribbon = NULL,
+  arrows = NULL,
+  tubes = NULL,
+  thickness = NULL,
+  width = NULL,
+  opacity = NULL
 )
 }
 \arguments{
