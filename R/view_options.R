@@ -50,5 +50,9 @@ m_viewer_spec <- function(
     }
   }
 
+  for (i in names(m_viewer_spec)){
+
+  }
+
   m_viewer_spec
 }
