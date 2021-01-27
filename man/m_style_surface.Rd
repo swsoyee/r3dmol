@@ -7,12 +7,12 @@
 m_style_surface(opacity = NULL, colorScheme = NULL, color = NULL)
 }
 \arguments{
-\item{opacity}{opacity, 0 for transparent, 1 for opaque.}
+\item{opacity}{Opacity, 0 for transparent, 1 for opaque.}
 
 \item{colorScheme}{Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
 "shapely", "nucleic", "chain", "chainHetatm", "prop".}
 
-\item{color}{fixed coloring, overrides colorScheme.}
+\item{color}{Fixed coloring, overrides colorScheme.}
 }
 \description{
 Must be used inside \code{m_add_surface()} not any other styling function.

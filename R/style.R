@@ -54,18 +54,18 @@ m_style_sphere <- function(
 #' @param color Strand color, may specify as 'spectrum' which will apply
 #' reversed gradient based on residue number.
 #' @param style style of cartoon rendering (trace, oval, rectangle (default),
-#' parabola, edged)
+#' parabola, edged).
 #' @param ribbon whether to use constant strand width, disregarding secondary
-#' structure; use thickness to adjust radius
+#' structure; use thickness to adjust radius.
 #' @param arrows whether to add arrows showing beta-sheet directionality;
-#' does not apply to trace or ribbon
+#' does not apply to trace or ribbon.
 #' @param tubes whether to display alpha helices as simple cylinders; does not
-#' apply to trace
-#' @param thickness cartoon strand thickness, default is 0.4
+#' apply to trace.
+#' @param thickness cartoon strand thickness, default is 0.4.
 #' @param width cartoon strand width, default is secondary structure-dependent;
-#' does not apply to trace or ribbon
+#' does not apply to trace or ribbon.
 #' @param opacity set opacity from 0-1; transparency is set per-chain with a
-#' warning outputted in the event of ambiguity
+#' warning outputted in the event of ambiguity.
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
@@ -107,13 +107,13 @@ m_style_cartoon <- function(
 #' Returns a list for the \code{style = list(cartoon = list())} function,
 #' for setting the stick specifications.
 #'
-#' @param hidden do no show
-#' @param radius radius of sticks
-#' @param singleBonds Draw all bonds as single bonds if \code{TRUE}
+#' @param hidden Do not show.
+#' @param radius Radius of sticks.
+#' @param singleBonds Draw all bonds as single bonds if \code{TRUE}.
 #' @param colorScheme Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
-#' @param color fixed coloring, overrides colorscheme
-#' @param opacity opacity, must be the same for all atoms in the model
+#' @param color Fixed coloring, overrides colorScheme.
+#' @param opacity Opacity, must be the same for all atoms in the model.
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
@@ -121,12 +121,12 @@ m_style_cartoon <- function(
 #'   m_zoom_to()
 #' @export
 m_style_stick <- function(
-                          hidden = NULL,
                           radius = NULL,
                           singleBonds = NULL,
                           colorScheme = NULL,
                           color = NULL,
-                          opacity = NULL) {
+                          opacity = NULL,
+                          hidden = NULL) {
   stick_style <- list(
     hidden = hidden,
     radius = radius,
@@ -151,20 +151,20 @@ m_style_stick <- function(
 #' Returns a list for the \code{m_add_res_labels(style = list())} function,
 #' for setting the label specifications.
 #'
-#' @param font font name, default sans-serif
-#' @param fontSize height of text, default 18
-#' @param fontColor font color, default white
-#' @param fontOpacity font opacity, default 1
-#' @param borderThickness line width of border around label, default 0
-#' @param borderColor color of border, default backgroundColor
-#' @param borderOpacity opacity of border, default 1
-#' @param backgroundColor color of background, default black
-#' @param backgroundOpacity opacity of background, default 1
-#' @param position x,y,z coordinates for label (for custom positioning)
-#' @param inFront Logical, if \code{TRUE} always put in front of model
-#' @param showBackground Logical, show background rounded rectangle, default \code{TRUE}
-#' @param fixed Logical, setes the label to change with the model when zooming
-#' @param alignment String, how to orient the label with respect to position: 'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center', 'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'
+#' @param font Font name, default sans-serif.
+#' @param fontSize Height of text, default 18.
+#' @param fontColor Font color, default white.
+#' @param fontOpacity Font opacity, default 1.
+#' @param borderThickness Line width of border around label, default 0.
+#' @param borderColor Color of border, default backgroundColor.
+#' @param borderOpacity Opacity of border, default 1.
+#' @param backgroundColor Color of background, default black.
+#' @param backgroundOpacity Opacity of background, default 1.
+#' @param position x,y,z coordinates for label (for custom positioning).
+#' @param inFront Logical, if \code{TRUE} always put in front of model.
+#' @param showBackground Logical, show background rounded rectangle, default \code{TRUE}.
+#' @param fixed Logical, setes the label to change with the model when zooming.
+#' @param alignment String, how to orient the label with respect to position: 'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center', 'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'.
 #' @param frame If set, only display in this frame of an animation.
 #' @examples
 #' r3dmol() %>%
@@ -229,9 +229,9 @@ m_style_label <- function(
 #'
 #' @param colorScheme Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
-#' @param color fixed coloring, overrides colorscheme
-#' @param opacity opacity, must be the same for all atoms in the model
-#' @param hidden Logical, do not show line
+#' @param color Fixed coloring, overrides \code{colorScheme}.
+#' @param opacity Opacity, must be the same for all atoms in the model.
+#' @param hidden Logical, do not show line.
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
@@ -264,10 +264,10 @@ m_style_line <- function(
 #'
 #' Must be used inside \code{m_add_surface()} not any other styling function.
 #' Returns a list for setting the surface specifications.
-#' @param opacity opacity, 0 for transparent, 1 for opaque.
+#' @param opacity Opacity, 0 for transparent, 1 for opaque.
 #' @param colorScheme Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
-#' @param color fixed coloring, overrides colorScheme.
+#' @param color Fixed coloring, overrides colorScheme.
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%

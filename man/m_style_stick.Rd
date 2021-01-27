@@ -5,27 +5,27 @@
 \title{Specify Styling for Stick}
 \usage{
 m_style_stick(
-  hidden = NULL,
   radius = NULL,
   singleBonds = NULL,
   colorScheme = NULL,
   color = NULL,
-  opacity = NULL
+  opacity = NULL,
+  hidden = NULL
 )
 }
 \arguments{
-\item{hidden}{do no show}
+\item{radius}{Radius of sticks.}
 
-\item{radius}{radius of sticks}
-
-\item{singleBonds}{Draw all bonds as single bonds if \code{TRUE}}
+\item{singleBonds}{Draw all bonds as single bonds if \code{TRUE}.}
 
 \item{colorScheme}{Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
 "shapely", "nucleic", "chain", "chainHetatm", "prop".}
 
-\item{color}{fixed coloring, overrides colorscheme}
+\item{color}{Fixed coloring, overrides colorScheme.}
 
-\item{opacity}{opacity, must be the same for all atoms in the model}
+\item{opacity}{Opacity, must be the same for all atoms in the model.}
+
+\item{hidden}{Do not show.}
 }
 \description{
 Returns a list for the \code{style = list(cartoon = list())} function,

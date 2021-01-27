@@ -20,24 +20,24 @@ m_style_cartoon(
 reversed gradient based on residue number.}
 
 \item{style}{style of cartoon rendering (trace, oval, rectangle (default),
-parabola, edged)}
+parabola, edged).}
 
 \item{ribbon}{whether to use constant strand width, disregarding secondary
-structure; use thickness to adjust radius}
+structure; use thickness to adjust radius.}
 
 \item{arrows}{whether to add arrows showing beta-sheet directionality;
-does not apply to trace or ribbon}
+does not apply to trace or ribbon.}
 
 \item{tubes}{whether to display alpha helices as simple cylinders; does not
-apply to trace}
+apply to trace.}
 
-\item{thickness}{cartoon strand thickness, default is 0.4}
+\item{thickness}{cartoon strand thickness, default is 0.4.}
 
 \item{width}{cartoon strand width, default is secondary structure-dependent;
-does not apply to trace or ribbon}
+does not apply to trace or ribbon.}
 
 \item{opacity}{set opacity from 0-1; transparency is set per-chain with a
-warning outputted in the event of ambiguity}
+warning outputted in the event of ambiguity.}
 }
 \description{
 Returns a list for the \code{style = list(cartoon = list())} function,

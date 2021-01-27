@@ -10,11 +10,11 @@ m_style_line(colorScheme = NULL, color = NULL, opacity = NULL, hidden = NULL)
 \item{colorScheme}{Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
 "shapely", "nucleic", "chain", "chainHetatm", "prop".}
 
-\item{color}{fixed coloring, overrides colorscheme}
+\item{color}{Fixed coloring, overrides \code{colorScheme}.}
 
-\item{opacity}{opacity, must be the same for all atoms in the model}
+\item{opacity}{Opacity, must be the same for all atoms in the model.}
 
-\item{hidden}{Logical, do not show line}
+\item{hidden}{Logical, do not show line.}
 }
 \description{
 Returns a list for the \code{style = list(line = list())} function

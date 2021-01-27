@@ -91,9 +91,9 @@ m_add_curve <- function(id, spec = list()) {
 
 #' Add a cylinder shape to scene.
 #'
-#' Creates cylinder shape from start to end, with styling spec from \code{m_shape_spec()}
+#' Creates cylinder shape from start to end, with styling spec from \code{m_shape_spec()}.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
-#' \code{r3dmol()})
+#' \code{r3dmol()}).
 #' @param start Start location of cylinder. Can be either \code{m_sel()} or \code{m_vector3()}.
 #' @param end End location of cylinder. Can be either \code{m_sel()} or \code{m_vector3()}.
 #' @param radius Radius of cylinder.

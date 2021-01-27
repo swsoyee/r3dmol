@@ -24,33 +24,33 @@ m_style_label(
 )
 }
 \arguments{
-\item{font}{font name, default sans-serif}
+\item{font}{Font name, default sans-serif.}
 
-\item{fontSize}{height of text, default 18}
+\item{fontSize}{Height of text, default 18.}
 
-\item{fontColor}{font color, default white}
+\item{fontColor}{Font color, default white.}
 
-\item{fontOpacity}{font opacity, default 1}
+\item{fontOpacity}{Font opacity, default 1.}
 
-\item{borderThickness}{line width of border around label, default 0}
+\item{borderThickness}{Line width of border around label, default 0.}
 
-\item{borderColor}{color of border, default backgroundColor}
+\item{borderColor}{Color of border, default backgroundColor.}
 
-\item{borderOpacity}{opacity of border, default 1}
+\item{borderOpacity}{Opacity of border, default 1.}
 
-\item{backgroundColor}{color of background, default black}
+\item{backgroundColor}{Color of background, default black.}
 
-\item{backgroundOpacity}{opacity of background, default 1}
+\item{backgroundOpacity}{Opacity of background, default 1.}
 
-\item{position}{x,y,z coordinates for label (for custom positioning)}
+\item{position}{x,y,z coordinates for label (for custom positioning).}
 
-\item{inFront}{Logical, if \code{TRUE} always put in front of model}
+\item{inFront}{Logical, if \code{TRUE} always put in front of model.}
 
-\item{showBackground}{Logical, show background rounded rectangle, default \code{TRUE}}
+\item{showBackground}{Logical, show background rounded rectangle, default \code{TRUE}.}
 
-\item{fixed}{Logical, setes the label to change with the model when zooming}
+\item{fixed}{Logical, setes the label to change with the model when zooming.}
 
-\item{alignment}{String, how to orient the label with respect to position: 'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center', 'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'}
+\item{alignment}{String, how to orient the label with respect to position: 'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center', 'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'.}
 
 \item{frame}{If set, only display in this frame of an animation.}
 }

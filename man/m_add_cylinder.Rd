@@ -17,7 +17,7 @@ m_add_cylinder(
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
-\code{r3dmol()})}
+\code{r3dmol()}).}
 
 \item{start}{Start location of cylinder. Can be either \code{m_sel()} or \code{m_vector3()}.}
 
@@ -34,7 +34,7 @@ m_add_cylinder(
 \item{spec}{Additional shape specifications defined with \code{m_shape_spec()}.}
 }
 \description{
-Creates cylinder shape from start to end, with styling spec from \code{m_shape_spec()}
+Creates cylinder shape from start to end, with styling spec from \code{m_shape_spec()}.
 }
 \examples{
 r3dmol() \%>\%
