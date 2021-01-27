@@ -25,17 +25,18 @@ m_bio3d <- function(structure) {
 #'
 #' @examples
 #' r3dmol() %>%
-#'  m_add_model(data = m_fetch_pdb("1bna")) %>%
-#'  m_set_style(style = list(cartoon = m_cartoon_style(),
-#'                           stick = m_stick_style())) %>%
-#'  m_zoom_to()
-#'
+#'   m_add_model(data = m_fetch_pdb("1bna")) %>%
+#'   m_set_style(style = list(
+#'     cartoon = m_cartoon_style(),
+#'     stick = m_stick_style()
+#'   )) %>%
+#'   m_zoom_to()
 #' @export
 #'
 
 
 m_fetch_pdb <- function(PDB, save.pdb = FALSE, path = NULL) {
-  if(!is.character(PDB)) {
+  if (!is.character(PDB)) {
     stop("PDB Must be character string.")
   }
 
@@ -43,18 +44,15 @@ m_fetch_pdb <- function(PDB, save.pdb = FALSE, path = NULL) {
     path <- getwd()
   }
 
-  if(save.pdb == T) {
+  if (save.pdb == T) {
     ## Download pdb file and read in file
     pdb <- bio3d::read.pdb(bio3d::get.pdb(PDB, path = path))
 
     ## Read PDB file, then write directly to console.
     capture.output(write.pdb(pdb, file = ""))
-
   } else if (save.pdb == F) {
 
-  ## Pulls pdb data from online PDB database, without saving to local drive.
-  readLines(bio3d::get.pdb(PDB, URLonly = TRUE))
-
+    ## Pulls pdb data from online PDB database, without saving to local drive.
+    readLines(bio3d::get.pdb(PDB, URLonly = TRUE))
   }
 }
-

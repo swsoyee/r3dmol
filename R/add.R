@@ -27,9 +27,50 @@ m_add_as_one_molecule <- function(id, data, format) {
   callJS()
 }
 
-#' @rdname m_add_anyShape
+#' Add arrow shape
+#'
+#' Add an arrow from start to end, additional customisation through \code{m_shape_spec()}.
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#' @param start Start location of arrow Can be either \code{m_sel()} or \code{m_vector3()}.
+#' @param end End location of arrow. Can be either \code{m_sel()} or \code{m_vector3()}.
+#' @param radius Radius of base cylinder for arrow.
+#' @param spec Additional shape specifications defined with \code{m_shape_spec()}.
+#' @param radiusRatio Ratio of arrow point to the base cylinder. Default 1.618034.
+#' @param mid Relative position of the arrow point base, along the length of
+#' arrow object. Default to 0.618034.
+#' @param hidden Hide object if TRUE.
+#'
+#' @examples
+#' r3dmol() %>%
+#'   m_add_model(data = m_fetch_pdb("1bna")) %>%
+#'   m_zoom_to(sel = m_sel(resi = 1)) %>%
+#'   m_add_arrow(
+#'     start = m_sel(resi = 1),
+#'     end = m_sel(resi = 3),
+#'     spec = m_shape_spec(color = "green")
+#'   )
 #' @export
-m_add_arrow <- function(id, spec = list()) {
+m_add_arrow <- function(
+                        id,
+                        start,
+                        end,
+                        radius = 0.2,
+                        radiusRatio = 1.62,
+                        mid = 0.62,
+                        spec = NULL,
+                        hidden = FALSE) {
+  arglist <- list(
+    start = start,
+    end = end,
+    radius = radius,
+    radiusRatio = radiusRatio,
+    mid = mid,
+    hidden = hidden
+  )
+
+  spec <- c(spec, arglist)
+
   method <- "addArrow"
   callJS()
 }
@@ -48,9 +89,53 @@ m_add_curve <- function(id, spec = list()) {
   callJS()
 }
 
-#' @rdname m_add_anyShape
+#' Add a cylinder shape to scene.
+#'
+#' Creates cylinder shape from start to end, with styling spec from \code{m_shape_spec()}
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#' @param start Start location of cylinder. Can be either \code{m_sel()} or \code{m_vector3()}.
+#' @param end End location of cylinder. Can be either \code{m_sel()} or \code{m_vector3()}.
+#' @param radius Radius of cylinder.
+#' @param fromCap Cap at start of cylinder. 0 for none, 1 for flat, 2 for rounded.
+#' @param toCap Cap at end of cylinder. 0 for none, 1 for flat, 2 for rounded.
+#' @param dashed Boolean, dashed style cylinder instead of solid.
+#' @param spec Additional shape specifications defined with \code{m_shape_spec()}.
+#' @examples
+#' r3dmol() %>%
+#'   m_add_model(data = m_fetch_pdb("1bna")) %>%
+#'   m_zoom_to(sel = m_sel(resi = 1)) %>%
+#'   m_add_cylinder(
+#'     start = m_sel(resi = 1),
+#'     end = m_sel(resi = 2),
+#'     dashed = TRUE,
+#'     radius = 0.1,
+#'     spec = m_shape_spec(
+#'       color = "green",
+#'       alpha = 0.5
+#'     )
+#'   )
 #' @export
-m_add_cylinder <- function(id, spec = list()) {
+m_add_cylinder <- function(
+                           id,
+                           start,
+                           end,
+                           radius = 0.1,
+                           fromCap = 1,
+                           toCap = 1,
+                           dashed = FALSE,
+                           spec = NULL) {
+  arglist <- list(
+    start = start,
+    end = end,
+    radius = radius,
+    fromCap = fromCap,
+    toCap = toCap,
+    dashed = dashed
+  )
+
+  spec <- c(arglist, spec)
+
   method <- "addCylinder"
   callJS()
 }
@@ -62,9 +147,26 @@ m_add_line <- function(id, spec = list()) {
   callJS()
 }
 
-#' @rdname m_add_anyShape
+#' Add Sphere Shape
+#'
+#' Adds sphere at given location, with given radius.
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#' @param center center point of sphere. Can be \code{m_sel()}.
+#' @param radius radius of sphere.
+#' @param spec Additional shape specifications defined with \code{m_shape_spec()}.
+#' @examples
+#' r3dmol() %>%
+#'   m_add_model(data = m_fetch_pdb("1bna")) %>%
+#'   m_add_sphere(
+#'     center = m_sel(resi = 1),
+#'     spec = m_shape_spec(color = "green", wireframe = TRUE)
+#'   ) %>%
+#'   m_zoom_to(sel = m_sel(resi = 1))
 #' @export
-m_add_sphere <- function(id, spec = list()) {
+m_add_sphere <- function(id, center, radius = 1, spec = list()) {
+  spec <- c(list(center = center, radius = radius), spec)
+
   method <- "addSphere"
   callJS()
 }
@@ -82,8 +184,6 @@ m_add_sphere <- function(id, spec = list()) {
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
-#' @export
-#'
 #' @examples
 #' library(r3dmol)
 #'
@@ -102,6 +202,7 @@ m_add_sphere <- function(id, spec = list()) {
 #'       alignment = "center"
 #'     )
 #'   )
+#' @export
 m_add_property_labels <- function(id, prop, sel, style) {
   method <- "addPropertyLabels"
   callJS()

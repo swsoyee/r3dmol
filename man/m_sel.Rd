@@ -28,7 +28,7 @@ Reverse indexing is allowed (-1 specifies last added model).}
 
 \item{resi}{Residue number/s. (vector)}
 
-\item{resn}{Parent residue name. (3-Letter AA codes)}
+\item{resn}{Parent residue name as 3-letter code (e.g. "ALA", "GLY", "CYS"...)}
 
 \item{invert}{Logical, if \code{invert = TRUE}, Inverts the selection criteria.}
 
@@ -59,4 +59,7 @@ sel \code{list()} for selecting atoms.
 Provides documentation for some basic useful selection criteria.
 For more advanced selection options, see the
 \href{https://3dmol.csb.pitt.edu/doc/types.html#AtomSelectionSpec}{Official Documenation}
+}
+\examples{
+
 }

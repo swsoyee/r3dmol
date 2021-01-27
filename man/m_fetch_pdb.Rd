@@ -22,9 +22,10 @@ May take some time to fetch information, every time it is run.
 }
 \examples{
 r3dmol() \%>\%
- m_add_model(data = m_fetch_pdb("1bna")) \%>\%
- m_set_style(style = list(cartoon = m_cartoon_style(),
-                          stick = m_stick_style())) \%>\%
- m_zoom_to()
-
+  m_add_model(data = m_fetch_pdb("1bna")) \%>\%
+  m_set_style(style = list(
+    cartoon = m_cartoon_style(),
+    stick = m_stick_style()
+  )) \%>\%
+  m_zoom_to()
 }
