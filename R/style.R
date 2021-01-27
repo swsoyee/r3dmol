@@ -1,4 +1,4 @@
-#' Specify styling for Sphere
+#' Specify Styling for Sphere
 #'
 #' Returns a list for the \code{style = list(sphere = list())} function,
 #' for setting the sphere specifications.
