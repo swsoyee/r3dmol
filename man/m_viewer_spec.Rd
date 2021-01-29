@@ -5,40 +5,39 @@
 \title{Specifying setup options for Viewer}
 \usage{
 m_viewer_spec(
+  id = NULL,
   defaultcolors = NULL,
+  cartoonQuality = NULL,
+  antialias = NULL,
   nomouse = NULL,
   backgroundColor = NULL,
-  hoverDuration = NULL,
-  id = NULL,
-  cartoonQuality = NULL,
   lowerZoomLimit = NULL,
   upperZoomLimit = NULL,
-  antialias = NULL,
   orthographic = NULL,
   disableFog = NULL
 )
 }
 \arguments{
+\item{id}{id of the canvas}
+
+\item{defaultcolors}{Object defining default atom colors as atom => color property value pairs for all models within this viewer}
+
+\item{cartoonQuality}{Defaults to 5}
+
+\item{antialias}{Logical whether to enable antialiasing, improving graphical quality. (can slow down large structures)}
+
 \item{nomouse}{Whether to disable handling of mouse events. Disabled will
 prevent user interaction.}
 
 \item{backgroundColor}{color of the canvas's background.}
 
-\item{id}{id of the canvas}
-
-\item{cartoonQuality}{Defaults to 5}
-
 \item{lowerZoomLimit}{Specify how far the user can zoom in.}
 
 \item{upperZoomLimit}{Specify how far the user can zoom out.}
 
-\item{antialias}{Logical whether to enable antialiasing, improving graphical quality. (can slow down large structures)}
-
 \item{orthographic}{Logical. Setting orthographic instead of perspective representation.}
 
 \item{disableFog}{Logical, disable fog, defaults to \code{FALSE}}
-
-\item{defaultcolor}{Object defining default atom colors as atom => color property value pairs for all models within this viewer}
 }
 \description{
 Returns a list for the setup \code{r3dmol()} function, to set

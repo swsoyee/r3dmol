@@ -3,7 +3,7 @@
 #' Returns a list for the setup \code{r3dmol()} function, to set
 #' overall settings for the viewer going forward.
 #'
-#' @param defaultcolor Object defining default atom colors as atom => color property value pairs for all models within this viewer
+#' @param defaultcolors Object defining default atom colors as atom => color property value pairs for all models within this viewer
 #' @param nomouse Whether to disable handling of mouse events. Disabled will
 #' prevent user interaction.
 #' @param backgroundColor color of the canvas's background.
@@ -17,22 +17,20 @@
 #' @export
 
 m_viewer_spec <- function(
+                          id = NULL,
                           defaultcolors = NULL,
+                          cartoonQuality = NULL,
+                          antialias = NULL,
                           nomouse = NULL,
                           backgroundColor = NULL,
-                          hoverDuration = NULL,
-                          id = NULL,
-                          cartoonQuality = NULL,
                           lowerZoomLimit = NULL,
                           upperZoomLimit = NULL,
-                          antialias = NULL,
                           orthographic = NULL,
                           disableFog = NULL) {
   m_viewer_spec <- list(
     defaultcolors = defaultcolors,
     nomouse = nomouse,
     backgroundColor = backgroundColor,
-    hoverDuration = hoverDuration,
     id = id,
     cartoonQuality = cartoonQuality,
     lowerZoomLimit = lowerZoomLimit,

@@ -4,7 +4,7 @@
 \alias{m_add_sphere}
 \title{Add Sphere Shape}
 \usage{
-m_add_sphere(id, center, radius = 1, spec = list())
+m_add_sphere(id, center, radius = 1, spec = NULL, ...)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
@@ -15,6 +15,9 @@ m_add_sphere(id, center, radius = 1, spec = list())
 \item{radius}{radius of sphere.}
 
 \item{spec}{Additional shape specifications defined with \code{m_shape_spec()}.}
+
+\item{...}{Additional shape specifcations, that can be called outside of
+\code{m_shape_spec()} such as \code{color = 'blue'}}
 }
 \description{
 Adds sphere at given location, with given radius.

@@ -21,11 +21,11 @@ Will always query the only PDB for structure, and not store on local drive.
 May take some time to fetch information, every time it is run.
 }
 \examples{
+
+library(r3dmol)
+
 r3dmol() \%>\%
   m_add_model(data = m_fetch_pdb("1bna")) \%>\%
-  m_set_style(style = list(
-    cartoon = m_cartoon_style(),
-    stick = m_stick_style()
-  )) \%>\%
+  m_set_style(style = c(m_style_cartoon(), m_style_stick())) \%>\%
   m_zoom_to()
 }

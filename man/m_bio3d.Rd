@@ -4,11 +4,26 @@
 \alias{m_bio3d}
 \title{Load structure from package bio3d}
 \usage{
-m_bio3d(structure)
+m_bio3d(pdb)
 }
 \arguments{
-\item{structure}{bio3d object containing coordinates for desired structure}
+\item{pdb}{bio3d object containing coordinates for desired structure}
 }
 \description{
 Function to take bio3d structure and use in the r3dmol app.
+}
+\examples{
+library(bio3d)
+library(r3dmol)
+
+#create bio3d object
+pdb <- read.pdb('1bna')
+
+#inspect bio3d object
+pdb
+
+#load bio3d object into r3dmol
+r3dmol() \%>\%
+  m_add_model(data = m_bio3d(pdb)) \%>\%
+  m_zoom_to()
 }

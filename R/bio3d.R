@@ -2,13 +2,24 @@
 #'
 #' Function to take bio3d structure and use in the r3dmol app.
 #'
-#' @param structure bio3d object containing coordinates for desired structure
+#' @param pdb bio3d object containing coordinates for desired structure
+#' @examples
+#' library(bio3d)
+#' library(r3dmol)
 #'
+#' #create bio3d object
+#' pdb <- read.pdb('1bna')
+#'
+#' #inspect bio3d object
+#' pdb
+#'
+#' #load bio3d object into r3dmol
+#' r3dmol() %>%
+#'   m_add_model(data = m_bio3d(pdb)) %>%
+#'   m_zoom_to()
 #' @export
-
-
-m_bio3d <- function(structure) {
-  capture.output(bio3d::write.pdb(pdb = structure, file = ""))
+m_bio3d <- function(pdb) {
+  utils::capture.output(bio3d::write.pdb(pdb = pdb, file = ""))
 }
 
 #' Fetch Structure from PDB
@@ -24,20 +35,18 @@ m_bio3d <- function(structure) {
 #' be saved. Defaults to \code{getwd()}.
 #'
 #' @examples
+#'
+#' library(r3dmol)
+#'
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
-#'   m_set_style(style = list(
-#'     cartoon = m_cartoon_style(),
-#'     stick = m_stick_style()
-#'   )) %>%
+#'   m_set_style(style = c(m_style_cartoon(), m_style_stick())) %>%
 #'   m_zoom_to()
 #' @export
 #'
-
-
 m_fetch_pdb <- function(PDB, save.pdb = FALSE, path = NULL) {
   if (!is.character(PDB)) {
-    stop("PDB Must be character string.")
+    stop("PDB Must be character string. e.g.'1bna'")
   }
 
   if (is.null(path)) {
@@ -49,7 +58,8 @@ m_fetch_pdb <- function(PDB, save.pdb = FALSE, path = NULL) {
     pdb <- bio3d::read.pdb(bio3d::get.pdb(PDB, path = path))
 
     ## Read PDB file, then write directly to console.
-    capture.output(write.pdb(pdb, file = ""))
+    utils::capture.output(bio3d::write.pdb(pdb, file = ""))
+
   } else if (save.pdb == F) {
 
     ## Pulls pdb data from online PDB database, without saving to local drive.

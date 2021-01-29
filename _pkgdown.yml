@@ -19,6 +19,17 @@ reference:
       - starts_with("m_set")
       - starts_with("m_remove")
       - m_replicate_unit_cell
+  - title: 'Style / Selections / Specifications'
+    desc: 'Functions for setting the style of models, and doing selections.'
+  - contents:
+      - starts_with("m_style")
+      - m_sel
+      - m_shape_spec
+  - title: 'Importing Models'
+    desc: 'Importing models from `bio3d` and fetching from pdb.'
+  - contents:
+      - m_fetch_pdb
+      - m_bio3d
   - title: 'Animate'
     desc: 'Functions for creating animation.'
   - contents:

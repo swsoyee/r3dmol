@@ -51,7 +51,7 @@ m_style_sphere <- function(
 #' Returns a list for the \code{style = list(cartoon = list())} function,
 #' for setting the cartoon specifications.
 #'
-#' @param color Strand color, may specify as 'spectrum' which will apply
+#' @param color Block color values. Strand color, may specify as 'spectrum' which will apply
 #' reversed gradient based on residue number.
 #' @param style style of cartoon rendering (trace, oval, rectangle (default),
 #' parabola, edged).
@@ -66,6 +66,7 @@ m_style_sphere <- function(
 #' does not apply to trace or ribbon.
 #' @param opacity set opacity from 0-1; transparency is set per-chain with a
 #' warning outputted in the event of ambiguity.
+#' @param colorfunc Allows the user to provide a function for setting the colorschemes, written in javascript. \href{https://3dmol.csb.pitt.edu/doc/types.html#CartoonStyleSpec}{Official Documentation}
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
@@ -80,7 +81,8 @@ m_style_cartoon <- function(
                             tubes = NULL,
                             thickness = NULL,
                             width = NULL,
-                            opacity = NULL) {
+                            opacity = NULL,
+                            colorfunc = NULL) {
   cartoon_style <- list(
     color = color,
     style = style,
@@ -89,7 +91,8 @@ m_style_cartoon <- function(
     tubes = tubes,
     thickness = thickness,
     width = width,
-    opacity = opacity
+    opacity = opacity,
+    colorfunc = colorfunc
   )
 
   for (i in names(cartoon_style)) {
@@ -304,6 +307,10 @@ m_style_surface <- function(
 #' @param frame If set, only display in this frame of an animation.
 #' @param clickable If true, user can click on object to trigger callback.
 #' @param callback Function to call on click.
+#' @param hoverable Logical, enabling hover_callback and unhover_callback
+#' functions to be called. Set hoverDuration in the viewer_spec() of r3dmol().
+#' @param hover_callback Function to be called upon hover.
+#' @param unhover_callback Function to be called upon hover stopping.
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
@@ -320,7 +327,10 @@ m_shape_spec <- function(
                          hidden = NULL,
                          frame = NULL,
                          clickable = NULL,
-                         callback = NULL) {
+                         callback = NULL,
+                         hoverable = NULL,
+                         hover_callback = NULL,
+                         unhover_callback = NULL) {
   shape_spec <- list(
     color = color,
     alpha = alpha,
@@ -328,7 +338,10 @@ m_shape_spec <- function(
     hidden = hidden,
     frame = frame,
     clickable = clickable,
-    callback = callback
+    callback = callback,
+    hoverable = hoverable,
+    hover_callback = hover_callback,
+    unhover_callback = unhover_callback
   )
 
   for (i in names(shape_spec)) {

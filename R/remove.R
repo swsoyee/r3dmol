@@ -77,11 +77,11 @@ m_remove_all_models <- function(id) {
 #'
 #' mol <- r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_add_sphere(spec = list(
+#'   m_add_sphere(
 #'     center = list(x = 0, y = 0, z = 0),
 #'     radius = 10.0,
 #'     color = "red"
-#'   ))
+#'    )
 #'
 #' # Render model with shape
 #' mol

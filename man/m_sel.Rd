@@ -32,7 +32,9 @@ Reverse indexing is allowed (-1 specifies last added model).}
 
 \item{invert}{Logical, if \code{invert = TRUE}, Inverts the selection criteria.}
 
-\item{byres}{Logical, if \code{byres = TRUE}, expands the selection to include
+\item{byres}{Logical, if \code{byres = TRUE}, expands the selection to include}
+
+\item{expand}{Expand selection to include atoms within a specified distance from current selection.
 all atoms of any residue that has any atom already selected.}
 
 \item{elem}{element abbreviation (e.g 'H', 'Ca', etc)}
@@ -44,7 +46,7 @@ all atoms of any residue that has any atom already selected.}
 \item{bonds}{overloaded to select number of bonds, e.g. \code{bonds = 0}
 will select all non-bonded atoms}
 
-\item{ss}{Secondary structure identifier (for cartoon render; e.g. 'h' for helix)}
+\item{ss}{Secondary structure identifier. 'h' for helix, 's' for beta-sheet.}
 
 \item{b}{Atom b factor data}
 
@@ -61,5 +63,18 @@ For more advanced selection options, see the
 \href{https://3dmol.csb.pitt.edu/doc/types.html#AtomSelectionSpec}{Official Documenation}
 }
 \examples{
+r3dmol() \%>\%
+  m_add_model(data = m_fetch_pdb('1bna')) \%>\%
+  m_add_style(style = m_style_stick(),
+              sel = m_sel(resi = 1:2)) \%>\%
+  m_zoom_to(sel = m_sel(resi = 1))
 
+#Expand example
+r3dmol() \%>\%
+  m_add_model(data = m_fetch_pdb('1bna')) \%>\%
+  m_add_style(style = m_style_stick(),
+              sel = m_sel(resi = 1,
+                          expand = 10,
+                          byres = TRUE)) \%>\%
+  m_zoom_to(sel = m_sel(resi = 1))
 }

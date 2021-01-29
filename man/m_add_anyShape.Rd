@@ -32,19 +32,19 @@ library(r3dmol)
 # Add arrow
 r3dmol() \%>\%
   m_add_arrow(
-    spec = list(
       start = m_vector3(-10, 0, 0),
       end = m_vector3(0, -10, 0),
       radius = 1,
-      radiusRadio = 1,
+      radiusRatio = 1,
       mid = 1,
-      clickable = TRUE,
-      callback =
-        "function() {
-          this.color.setHex(0xFF0000FF);
-          viewer.render()
-        }"
-    )
+      spec = m_shape_spec(
+        clickable = TRUE,
+        callback =
+          "function() {
+            this.color.setHex(0xFF0000FF);
+            viewer.render()
+          }"
+     )
   )
 
 # Add curve
@@ -68,30 +68,30 @@ r3dmol() \%>\%
 # Add cylinder
 r3dmol() \%>\%
   m_add_cylinder(
-    spec = list(
       start = list(x = 0.0, y = 0.0, z = 0.0),
       end = list(x = 10.0, y = 0.0, z = 0.0),
       radius = 1.0,
       fromCap = 1,
       toCap = 2,
-      color = "red",
-      hoverable = TRUE,
-      clickable = TRUE,
-      callback = "
-      function() {
-        this.color.setHex(0x00FFFF00);
-        viewer.render();
-      }",
-      hover_callback = "
-      function() {
-        viewer.render();
-      }",
-      unhover_callback = "
-      function() {
-        this.color.setHex(0xFF000000);
-        viewer.render();
-      }"
-    )
+      spec = m_shape_spec(
+        color = "red",
+        hoverable = TRUE,
+        clickable = TRUE,
+        callback = "
+        function() {
+          this.color.setHex(0x00FFFF00);
+          viewer.render();
+        }",
+        hover_callback = "
+        function() {
+          viewer.render();
+        }",
+        unhover_callback = "
+        function() {
+          this.color.setHex(0xFF000000);
+          viewer.render();
+        }"
+      )
   )
 
 # Add line
@@ -112,9 +112,11 @@ r3dmol() \%>\%
 
 # Add sphere
 r3dmol() \%>\%
-  m_add_sphere(spec = list(
+  m_add_sphere(
     center = m_vector3(0, 0, 0),
     radius = 10,
-    color = "red"
-  ))
+    spec = m_shape_spec(
+      color = "red"
+    )
+  )
 }

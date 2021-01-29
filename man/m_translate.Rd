@@ -38,7 +38,7 @@ library(r3dmol)
 # Translate current view by x,y screen coordinates
 r3dmol() \%>\%
   m_add_model(data = pdb_1j72, format = "pdb") \%>\%
-  m_set_style(style = list(cartoon = list(), stick = list())) \%>\%
+  m_set_style(style = c(m_style_cartoon(), m_style_stick())) \%>\%
   m_translate(
     x = 200,
     y = 50,
@@ -54,7 +54,7 @@ r3dmol() \%>\%
 # Translate current models by x,y screen coordinates
 r3dmol() \%>\%
   m_add_model(data = pdb_1j72, format = "pdb") \%>\%
-  m_set_style(style = list(cartoon = list(), stick = list())) \%>\%
+  m_set_style(style = c(m_style_cartoon(), m_style_stick())) \%>\%
   m_translate_scene(
     x = 200,
     y = 50,

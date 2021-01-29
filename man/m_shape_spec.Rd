@@ -11,7 +11,10 @@ m_shape_spec(
   hidden = NULL,
   frame = NULL,
   clickable = NULL,
-  callback = NULL
+  callback = NULL,
+  hoverable = NULL,
+  hover_callback = NULL,
+  unhover_callback = NULL
 )
 }
 \arguments{
@@ -28,6 +31,13 @@ m_shape_spec(
 \item{clickable}{If true, user can click on object to trigger callback.}
 
 \item{callback}{Function to call on click.}
+
+\item{hoverable}{Logical, enabling hover_callback and unhover_callback
+functions to be called. Set hoverDuration in the viewer_spec() of r3dmol().}
+
+\item{hover_callback}{Function to be called upon hover.}
+
+\item{unhover_callback}{Function to be called upon hover stopping.}
 }
 \description{
 Specify Styling for Generic Shapes

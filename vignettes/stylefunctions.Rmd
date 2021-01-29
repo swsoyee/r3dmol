@@ -1,0 +1,147 @@
+---
+title: "Example New Functions"
+author: "Brady Johnston"
+date: '`r Sys.Date()`'
+output:
+  # md_document:
+  #   pandoc_args: ["--wrap=preserve"]
+  html_document:
+    theme: flatly
+---
+
+<!--
+%\VignetteEngine{knitr::rmarkdown}
+%\VignetteIndexEntry{New Style Functions}
+-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(r3dmol)
+```
+
+# User Friendly
+
+All of the additions that I've made to this package have been what I wish there
+was while I was trying to learn how to user it. It's a great package, but I think
+it would be a lot easier to pick up if for setting of various attributes, you 
+didn't need to look at the documentation for the `3dmol.js` package.
+
+I don't know much about javascript, so if I'm I've been doing anything heinously
+wrong please do let me know. 
+
+Most of these functions just bring documenation to helper functions, so the user
+can see potential styling, selection and viewer options without having to directly
+look at the documentation.
+
+## Loading Functions
+
+Utilising the `bio3d` package, functions for fetching PDB and also loading `bio3d` 
+class objects into `r3dmol`
+
+`m_fetch_pdb()` returns a string version of the pdb file, fetched from the server.
+
+Can either save the pdb to local drive to speed up future loading, or fetch every time.
+
+```{r, eval=TRUE}
+model <- r3dmol() %>% 
+  m_add_model(data = m_fetch_pdb("1bna", save.pdb = F)) %>% 
+  m_set_style(style = m_style_cartoon()) %>% 
+  m_zoom_to()
+model
+```
+
+You can have multiple styles by providing a vector of styles to the parameter.
+
+```{r}
+model %>% 
+  m_set_style(style = c(m_style_cartoon(), m_style_stick())) %>% 
+  m_zoom_to()
+```
+
+### Loading from `bio3d` object
+
+A large omount of complex analysis can be performed in `bio3d`, taking subsequent 
+structures from this package and viewing the in `r3dmol` can be achieved with
+`m_bio3d()`. 
+
+This function just prints the .pdb to console and captures the output, the 
+best solution that I could figure out.
+
+```{r, eval=FALSE}
+capture.output(write.pdb(pdb, file = ""))
+```
+
+### Example Loading
+
+Obtaining package through `bio3d`, then reading into `r3dmol`.
+
+```{r}
+library(bio3d)
+pdb <- read.pdb("1bna") 
+
+pdb
+
+model2 <- r3dmol() %>% 
+  m_add_model(data = m_bio3d(pdb)) %>% 
+  m_set_style(style = m_style_cartoon()) %>% 
+  m_zoom_to()
+
+model2
+```
+
+
+## New Style Functions
+
+```{r eval=FALSE}
+m_style_cartoon()
+m_style_line()
+m_style_stick()
+m_style_sphere()
+```
+
+There are also the additional style functions, that must be called only inside 
+their respective functions. 
+```{r, eval = FALSE}
+#m_style_label()
+m_add_res_labels(style = m_style_label())
+
+#m_style_surface()
+m_add_surface(style = m_style_surface())
+```
+
+All that these functions do is return a list with inputted arguments, but they 
+allow users to get prompts on the potential options.
+
+### Example Usage
+
+```{r}
+model2 %>% 
+  m_set_style(style = c(m_style_cartoon(color = 'spectrum'), 
+                        m_style_stick(), 
+                        m_style_sphere(scale = 0.3))) %>% 
+  m_zoom_to()
+```
+
+## Additional Functions
+
+The same principle has been applied to `sel` and `viewer` functions, to present
+potential list of options to change.
+
+```{r}
+
+r3dmol(viewer_spec = m_viewer_spec(
+  cartoonQuality = 10, 
+  nomouse = T, 
+  antialias = T
+)) %>% 
+  m_add_model(data = m_fetch_pdb("4ozs")) %>% 
+  m_set_style(sel = m_sel(resi = 1:36), 
+              style = m_style_cartoon(color = 'spectrum')) %>% 
+  m_zoom_to(sel = m_sel(resi = 1:36)) %>% 
+  m_spin(axis = "y") %>% 
+  m_add_label(sel = m_sel(resi = 1:36), 
+              text = "Single PPR Motif", 
+              options = m_style_label(inFront = F, alignment = "center"))
+
+```
+

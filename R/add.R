@@ -155,6 +155,8 @@ m_add_line <- function(id, spec = list()) {
 #' @param center center point of sphere. Can be \code{m_sel()}.
 #' @param radius radius of sphere.
 #' @param spec Additional shape specifications defined with \code{m_shape_spec()}.
+#' @param ... Additional shape specifcations, that can be called outside of
+#' \code{m_shape_spec()} such as \code{color = 'blue'}
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
@@ -164,8 +166,8 @@ m_add_line <- function(id, spec = list()) {
 #'   ) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1))
 #' @export
-m_add_sphere <- function(id, center, radius = 1, spec = list()) {
-  spec <- c(list(center = center, radius = radius), spec)
+m_add_sphere <- function(id, center, radius = 1, spec = NULL, ...) {
+  spec <- c(list(center = center, radius = radius), spec, ...)
 
   method <- "addSphere"
   callJS()

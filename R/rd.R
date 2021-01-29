@@ -195,19 +195,19 @@ NULL
 #' # Add arrow
 #' r3dmol() %>%
 #'   m_add_arrow(
-#'     spec = list(
 #'       start = m_vector3(-10, 0, 0),
 #'       end = m_vector3(0, -10, 0),
 #'       radius = 1,
-#'       radiusRadio = 1,
+#'       radiusRatio = 1,
 #'       mid = 1,
-#'       clickable = TRUE,
-#'       callback =
-#'         "function() {
-#'           this.color.setHex(0xFF0000FF);
-#'           viewer.render()
-#'         }"
-#'     )
+#'       spec = m_shape_spec(
+#'         clickable = TRUE,
+#'         callback =
+#'           "function() {
+#'             this.color.setHex(0xFF0000FF);
+#'             viewer.render()
+#'           }"
+#'      )
 #'   )
 #'
 #' # Add curve
@@ -231,30 +231,30 @@ NULL
 #' # Add cylinder
 #' r3dmol() %>%
 #'   m_add_cylinder(
-#'     spec = list(
 #'       start = list(x = 0.0, y = 0.0, z = 0.0),
 #'       end = list(x = 10.0, y = 0.0, z = 0.0),
 #'       radius = 1.0,
 #'       fromCap = 1,
 #'       toCap = 2,
-#'       color = "red",
-#'       hoverable = TRUE,
-#'       clickable = TRUE,
-#'       callback = "
-#'       function() {
-#'         this.color.setHex(0x00FFFF00);
-#'         viewer.render();
-#'       }",
-#'       hover_callback = "
-#'       function() {
-#'         viewer.render();
-#'       }",
-#'       unhover_callback = "
-#'       function() {
-#'         this.color.setHex(0xFF000000);
-#'         viewer.render();
-#'       }"
-#'     )
+#'       spec = m_shape_spec(
+#'         color = "red",
+#'         hoverable = TRUE,
+#'         clickable = TRUE,
+#'         callback = "
+#'         function() {
+#'           this.color.setHex(0x00FFFF00);
+#'           viewer.render();
+#'         }",
+#'         hover_callback = "
+#'         function() {
+#'           viewer.render();
+#'         }",
+#'         unhover_callback = "
+#'         function() {
+#'           this.color.setHex(0xFF000000);
+#'           viewer.render();
+#'         }"
+#'       )
 #'   )
 #'
 #' # Add line
@@ -275,11 +275,13 @@ NULL
 #'
 #' # Add sphere
 #' r3dmol() %>%
-#'   m_add_sphere(spec = list(
+#'   m_add_sphere(
 #'     center = m_vector3(0, 0, 0),
 #'     radius = 10,
-#'     color = "red"
-#'   ))
+#'     spec = m_shape_spec(
+#'       color = "red"
+#'     )
+#'   )
 NULL
 
 #' Translate current view or models by x,y screen coordinates
@@ -307,7 +309,7 @@ NULL
 #' # Translate current view by x,y screen coordinates
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list(), stick = list())) %>%
+#'   m_set_style(style = c(m_style_cartoon(), m_style_stick())) %>%
 #'   m_translate(
 #'     x = 200,
 #'     y = 50,
@@ -323,7 +325,7 @@ NULL
 #' # Translate current models by x,y screen coordinates
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list(), stick = list())) %>%
+#'   m_set_style(style = c(m_style_cartoon(), m_style_stick())) %>%
 #'   m_translate_scene(
 #'     x = 200,
 #'     y = 50,
