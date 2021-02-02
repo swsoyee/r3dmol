@@ -26,6 +26,6 @@ library(r3dmol)
 
 r3dmol() \%>\%
   m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
-  m_set_style(style = list(cartoon = list())) \%>\%
+  m_set_style(style = m_style_cartoon()) \%>\%
   m_set_projection(scheme = "orthographic")
 }

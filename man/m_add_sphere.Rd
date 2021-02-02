@@ -14,7 +14,8 @@ m_add_sphere(id, center, radius = 1, spec = NULL, ...)
 
 \item{radius}{radius of sphere.}
 
-\item{spec}{Additional shape specifications defined with \code{m_shape_spec()}.}
+\item{spec}{Additional shape specifications defined with
+\code{m_shape_spec()}.}
 
 \item{...}{Additional shape specifcations, that can be called outside of
 \code{m_shape_spec()} such as \code{color = 'blue'}}

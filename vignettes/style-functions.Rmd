@@ -1,0 +1,177 @@
+---
+title: "Styling Your Protein"
+author: "Brady Johnston"
+date: '`r Sys.Date()`'
+output:
+  # md_document:
+  #   pandoc_args: ["--wrap=preserve"]
+  html_document:
+    theme: flatly
+---
+
+<!--
+%\VignetteEngine{knitr::rmarkdown}
+%\VignetteIndexEntry{Style Functions}
+-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<!-- # User-Friendly Approach -->
+
+### Styling in {r3dmol}
+
+To style a model, you can either `m_add_style()` or `m_set_style()`, which 
+will either _add_ styling to what is already in the scene, or _overwrite_ the 
+styling for the selection in the call. The `m_style_surface()` and 
+`m_style_label()` must be used inside `m_add_surface()` and `m_add_label()` 
+functions, and cannot be supplied inside the `m_set_style()` or `m_add_style()`.
+
+By default, the _line_ styling is applied when a new model is added to the 
+scene. If you don't want the line styling, use `m_set_style()` after adding
+a model to the scene.
+
+Some styles have additional, more advanced options that involve javascript, 
+details for all of this can be found in the 
+[documentation for 3dmol.js](https://3dmol.csb.pitt.edu/).
+
+```{r load-package}
+library(r3dmol)
+```
+
+
+```{r}
+model <- r3dmol() %>% 
+  m_add_model(data = pdb_6zsl) %>% 
+  m_set_style(style = m_style_cartoon()) %>% 
+  m_zoom_to()
+
+model
+```
+
+## Style Options
+
+All of the styling functions have multiple options. These vary, depending on the
+style chosen but are all described in the function documentation.
+
+```{r}
+model %>% 
+  m_set_style(style = m_style_cartoon(color = 'spectrum', ribbon = TRUE)) %>% 
+  m_add_outline() %>% 
+  m_set_zoom_limits(upper = 200, lower = 30)
+
+```
+
+
+Multiple styles can be supplied by placing multiple styles inside `c()` into the 
+`style` parameter.
+
+```{r}
+model %>%
+  m_set_style(style = c(
+    m_style_cartoon(
+      color = "spectrum",
+      ribbon = TRUE
+    ),
+    m_style_line()
+  ))
+```
+
+## Using Selections
+
+In order to selectively apply styling to a model, usage of the `m_sel()` 
+function allows specification of particular atoms to apply the style to.
+
+The `m_sel()` is a generic selection function, and can be used anywhere that a 
+selection is required. Selections can be specified with:
+* `resn` = Residue Name
+* `resi` = Residue Number
+* `chain` = Chain letter
+* `model` = Model index in the scene
+
+To name a few of the useful selection options. Check the documentation
+for more available options. 
+
+```{r}
+model %>%
+  m_add_style(
+    style = c(
+      m_style_stick(),
+      m_style_sphere(scale = 0.3)
+    ),
+    sel = m_sel(resi = 1:10, chain = "A")
+  ) %>%
+  m_zoom_to(sel = m_sel(resi = 1:10, chain = "A"))
+```
+
+Selections can be supplied for functions that require a single point. The center
+of the overall selection will be found, and that value used in the function.
+
+In the example below, when adding the _start_ and _end_ points for the line, 
+the chain is specified (but the middle-point of all 10 residues is found and 
+used) but when adding the label, the chain specification is left out.
+
+The middle of residues 1-10 from both chains is found, and that is where the 
+label is placed.
+
+```{r}
+model %>%
+  m_add_style(
+    sel = m_sel(resi = 1:10),
+    style = c(
+      m_style_stick(),
+      m_style_sphere(scale = 0.3)
+    )
+  ) %>%
+  m_add_line(
+    start = m_sel(
+      resi = 1:10,
+      chain = "A"
+    ),
+    end = m_sel(
+      resi = 1:10,
+      chain = "B"
+    ), spec = list(dashed = TRUE)
+  ) %>%
+  m_add_label(
+    text = "The middle of the selection",
+    sel = m_sel(resi = 1:10)
+  )
+```
+
+
+
+## Loading Functions
+
+Models can be fetched from the PDB database using `m_fetch_pdb()`.
+
+Models from the common structural analysis and bioinformatics package {bio3d} 
+can be add with the `m_bio3d()` function.
+
+```{r, eval=TRUE}
+model <- r3dmol() %>% 
+  m_add_model(data = m_fetch_pdb("1bna", save.pdb = FALSE)) %>% 
+  m_set_style(style = m_style_cartoon()) %>% 
+  m_zoom_to()
+model
+```
+
+Obtaining package through `bio3d`, then reading into `r3dmol`.
+
+```{r}
+library(bio3d)
+pdb <- read.pdb("1bna") 
+
+pdb
+
+model2 <- r3dmol() %>% 
+  m_add_model(data = m_bio3d(pdb)) %>% 
+  m_set_style(style = m_style_cartoon()) %>% 
+  m_zoom_to()
+
+model2
+```
+
+
+

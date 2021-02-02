@@ -43,9 +43,9 @@ NULL
 #'
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_set_style(style = m_style_cartoon()) %>%
 #'   m_set_view(arg = c(20, -20, 10, -200, 0, 1, 0, 0)) %>%
-#'   m_set_view_style(style = list(style = "outline", color = "blue"))
+#'   m_add_outline(color = "blue")
 NULL
 
 #' Create and add model to viewer
@@ -139,44 +139,10 @@ NULL
 #' # Replicate atoms in model to form a super cell
 #' r3dmol() %>%
 #'   m_add_model(data = cif_254385, format = "cif") %>%
-#'   m_set_style(style = list(sphere = list(scale = 0.25))) %>%
+#'   m_set_style(style = m_style_sphere(scale = 0.25)) %>%
 #'   m_add_unit_cell() %>%
 #'   m_zoom_to() %>%
 #'   m_replicate_unit_cell(a = 3, b = 2, c = 1)
-NULL
-
-#' Set or set style properties to all selected atoms
-#'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
-#' \code{r3dmol()})
-#' @param sel Atom selection specification
-#' @param style Style spec to apply to specified atoms
-#'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
-#' \code{r3dmol()})
-#' @name m_style
-#'
-#' @examples
-#' library(r3dmol)
-#'
-#' # Add style to model
-#' r3dmol() %>%
-#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
-#'   m_add_style(style = list(cartoon = list())) %>%
-#'   m_zoom_to()
-#'
-#' # Set style to model
-#' r3dmol() %>%
-#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list())) %>%
-#'   m_set_style(
-#'     sel = list(chain = "A"),
-#'     style = list(stick = list(
-#'       radius = 0.5,
-#'       colorscheme = "magentaCarbon"
-#'     ))
-#'   ) %>%
-#'   m_zoom_to()
 NULL
 
 #' Create and add shape
@@ -259,11 +225,11 @@ NULL
 #'
 #' # Add line
 #' r3dmol() %>%
-#'   m_add_line(spec = list(
+#'   m_add_line(
 #'     dashed = TRUE,
 #'     start = m_vector3(0, 0, 0),
 #'     end = m_vector3(30, 30, 30)
-#'   ))
+#'   )
 #'
 #' # Add box
 #' r3dmol() %>%
@@ -278,9 +244,7 @@ NULL
 #'   m_add_sphere(
 #'     center = m_vector3(0, 0, 0),
 #'     radius = 10,
-#'     spec = m_shape_spec(
-#'       color = "red"
-#'     )
+#'     spec = m_shape_spec(color = "red")
 #'   )
 NULL
 

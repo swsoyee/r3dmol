@@ -3,15 +3,12 @@
 \name{m_add_box}
 \alias{m_add_box}
 \alias{m_add_curve}
-\alias{m_add_line}
 \alias{m_add_anyShape}
 \title{Create and add shape}
 \usage{
 m_add_box(id, spec = list())
 
 m_add_curve(id, spec = list())
-
-m_add_line(id, spec = list())
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
@@ -96,11 +93,11 @@ r3dmol() \%>\%
 
 # Add line
 r3dmol() \%>\%
-  m_add_line(spec = list(
+  m_add_line(
     dashed = TRUE,
     start = m_vector3(0, 0, 0),
     end = m_vector3(30, 30, 30)
-  ))
+  )
 
 # Add box
 r3dmol() \%>\%
@@ -115,8 +112,6 @@ r3dmol() \%>\%
   m_add_sphere(
     center = m_vector3(0, 0, 0),
     radius = 10,
-    spec = m_shape_spec(
-      color = "red"
-    )
+    spec = m_shape_spec(color = "red")
   )
 }

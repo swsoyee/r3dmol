@@ -4,13 +4,13 @@
 \alias{m_add_property_labels}
 \title{Add property labels}
 \usage{
-m_add_property_labels(id, prop, sel, style)
+m_add_property_labels(id, prop, sel = m_sel(), style = m_style_label())
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()})}
 
-\item{prop}{Property name}
+\item{prop}{Property name ()}
 
 \item{sel}{Atom selection specification}
 

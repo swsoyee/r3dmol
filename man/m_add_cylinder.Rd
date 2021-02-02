@@ -12,29 +12,34 @@ m_add_cylinder(
   fromCap = 1,
   toCap = 1,
   dashed = FALSE,
-  spec = NULL
+  spec = m_shape_spec()
 )
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()}).}
 
-\item{start}{Start location of cylinder. Can be either \code{m_sel()} or \code{m_vector3()}.}
+\item{start}{Start location of cylinder. Can be either \code{m_sel()} or
+\code{m_vector3()}.}
 
-\item{end}{End location of cylinder. Can be either \code{m_sel()} or \code{m_vector3()}.}
+\item{end}{End location of cylinder. Can be either \code{m_sel()} or
+\code{m_vector3()}.}
 
 \item{radius}{Radius of cylinder.}
 
-\item{fromCap}{Cap at start of cylinder. 0 for none, 1 for flat, 2 for rounded.}
+\item{fromCap}{Cap at start of cylinder. 0 for none, 1 for flat,
+2 for rounded.}
 
 \item{toCap}{Cap at end of cylinder. 0 for none, 1 for flat, 2 for rounded.}
 
 \item{dashed}{Boolean, dashed style cylinder instead of solid.}
 
-\item{spec}{Additional shape specifications defined with \code{m_shape_spec()}.}
+\item{spec}{Additional shape specifications defined with
+\code{m_shape_spec()}.}
 }
 \description{
-Creates cylinder shape from start to end, with styling spec from \code{m_shape_spec()}.
+Creates cylinder shape from start to end, with styling spec from
+\code{m_shape_spec()}.
 }
 \examples{
 r3dmol() \%>\%

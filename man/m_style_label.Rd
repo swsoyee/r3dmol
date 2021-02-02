@@ -46,11 +46,14 @@ m_style_label(
 
 \item{inFront}{Logical, if \code{TRUE} always put in front of model.}
 
-\item{showBackground}{Logical, show background rounded rectangle, default \code{TRUE}.}
+\item{showBackground}{Logical, show background rounded rectangle, default
+\code{TRUE}.}
 
 \item{fixed}{Logical, setes the label to change with the model when zooming.}
 
-\item{alignment}{String, how to orient the label with respect to position: 'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center', 'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'.}
+\item{alignment}{String, how to orient the label with respect to position:
+'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center',
+'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'.}
 
 \item{frame}{If set, only display in this frame of an animation.}
 }
@@ -62,6 +65,7 @@ for setting the label specifications.
 r3dmol() \%>\%
   m_add_model(data = pdb_1j72, format = "pdb") \%>\%
   m_set_style(style = m_style_stick()) \%>\%
-  m_add_res_labels(style = m_style_label(fontSize = 14, backgroundColor = "green")) \%>\%
+  m_add_res_labels(style = m_style_label(fontSize = 14,
+  backgroundColor = "green")) \%>\%
   m_zoom_to()
 }

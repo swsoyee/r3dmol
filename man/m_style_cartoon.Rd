@@ -17,7 +17,8 @@ m_style_cartoon(
 )
 }
 \arguments{
-\item{color}{Block color values. Strand color, may specify as 'spectrum' which will apply
+\item{color}{Block color values. Strand color, may specify as 'spectrum'
+which will apply
 reversed gradient based on residue number.}
 
 \item{style}{style of cartoon rendering (trace, oval, rectangle (default),
@@ -40,7 +41,10 @@ does not apply to trace or ribbon.}
 \item{opacity}{set opacity from 0-1; transparency is set per-chain with a
 warning outputted in the event of ambiguity.}
 
-\item{colorfunc}{Allows the user to provide a function for setting the colorschemes, written in javascript. \href{https://3dmol.csb.pitt.edu/doc/types.html#CartoonStyleSpec}{Official Documentation}}
+\item{colorfunc}{Allows the user to provide a function for setting the
+colorschemes, written in javascript.
+\href{https://3dmol.csb.pitt.edu/doc/types.html#CartoonStyleSpec}{Official
+Documentation}}
 }
 \description{
 Returns a list for the \code{style = list(cartoon = list())} function,

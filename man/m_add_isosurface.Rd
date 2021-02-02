@@ -33,9 +33,5 @@ r3dmol() \%>\%
       opacity = 0.95
     )
   ) \%>\%
-  m_set_style(
-    sel = list(cartoon = list()),
-    style = list(stick = list())
-  ) \%>\%
   m_zoom_to()
 }

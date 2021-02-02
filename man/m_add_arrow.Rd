@@ -11,7 +11,7 @@ m_add_arrow(
   radius = 0.2,
   radiusRatio = 1.62,
   mid = 0.62,
-  spec = NULL,
+  spec = m_shape_spec(),
   hidden = FALSE
 )
 }
@@ -19,23 +19,28 @@ m_add_arrow(
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()})}
 
-\item{start}{Start location of arrow Can be either \code{m_sel()} or \code{m_vector3()}.}
+\item{start}{Start location of arrow Can be either \code{m_sel()} or
+\code{m_vector3()}.}
 
-\item{end}{End location of arrow. Can be either \code{m_sel()} or \code{m_vector3()}.}
+\item{end}{End location of arrow. Can be either \code{m_sel()} or
+\code{m_vector3()}.}
 
 \item{radius}{Radius of base cylinder for arrow.}
 
-\item{radiusRatio}{Ratio of arrow point to the base cylinder. Default 1.618034.}
+\item{radiusRatio}{Ratio of arrow point to the base cylinder.
+Default 1.618034.}
 
 \item{mid}{Relative position of the arrow point base, along the length of
 arrow object. Default to 0.618034.}
 
-\item{spec}{Additional shape specifications defined with \code{m_shape_spec()}.}
+\item{spec}{Additional shape specifications defined with
+\code{m_shape_spec()}.}
 
 \item{hidden}{Hide object if TRUE.}
 }
 \description{
-Add an arrow from start to end, additional customisation through \code{m_shape_spec()}.
+Add an arrow from start to end, additional customisation through
+\code{m_shape_spec()}.
 }
 \examples{
 r3dmol() \%>\%

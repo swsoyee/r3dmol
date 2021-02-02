@@ -26,7 +26,7 @@ reference:
       - m_sel
       - m_shape_spec
   - title: 'Importing Models'
-    desc: 'Importing models from `bio3d` and fetching from pdb.'
+    desc: 'Importing models from {bio3d} and fetching from pdb.'
   - contents:
       - m_fetch_pdb
       - m_bio3d

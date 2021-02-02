@@ -73,7 +73,7 @@ mol \%>\%
 # Replicate atoms in model to form a super cell
 r3dmol() \%>\%
   m_add_model(data = cif_254385, format = "cif") \%>\%
-  m_set_style(style = list(sphere = list(scale = 0.25))) \%>\%
+  m_set_style(style = m_style_sphere(scale = 0.25)) \%>\%
   m_add_unit_cell() \%>\%
   m_zoom_to() \%>\%
   m_replicate_unit_cell(a = 3, b = 2, c = 1)

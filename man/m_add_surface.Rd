@@ -26,7 +26,7 @@ group than \code{atomsel}.}
 }
 \value{
 R3dmol \code{id} or a \code{r3dmol} object (the output from
-\code{r3dmol()})
+\code{r3dmol()}
 }
 \description{
 Add surface representation to atoms

@@ -6,7 +6,9 @@
 #' @param hidden Boolean - do not show atom. Default \code{FALSE}.
 #' @param radius Override van der waals radius.
 #' @param scale Scale radius by specified amount.
-#' @param colorscheme Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
+#' @param colorscheme Specify scheme to color the atoms by. Default is
+#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Discrete, fixed coloring, overrides any colorscheme.
 #' @param opacity Opacity of spheres, 0 being invisible. Must be the same for
@@ -35,11 +37,7 @@ m_style_sphere <- function(
     opacity = opacity
   )
 
-  for (i in names(sphere_style)) {
-    if (is.null(sphere_style[[i]])) {
-      sphere_style[[i]] <- NULL
-    }
-  }
+  sphere_style <- cleanup_nulls(sphere_style)
 
   # sphere_style
   sphere <- list(sphere = sphere_style)
@@ -51,7 +49,8 @@ m_style_sphere <- function(
 #' Returns a list for the \code{style = list(cartoon = list())} function,
 #' for setting the cartoon specifications.
 #'
-#' @param color Block color values. Strand color, may specify as 'spectrum' which will apply
+#' @param color Block color values. Strand color, may specify as 'spectrum'
+#' which will apply
 #' reversed gradient based on residue number.
 #' @param style style of cartoon rendering (trace, oval, rectangle (default),
 #' parabola, edged).
@@ -66,7 +65,10 @@ m_style_sphere <- function(
 #' does not apply to trace or ribbon.
 #' @param opacity set opacity from 0-1; transparency is set per-chain with a
 #' warning outputted in the event of ambiguity.
-#' @param colorfunc Allows the user to provide a function for setting the colorschemes, written in javascript. \href{https://3dmol.csb.pitt.edu/doc/types.html#CartoonStyleSpec}{Official Documentation}
+#' @param colorfunc Allows the user to provide a function for setting the
+#' colorschemes, written in javascript.
+#' \href{https://3dmol.csb.pitt.edu/doc/types.html#CartoonStyleSpec}{Official
+#' Documentation}
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
@@ -95,11 +97,7 @@ m_style_cartoon <- function(
     colorfunc = colorfunc
   )
 
-  for (i in names(cartoon_style)) {
-    if (is.null(cartoon_style[[i]])) {
-      cartoon_style[[i]] <- NULL
-    }
-  }
+  cartoon_style <- cleanup_nulls(cartoon_style)
 
   cartoon <- list(cartoon = cartoon_style)
   cartoon
@@ -113,7 +111,9 @@ m_style_cartoon <- function(
 #' @param hidden Do not show.
 #' @param radius Radius of sticks.
 #' @param singleBonds Draw all bonds as single bonds if \code{TRUE}.
-#' @param colorScheme Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
+#' @param colorScheme Specify scheme to color the atoms by. Default is
+#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Fixed coloring, overrides colorScheme.
 #' @param opacity Opacity, must be the same for all atoms in the model.
@@ -139,11 +139,7 @@ m_style_stick <- function(
     opacity = opacity
   )
 
-  for (i in names(stick_style)) {
-    if (is.null(stick_style[[i]])) {
-      stick_style[[i]] <- NULL
-    }
-  }
+  stick_style <- cleanup_nulls(stick_style)
 
   stick <- list(stick = stick_style)
   stick
@@ -165,15 +161,19 @@ m_style_stick <- function(
 #' @param backgroundOpacity Opacity of background, default 1.
 #' @param position x,y,z coordinates for label (for custom positioning).
 #' @param inFront Logical, if \code{TRUE} always put in front of model.
-#' @param showBackground Logical, show background rounded rectangle, default \code{TRUE}.
+#' @param showBackground Logical, show background rounded rectangle, default
+#' \code{TRUE}.
 #' @param fixed Logical, setes the label to change with the model when zooming.
-#' @param alignment String, how to orient the label with respect to position: 'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center', 'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'.
+#' @param alignment String, how to orient the label with respect to position:
+#' 'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center',
+#' 'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'.
 #' @param frame If set, only display in this frame of an animation.
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
 #'   m_set_style(style = m_style_stick()) %>%
-#'   m_add_res_labels(style = m_style_label(fontSize = 14, backgroundColor = "green")) %>%
+#'   m_add_res_labels(style = m_style_label(fontSize = 14,
+#'   backgroundColor = "green")) %>%
 #'   m_zoom_to()
 #' @export
 m_style_label <- function(
@@ -190,7 +190,10 @@ m_style_label <- function(
                           inFront = NULL,
                           showBackground = NULL,
                           fixed = NULL,
-                          alignment = c("topLeft", "topCenter", "topRight", "centerLeft", "center", "centerRight", "bottomLeft", "bottomCenter", "bottomRight"),
+                          alignment = c("topLeft", "topCenter", "topRight",
+                                        "centerLeft", "center", "centerRight",
+                                        "bottomLeft", "bottomCenter",
+                                        "bottomRight"),
                           frame = NULL) {
   alignment <- match.arg(alignment)
 
@@ -216,11 +219,7 @@ m_style_label <- function(
     frame = frame
   )
 
-  for (i in names(label_style)) {
-    if (is.null(label_style[[i]])) {
-      label_style[[i]] <- NULL
-    }
-  }
+  label_style <- cleanup_nulls(label_style)
 
   label_style
 }
@@ -230,7 +229,9 @@ m_style_label <- function(
 #' Returns a list for the \code{style = list(line = list())} function
 #' for setting the line specifications.
 #'
-#' @param colorScheme Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
+#' @param colorScheme Specify scheme to color the atoms by. Default is
+#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Fixed coloring, overrides \code{colorScheme}.
 #' @param opacity Opacity, must be the same for all atoms in the model.
@@ -253,11 +254,7 @@ m_style_line <- function(
     hidden = hidden
   )
 
-  for (i in names(line_style)) {
-    if (is.null(line_style[[i]])) {
-      line_style[[i]] <- NULL
-    }
-  }
+  line_style <- cleanup_nulls(line_style)
 
   line <- list(line = line_style)
   line
@@ -268,7 +265,9 @@ m_style_line <- function(
 #' Must be used inside \code{m_add_surface()} not any other styling function.
 #' Returns a list for setting the surface specifications.
 #' @param opacity Opacity, 0 for transparent, 1 for opaque.
-#' @param colorScheme Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
+#' @param colorScheme Specify scheme to color the atoms by. Default is
+#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Fixed coloring, overrides colorScheme.
 #' @examples
@@ -288,17 +287,12 @@ m_style_surface <- function(
     color = color
   )
 
-  for (i in names(surface_style)) {
-    if (is.null(surface_style[[i]])) {
-      surface_style[[i]] <- NULL
-    }
-  }
+  surface_style <- cleanup_nulls(surface_style)
 
   surface_style
 }
 
 #' Specify Styling for Generic Shapes
-#'
 #'
 #' @param color Solid color values.
 #' @param alpha Transparency value. 1 for opaque, 0 for invisible.
@@ -343,12 +337,6 @@ m_shape_spec <- function(
     hover_callback = hover_callback,
     unhover_callback = unhover_callback
   )
-
-  for (i in names(shape_spec)) {
-    if (is.null(shape_spec[[i]])) {
-      shape_spec[[i]] <- NULL
-    }
-  }
-
+  shape_spec <- cleanup_nulls(shape_spec)
   shape_spec
 }

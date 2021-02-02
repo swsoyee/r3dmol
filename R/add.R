@@ -1,6 +1,38 @@
-#' @rdname m_style
+#' Overwrite Previous Style
+#'
+#' Takes a selection and overwrites previous styling with given styles.
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#' @param sel Atom selection specification with \code{m_sel()}
+#' @param style Style spec to apply to specified atoms using m_style_*()
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' # Add style to model
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_add_style(style = m_style_cartoon()) %>%
+#'   m_zoom_to()
+#'
+#' # Set style to model
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
+#'   m_set_style(style = m_style_cartoon()) %>%
+#'   m_set_style(
+#'     sel = m_sel(chain = "A"),
+#'     style = m_style_stick(
+#'       radius = 0.5,
+#'       colorScheme = "magentaCarbon")) %>%
+#'   m_zoom_to()
 #' @export
-m_add_style <- function(id, sel = list(), style = list()) {
+m_add_style <- function(id,
+                        sel = m_sel(),
+                        style = m_style_cartoon()) {
   if (missing(style)) {
     stop("The `style` argument must be passed.")
   }
@@ -29,14 +61,19 @@ m_add_as_one_molecule <- function(id, data, format) {
 
 #' Add arrow shape
 #'
-#' Add an arrow from start to end, additional customisation through \code{m_shape_spec()}.
+#' Add an arrow from start to end, additional customisation through
+#' \code{m_shape_spec()}.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
-#' @param start Start location of arrow Can be either \code{m_sel()} or \code{m_vector3()}.
-#' @param end End location of arrow. Can be either \code{m_sel()} or \code{m_vector3()}.
+#' @param start Start location of arrow Can be either \code{m_sel()} or
+#' \code{m_vector3()}.
+#' @param end End location of arrow. Can be either \code{m_sel()} or
+#' \code{m_vector3()}.
 #' @param radius Radius of base cylinder for arrow.
-#' @param spec Additional shape specifications defined with \code{m_shape_spec()}.
-#' @param radiusRatio Ratio of arrow point to the base cylinder. Default 1.618034.
+#' @param spec Additional shape specifications defined with
+#' \code{m_shape_spec()}.
+#' @param radiusRatio Ratio of arrow point to the base cylinder.
+#' Default 1.618034.
 #' @param mid Relative position of the arrow point base, along the length of
 #' arrow object. Default to 0.618034.
 #' @param hidden Hide object if TRUE.
@@ -58,7 +95,7 @@ m_add_arrow <- function(
                         radius = 0.2,
                         radiusRatio = 1.62,
                         mid = 0.62,
-                        spec = NULL,
+                        spec = m_shape_spec(),
                         hidden = FALSE) {
   arglist <- list(
     start = start,
@@ -70,7 +107,6 @@ m_add_arrow <- function(
   )
 
   spec <- c(spec, arglist)
-
   method <- "addArrow"
   callJS()
 }
@@ -91,16 +127,21 @@ m_add_curve <- function(id, spec = list()) {
 
 #' Add a cylinder shape to scene.
 #'
-#' Creates cylinder shape from start to end, with styling spec from \code{m_shape_spec()}.
+#' Creates cylinder shape from start to end, with styling spec from
+#' \code{m_shape_spec()}.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
-#' @param start Start location of cylinder. Can be either \code{m_sel()} or \code{m_vector3()}.
-#' @param end End location of cylinder. Can be either \code{m_sel()} or \code{m_vector3()}.
+#' @param start Start location of cylinder. Can be either \code{m_sel()} or
+#' \code{m_vector3()}.
+#' @param end End location of cylinder. Can be either \code{m_sel()} or
+#' \code{m_vector3()}.
 #' @param radius Radius of cylinder.
-#' @param fromCap Cap at start of cylinder. 0 for none, 1 for flat, 2 for rounded.
+#' @param fromCap Cap at start of cylinder. 0 for none, 1 for flat,
+#' 2 for rounded.
 #' @param toCap Cap at end of cylinder. 0 for none, 1 for flat, 2 for rounded.
 #' @param dashed Boolean, dashed style cylinder instead of solid.
-#' @param spec Additional shape specifications defined with \code{m_shape_spec()}.
+#' @param spec Additional shape specifications defined with
+#' \code{m_shape_spec()}.
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
@@ -124,7 +165,7 @@ m_add_cylinder <- function(
                            fromCap = 1,
                            toCap = 1,
                            dashed = FALSE,
-                           spec = NULL) {
+                           spec = m_shape_spec()) {
   arglist <- list(
     start = start,
     end = end,
@@ -140,9 +181,52 @@ m_add_cylinder <- function(
   callJS()
 }
 
-#' @rdname m_add_anyShape
+#' Add Line Between Points
+#'
+#' Adds a line between the given points.
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#' @param start Start location of line Can be either \code{m_sel()} or
+#' \code{m_vector3()}.
+#' @param end End location of line. Can be either \code{m_sel()} or
+#' \code{m_vector3()}.
+#' @param dashed Boolean, whether or not to draw line as dashed.
+#' @param spec Additional shape specifications defined with
+#' \code{m_shape_spec()}.
+#' @examples
+#' r3dmol() %>%
+#'  m_add_model(data = pdb_6zsl) %>%
+#'  m_set_style(style = m_style_cartoon()) %>%
+#'  m_zoom_to() %>%
+#'  m_add_style(
+#'    sel = m_sel(resi = 1:10),
+#'    style = c(m_style_stick(),
+#'              m_style_sphere(scale = 0.3))) %>%
+#'    m_add_line(
+#'      start = m_sel(resi = 1:10,
+#'                    chain = "A"),
+#'      end = m_sel(resi = 1:10,
+#'                  chain = "B")
+#'    ) %>%
+#'    m_add_label(
+#'      text = "The middle of the selection",
+#'      sel = m_sel(resi = 1:10)
+#'    )
 #' @export
-m_add_line <- function(id, spec = list()) {
+m_add_line <- function(
+                       id,
+                       start,
+                       end,
+                       dashed = FALSE,
+                       spec = list()) {
+  line_list <- list(
+    start = start,
+    end = end,
+    dashed = dashed
+  )
+
+  spec = c(spec, line_list)
+
   method <- "addLine"
   callJS()
 }
@@ -154,7 +238,8 @@ m_add_line <- function(id, spec = list()) {
 #' \code{r3dmol()})
 #' @param center center point of sphere. Can be \code{m_sel()}.
 #' @param radius radius of sphere.
-#' @param spec Additional shape specifications defined with \code{m_shape_spec()}.
+#' @param spec Additional shape specifications defined with
+#' \code{m_shape_spec()}.
 #' @param ... Additional shape specifcations, that can be called outside of
 #' \code{m_shape_spec()} such as \code{color = 'blue'}
 #' @examples
@@ -180,7 +265,7 @@ m_add_sphere <- function(id, center, radius = 1, spec = NULL, ...) {
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
-#' @param prop Property name
+#' @param prop Property name ()
 #' @param sel Atom selection specification
 #' @param style Style spec to add to specified atoms
 #'
@@ -205,7 +290,10 @@ m_add_sphere <- function(id, center, radius = 1, spec = NULL, ...) {
 #'     )
 #'   )
 #' @export
-m_add_property_labels <- function(id, prop, sel, style) {
+m_add_property_labels <- function(id,
+                                  prop,
+                                  sel = m_sel(),
+                                  style = m_style_label()) {
   method <- "addPropertyLabels"
   callJS()
 }
@@ -257,9 +345,10 @@ m_add_shape <- function(id, shapeSpec = list()) {
 m_add_label <-
   function(id,
            text,
-           options = list(),
-           sel = list(),
+           options = m_style_label(),
+           sel = m_sel(),
            noshow = TRUE) {
+
     method <- "addLabel"
     callJS()
   }
@@ -334,10 +423,6 @@ m_add_models <-
 #'       color = "red",
 #'       opacity = 0.95
 #'     )
-#'   ) %>%
-#'   m_set_style(
-#'     sel = list(cartoon = list()),
-#'     style = list(stick = list())
 #'   ) %>%
 #'   m_zoom_to()
 m_add_isosurface <- function(id, data, isoSpec) {
@@ -440,9 +525,8 @@ m_add_res_labels <- function(id, sel, style, byframe) {
 #' @param surfacecallback function to be called after setting the surface.
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
-#' \code{r3dmol()})
+#' \code{r3dmol()}
 #' @export
-#'
 m_add_surface <- function(id,
                           type,
                           style,
@@ -523,5 +607,35 @@ m_add_volumetric_render <- function(id, data, spec) {
   }
   data <- paste0(data, collapse = "\\n")
   method <- "addVolumetricRender"
+  callJS()
+}
+
+
+#' Add colored outline to all objects in scene.
+#'
+#' Adds a colored outline to all objects in the scene, helping the viewer
+#' to distinguish depth in often complex molecular scenes.
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#' @param width Width of the outline, defaults to 0.1
+#' @param color Color of the outline, defaults to black.
+#' @examples
+#'  library(r3dmol)
+#'
+#'  r3dmol() %>%
+#'   m_add_model(data = pdb_1j72) %>%
+#'   m_set_style(style = m_style_stick()) %>%
+#'   m_add_outline()
+#'
+#' @export
+m_add_outline <- function(id,
+                          width = 0.1,
+                          color = 'black') {
+  style = list(
+    style = 'outline',
+    color = color,
+    width = width
+  )
+  method <- "setViewStyle"
   callJS()
 }

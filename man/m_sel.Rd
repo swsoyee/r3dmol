@@ -28,20 +28,25 @@ Reverse indexing is allowed (-1 specifies last added model).}
 
 \item{resi}{Residue number/s. (vector)}
 
-\item{resn}{Parent residue name as 3-letter code (e.g. "ALA", "GLY", "CYS"...)}
+\item{resn}{Parent residue name as 3-letter code (e.g. "ALA", "GLY",
+"CYS"...)}
 
-\item{invert}{Logical, if \code{invert = TRUE}, Inverts the selection criteria.}
+\item{invert}{Logical, if \code{invert = TRUE}, Inverts the selection
+criteria.}
 
-\item{byres}{Logical, if \code{byres = TRUE}, expands the selection to include}
+\item{byres}{Logical, if \code{byres = TRUE}, expands the selection to
+include}
 
-\item{expand}{Expand selection to include atoms within a specified distance from current selection.
+\item{expand}{Expand selection to include atoms within a specified distance
+from current selection.
 all atoms of any residue that has any atom already selected.}
 
 \item{elem}{element abbreviation (e.g 'H', 'Ca', etc)}
 
 \item{chain}{String, chain this atom belongs to (e.g. 'A' for chain A)}
 
-\item{atom}{Atom name, may be more specific than 'elem' (e.g. 'CA' for alpha carbon)}
+\item{atom}{Atom name, may be more specific than 'elem' (e.g. 'CA' for alpha
+carbon)}
 
 \item{bonds}{overloaded to select number of bonds, e.g. \code{bonds = 0}
 will select all non-bonded atoms}
@@ -50,9 +55,11 @@ will select all non-bonded atoms}
 
 \item{b}{Atom b factor data}
 
-\item{clickable}{Set this flag to true to enable click selection handling for this atom}
+\item{clickable}{Set this flag to true to enable click selection handling
+for this atom}
 
-\item{callback}{Callback click handler function to be executed on this atom and its parent viewer.}
+\item{callback}{Callback click handler function to be executed on this atom
+and its parent viewer.}
 }
 \value{
 sel \code{list()} for selecting atoms.
@@ -60,7 +67,8 @@ sel \code{list()} for selecting atoms.
 \description{
 Provides documentation for some basic useful selection criteria.
 For more advanced selection options, see the
-\href{https://3dmol.csb.pitt.edu/doc/types.html#AtomSelectionSpec}{Official Documenation}
+\href{https://3dmol.csb.pitt.edu/doc/types.html#AtomSelectionSpec}{Official
+Documenation}
 }
 \examples{
 r3dmol() \%>\%

@@ -4,7 +4,7 @@
 \alias{m_add_label}
 \title{Add label to viewer}
 \usage{
-m_add_label(id, text, options = list(), sel = list(), noshow = TRUE)
+m_add_label(id, text, options = m_style_label(), sel = m_sel(), noshow = TRUE)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from

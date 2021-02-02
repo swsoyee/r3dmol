@@ -7,7 +7,9 @@
 m_style_line(colorScheme = NULL, color = NULL, opacity = NULL, hidden = NULL)
 }
 \arguments{
-\item{colorScheme}{Specify scheme to color the atoms by. Default is "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol", "default", "amino",
+\item{colorScheme}{Specify scheme to color the atoms by. Default is
+"default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+"default", "amino",
 "shapely", "nucleic", "chain", "chainHetatm", "prop".}
 
 \item{color}{Fixed coloring, overrides \code{colorScheme}.}
