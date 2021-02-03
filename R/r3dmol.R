@@ -41,7 +41,7 @@
 #'   m_zoom_to()
 r3dmol <-
   function(id = NULL,
-           viewer_spec = NULL,
+           viewer_spec = m_viewer_spec(),
            ...,
            width = NULL,
            height = NULL,

@@ -117,9 +117,9 @@ NULL
 #'     "cif",
 #'     options = list(doAssembly = TRUE, normalizeAssembly = TRUE)
 #'   ) %>%
-#'   m_set_style(style = list(
-#'     sphere = list(colorscheme = "Jmol", scale = 0.25),
-#'     stick = list(colorscheme = "Jmol")
+#'   m_set_style(style = c(
+#'     m_style_sphere(colorScheme = "Jmol", scale = 0.25),
+#'     m_style_stick(colorScheme = "Jmol")
 #'   )) %>%
 #'   m_add_unit_cell(spec = list(
 #'     alabel = "x",

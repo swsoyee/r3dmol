@@ -52,7 +52,7 @@ r3dmol() \%>\%
     radius = 0.1,
     spec = m_shape_spec(
       color = "green",
-      alpha = 0.5
+      opacity = 0.5
     )
   )
 }

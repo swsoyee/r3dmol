@@ -8,16 +8,16 @@ m_sel(
   model = NULL,
   resi = NULL,
   resn = NULL,
-  invert = NULL,
-  byres = NULL,
-  expand = NULL,
+  invert = FALSE,
+  byres = FALSE,
+  expand = FALSE,
   elem = NULL,
   chain = NULL,
   atom = NULL,
   bonds = NULL,
   ss = NULL,
   b = NULL,
-  clickable = NULL,
+  clickable = FALSE,
   callback = NULL
 )
 }
@@ -35,7 +35,7 @@ Reverse indexing is allowed (-1 specifies last added model).}
 criteria.}
 
 \item{byres}{Logical, if \code{byres = TRUE}, expands the selection to
-include}
+entire residues that include any selected atoms.}
 
 \item{expand}{Expand selection to include atoms within a specified distance
 from current selection.

@@ -5,12 +5,12 @@
 \title{Specify Styling for Sphere}
 \usage{
 m_style_sphere(
-  hidden = NULL,
-  radius = NULL,
-  scale = NULL,
-  colorscheme = NULL,
+  hidden = FALSE,
+  radius = 1,
+  scale = 1,
+  colorScheme = "default",
   color = NULL,
-  opacity = NULL
+  opacity = 1
 )
 }
 \arguments{
@@ -20,22 +20,19 @@ m_style_sphere(
 
 \item{scale}{Scale radius by specified amount.}
 
-\item{colorscheme}{Specify scheme to color the atoms by. Default is
+\item{colorScheme}{Specify scheme to color the atoms by. Default is
 "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
 "default", "amino",
 "shapely", "nucleic", "chain", "chainHetatm", "prop".}
 
-\item{color}{Discrete, fixed coloring, overrides any colorscheme.}
+\item{color}{Discrete, fixed coloring, overrides any colorScheme.}
 
 \item{opacity}{Opacity of spheres, 0 being invisible. Must be the same for
 all atoms in the model.}
 }
-\value{
-List of values for input inside \code{style = list()} for sphere.
-}
 \description{
-Returns a list for the \code{style = list(sphere = list())} function,
-for setting the sphere specifications.
+Styling options for the sphere representation. Used inside
+\code{m_add_style()} and \code{m_set_style()}.
 }
 \examples{
 r3dmol() \%>\%

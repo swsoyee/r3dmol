@@ -6,13 +6,13 @@
 \usage{
 m_shape_spec(
   color = NULL,
-  alpha = NULL,
-  wireframe = NULL,
-  hidden = NULL,
+  opacity = 1,
+  wireframe = FALSE,
+  hidden = FALSE,
   frame = NULL,
-  clickable = NULL,
+  clickable = FALSE,
   callback = NULL,
-  hoverable = NULL,
+  hoverable = FALSE,
   hover_callback = NULL,
   unhover_callback = NULL
 )
@@ -20,7 +20,7 @@ m_shape_spec(
 \arguments{
 \item{color}{Solid color values.}
 
-\item{alpha}{Transparency value. 1 for opaque, 0 for invisible.}
+\item{opacity}{Transparency value. 1 for opaque, 0 for invisible.}
 
 \item{wireframe}{Draw as wireframe, not solid surface.}
 
@@ -40,7 +40,8 @@ functions to be called. Set hoverDuration in the viewer_spec() of r3dmol().}
 \item{unhover_callback}{Function to be called upon hover stopping.}
 }
 \description{
-Specify Styling for Generic Shapes
+Styling options for the various shapes. Used inside \code{m_add_sphere()},
+\code{m_add_arrow()}, \code{m_add_cylinder()} etc.
 }
 \examples{
 r3dmol() \%>\%

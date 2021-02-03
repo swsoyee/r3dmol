@@ -4,7 +4,7 @@
 \alias{m_add_line}
 \title{Add Line Between Points}
 \usage{
-m_add_line(id, start, end, dashed = FALSE, spec = list())
+m_add_line(id, start, end, dashed = FALSE, spec = m_shape_spec())
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from

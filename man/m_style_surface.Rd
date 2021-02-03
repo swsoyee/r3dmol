@@ -4,7 +4,7 @@
 \alias{m_style_surface}
 \title{Specify Styling for Surface}
 \usage{
-m_style_surface(opacity = NULL, colorScheme = NULL, color = NULL)
+m_style_surface(opacity = 1, colorScheme = "default", color = NULL)
 }
 \arguments{
 \item{opacity}{Opacity, 0 for transparent, 1 for opaque.}
@@ -17,8 +17,8 @@ m_style_surface(opacity = NULL, colorScheme = NULL, color = NULL)
 \item{color}{Fixed coloring, overrides colorScheme.}
 }
 \description{
-Must be used inside \code{m_add_surface()} not any other styling function.
-Returns a list for setting the surface specifications.
+Styling options for the surface representation. Used inside
+\code{m_add_surface()}.
 }
 \examples{
 r3dmol() \%>\%

@@ -7,12 +7,12 @@
 m_style_cartoon(
   color = NULL,
   style = NULL,
-  ribbon = NULL,
-  arrows = NULL,
-  tubes = NULL,
-  thickness = NULL,
+  ribbon = FALSE,
+  arrows = TRUE,
+  tubes = FALSE,
+  thickness = 0.4,
   width = NULL,
-  opacity = NULL,
+  opacity = 1,
   colorfunc = NULL
 )
 }
@@ -42,13 +42,13 @@ does not apply to trace or ribbon.}
 warning outputted in the event of ambiguity.}
 
 \item{colorfunc}{Allows the user to provide a function for setting the
-colorschemes, written in javascript.
+colorSchemes, written in javascript.
 \href{https://3dmol.csb.pitt.edu/doc/types.html#CartoonStyleSpec}{Official
 Documentation}}
 }
 \description{
-Returns a list for the \code{style = list(cartoon = list())} function,
-for setting the cartoon specifications.
+Styling options for the cartoon representation. Used inside
+\code{m_add_style()} and \code{m_set_style()}.
 }
 \examples{
 r3dmol() \%>\%

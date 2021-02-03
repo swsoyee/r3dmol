@@ -5,12 +5,12 @@
 \title{Specify Styling for Stick}
 \usage{
 m_style_stick(
-  radius = NULL,
-  singleBonds = NULL,
-  colorScheme = NULL,
+  radius = 0.4,
+  singleBonds = FALSE,
+  colorScheme = "default",
   color = NULL,
-  opacity = NULL,
-  hidden = NULL
+  opacity = 1,
+  hidden = FALSE
 )
 }
 \arguments{
@@ -30,8 +30,8 @@ m_style_stick(
 \item{hidden}{Do not show.}
 }
 \description{
-Returns a list for the \code{style = list(cartoon = list())} function,
-for setting the stick specifications.
+Styling options for the stick representation. Used inside
+\code{m_add_style()} and \code{m_set_style()}.
 }
 \examples{
 r3dmol() \%>\%

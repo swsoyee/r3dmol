@@ -29,12 +29,12 @@ library(r3dmol)
 
 r3dmol() \%>\%
   m_add_model(data = "data-raw/Conformer3D_CID_5291.sdf", format = "sdf") \%>\%
-  m_set_style(style = list(stick = list(radius = 2))) \%>\%
+  m_set_style(style = m_style_stick(radius = 2)) \%>\%
   m_zoom_to() \%>\%
   m_add_property_labels(
     prop = "index",
     sel = list(not = list(elem = "H")),
-    style = list(
+    style = m_style_label(
       fontColor = "black",
       font = "sans-serif",
       fontSize = 28,

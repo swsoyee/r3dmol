@@ -153,7 +153,7 @@ m_add_curve <- function(id, spec = list()) {
 #'     radius = 0.1,
 #'     spec = m_shape_spec(
 #'       color = "green",
-#'       alpha = 0.5
+#'       opacity = 0.5
 #'     )
 #'   )
 #' @export
@@ -218,7 +218,7 @@ m_add_line <- function(
                        start,
                        end,
                        dashed = FALSE,
-                       spec = list()) {
+                       spec = m_shape_spec()) {
   line_list <- list(
     start = start,
     end = end,
@@ -251,7 +251,11 @@ m_add_line <- function(
 #'   ) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1))
 #' @export
-m_add_sphere <- function(id, center, radius = 1, spec = NULL, ...) {
+m_add_sphere <- function(id,
+                         center,
+                         radius = 1,
+                         spec = m_shape_spec(),
+                         ...) {
   spec <- c(list(center = center, radius = radius), spec, ...)
 
   method <- "addSphere"
@@ -276,12 +280,12 @@ m_add_sphere <- function(id, center, radius = 1, spec = NULL, ...) {
 #'
 #' r3dmol() %>%
 #'   m_add_model(data = "data-raw/Conformer3D_CID_5291.sdf", format = "sdf") %>%
-#'   m_set_style(style = list(stick = list(radius = 2))) %>%
+#'   m_set_style(style = m_style_stick(radius = 2)) %>%
 #'   m_zoom_to() %>%
 #'   m_add_property_labels(
 #'     prop = "index",
 #'     sel = list(not = list(elem = "H")),
-#'     style = list(
+#'     style = m_style_label(
 #'       fontColor = "black",
 #'       font = "sans-serif",
 #'       fontSize = 28,
@@ -318,7 +322,7 @@ m_add_shape <- function(id, shapeSpec = list()) {
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
 #' @param text Label text
-#' @param options Label style specification
+#' @param style Label style specification
 #' @param sel Set position of label to center of this selection
 #' @param noshow if \code{TRUE}, do not immediately display label - when adding
 #' multiple
@@ -334,9 +338,9 @@ m_add_shape <- function(id, shapeSpec = list()) {
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_add_label(
-#'     "Label",
-#'     options = list(
-#'       position = m_vector3(-6.89, 0.75, 0.35),
+#'     text = "Label",
+#'     sel = m_vector3(-6.89, 0.75, 0.35),
+#'     style = m_style_label(
 #'       backgroundColor = "#666666",
 #'       backgroundOpacity = 0.9
 #'     )
@@ -345,10 +349,12 @@ m_add_shape <- function(id, shapeSpec = list()) {
 m_add_label <-
   function(id,
            text,
-           options = m_style_label(),
+           style = m_style_label(),
            sel = m_sel(),
            noshow = TRUE) {
-
+    # keeping consistent style convention throughout package
+    # `options` is required for function though
+    options = style
     method <- "addLabel"
     callJS()
   }
@@ -457,7 +463,7 @@ m_add_isosurface <- function(id, data, isoSpec) {
 #' r3dmol() %>%
 #'   m_add_models_as_frames(data = xyz_multiple, format = "xyz") %>%
 #'   m_animate(options = list(loop = "forward", reps = 1)) %>%
-#'   m_set_style(style = list(stick = list(colorscheme = "magentaCarbon"))) %>%
+#'   m_set_style(style = m_style_stick(colorScheme = "magentaCarbon")) %>%
 #'   m_zoom_to()
 m_add_models_as_frames <- function(id, data, format) {
   # If file path is pass in, read the file and store it as a vector
@@ -469,7 +475,7 @@ m_add_models_as_frames <- function(id, data, format) {
   callJS()
 }
 
-#' Add residue labels
+#' Add Residue Labels
 #'
 #' Add residue labels. This will generate one label per a
 #' residue within the selected atoms. The label will be at the
@@ -493,11 +499,12 @@ m_add_models_as_frames <- function(id, data, format) {
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
 #'   m_set_style(
-#'     style = list(stick = list(radius = 0.15), cartoon = list())
+#'     style = c(m_style_stick(radius = 0.15),
+#'               m_style_cartoon())
 #'   ) %>%
 #'   m_add_res_labels(
-#'     sel = list(resn = "GLY"),
-#'     style = list(
+#'     sel = m_sel(resn = "GLY"),
+#'     style = m_style_label(
 #'       font = "Arial",
 #'       fontColor = "white",
 #'       backgroundColor = "black",
@@ -505,7 +512,10 @@ m_add_models_as_frames <- function(id, data, format) {
 #'     )
 #'   ) %>%
 #'   m_zoom_to()
-m_add_res_labels <- function(id, sel, style, byframe) {
+m_add_res_labels <- function(id,
+                             sel = m_sel(),
+                             style = m_style_label(),
+                             byframe) {
   method <- "addResLabels"
   callJS()
 }
@@ -515,7 +525,7 @@ m_add_res_labels <- function(id, sel, style, byframe) {
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
-#' @param type Surface type (VDW, MS, SAS, or SES)
+#' @param type Surface type ('VDW', 'MS', 'SAS', or 'SES')
 #' @param style Optional style specification for surface material (e.g. for
 #' different coloring scheme, etc).
 #' @param atomsel Show surface for atoms in this selection.
@@ -525,12 +535,12 @@ m_add_res_labels <- function(id, sel, style, byframe) {
 #' @param surfacecallback function to be called after setting the surface.
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
-#' \code{r3dmol()}
+#' \code{r3dmol()})
 #' @export
 m_add_surface <- function(id,
                           type,
-                          style,
-                          atomsel,
+                          style = m_style_surface(),
+                          atomsel = m_sel(),
                           allsel,
                           focus,
                           surfacecallback) {

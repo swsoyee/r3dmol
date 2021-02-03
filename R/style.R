@@ -1,20 +1,19 @@
 #' Specify Styling for Sphere
 #'
-#' Returns a list for the \code{style = list(sphere = list())} function,
-#' for setting the sphere specifications.
+#' Styling options for the sphere representation. Used inside
+#' \code{m_add_style()} and \code{m_set_style()}.
 #'
 #' @param hidden Boolean - do not show atom. Default \code{FALSE}.
 #' @param radius Override van der waals radius.
 #' @param scale Scale radius by specified amount.
-#' @param colorscheme Specify scheme to color the atoms by. Default is
+#' @param colorScheme Specify scheme to color the atoms by. Default is
 #' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
 #' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
-#' @param color Discrete, fixed coloring, overrides any colorscheme.
+#' @param color Discrete, fixed coloring, overrides any colorScheme.
 #' @param opacity Opacity of spheres, 0 being invisible. Must be the same for
 #' all atoms in the model.
 #'
-#' @return List of values for input inside \code{style = list()} for sphere.
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
@@ -22,17 +21,17 @@
 #'   m_zoom_to()
 #' @export
 m_style_sphere <- function(
-                           hidden = NULL,
-                           radius = NULL,
-                           scale = NULL,
-                           colorscheme = NULL,
+                           hidden = FALSE,
+                           radius = 1,
+                           scale = 1,
+                           colorScheme = 'default',
                            color = NULL,
-                           opacity = NULL) {
+                           opacity = 1) {
   sphere_style <- list(
     hidden = hidden,
     radius = radius,
     scale = scale,
-    colorscheme = colorscheme,
+    colorscheme = colorScheme,
     color = color,
     opacity = opacity
   )
@@ -46,8 +45,8 @@ m_style_sphere <- function(
 
 #' Specify Styling for Cartoon
 #'
-#' Returns a list for the \code{style = list(cartoon = list())} function,
-#' for setting the cartoon specifications.
+#' Styling options for the cartoon representation. Used inside
+#' \code{m_add_style()} and \code{m_set_style()}.
 #'
 #' @param color Block color values. Strand color, may specify as 'spectrum'
 #' which will apply
@@ -66,7 +65,7 @@ m_style_sphere <- function(
 #' @param opacity set opacity from 0-1; transparency is set per-chain with a
 #' warning outputted in the event of ambiguity.
 #' @param colorfunc Allows the user to provide a function for setting the
-#' colorschemes, written in javascript.
+#' colorSchemes, written in javascript.
 #' \href{https://3dmol.csb.pitt.edu/doc/types.html#CartoonStyleSpec}{Official
 #' Documentation}
 #' @examples
@@ -78,12 +77,12 @@ m_style_sphere <- function(
 m_style_cartoon <- function(
                             color = NULL,
                             style = NULL,
-                            ribbon = NULL,
-                            arrows = NULL,
-                            tubes = NULL,
-                            thickness = NULL,
+                            ribbon = FALSE,
+                            arrows = TRUE,
+                            tubes = FALSE,
+                            thickness = 0.4,
                             width = NULL,
-                            opacity = NULL,
+                            opacity = 1,
                             colorfunc = NULL) {
   cartoon_style <- list(
     color = color,
@@ -105,8 +104,8 @@ m_style_cartoon <- function(
 
 #' Specify Styling for Stick
 #'
-#' Returns a list for the \code{style = list(cartoon = list())} function,
-#' for setting the stick specifications.
+#' Styling options for the stick representation. Used inside
+#' \code{m_add_style()} and \code{m_set_style()}.
 #'
 #' @param hidden Do not show.
 #' @param radius Radius of sticks.
@@ -124,12 +123,12 @@ m_style_cartoon <- function(
 #'   m_zoom_to()
 #' @export
 m_style_stick <- function(
-                          radius = NULL,
-                          singleBonds = NULL,
-                          colorScheme = NULL,
+                          radius = 0.4,
+                          singleBonds = FALSE,
+                          colorScheme = 'default',
                           color = NULL,
-                          opacity = NULL,
-                          hidden = NULL) {
+                          opacity = 1,
+                          hidden = FALSE) {
   stick_style <- list(
     hidden = hidden,
     radius = radius,
@@ -147,8 +146,8 @@ m_style_stick <- function(
 
 #' Specify Styling for Labels
 #'
-#' Returns a list for the \code{m_add_res_labels(style = list())} function,
-#' for setting the label specifications.
+#' Styling options for the labels. Used inside \code{m_add_label()},
+#' \code{m_add_res_labels()} and \code{m_add_property_labels()}.
 #'
 #' @param font Font name, default sans-serif.
 #' @param fontSize Height of text, default 18.
@@ -177,23 +176,23 @@ m_style_stick <- function(
 #'   m_zoom_to()
 #' @export
 m_style_label <- function(
-                          font = NULL,
-                          fontSize = NULL,
-                          fontColor = NULL,
-                          fontOpacity = NULL,
-                          borderThickness = NULL,
-                          borderColor = NULL,
-                          borderOpacity = NULL,
-                          backgroundColor = NULL,
-                          backgroundOpacity = NULL,
-                          position = NULL,
-                          inFront = NULL,
-                          showBackground = NULL,
-                          fixed = NULL,
+                          font = 'sans-serif',
+                          fontSize = 18,
+                          fontColor = "white",
+                          fontOpacity = 1,
+                          backgroundColor = "black",
+                          backgroundOpacity = 1,
+                          borderOpacity = 1,
+                          borderThickness = 0,
+                          borderColor = backgroundColor,
+                          inFront = TRUE,
+                          showBackground = TRUE,
+                          fixed = FALSE,
                           alignment = c("topLeft", "topCenter", "topRight",
                                         "centerLeft", "center", "centerRight",
                                         "bottomLeft", "bottomCenter",
                                         "bottomRight"),
+                          position = NULL,
                           frame = NULL) {
   alignment <- match.arg(alignment)
 
@@ -226,8 +225,9 @@ m_style_label <- function(
 
 #' Specify Styling for Lines
 #'
-#' Returns a list for the \code{style = list(line = list())} function
-#' for setting the line specifications.
+#' Styling options for the line representation. Used inside
+#' \code{m_add_style()} and \code{m_set_style()}. Can also be used for styling
+#' when adding individual lines with \code{m_add_line()}.
 #'
 #' @param colorScheme Specify scheme to color the atoms by. Default is
 #' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
@@ -243,10 +243,10 @@ m_style_label <- function(
 #'   m_zoom_to()
 #' @export
 m_style_line <- function(
-                         colorScheme = NULL,
+                         colorScheme = 'default',
                          color = NULL,
-                         opacity = NULL,
-                         hidden = NULL) {
+                         opacity = 1,
+                         hidden = FALSE) {
   line_style <- list(
     colorscheme = colorScheme,
     color = color,
@@ -262,8 +262,9 @@ m_style_line <- function(
 
 #' Specify Styling for Surface
 #'
-#' Must be used inside \code{m_add_surface()} not any other styling function.
-#' Returns a list for setting the surface specifications.
+#' Styling options for the surface representation. Used inside
+#' \code{m_add_surface()}.
+#'
 #' @param opacity Opacity, 0 for transparent, 1 for opaque.
 #' @param colorScheme Specify scheme to color the atoms by. Default is
 #' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
@@ -278,8 +279,8 @@ m_style_line <- function(
 #'   m_zoom_to()
 #' @export
 m_style_surface <- function(
-                            opacity = NULL,
-                            colorScheme = NULL,
+                            opacity = 1,
+                            colorScheme = "default",
                             color = NULL) {
   surface_style <- list(
     opacity = opacity,
@@ -294,8 +295,11 @@ m_style_surface <- function(
 
 #' Specify Styling for Generic Shapes
 #'
+#' Styling options for the various shapes. Used inside \code{m_add_sphere()},
+#' \code{m_add_arrow()}, \code{m_add_cylinder()} etc.
+#'
 #' @param color Solid color values.
-#' @param alpha Transparency value. 1 for opaque, 0 for invisible.
+#' @param opacity Transparency value. 1 for opaque, 0 for invisible.
 #' @param wireframe Draw as wireframe, not solid surface.
 #' @param hidden If true, do not display object.
 #' @param frame If set, only display in this frame of an animation.
@@ -316,18 +320,18 @@ m_style_surface <- function(
 #' @export
 m_shape_spec <- function(
                          color = NULL,
-                         alpha = NULL,
-                         wireframe = NULL,
-                         hidden = NULL,
+                         opacity = 1.0,
+                         wireframe = FALSE,
+                         hidden = FALSE,
                          frame = NULL,
-                         clickable = NULL,
+                         clickable = FALSE,
                          callback = NULL,
-                         hoverable = NULL,
+                         hoverable = FALSE,
                          hover_callback = NULL,
                          unhover_callback = NULL) {
   shape_spec <- list(
     color = color,
-    alpha = alpha,
+    alpha = opacity,
     wireframe = wireframe,
     hidden = hidden,
     frame = frame,

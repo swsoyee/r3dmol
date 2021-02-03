@@ -11,8 +11,8 @@ m_viewer_spec(
   antialias = FALSE,
   nomouse = FALSE,
   backgroundColor = "white",
-  lowerZoomLimit = NULL,
-  upperZoomLimit = NULL,
+  lowerZoomLimit = 5,
+  upperZoomLimit = 400,
   orthographic = FALSE,
   disableFog = FALSE
 )

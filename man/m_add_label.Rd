@@ -4,7 +4,7 @@
 \alias{m_add_label}
 \title{Add label to viewer}
 \usage{
-m_add_label(id, text, options = m_style_label(), sel = m_sel(), noshow = TRUE)
+m_add_label(id, text, style = m_style_label(), sel = m_sel(), noshow = TRUE)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
@@ -12,7 +12,7 @@ m_add_label(id, text, options = m_style_label(), sel = m_sel(), noshow = TRUE)
 
 \item{text}{Label text}
 
-\item{options}{Label style specification}
+\item{style}{Label style specification}
 
 \item{sel}{Set position of label to center of this selection}
 
@@ -33,9 +33,9 @@ library(r3dmol)
 r3dmol() \%>\%
   m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
   m_add_label(
-    "Label",
-    options = list(
-      position = m_vector3(-6.89, 0.75, 0.35),
+    text = "Label",
+    sel = m_vector3(-6.89, 0.75, 0.35),
+    style = m_style_label(
       backgroundColor = "#666666",
       backgroundOpacity = 0.9
     )

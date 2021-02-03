@@ -4,7 +4,12 @@
 \alias{m_style_line}
 \title{Specify Styling for Lines}
 \usage{
-m_style_line(colorScheme = NULL, color = NULL, opacity = NULL, hidden = NULL)
+m_style_line(
+  colorScheme = "default",
+  color = NULL,
+  opacity = 1,
+  hidden = FALSE
+)
 }
 \arguments{
 \item{colorScheme}{Specify scheme to color the atoms by. Default is
@@ -19,8 +24,9 @@ m_style_line(colorScheme = NULL, color = NULL, opacity = NULL, hidden = NULL)
 \item{hidden}{Logical, do not show line.}
 }
 \description{
-Returns a list for the \code{style = list(line = list())} function
-for setting the line specifications.
+Styling options for the line representation. Used inside
+\code{m_add_style()} and \code{m_set_style()}. Can also be used for styling
+when adding individual lines with \code{m_add_line()}.
 }
 \examples{
 r3dmol() \%>\%

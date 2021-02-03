@@ -7,7 +7,7 @@
 \usage{
 r3dmol(
   id = NULL,
-  viewer_spec = NULL,
+  viewer_spec = m_viewer_spec(),
   ...,
   width = NULL,
   height = NULL,

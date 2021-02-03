@@ -16,7 +16,7 @@
 #' @param invert Logical, if \code{invert = TRUE}, Inverts the selection
 #' criteria.
 #' @param byres Logical, if \code{byres = TRUE}, expands the selection to
-#' include
+#' entire residues that include any selected atoms.
 #' @param expand Expand selection to include atoms within a specified distance
 #' from current selection.
 #' all atoms of any residue that has any atom already selected.
@@ -53,16 +53,16 @@ m_sel <- function(
                   model = NULL,
                   resi = NULL,
                   resn = NULL,
-                  invert = NULL,
-                  byres = NULL,
-                  expand = NULL,
+                  invert = FALSE,
+                  byres = FALSE,
+                  expand = FALSE,
                   elem = NULL,
                   chain = NULL,
                   atom = NULL,
                   bonds = NULL,
                   ss = NULL,
                   b = NULL,
-                  clickable = NULL,
+                  clickable = FALSE,
                   callback = NULL) {
 
   ## Create the list of values from inputs
@@ -84,14 +84,6 @@ m_sel <- function(
     callback = callback,
     invert = invert
   )
-
-  ## Check for inputs, make NULL if lacking
-  for (i in names(m_sel)) {
-    if (is.null(m_sel[[i]])) {
-      m_sel[[i]] <- NULL
-    }
-  }
-
-  ## Return the list for selection
+  m_sel <- cleanup_nulls(m_sel)
   m_sel
 }

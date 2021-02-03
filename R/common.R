@@ -35,7 +35,7 @@ m_render <- function(id) {
 #'
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_set_style(style = m_style_cartoon()) %>%
 #'   m_enable_fog(fog = FALSE)
 m_enable_fog <- function(id, fog = TRUE) {
   method <- "enableFog"
@@ -67,7 +67,7 @@ m_enable_fog <- function(id, fog = TRUE) {
 #'
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_set_style(style = m_style_cartoon()) %>%
 #'   m_center(animationDuration = 1000)
 m_center <- function(id, sel, animationDuration, fixedPath) {
   method <- "center"
@@ -108,7 +108,7 @@ m_center <- function(id, sel, animationDuration, fixedPath) {
 #'     format = "xyz",
 #'     options = list(vibrate = list(frames = 10, amplitude = 1))
 #'   ) %>%
-#'   m_set_style(style = list(stick = list())) %>%
+#'   m_set_style(style = m_style_stick()) %>%
 #'   m_animate(list(loop = "backAndForth")) %>%
 #'   m_zoom_to()
 m_animate <- function(id, options) {

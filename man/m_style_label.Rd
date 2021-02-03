@@ -5,21 +5,21 @@
 \title{Specify Styling for Labels}
 \usage{
 m_style_label(
-  font = NULL,
-  fontSize = NULL,
-  fontColor = NULL,
-  fontOpacity = NULL,
-  borderThickness = NULL,
-  borderColor = NULL,
-  borderOpacity = NULL,
-  backgroundColor = NULL,
-  backgroundOpacity = NULL,
-  position = NULL,
-  inFront = NULL,
-  showBackground = NULL,
-  fixed = NULL,
+  font = "sans-serif",
+  fontSize = 18,
+  fontColor = "white",
+  fontOpacity = 1,
+  backgroundColor = "black",
+  backgroundOpacity = 1,
+  borderOpacity = 1,
+  borderThickness = 0,
+  borderColor = backgroundColor,
+  inFront = TRUE,
+  showBackground = TRUE,
+  fixed = FALSE,
   alignment = c("topLeft", "topCenter", "topRight", "centerLeft", "center",
     "centerRight", "bottomLeft", "bottomCenter", "bottomRight"),
+  position = NULL,
   frame = NULL
 )
 }
@@ -32,17 +32,15 @@ m_style_label(
 
 \item{fontOpacity}{Font opacity, default 1.}
 
-\item{borderThickness}{Line width of border around label, default 0.}
-
-\item{borderColor}{Color of border, default backgroundColor.}
-
-\item{borderOpacity}{Opacity of border, default 1.}
-
 \item{backgroundColor}{Color of background, default black.}
 
 \item{backgroundOpacity}{Opacity of background, default 1.}
 
-\item{position}{x,y,z coordinates for label (for custom positioning).}
+\item{borderOpacity}{Opacity of border, default 1.}
+
+\item{borderThickness}{Line width of border around label, default 0.}
+
+\item{borderColor}{Color of border, default backgroundColor.}
 
 \item{inFront}{Logical, if \code{TRUE} always put in front of model.}
 
@@ -55,11 +53,13 @@ m_style_label(
 'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center',
 'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'.}
 
+\item{position}{x,y,z coordinates for label (for custom positioning).}
+
 \item{frame}{If set, only display in this frame of an animation.}
 }
 \description{
-Returns a list for the \code{m_add_res_labels(style = list())} function,
-for setting the label specifications.
+Styling options for the labels. Used inside \code{m_add_label()},
+\code{m_add_res_labels()} and \code{m_add_property_labels()}.
 }
 \examples{
 r3dmol() \%>\%

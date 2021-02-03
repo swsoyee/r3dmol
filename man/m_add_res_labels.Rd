@@ -2,9 +2,9 @@
 % Please edit documentation in R/add.R
 \name{m_add_res_labels}
 \alias{m_add_res_labels}
-\title{Add residue labels}
+\title{Add Residue Labels}
 \usage{
-m_add_res_labels(id, sel, style, byframe)
+m_add_res_labels(id, sel = m_sel(), style = m_style_label(), byframe)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
@@ -33,11 +33,12 @@ library(r3dmol)
 r3dmol() \%>\%
   m_add_model(data = pdb_1j72, format = "pdb") \%>\%
   m_set_style(
-    style = list(stick = list(radius = 0.15), cartoon = list())
+    style = c(m_style_stick(radius = 0.15),
+              m_style_cartoon())
   ) \%>\%
   m_add_res_labels(
-    sel = list(resn = "GLY"),
-    style = list(
+    sel = m_sel(resn = "GLY"),
+    style = m_style_label(
       font = "Arial",
       fontColor = "white",
       backgroundColor = "black",

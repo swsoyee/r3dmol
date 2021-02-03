@@ -30,6 +30,6 @@ library(r3dmol)
 r3dmol() \%>\%
   m_add_models_as_frames(data = xyz_multiple, format = "xyz") \%>\%
   m_animate(options = list(loop = "forward", reps = 1)) \%>\%
-  m_set_style(style = list(stick = list(colorscheme = "magentaCarbon"))) \%>\%
+  m_set_style(style = m_style_stick(colorScheme = "magentaCarbon")) \%>\%
   m_zoom_to()
 }

@@ -4,7 +4,7 @@
 \alias{m_add_sphere}
 \title{Add Sphere Shape}
 \usage{
-m_add_sphere(id, center, radius = 1, spec = NULL, ...)
+m_add_sphere(id, center, radius = 1, spec = m_shape_spec(), ...)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from

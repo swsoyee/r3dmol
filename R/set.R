@@ -209,4 +209,12 @@ m_set_view <- function(id, arg, style) {
   callJS()
 }
 
-
+#' @rdname m_set_view
+#' @export
+m_set_view_style <- function(id, style) {
+  warning("The m_set_view_style() function is deprecated and replaced by
+          m_add_outline(), and will be removed in future
+          versions of the package.")
+  method <- "setViewStyle"
+  callJS()
+}

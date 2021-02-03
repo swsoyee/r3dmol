@@ -1,7 +1,7 @@
 ---
 title: "Styling Your Protein"
 author: "Brady Johnston"
-date: '`r Sys.Date()`'
+date: '2021-02-02'
 output:
   # md_document:
   #   pandoc_args: ["--wrap=preserve"]
@@ -18,9 +18,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<!-- # User-Friendly Approach -->
 
-### Styling in {r3dmol}
 
 To style a model, you can either `m_add_style()` or `m_set_style()`, which 
 will either _add_ styling to what is already in the scene, or _overwrite_ the 
@@ -75,7 +73,12 @@ model %>%
       ribbon = TRUE
     ),
     m_style_line()
-  ))
+  )) %>% 
+  m_add_surface(
+    atomsel = m_sel(chain = "A"), 
+    style = m_style_surface(opacity = 0.9)
+  ) %>% 
+  m_add_outline()
 ```
 
 ## Using Selections
@@ -84,14 +87,23 @@ In order to selectively apply styling to a model, usage of the `m_sel()`
 function allows specification of particular atoms to apply the style to.
 
 The `m_sel()` is a generic selection function, and can be used anywhere that a 
-selection is required. Selections can be specified with:
-* `resn` = Residue Name
-* `resi` = Residue Number
-* `chain` = Chain letter
-* `model` = Model index in the scene
+selection is required. Common selection criteria are:
 
-To name a few of the useful selection options. Check the documentation
-for more available options. 
+  * `resn` = Residue Name                 
+    * 3-Letter code as string, e.g. 'TYR', 'ALA' etc
+  * `resi` = Residue Number               
+    * Numeric vector e.g. 1, 2:10 or c(1,3,5)
+  * `chain` = Chain letter              
+    * String chain id e.g. "A", "F"
+  * `model` = Model index in the scene    
+    * Models are numbered from 0 as they 
+  are added to the scene. -1 is most recently added.
+  * `elem` = Element abbreviation
+    * e.g. 'H', 'O', 'C', etc
+  * `atom` = Atom Name
+    * More specific than `elem`, e.g. 'CA' for alpha carbons only
+
+More selection options are available in the `m_sel()` documentation.
 
 ```{r}
 model %>%
@@ -100,20 +112,23 @@ model %>%
       m_style_stick(),
       m_style_sphere(scale = 0.3)
     ),
-    sel = m_sel(resi = 1:10, chain = "A")
+    sel = m_sel(resi = 1:10, 
+                chain = "A", )
   ) %>%
   m_zoom_to(sel = m_sel(resi = 1:10, chain = "A"))
 ```
 
+## Single Points in Space
+
 Selections can be supplied for functions that require a single point. The center
 of the overall selection will be found, and that value used in the function.
 
-In the example below, when adding the _start_ and _end_ points for the line, 
+In the example below, when adding the `start` and `end` points for the line, 
 the chain is specified (but the middle-point of all 10 residues is found and 
-used) but when adding the label, the chain specification is left out.
+used). 
 
-The middle of residues 1-10 from both chains is found, and that is where the 
-label is placed.
+When adding the label, the middle of residues 1-10 from both chains is found, 
+and that is where the label is placed.
 
 ```{r}
 model %>%
@@ -136,7 +151,10 @@ model %>%
   ) %>%
   m_add_label(
     text = "The middle of the selection",
-    sel = m_sel(resi = 1:10)
+    sel = m_sel(resi = 1:10), 
+    style = m_style_label(borderColor = "green", 
+                          borderThickness = 1, 
+                          inFront = FALSE)
   )
 ```
 
