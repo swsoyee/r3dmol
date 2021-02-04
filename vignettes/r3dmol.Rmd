@@ -1,7 +1,7 @@
 ---
 title: 'Introduction to r3dmol'
 author: 'Wei Su'
-date: '`r Sys.Date()`'
+date: '2021-02-05'
 output:
   # md_document:
   #   pandoc_args: ["--wrap=preserve"]

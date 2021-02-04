@@ -17,16 +17,18 @@ This is an R package that provides support for
 
 ## Installation
 
-> This package is still very early in its development stages, everything
-> will be changed very often! Please give me a star on Github if you
-> find it useful and I will speed up the development process!
+> **Important**: This package is still very early in its development
+> stages. Please give the repository a star on Github if you find the
+> package is useful. In addition, we need your feedback to improve the
+> package, feel free to create an issue if you have any question or
+> feature requirement. You are more than welcome to submit a PR to make
+> any feasible improvements.
 
-~~You can install the released version of r3dmol from
-[CRAN](https://CRAN.R-project.org) with:~~
+You could install the released version of r3dmol from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-# Not available now.
-# install.packages("r3dmol")
+install.packages("r3dmol")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
