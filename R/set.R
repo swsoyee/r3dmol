@@ -20,8 +20,8 @@
 #'   m_zoom_to()
 #' @export
 m_set_style <- function(id,
-                        sel = m_sel(),
-                        style = m_style_cartoon()) {
+                        style = m_style_cartoon(),
+                        sel = m_sel()) {
   if (missing(style)) {
     stop("The `style` argument must be passed.")
   }
