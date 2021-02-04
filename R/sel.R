@@ -59,16 +59,16 @@ m_sel <- function(
                   model = NULL,
                   resi = NULL,
                   resn = NULL,
-                  invert = FALSE,
-                  byres = FALSE,
-                  expand = FALSE,
+                  invert = NULL,
+                  byres = NULL,
+                  expand = NULL,
                   elem = NULL,
                   chain = NULL,
                   atom = NULL,
                   bonds = NULL,
                   ss = NULL,
                   b = NULL,
-                  clickable = FALSE,
+                  clickable = NULL,
                   callback = NULL) {
 
   ## Create the list of values from inputs
