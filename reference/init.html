@@ -91,7 +91,7 @@ specification in config" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -101,6 +101,18 @@ specification in config" />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/style-functions.html">Styling Your Protein</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -108,7 +120,7 @@ specification in config" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/swsoyee/r3dmol/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -135,7 +147,14 @@ specification in config" />
 specification in config</p>
     </div>
 
-    <pre class="usage"><span class='fu'>r3dmol</span><span class='op'>(</span>id <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span>, width <span class='op'>=</span> <span class='cn'>NULL</span>, height <span class='op'>=</span> <span class='cn'>NULL</span>, elementId <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>r3dmol</span><span class='op'>(</span>
+  id <span class='op'>=</span> <span class='cn'>NULL</span>,
+  viewer_spec <span class='op'>=</span> <span class='fu'><a href='m_viewer_spec.html'>m_viewer_spec</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>,
+  width <span class='op'>=</span> <span class='cn'>NULL</span>,
+  height <span class='op'>=</span> <span class='cn'>NULL</span>,
+  elementId <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,8 +164,13 @@ specification in config</p>
       <td><p>HTML element id of viewer.</p></td>
     </tr>
     <tr>
+      <th>viewer_spec</th>
+      <td><p>Some useful viewer input specifications. Additional
+options pass in via ... will override options set in viewer_spec.</p></td>
+    </tr>
+    <tr>
       <th>...</th>
-      <td><p>Viewer input specification, see
+      <td><p>Additional, more niche viewer input specification, see
 <a href='http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec'>http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec</a>
 for more details.</p></td>
     </tr>
@@ -199,7 +223,7 @@ automatically generated one). Ignored when used in a Shiny app.</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Wei Su.</p>
+  <p>Developed by Wei Su, Brady Johnston.</p>
 </div>
 
 <div class="pkgdown">

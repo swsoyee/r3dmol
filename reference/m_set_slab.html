@@ -90,7 +90,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -100,6 +100,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/style-functions.html">Styling Your Protein</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -107,7 +119,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/swsoyee/r3dmol/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -163,7 +175,7 @@
 
 <span class='fu'><a href='init.html'>r3dmol</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='m_add_model.html'>m_add_model</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>pdb_6zsl</span>, format <span class='op'>=</span> <span class='st'>"pdb"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='m_add_style.html'>m_set_style</a></span><span class='op'>(</span>style <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>cartoon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_set_style.html'>m_set_style</a></span><span class='op'>(</span>style <span class='op'>=</span> <span class='fu'><a href='m_style_cartoon.html'>m_style_cartoon</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>m_set_slab</span><span class='op'>(</span>near <span class='op'>=</span> <span class='op'>-</span><span class='fl'>90</span>, far <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
 </div></pre>
@@ -178,7 +190,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Wei Su.</p>
+  <p>Developed by Wei Su, Brady Johnston.</p>
 </div>
 
 <div class="pkgdown">

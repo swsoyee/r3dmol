@@ -89,7 +89,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -99,6 +99,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/style-functions.html">Styling Your Protein</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -106,7 +118,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/swsoyee/r3dmol/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -204,9 +216,15 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="m_add_anyShape.html">m_add_arrow()</a></code> <code><a href="m_add_anyShape.html">m_add_box()</a></code> <code><a href="m_add_anyShape.html">m_add_curve()</a></code> <code><a href="m_add_anyShape.html">m_add_cylinder()</a></code> <code><a href="m_add_anyShape.html">m_add_line()</a></code> <code><a href="m_add_anyShape.html">m_add_sphere()</a></code> </p>
+          <p><code><a href="m_add_anyShape.html">m_add_box()</a></code> <code><a href="m_add_anyShape.html">m_add_curve()</a></code> </p>
         </td>
         <td><p>Create and add shape</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_add_arrow.html">m_add_arrow()</a></code> </p>
+        </td>
+        <td><p>Add arrow shape</p></td>
       </tr><tr>
         
         <td>
@@ -222,6 +240,12 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="m_add_cylinder.html">m_add_cylinder()</a></code> </p>
+        </td>
+        <td><p>Add a cylinder shape to scene.</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="m_add_isosurface.html">m_add_isosurface()</a></code> </p>
         </td>
         <td><p>Construct isosurface from volumetric data in gaussian cube format</p></td>
@@ -234,9 +258,21 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="m_add_line.html">m_add_line()</a></code> </p>
+        </td>
+        <td><p>Add Line Between Points</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="m_add_models_as_frames.html">m_add_models_as_frames()</a></code> </p>
         </td>
         <td><p>Create and add model to viewer</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_add_outline.html">m_add_outline()</a></code> </p>
+        </td>
+        <td><p>Add colored outline to all objects in scene.</p></td>
       </tr><tr>
         
         <td>
@@ -248,7 +284,7 @@
         <td>
           <p><code><a href="m_add_res_labels.html">m_add_res_labels()</a></code> </p>
         </td>
-        <td><p>Add residue labels</p></td>
+        <td><p>Add Residue Labels</p></td>
       </tr><tr>
         
         <td>
@@ -258,15 +294,21 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="m_add_surface.html">m_add_surface()</a></code> </p>
+          <p><code><a href="m_add_sphere.html">m_add_sphere()</a></code> </p>
         </td>
-        <td><p>Add surface representation to atoms</p></td>
+        <td><p>Add Sphere Shape</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="m_style.html">m_add_style()</a></code> <code><a href="m_style.html">m_set_style()</a></code> </p>
+          <p><code><a href="m_add_style.html">m_add_style()</a></code> </p>
         </td>
-        <td><p>Set or set style properties to all selected atoms</p></td>
+        <td><p>Overwrite Previous Style</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_add_surface.html">m_add_surface()</a></code> </p>
+        </td>
+        <td><p>Add surface representation to atoms</p></td>
       </tr><tr>
         
         <td>
@@ -309,6 +351,12 @@
           <p><code><a href="m_set_slab.html">m_set_slab()</a></code> </p>
         </td>
         <td><p>Set slab of view</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_set_style.html">m_set_style()</a></code> </p>
+        </td>
+        <td><p>Add Style to Selection</p></td>
       </tr><tr>
         
         <td>
@@ -357,6 +405,92 @@
           <p><code><a href="m_remove_label.html">m_remove_label()</a></code> </p>
         </td>
         <td><p>Remove label from viewer</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-style-selections-specifications" class="hasAnchor"><a href="#section-style-selections-specifications" class="anchor"></a>Style / Selections / Specifications</h2>
+          <p class="section-desc"><p>Functions for setting the style of models, and doing selections.</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="m_style_cartoon.html">m_style_cartoon()</a></code> </p>
+        </td>
+        <td><p>Specify Styling for Cartoon</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_style_label.html">m_style_label()</a></code> </p>
+        </td>
+        <td><p>Specify Styling for Labels</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_style_line.html">m_style_line()</a></code> </p>
+        </td>
+        <td><p>Specify Styling for Lines</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_style_sphere.html">m_style_sphere()</a></code> </p>
+        </td>
+        <td><p>Specify Styling for Sphere</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_style_stick.html">m_style_stick()</a></code> </p>
+        </td>
+        <td><p>Specify Styling for Stick</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_style_surface.html">m_style_surface()</a></code> </p>
+        </td>
+        <td><p>Specify Styling for Surface</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_sel.html">m_sel()</a></code> </p>
+        </td>
+        <td><p>Selection Function for r3dmol</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_shape_spec.html">m_shape_spec()</a></code> </p>
+        </td>
+        <td><p>Specify Styling for Generic Shapes</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-importing-models" class="hasAnchor"><a href="#section-importing-models" class="anchor"></a>Importing Models</h2>
+          <p class="section-desc"><p>Importing models from {bio3d} and fetching from pdb.</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="m_fetch_pdb.html">m_fetch_pdb()</a></code> </p>
+        </td>
+        <td><p>Fetch Structure from PDB</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="m_bio3d.html">m_bio3d()</a></code> </p>
+        </td>
+        <td><p>Load structure from package bio3d</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -509,7 +643,7 @@ PDB format</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Wei Su.</p>
+  <p>Developed by Wei Su, Brady Johnston.</p>
 </div>
 
 <div class="pkgdown">

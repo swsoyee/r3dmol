@@ -91,7 +91,7 @@ atom at the atom's coordinates with the property value as the label text." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -101,6 +101,18 @@ atom at the atom's coordinates with the property value as the label text." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/style-functions.html">Styling Your Protein</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -108,7 +120,7 @@ atom at the atom's coordinates with the property value as the label text." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/swsoyee/r3dmol/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -135,7 +147,7 @@ atom at the atom's coordinates with the property value as the label text." />
 atom at the atom's coordinates with the property value as the label text.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>m_add_property_labels</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>prop</span>, <span class='va'>sel</span>, <span class='va'>style</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>m_add_property_labels</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>prop</span>, sel <span class='op'>=</span> <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span><span class='op'>)</span>, style <span class='op'>=</span> <span class='fu'><a href='m_style_label.html'>m_style_label</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -147,7 +159,7 @@ atom at the atom's coordinates with the property value as the label text.</p>
     </tr>
     <tr>
       <th>prop</th>
-      <td><p>Property name</p></td>
+      <td><p>Property name ()</p></td>
     </tr>
     <tr>
       <th>sel</th>
@@ -169,12 +181,12 @@ atom at the atom's coordinates with the property value as the label text.</p>
 
 <span class='fu'><a href='init.html'>r3dmol</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='m_add_model.html'>m_add_model</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='st'>"data-raw/Conformer3D_CID_5291.sdf"</span>, format <span class='op'>=</span> <span class='st'>"sdf"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='m_add_style.html'>m_set_style</a></span><span class='op'>(</span>style <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>stick <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>radius <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_set_style.html'>m_set_style</a></span><span class='op'>(</span>style <span class='op'>=</span> <span class='fu'><a href='m_style_stick.html'>m_style_stick</a></span><span class='op'>(</span>radius <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>m_add_property_labels</span><span class='op'>(</span>
     prop <span class='op'>=</span> <span class='st'>"index"</span>,
     sel <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>not <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>elem <span class='op'>=</span> <span class='st'>"H"</span><span class='op'>)</span><span class='op'>)</span>,
-    style <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    style <span class='op'>=</span> <span class='fu'><a href='m_style_label.html'>m_style_label</a></span><span class='op'>(</span>
       fontColor <span class='op'>=</span> <span class='st'>"black"</span>,
       font <span class='op'>=</span> <span class='st'>"sans-serif"</span>,
       fontSize <span class='op'>=</span> <span class='fl'>28</span>,
@@ -194,7 +206,7 @@ atom at the atom's coordinates with the property value as the label text.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Wei Su.</p>
+  <p>Developed by Wei Su, Brady Johnston.</p>
 </div>
 
 <div class="pkgdown">

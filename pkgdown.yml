@@ -3,5 +3,6 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   r3dmol: r3dmol.html
-last_built: 2020-10-22T03:40Z
+  style-functions: style-functions.html
+last_built: 2021-02-04T04:30Z
 

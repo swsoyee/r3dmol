@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add residue labels — m_add_res_labels • r3dmol</title>
+<title>Add Residue Labels — m_add_res_labels • r3dmol</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Add residue labels — m_add_res_labels" />
+<meta property="og:title" content="Add Residue Labels — m_add_res_labels" />
 <meta property="og:description" content="Add residue labels. This will generate one label per a
 residue within the selected atoms. The label will be at the
 centroid of the atoms and styled according to the passed style.
@@ -93,7 +93,7 @@ The label text will be resnresi" />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -103,6 +103,18 @@ The label text will be resnresi" />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/style-functions.html">Styling Your Protein</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -110,7 +122,7 @@ The label text will be resnresi" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/swsoyee/r3dmol/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -127,7 +139,7 @@ The label text will be resnresi" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add residue labels</h1>
+    <h1>Add Residue Labels</h1>
     <small class="dont-index">Source: <a href='https://github.com/swsoyee/r3dmol/blob/master/R/add.R'><code>R/add.R</code></a></small>
     <div class="hidden name"><code>m_add_res_labels.Rd</code></div>
     </div>
@@ -139,7 +151,7 @@ centroid of the atoms and styled according to the passed style.
 The label text will be <code>resn</code><code>resi</code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>m_add_res_labels</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>sel</span>, <span class='va'>style</span>, <span class='va'>byframe</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>m_add_res_labels</span><span class='op'>(</span><span class='va'>id</span>, sel <span class='op'>=</span> <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span><span class='op'>)</span>, style <span class='op'>=</span> <span class='fu'><a href='m_style_label.html'>m_style_label</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>byframe</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -174,12 +186,15 @@ current</p></td>
 
 <span class='fu'><a href='init.html'>r3dmol</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='m_add_model.html'>m_add_model</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>pdb_1j72</span>, format <span class='op'>=</span> <span class='st'>"pdb"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='m_add_style.html'>m_set_style</a></span><span class='op'>(</span>
-    style <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>stick <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>radius <span class='op'>=</span> <span class='fl'>0.15</span><span class='op'>)</span>, cartoon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='m_set_style.html'>m_set_style</a></span><span class='op'>(</span>
+    style <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+      <span class='fu'><a href='m_style_stick.html'>m_style_stick</a></span><span class='op'>(</span>radius <span class='op'>=</span> <span class='fl'>0.15</span><span class='op'>)</span>,
+      <span class='fu'><a href='m_style_cartoon.html'>m_style_cartoon</a></span><span class='op'>(</span><span class='op'>)</span>
+    <span class='op'>)</span>
   <span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>m_add_res_labels</span><span class='op'>(</span>
-    sel <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>resn <span class='op'>=</span> <span class='st'>"GLY"</span><span class='op'>)</span>,
-    style <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    sel <span class='op'>=</span> <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resn <span class='op'>=</span> <span class='st'>"GLY"</span><span class='op'>)</span>,
+    style <span class='op'>=</span> <span class='fu'><a href='m_style_label.html'>m_style_label</a></span><span class='op'>(</span>
       font <span class='op'>=</span> <span class='st'>"Arial"</span>,
       fontColor <span class='op'>=</span> <span class='st'>"white"</span>,
       backgroundColor <span class='op'>=</span> <span class='st'>"black"</span>,
@@ -199,7 +214,7 @@ current</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Wei Su.</p>
+  <p>Developed by Wei Su, Brady Johnston.</p>
 </div>
 
 <div class="pkgdown">
