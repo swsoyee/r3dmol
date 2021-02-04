@@ -7,13 +7,13 @@
 #' library(bio3d)
 #' library(r3dmol)
 #'
-#' #create bio3d object
-#' pdb <- read.pdb('1bna')
+#' # create bio3d object
+#' pdb <- read.pdb("1bna")
 #'
-#' #inspect bio3d object
+#' # inspect bio3d object
 #' pdb
 #'
-#' #load bio3d object into r3dmol
+#' # load bio3d object into r3dmol
 #' r3dmol() %>%
 #'   m_add_model(data = m_bio3d(pdb)) %>%
 #'   m_zoom_to()
@@ -59,7 +59,6 @@ m_fetch_pdb <- function(PDB, save.pdb = FALSE, path = NULL) {
 
     ## Read PDB file, then write directly to console.
     utils::capture.output(bio3d::write.pdb(pdb, file = ""))
-
   } else if (save.pdb == F) {
 
     ## Pulls pdb data from online PDB database, without saving to local drive.

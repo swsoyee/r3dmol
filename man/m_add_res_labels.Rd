@@ -33,8 +33,10 @@ library(r3dmol)
 r3dmol() \%>\%
   m_add_model(data = pdb_1j72, format = "pdb") \%>\%
   m_set_style(
-    style = c(m_style_stick(radius = 0.15),
-              m_style_cartoon())
+    style = c(
+      m_style_stick(radius = 0.15),
+      m_style_cartoon()
+    )
   ) \%>\%
   m_add_res_labels(
     sel = m_sel(resn = "GLY"),

@@ -34,18 +34,24 @@
 #' @return sel \code{list()} for selecting atoms.
 #' @examples
 #' r3dmol() %>%
-#'   m_add_model(data = m_fetch_pdb('1bna')) %>%
-#'   m_add_style(style = m_style_stick(),
-#'               sel = m_sel(resi = 1:2)) %>%
+#'   m_add_model(data = m_fetch_pdb("1bna")) %>%
+#'   m_add_style(
+#'     style = m_style_stick(),
+#'     sel = m_sel(resi = 1:2)
+#'   ) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1))
 #'
-#' #Expand example
+#' # Expand example
 #' r3dmol() %>%
-#'   m_add_model(data = m_fetch_pdb('1bna')) %>%
-#'   m_add_style(style = m_style_stick(),
-#'               sel = m_sel(resi = 1,
-#'                           expand = 10,
-#'                           byres = TRUE)) %>%
+#'   m_add_model(data = m_fetch_pdb("1bna")) %>%
+#'   m_add_style(
+#'     style = m_style_stick(),
+#'     sel = m_sel(
+#'       resi = 1,
+#'       expand = 10,
+#'       byres = TRUE
+#'     )
+#'   ) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1))
 #' @export
 #'

@@ -26,7 +26,7 @@ mol <- r3dmol() \%>\%
     center = list(x = 0, y = 0, z = 0),
     radius = 10.0,
     color = "red"
-   )
+  )
 
 # Render model with shape
 mol

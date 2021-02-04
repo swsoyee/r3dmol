@@ -19,11 +19,10 @@ Adds a colored outline to all objects in the scene, helping the viewer
 to distinguish depth in often complex molecular scenes.
 }
 \examples{
- library(r3dmol)
+library(r3dmol)
 
- r3dmol() \%>\%
+r3dmol() \%>\%
   m_add_model(data = pdb_1j72) \%>\%
   m_set_style(style = m_style_stick()) \%>\%
   m_add_outline()
-
 }

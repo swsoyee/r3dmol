@@ -6,7 +6,7 @@
 \usage{
 m_style_cartoon(
   color = NULL,
-  style = NULL,
+  style = "rectangle",
   ribbon = FALSE,
   arrows = TRUE,
   tubes = FALSE,

@@ -65,7 +65,9 @@ Styling options for the labels. Used inside \code{m_add_label()},
 r3dmol() \%>\%
   m_add_model(data = pdb_1j72, format = "pdb") \%>\%
   m_set_style(style = m_style_stick()) \%>\%
-  m_add_res_labels(style = m_style_label(fontSize = 14,
-  backgroundColor = "green")) \%>\%
+  m_add_res_labels(style = m_style_label(
+    fontSize = 14,
+    backgroundColor = "green"
+  )) \%>\%
   m_zoom_to()
 }

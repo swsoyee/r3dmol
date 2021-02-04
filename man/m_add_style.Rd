@@ -38,6 +38,8 @@ r3dmol() \%>\%
     sel = m_sel(chain = "A"),
     style = m_style_stick(
       radius = 0.5,
-      colorScheme = "magentaCarbon")) \%>\%
+      colorScheme = "magentaCarbon"
+    )
+  ) \%>\%
   m_zoom_to()
 }

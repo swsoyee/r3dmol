@@ -26,21 +26,28 @@ Adds a line between the given points.
 }
 \examples{
 r3dmol() \%>\%
- m_add_model(data = pdb_6zsl) \%>\%
- m_set_style(style = m_style_cartoon()) \%>\%
- m_zoom_to() \%>\%
- m_add_style(
-   sel = m_sel(resi = 1:10),
-   style = c(m_style_stick(),
-             m_style_sphere(scale = 0.3))) \%>\%
-   m_add_line(
-     start = m_sel(resi = 1:10,
-                   chain = "A"),
-     end = m_sel(resi = 1:10,
-                 chain = "B")
-   ) \%>\%
-   m_add_label(
-     text = "The middle of the selection",
-     sel = m_sel(resi = 1:10)
-   )
+  m_add_model(data = pdb_6zsl) \%>\%
+  m_set_style(style = m_style_cartoon()) \%>\%
+  m_zoom_to() \%>\%
+  m_add_style(
+    sel = m_sel(resi = 1:10),
+    style = c(
+      m_style_stick(),
+      m_style_sphere(scale = 0.3)
+    )
+  ) \%>\%
+  m_add_line(
+    start = m_sel(
+      resi = 1:10,
+      chain = "A"
+    ),
+    end = m_sel(
+      resi = 1:10,
+      chain = "B"
+    )
+  ) \%>\%
+  m_add_label(
+    text = "The middle of the selection",
+    sel = m_sel(resi = 1:10)
+  )
 }

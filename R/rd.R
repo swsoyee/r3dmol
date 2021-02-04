@@ -161,19 +161,19 @@ NULL
 #' # Add arrow
 #' r3dmol() %>%
 #'   m_add_arrow(
-#'       start = m_vector3(-10, 0, 0),
-#'       end = m_vector3(0, -10, 0),
-#'       radius = 1,
-#'       radiusRatio = 1,
-#'       mid = 1,
-#'       spec = m_shape_spec(
-#'         clickable = TRUE,
-#'         callback =
-#'           "function() {
+#'     start = m_vector3(-10, 0, 0),
+#'     end = m_vector3(0, -10, 0),
+#'     radius = 1,
+#'     radiusRatio = 1,
+#'     mid = 1,
+#'     spec = m_shape_spec(
+#'       clickable = TRUE,
+#'       callback =
+#'         "function() {
 #'             this.color.setHex(0xFF0000FF);
 #'             viewer.render()
 #'           }"
-#'      )
+#'     )
 #'   )
 #'
 #' # Add curve
@@ -197,30 +197,30 @@ NULL
 #' # Add cylinder
 #' r3dmol() %>%
 #'   m_add_cylinder(
-#'       start = list(x = 0.0, y = 0.0, z = 0.0),
-#'       end = list(x = 10.0, y = 0.0, z = 0.0),
-#'       radius = 1.0,
-#'       fromCap = 1,
-#'       toCap = 2,
-#'       spec = m_shape_spec(
-#'         color = "red",
-#'         hoverable = TRUE,
-#'         clickable = TRUE,
-#'         callback = "
+#'     start = list(x = 0.0, y = 0.0, z = 0.0),
+#'     end = list(x = 10.0, y = 0.0, z = 0.0),
+#'     radius = 1.0,
+#'     fromCap = 1,
+#'     toCap = 2,
+#'     spec = m_shape_spec(
+#'       color = "red",
+#'       hoverable = TRUE,
+#'       clickable = TRUE,
+#'       callback = "
 #'         function() {
 #'           this.color.setHex(0x00FFFF00);
 #'           viewer.render();
 #'         }",
-#'         hover_callback = "
+#'       hover_callback = "
 #'         function() {
 #'           viewer.render();
 #'         }",
-#'         unhover_callback = "
+#'       unhover_callback = "
 #'         function() {
 #'           this.color.setHex(0xFF000000);
 #'           viewer.render();
 #'         }"
-#'       )
+#'     )
 #'   )
 #'
 #' # Add line

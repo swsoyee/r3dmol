@@ -27,7 +27,9 @@
 #'     sel = m_sel(chain = "A"),
 #'     style = m_style_stick(
 #'       radius = 0.5,
-#'       colorScheme = "magentaCarbon")) %>%
+#'       colorScheme = "magentaCarbon"
+#'     )
+#'   ) %>%
 #'   m_zoom_to()
 #' @export
 m_add_style <- function(id,
@@ -195,23 +197,30 @@ m_add_cylinder <- function(
 #' \code{m_shape_spec()}.
 #' @examples
 #' r3dmol() %>%
-#'  m_add_model(data = pdb_6zsl) %>%
-#'  m_set_style(style = m_style_cartoon()) %>%
-#'  m_zoom_to() %>%
-#'  m_add_style(
-#'    sel = m_sel(resi = 1:10),
-#'    style = c(m_style_stick(),
-#'              m_style_sphere(scale = 0.3))) %>%
-#'    m_add_line(
-#'      start = m_sel(resi = 1:10,
-#'                    chain = "A"),
-#'      end = m_sel(resi = 1:10,
-#'                  chain = "B")
-#'    ) %>%
-#'    m_add_label(
-#'      text = "The middle of the selection",
-#'      sel = m_sel(resi = 1:10)
-#'    )
+#'   m_add_model(data = pdb_6zsl) %>%
+#'   m_set_style(style = m_style_cartoon()) %>%
+#'   m_zoom_to() %>%
+#'   m_add_style(
+#'     sel = m_sel(resi = 1:10),
+#'     style = c(
+#'       m_style_stick(),
+#'       m_style_sphere(scale = 0.3)
+#'     )
+#'   ) %>%
+#'   m_add_line(
+#'     start = m_sel(
+#'       resi = 1:10,
+#'       chain = "A"
+#'     ),
+#'     end = m_sel(
+#'       resi = 1:10,
+#'       chain = "B"
+#'     )
+#'   ) %>%
+#'   m_add_label(
+#'     text = "The middle of the selection",
+#'     sel = m_sel(resi = 1:10)
+#'   )
 #' @export
 m_add_line <- function(
                        id,
@@ -225,7 +234,7 @@ m_add_line <- function(
     dashed = dashed
   )
 
-  spec = c(spec, line_list)
+  spec <- c(spec, line_list)
 
   method <- "addLine"
   callJS()
@@ -354,7 +363,7 @@ m_add_label <-
            noshow = TRUE) {
     # keeping consistent style convention throughout package
     # `options` is required for function though
-    options = style
+    options <- style
     method <- "addLabel"
     callJS()
   }
@@ -499,8 +508,10 @@ m_add_models_as_frames <- function(id, data, format) {
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
 #'   m_set_style(
-#'     style = c(m_style_stick(radius = 0.15),
-#'               m_style_cartoon())
+#'     style = c(
+#'       m_style_stick(radius = 0.15),
+#'       m_style_cartoon()
+#'     )
 #'   ) %>%
 #'   m_add_res_labels(
 #'     sel = m_sel(resn = "GLY"),
@@ -630,19 +641,18 @@ m_add_volumetric_render <- function(id, data, spec) {
 #' @param width Width of the outline, defaults to 0.1
 #' @param color Color of the outline, defaults to black.
 #' @examples
-#'  library(r3dmol)
+#' library(r3dmol)
 #'
-#'  r3dmol() %>%
+#' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72) %>%
 #'   m_set_style(style = m_style_stick()) %>%
 #'   m_add_outline()
-#'
 #' @export
 m_add_outline <- function(id,
                           width = 0.1,
-                          color = 'black') {
-  style = list(
-    style = 'outline',
+                          color = "black") {
+  style <- list(
+    style = "outline",
     color = color,
     width = width
   )

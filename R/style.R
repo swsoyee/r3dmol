@@ -24,7 +24,7 @@ m_style_sphere <- function(
                            hidden = FALSE,
                            radius = 1,
                            scale = 1,
-                           colorScheme = 'default',
+                           colorScheme = "default",
                            color = NULL,
                            opacity = 1) {
   sphere_style <- list(
@@ -76,7 +76,7 @@ m_style_sphere <- function(
 #' @export
 m_style_cartoon <- function(
                             color = NULL,
-                            style = NULL,
+                            style = "rectangle",
                             ribbon = FALSE,
                             arrows = TRUE,
                             tubes = FALSE,
@@ -125,7 +125,7 @@ m_style_cartoon <- function(
 m_style_stick <- function(
                           radius = 0.4,
                           singleBonds = FALSE,
-                          colorScheme = 'default',
+                          colorScheme = "default",
                           color = NULL,
                           opacity = 1,
                           hidden = FALSE) {
@@ -171,12 +171,14 @@ m_style_stick <- function(
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
 #'   m_set_style(style = m_style_stick()) %>%
-#'   m_add_res_labels(style = m_style_label(fontSize = 14,
-#'   backgroundColor = "green")) %>%
+#'   m_add_res_labels(style = m_style_label(
+#'     fontSize = 14,
+#'     backgroundColor = "green"
+#'   )) %>%
 #'   m_zoom_to()
 #' @export
 m_style_label <- function(
-                          font = 'sans-serif',
+                          font = "sans-serif",
                           fontSize = 18,
                           fontColor = "white",
                           fontOpacity = 1,
@@ -188,10 +190,12 @@ m_style_label <- function(
                           inFront = TRUE,
                           showBackground = TRUE,
                           fixed = FALSE,
-                          alignment = c("topLeft", "topCenter", "topRight",
-                                        "centerLeft", "center", "centerRight",
-                                        "bottomLeft", "bottomCenter",
-                                        "bottomRight"),
+                          alignment = c(
+                            "topLeft", "topCenter", "topRight",
+                            "centerLeft", "center", "centerRight",
+                            "bottomLeft", "bottomCenter",
+                            "bottomRight"
+                          ),
                           position = NULL,
                           frame = NULL) {
   alignment <- match.arg(alignment)
@@ -243,7 +247,7 @@ m_style_label <- function(
 #'   m_zoom_to()
 #' @export
 m_style_line <- function(
-                         colorScheme = 'default',
+                         colorScheme = "default",
                          color = NULL,
                          opacity = 1,
                          hidden = FALSE) {
