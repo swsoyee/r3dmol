@@ -19,7 +19,14 @@
 #'   m_zoom_to()
 #' @export
 m_bio3d <- function(pdb) {
-  utils::capture.output(bio3d::write.pdb(pdb = pdb, file = ""))
+  # register temporary file for writing to disk
+  temp <- tempfile()
+  # will delete temp file after funciton completes
+  on.exit(unlink(temp))
+  # write specified pdb to disk as the temp file
+  bio3d::write.pdb(pdb = pdb, file = temp)
+  # read written .pdb for passing to m_add_model*() functions.
+  readLines(temp)
 }
 
 #' Fetch Structure from PDB
