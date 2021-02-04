@@ -12,8 +12,8 @@
 #' @param cartoonQuality Defaults to 5
 #' @param lowerZoomLimit Specify how far the user can zoom in.
 #' @param upperZoomLimit Specify how far the user can zoom out.
-#' @param antialias Logical whether to enable antialiasing, improving graphical
-#' quality. (can slow down large structures)
+#' @param antialias Logical, disable to decrease quality but improve
+#' performance.
 #' @param orthographic Logical. Setting orthographic instead of perspective
 #' representation.
 #' @param disableFog Logical, disable fog, defaults to \code{FALSE}
@@ -22,7 +22,7 @@ m_viewer_spec <- function(
                           id = NULL,
                           defaultcolors = NULL,
                           cartoonQuality = 5,
-                          antialias = FALSE,
+                          antialias = TRUE,
                           nomouse = FALSE,
                           backgroundColor = "white",
                           lowerZoomLimit = 5,

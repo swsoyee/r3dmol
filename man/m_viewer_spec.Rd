@@ -8,7 +8,7 @@ m_viewer_spec(
   id = NULL,
   defaultcolors = NULL,
   cartoonQuality = 5,
-  antialias = FALSE,
+  antialias = TRUE,
   nomouse = FALSE,
   backgroundColor = "white",
   lowerZoomLimit = 5,
@@ -25,8 +25,8 @@ property value pairs for all models within this viewer}
 
 \item{cartoonQuality}{Defaults to 5}
 
-\item{antialias}{Logical whether to enable antialiasing, improving graphical
-quality. (can slow down large structures)}
+\item{antialias}{Logical, disable to decrease quality but improve
+performance.}
 
 \item{nomouse}{Whether to disable handling of mouse events. Disabled will
 prevent user interaction.}
