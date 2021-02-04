@@ -1,6 +1,27 @@
-#' @rdname m_style
+#' Add Style to Selection
+#'
+#' Takes a selection and adds additional styling to selection.
+#'
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#' @param sel Atom selection specification with \code{m_sel()}
+#' @param style Style spec to apply to specified atoms using m_style_*()
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' # Add style to model
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_add_style(style = m_style_cartoon()) %>%
+#'   m_zoom_to()
 #' @export
-m_set_style <- function(id, sel = list(), style = list()) {
+m_set_style <- function(id,
+                        sel = m_sel(),
+                        style = m_style_cartoon()) {
   if (missing(style)) {
     stop("The `style` argument must be passed.")
   }
@@ -20,7 +41,6 @@ m_set_style <- function(id, sel = list(), style = list()) {
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
 #' @export
-#'
 m_set_zoom_limits <- function(id, lower = 0, upper = Inf) {
   method <- "setZoomLimits"
   callJS()
@@ -64,7 +84,7 @@ m_set_background_color <- function(id, hex, alpha) {
 #'
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_set_style(style = m_style_cartoon()) %>%
 #'   m_set_projection(scheme = "orthographic")
 m_set_projection <- function(id, scheme = c("perspective", "orthographic")) {
   scheme <- match.arg(scheme)
@@ -90,7 +110,7 @@ m_set_projection <- function(id, scheme = c("perspective", "orthographic")) {
 #'
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_set_style(style = m_style_cartoon()) %>%
 #'   m_zoom_to() %>%
 #'   m_set_slab(near = -90, far = 0)
 m_set_slab <- function(id, near, far) {
@@ -136,7 +156,7 @@ m_set_hover_duration <- function(id, hoverDuration) {
 #' r3dmol() %>%
 #'   m_set_default_cartoon_quality(20) %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_set_style(style = m_style_cartoon()) %>%
 #'   m_zoom_to()
 m_set_default_cartoon_quality <- function(id, quality) {
   method <- "setDefaultCartoonQuality"
@@ -184,15 +204,17 @@ m_set_preceived_distance <- function(id, dist) {
 
 #' @rdname m_set_view
 #' @export
-m_set_view <- function(id, arg) {
+m_set_view <- function(id, arg, style) {
   method <- "setView"
   callJS()
 }
 
-
 #' @rdname m_set_view
 #' @export
 m_set_view_style <- function(id, style) {
+  warning("The m_set_view_style() function is deprecated and replaced by
+          m_add_outline(), and will be removed in future
+          versions of the package.")
   method <- "setViewStyle"
   callJS()
 }

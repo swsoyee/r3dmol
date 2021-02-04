@@ -43,7 +43,7 @@ r3dmol(
     format = "xyz",
     options = list(vibrate = list(frames = 10, amplitude = 1))
   ) \%>\%
-  m_set_style(style = list(stick = list())) \%>\%
+  m_set_style(style = m_style_stick()) \%>\%
   m_animate(list(loop = "backAndForth")) \%>\%
   m_zoom_to()
 }

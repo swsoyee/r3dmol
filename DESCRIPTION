@@ -2,10 +2,14 @@ Package: r3dmol
 Title: Create Interactive 3D Visualizations of Molecular Data
 Version: 0.1.0
 Authors@R: 
-    person(given = "Wei",
+    c(person(given = "Wei",
            family = "Su",
            role = c("aut", "cre"),
-           email = "swsoyee@gmail.com")
+           email = "swsoyee@gmail.com"),
+    person(given = "Brady", 
+           family = "Johnston", 
+           role = "aut", 
+           email = "brady.johnston@me.com"))
 Maintainer: Wei Su <swsoyee@gmail.com>
 Description: Create rich and fully interactive 3D visualizations of molecular data.
     Visualizations can be included in Shiny apps and R markdown documents, or viewed
@@ -20,7 +24,8 @@ RoxygenNote: 7.1.1
 Imports:
     htmlwidgets,
     magrittr,
-    methods
+    methods, 
+    bio3d
 Suggests: 
     knitr,
     rmarkdown,

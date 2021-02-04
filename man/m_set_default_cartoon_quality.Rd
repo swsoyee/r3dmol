@@ -27,6 +27,6 @@ library(r3dmol)
 r3dmol() \%>\%
   m_set_default_cartoon_quality(20) \%>\%
   m_add_model(data = pdb_1j72, format = "pdb") \%>\%
-  m_set_style(style = list(cartoon = list())) \%>\%
+  m_set_style(style = m_style_cartoon()) \%>\%
   m_zoom_to()
 }

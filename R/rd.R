@@ -43,9 +43,9 @@ NULL
 #'
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list())) %>%
+#'   m_set_style(style = m_style_cartoon()) %>%
 #'   m_set_view(arg = c(20, -20, 10, -200, 0, 1, 0, 0)) %>%
-#'   m_set_view_style(style = list(style = "outline", color = "blue"))
+#'   m_add_outline(color = "blue")
 NULL
 
 #' Create and add model to viewer
@@ -117,9 +117,9 @@ NULL
 #'     "cif",
 #'     options = list(doAssembly = TRUE, normalizeAssembly = TRUE)
 #'   ) %>%
-#'   m_set_style(style = list(
-#'     sphere = list(colorscheme = "Jmol", scale = 0.25),
-#'     stick = list(colorscheme = "Jmol")
+#'   m_set_style(style = c(
+#'     m_style_sphere(colorScheme = "Jmol", scale = 0.25),
+#'     m_style_stick(colorScheme = "Jmol")
 #'   )) %>%
 #'   m_add_unit_cell(spec = list(
 #'     alabel = "x",
@@ -139,44 +139,10 @@ NULL
 #' # Replicate atoms in model to form a super cell
 #' r3dmol() %>%
 #'   m_add_model(data = cif_254385, format = "cif") %>%
-#'   m_set_style(style = list(sphere = list(scale = 0.25))) %>%
+#'   m_set_style(style = m_style_sphere(scale = 0.25)) %>%
 #'   m_add_unit_cell() %>%
 #'   m_zoom_to() %>%
 #'   m_replicate_unit_cell(a = 3, b = 2, c = 1)
-NULL
-
-#' Set or set style properties to all selected atoms
-#'
-#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
-#' \code{r3dmol()})
-#' @param sel Atom selection specification
-#' @param style Style spec to apply to specified atoms
-#'
-#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
-#' \code{r3dmol()})
-#' @name m_style
-#'
-#' @examples
-#' library(r3dmol)
-#'
-#' # Add style to model
-#' r3dmol() %>%
-#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
-#'   m_add_style(style = list(cartoon = list())) %>%
-#'   m_zoom_to()
-#'
-#' # Set style to model
-#' r3dmol() %>%
-#'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list())) %>%
-#'   m_set_style(
-#'     sel = list(chain = "A"),
-#'     style = list(stick = list(
-#'       radius = 0.5,
-#'       colorscheme = "magentaCarbon"
-#'     ))
-#'   ) %>%
-#'   m_zoom_to()
 NULL
 
 #' Create and add shape
@@ -195,18 +161,18 @@ NULL
 #' # Add arrow
 #' r3dmol() %>%
 #'   m_add_arrow(
-#'     spec = list(
-#'       start = m_vector3(-10, 0, 0),
-#'       end = m_vector3(0, -10, 0),
-#'       radius = 1,
-#'       radiusRadio = 1,
-#'       mid = 1,
+#'     start = m_vector3(-10, 0, 0),
+#'     end = m_vector3(0, -10, 0),
+#'     radius = 1,
+#'     radiusRatio = 1,
+#'     mid = 1,
+#'     spec = m_shape_spec(
 #'       clickable = TRUE,
 #'       callback =
 #'         "function() {
-#'           this.color.setHex(0xFF0000FF);
-#'           viewer.render()
-#'         }"
+#'             this.color.setHex(0xFF0000FF);
+#'             viewer.render()
+#'           }"
 #'     )
 #'   )
 #'
@@ -231,39 +197,39 @@ NULL
 #' # Add cylinder
 #' r3dmol() %>%
 #'   m_add_cylinder(
-#'     spec = list(
-#'       start = list(x = 0.0, y = 0.0, z = 0.0),
-#'       end = list(x = 10.0, y = 0.0, z = 0.0),
-#'       radius = 1.0,
-#'       fromCap = 1,
-#'       toCap = 2,
+#'     start = list(x = 0.0, y = 0.0, z = 0.0),
+#'     end = list(x = 10.0, y = 0.0, z = 0.0),
+#'     radius = 1.0,
+#'     fromCap = 1,
+#'     toCap = 2,
+#'     spec = m_shape_spec(
 #'       color = "red",
 #'       hoverable = TRUE,
 #'       clickable = TRUE,
 #'       callback = "
-#'       function() {
-#'         this.color.setHex(0x00FFFF00);
-#'         viewer.render();
-#'       }",
+#'         function() {
+#'           this.color.setHex(0x00FFFF00);
+#'           viewer.render();
+#'         }",
 #'       hover_callback = "
-#'       function() {
-#'         viewer.render();
-#'       }",
+#'         function() {
+#'           viewer.render();
+#'         }",
 #'       unhover_callback = "
-#'       function() {
-#'         this.color.setHex(0xFF000000);
-#'         viewer.render();
-#'       }"
+#'         function() {
+#'           this.color.setHex(0xFF000000);
+#'           viewer.render();
+#'         }"
 #'     )
 #'   )
 #'
 #' # Add line
 #' r3dmol() %>%
-#'   m_add_line(spec = list(
+#'   m_add_line(
 #'     dashed = TRUE,
 #'     start = m_vector3(0, 0, 0),
 #'     end = m_vector3(30, 30, 30)
-#'   ))
+#'   )
 #'
 #' # Add box
 #' r3dmol() %>%
@@ -275,11 +241,11 @@ NULL
 #'
 #' # Add sphere
 #' r3dmol() %>%
-#'   m_add_sphere(spec = list(
+#'   m_add_sphere(
 #'     center = m_vector3(0, 0, 0),
 #'     radius = 10,
-#'     color = "red"
-#'   ))
+#'     spec = m_shape_spec(color = "red")
+#'   )
 NULL
 
 #' Translate current view or models by x,y screen coordinates
@@ -307,7 +273,7 @@ NULL
 #' # Translate current view by x,y screen coordinates
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list(), stick = list())) %>%
+#'   m_set_style(style = c(m_style_cartoon(), m_style_stick())) %>%
 #'   m_translate(
 #'     x = 200,
 #'     y = 50,
@@ -323,7 +289,7 @@ NULL
 #' # Translate current models by x,y screen coordinates
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
-#'   m_set_style(style = list(cartoon = list(), stick = list())) %>%
+#'   m_set_style(style = c(m_style_cartoon(), m_style_stick())) %>%
 #'   m_translate_scene(
 #'     x = 200,
 #'     y = 50,

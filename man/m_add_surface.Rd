@@ -4,13 +4,21 @@
 \alias{m_add_surface}
 \title{Add surface representation to atoms}
 \usage{
-m_add_surface(id, type, style, atomsel, allsel, focus, surfacecallback)
+m_add_surface(
+  id,
+  type,
+  style = m_style_surface(),
+  atomsel = m_sel(),
+  allsel,
+  focus,
+  surfacecallback
+)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()})}
 
-\item{type}{Surface type (VDW, MS, SAS, or SES)}
+\item{type}{Surface type ('VDW', 'MS', 'SAS', or 'SES')}
 
 \item{style}{Optional style specification for surface material (e.g. for
 different coloring scheme, etc).}

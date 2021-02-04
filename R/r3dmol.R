@@ -4,7 +4,9 @@
 #' specification in config
 #'
 #' @param id HTML element id of viewer.
-#' @param ... Viewer input specification, see
+#' @param viewer_spec Some useful viewer input specifications. Additional
+#' options pass in via ... will override options set in viewer_spec.
+#' @param ... Additional, more niche viewer input specification, see
 #' <http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec>
 #' for more details.
 #' @param width Fixed width for viewer (in css units). Ignored when used in a
@@ -39,6 +41,7 @@
 #'   m_zoom_to()
 r3dmol <-
   function(id = NULL,
+           viewer_spec = m_viewer_spec(),
            ...,
            width = NULL,
            height = NULL,
@@ -57,7 +60,7 @@ r3dmol <-
     # forward options using x
     x <- list(
       id = id,
-      configs = list(...)
+      configs = c(list(...), viewer_spec)
     )
     # Allow a list of API functions to be called on the r3dmol after
     # initialization

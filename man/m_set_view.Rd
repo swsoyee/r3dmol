@@ -5,7 +5,7 @@
 \alias{m_set_view_style}
 \title{Sets the view to the specified translation, zoom, rotation and style}
 \usage{
-m_set_view(id, arg)
+m_set_view(id, arg, style)
 
 m_set_view_style(id, style)
 }
@@ -32,7 +32,7 @@ library(r3dmol)
 
 r3dmol() \%>\%
   m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
-  m_set_style(style = list(cartoon = list())) \%>\%
+  m_set_style(style = m_style_cartoon()) \%>\%
   m_set_view(arg = c(20, -20, 10, -200, 0, 1, 0, 0)) \%>\%
-  m_set_view_style(style = list(style = "outline", color = "blue"))
+  m_add_outline(color = "blue")
 }

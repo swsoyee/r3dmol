@@ -5,12 +5,22 @@
 \alias{r3dmol}
 \title{Initialise a WebGL-based viewer}
 \usage{
-r3dmol(id = NULL, ..., width = NULL, height = NULL, elementId = NULL)
+r3dmol(
+  id = NULL,
+  viewer_spec = m_viewer_spec(),
+  ...,
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+)
 }
 \arguments{
 \item{id}{HTML element id of viewer.}
 
-\item{...}{Viewer input specification, see
+\item{viewer_spec}{Some useful viewer input specifications. Additional
+options pass in via ... will override options set in viewer_spec.}
+
+\item{...}{Additional, more niche viewer input specification, see
 \url{http://3dmol.csb.pitt.edu/doc/types.html#ViewerSpec}
 for more details.}
 

@@ -18,8 +18,8 @@ This is an R package that provides support for
 ## Installation
 
 > This package is still very early in its development stages, everything
-> will be changed very often\! Please give me a star on Github if you
-> find it useful and I will speed up the development process\!
+> will be changed very often! Please give me a star on Github if you
+> find it useful and I will speed up the development process!
 
 ~~You can install the released version of r3dmol from
 [CRAN](https://CRAN.R-project.org) with:~~
@@ -43,7 +43,7 @@ library(r3dmol)
 r3dmol() %>%
   m_add_model(data = pdb_6zsl, format = "pdb") %>%
   m_zoom_to() %>%
-  m_set_style(style = list(cartoon = list(color = 'spectrum')))
+  m_set_style(style = m_style_cartoon(color = 'spectrum'))
 ```
 
 ![picture](https://user-images.githubusercontent.com/20528423/92235475-aff64180-eeee-11ea-94b8-304ea64425b5.png)

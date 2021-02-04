@@ -12,12 +12,12 @@
 #'
 #' mol <- r3dmol() %>%
 #'   m_add_model(data = "data-raw/Conformer3D_CID_5291.sdf", format = "sdf") %>%
-#'   m_set_style(style = list(stick = list(radius = 2))) %>%
+#'   m_set_style(style = m_style_stick(radius = 2)) %>%
 #'   m_zoom_to() %>%
 #'   m_add_property_labels(
 #'     prop = "index",
 #'     sel = list(not = list(elem = "H")),
-#'     style = list(
+#'     style = m_style_label(
 #'       fontColor = "black",
 #'       font = "sans-serif",
 #'       fontSize = 28,
@@ -77,11 +77,11 @@ m_remove_all_models <- function(id) {
 #'
 #' mol <- r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
-#'   m_add_sphere(spec = list(
+#'   m_add_sphere(
 #'     center = list(x = 0, y = 0, z = 0),
 #'     radius = 10.0,
 #'     color = "red"
-#'   ))
+#'   )
 #'
 #' # Render model with shape
 #' mol
