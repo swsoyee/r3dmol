@@ -15,8 +15,8 @@ test_that("`m_viewer_spec()` create a `ViewerSpec` object of viewer setting and 
   expect_equal(viewer_spec$disableFog, FALSE)
 })
 
-test_that("`m_viewer_spec()` options are able to changed", {
-  viewer_spec <- m_viewer_spec(
+test_that("`m_viewer_spec()` options are able to set", {
+  options <- list(
     id = "1",
     defaultcolors = "#fff",
     cartoonQuality = 6,
@@ -29,14 +29,7 @@ test_that("`m_viewer_spec()` options are able to changed", {
     disableFog = TRUE
   )
 
-  expect_equal(viewer_spec$id, "1")
-  expect_equal(viewer_spec$defaultcolors, "#fff")
-  expect_equal(viewer_spec$cartoonQuality, 6)
-  expect_equal(viewer_spec$antialias, FALSE)
-  expect_equal(viewer_spec$nomouse, TRUE)
-  expect_equal(viewer_spec$backgroundColor, "#fff")
-  expect_equal(viewer_spec$lowerZoomLimit, 0)
-  expect_equal(viewer_spec$upperZoomLimit, 1000)
-  expect_equal(viewer_spec$orthographic, TRUE)
-  expect_equal(viewer_spec$disableFog, TRUE)
+  viewer_spec <- do.call(m_viewer_spec, options)
+
+  options_check(options, viewer_spec)
 })
