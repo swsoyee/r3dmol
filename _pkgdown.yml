@@ -25,6 +25,7 @@ reference:
       - starts_with("m_style")
       - m_sel
       - m_shape_spec
+      - m_viewer_spec
   - title: 'Importing Models'
     desc: 'Importing models from {bio3d} and fetching from pdb.'
   - contents:
