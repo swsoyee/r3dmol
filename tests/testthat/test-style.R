@@ -1,4 +1,4 @@
-test_that("`m_style_sphere()` create a `SphereStyleSpec` object of selection setting and has default value", {
+test_that("`m_style_sphere` create `SphereStyleSpec` with default values.", {
   default <- list(
     hidden = FALSE,
     radius = 1,
@@ -14,7 +14,7 @@ test_that("`m_style_sphere()` create a `SphereStyleSpec` object of selection set
   options_check(default, m_style_sphere$sphere)
 })
 
-test_that("`m_style_sphere()` options are able to set", {
+test_that("`m_style_sphere` options are able to set", {
   # Just for test the options can be set correctly
   options <- list(
     hidden = TRUE,
@@ -30,7 +30,7 @@ test_that("`m_style_sphere()` options are able to set", {
   options_check(options, m_style_sphere$sphere)
 })
 
-test_that("`m_style_sphere()` create a `SphereStyleSpec` object of selection setting and has default value", {
+test_that("`m_style_sphere` create `SphereStyleSpec` with default values.", {
   default <- list(
     color = NULL,
     style = "rectangle",
@@ -49,7 +49,7 @@ test_that("`m_style_sphere()` create a `SphereStyleSpec` object of selection set
   options_check(default, m_style_cartoon$cartoon)
 })
 
-test_that("`m_style_cartoon()` options are able to set", {
+test_that("`m_style_cartoon` options are able to set", {
   # Just for test the options can be set correctly
   options <- list(
     color = "#000000",
@@ -68,7 +68,7 @@ test_that("`m_style_cartoon()` options are able to set", {
   options_check(options, m_style_cartoon$cartoon)
 })
 
-test_that("`m_style_stick()` create a `StickStyleSpec` object of selection setting and has default value", {
+test_that("`m_style_stick` create `StickStyleSpec` with default values.", {
   default <- list(
     radius = 0.4,
     singleBonds = FALSE,
@@ -84,7 +84,7 @@ test_that("`m_style_stick()` create a `StickStyleSpec` object of selection setti
   options_check(default, m_style_stick$stick)
 })
 
-test_that("`m_style_stick()` options are able to set", {
+test_that("`m_style_stick` options are able to set", {
   # Just for test the options can be set correctly
   options <- list(
     radius = 1,
@@ -100,7 +100,7 @@ test_that("`m_style_stick()` options are able to set", {
   options_check(options, m_style_stick$stick)
 })
 
-test_that("`m_style_label()` create a `StickStyleSpec` object of selection setting and has default value", {
+test_that("`m_style_label` create `StickStyleSpec` with default values.", {
   default <- list(
     font = "sans-serif",
     fontSize = 18,
@@ -125,7 +125,7 @@ test_that("`m_style_label()` create a `StickStyleSpec` object of selection setti
   options_check(default, m_style_label)
 })
 
-test_that("`m_style_label()` options are able to set", {
+test_that("`m_style_label` options are able to set", {
   # Just for test the options can be set correctly
   options <- list(
     font = "A",
@@ -150,7 +150,7 @@ test_that("`m_style_label()` options are able to set", {
   options_check(options, m_style_label)
 })
 
-test_that("`m_style_line()` create a `LineStyleSpec` object of selection setting and has default value", {
+test_that("`m_style_line` create `LineStyleSpec` with default values.", {
   default <- list(
     colorScheme = "default",
     color = NULL,
@@ -164,7 +164,7 @@ test_that("`m_style_line()` create a `LineStyleSpec` object of selection setting
   options_check(default, m_style_line$line)
 })
 
-test_that("`m_style_line()` options are able to set", {
+test_that("`m_style_line` options are able to set", {
   # Just for test the options can be set correctly
   options <- list(
     colorScheme = "Carbon",
@@ -178,7 +178,7 @@ test_that("`m_style_line()` options are able to set", {
   options_check(options, m_style_line$line)
 })
 
-test_that("`m_style_surface()` create a `SurfaceStyleSpec` object of selection setting and has default value", {
+test_that("`m_style_surface` create `SurfaceStyleSpec` with default values.", {
   default <- list(
     opacity = 1,
     colorScheme = "default",
@@ -191,7 +191,7 @@ test_that("`m_style_surface()` create a `SurfaceStyleSpec` object of selection s
   options_check(default, m_style_surface)
 })
 
-test_that("`m_style_surface()` options are able to set", {
+test_that("`m_style_surface` options are able to set", {
   # Just for test the options can be set correctly
   options <- list(
     opacity = 0.5,
@@ -204,7 +204,7 @@ test_that("`m_style_surface()` options are able to set", {
   options_check(options, m_style_surface)
 })
 
-test_that("`m_shape_spec()` create a `ShapeSpec` object of selection setting and has default value", {
+test_that("`m_shape_spec` create `ShapeSpec` with default values.", {
   default <- list(
     color = NULL,
     opacity = 1.0,
@@ -224,7 +224,7 @@ test_that("`m_shape_spec()` create a `ShapeSpec` object of selection setting and
   options_check(default, m_shape_spec)
 })
 
-test_that("`m_shape_spec()` options are able to set", {
+test_that("`m_shape_spec` options are able to set", {
   # Just for test the options can be set correctly
   options <- list(
     color = "#ffffff",

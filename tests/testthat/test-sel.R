@@ -1,4 +1,4 @@
-test_that("`m_sel()` create a `AtomSelectionSpec` object of selection setting and has default value", {
+test_that("`m_sel()` create a `AtomSelectionSpec` with default value", {
   default <- list(
     model = NULL,
     resi = NULL,

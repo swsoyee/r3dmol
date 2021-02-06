@@ -1,4 +1,4 @@
-test_that("`m_viewer_spec()` create a `ViewerSpec` object of viewer setting and has default value", {
+test_that("`m_viewer_spec` create a `ViewerSpec` list with default value", {
   viewer_spec <- m_viewer_spec()
 
   expect_s3_class(viewer_spec, "ViewerSpec")
