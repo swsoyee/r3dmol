@@ -34,13 +34,11 @@ m_style_sphere <- function(
     colorscheme = colorScheme,
     color = color,
     opacity = opacity
-  )
+  ) %>% cleanup_nulls
 
-  sphere_style <- cleanup_nulls(sphere_style)
+  class(sphere_style) <- "SphereStyleSpec"
 
-  # sphere_style
-  sphere <- list(sphere = sphere_style)
-  sphere
+  list(sphere = sphere_style)
 }
 
 #' Specify Styling for Cartoon
