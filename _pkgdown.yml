@@ -47,7 +47,7 @@ reference:
   - contents:
       - m_vector3
   - title: 'Dataset'
-    desc: 'Datasets provide by package for demo'
+    desc: 'Datasets provide by package for demo.'
   - contents:
       - starts_with("pdb")
       - starts_with("sdf")
