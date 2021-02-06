@@ -99,3 +99,53 @@ test_that("`m_style_stick()` options are able to set", {
 
   options_check(options, m_style_stick$stick)
 })
+
+test_that("`m_style_label()` create a `StickStyleSpec` object of selection setting and has default value", {
+  default <- list(
+    font = "sans-serif",
+    fontSize = 18,
+    fontColor = "white",
+    fontOpacity = 1,
+    backgroundColor = "black",
+    backgroundOpacity = 1,
+    borderOpacity = 1,
+    borderThickness = 0,
+    borderColor = "black",
+    inFront = TRUE,
+    showBackground = TRUE,
+    fixed = FALSE,
+    alignment = "topLeft",
+    position = NULL,
+    frame = NULL
+  )
+
+  m_style_label <- m_style_label()
+
+  expect_s3_class(m_style_label, "LabelSpec")
+  options_check(default, m_style_label)
+})
+
+test_that("`m_style_label()` options are able to set", {
+  # Just for test the options can be set correctly
+  options <- list(
+    font = "A",
+    fontSize = 20,
+    fontColor = "black",
+    fontOpacity = 0.5,
+    backgroundColor = "white",
+    backgroundOpacity = 0,
+    borderOpacity = 0,
+    borderThickness = 1,
+    borderColor = "white",
+    inFront = FALSE,
+    showBackground = FALSE,
+    fixed = TRUE,
+    alignment = "topCenter",
+    position = "position",
+    frame = "frame"
+  )
+
+  m_style_label <- do.call(m_style_label, options)
+
+  options_check(options, m_style_label)
+})

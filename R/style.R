@@ -216,9 +216,9 @@ m_style_label <- function(
     fixed = fixed,
     alignment = alignment,
     frame = frame
-  )
+  ) %>% cleanup_nulls()
 
-  label_style <- cleanup_nulls(label_style)
+  class(label_style) <- "LabelSpec"
 
   label_style
 }
