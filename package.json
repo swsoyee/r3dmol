@@ -1,0 +1,18 @@
+{
+  "name": "r3dmol",
+  "version": "0.1.1",
+  "description": "Create Interactive 3D Visualizations of Molecular Data",
+  "main": "/inst/htmlwidgets/r3dmol.js",
+  "repository": "https://github.com/swsoyee/r3dmol.git",
+  "author": "Wei Su <swsoyee@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "scripts": {
+    "lint": "eslint inst --ext .js"
+  }
+}
