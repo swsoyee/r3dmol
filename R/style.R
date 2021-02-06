@@ -252,12 +252,11 @@ m_style_line <- function(
     color = color,
     opacity = opacity,
     hidden = hidden
-  )
+  ) %>% cleanup_nulls()
 
-  line_style <- cleanup_nulls(line_style)
+  class(line_style) <- "LineStyleSpec"
 
-  line <- list(line = line_style)
-  line
+  list(line = line_style)
 }
 
 #' Specify Styling for Surface

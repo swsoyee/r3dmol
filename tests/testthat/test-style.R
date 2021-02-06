@@ -149,3 +149,31 @@ test_that("`m_style_label()` options are able to set", {
 
   options_check(options, m_style_label)
 })
+
+test_that("`m_style_line()` create a `LineStyleSpec` object of selection setting and has default value", {
+  default <- list(
+    colorScheme = "default",
+    color = NULL,
+    opacity = 1,
+    hidden = FALSE
+  )
+
+  m_style_line <- m_style_line()
+
+  expect_s3_class(m_style_line$line, "LineStyleSpec")
+  options_check(default, m_style_line$line)
+})
+
+test_that("`m_style_line()` options are able to set", {
+  # Just for test the options can be set correctly
+  options <- list(
+    colorScheme = "Carbon",
+    color = "#ffffff",
+    opacity = 0.5,
+    hidden = TRUE
+  )
+
+  m_style_line <- do.call(m_style_line, options)
+
+  options_check(options, m_style_line$line)
+})
