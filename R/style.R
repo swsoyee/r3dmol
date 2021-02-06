@@ -92,12 +92,11 @@ m_style_cartoon <- function(
     width = width,
     opacity = opacity,
     colorfunc = colorfunc
-  )
+  ) %>% cleanup_nulls()
 
-  cartoon_style <- cleanup_nulls(cartoon_style)
+  class(cartoon_style) <- "CartoonStyleSpec"
 
-  cartoon <- list(cartoon = cartoon_style)
-  cartoon
+  list(cartoon = cartoon_style)
 }
 
 #' Specify Styling for Stick
