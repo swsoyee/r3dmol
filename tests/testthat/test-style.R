@@ -203,3 +203,43 @@ test_that("`m_style_surface()` options are able to set", {
 
   options_check(options, m_style_surface)
 })
+
+test_that("`m_shape_spec()` create a `ShapeSpec` object of selection setting and has default value", {
+  default <- list(
+    color = NULL,
+    opacity = 1.0,
+    wireframe = FALSE,
+    hidden = FALSE,
+    frame = NULL,
+    clickable = FALSE,
+    callback = NULL,
+    hoverable = FALSE,
+    hover_callback = NULL,
+    unhover_callback = NULL
+  )
+
+  m_shape_spec <- m_shape_spec()
+
+  expect_s3_class(m_shape_spec, "ShapeSpec")
+  options_check(default, m_shape_spec)
+})
+
+test_that("`m_shape_spec()` options are able to set", {
+  # Just for test the options can be set correctly
+  options <- list(
+    color = "#ffffff",
+    opacity = 0.5,
+    wireframe = TRUE,
+    hidden = TRUE,
+    frame = "frame",
+    clickable = TRUE,
+    callback = "callback",
+    hoverable = TRUE,
+    hover_callback = "hover_callback",
+    unhover_callback = "unhover_callback"
+  )
+
+  m_shape_spec <- do.call(m_shape_spec, options)
+
+  options_check(options, m_shape_spec)
+})

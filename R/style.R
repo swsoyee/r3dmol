@@ -339,7 +339,9 @@ m_shape_spec <- function(
     hoverable = hoverable,
     hover_callback = hover_callback,
     unhover_callback = unhover_callback
-  )
-  shape_spec <- cleanup_nulls(shape_spec)
+  ) %>% cleanup_nulls()
+
+  class(shape_spec) <- "ShapeSpec"
+
   shape_spec
 }
