@@ -67,3 +67,35 @@ test_that("`m_style_cartoon()` options are able to set", {
 
   options_check(options, m_style_cartoon$cartoon)
 })
+
+test_that("`m_style_stick()` create a `StickStyleSpec` object of selection setting and has default value", {
+  default <- list(
+    radius = 0.4,
+    singleBonds = FALSE,
+    colorScheme = "default",
+    color = NULL,
+    opacity = 1,
+    hidden = FALSE
+  )
+
+  m_style_stick <- m_style_stick()
+
+  expect_s3_class(m_style_stick$stick, "StickStyleSpec")
+  options_check(default, m_style_stick$stick)
+})
+
+test_that("`m_style_stick()` options are able to set", {
+  # Just for test the options can be set correctly
+  options <- list(
+    radius = 1,
+    singleBonds = TRUE,
+    colorScheme = "Carbon",
+    color = "#000000",
+    opacity = 0.5,
+    hidden = TRUE
+  )
+
+  m_style_stick <- do.call(m_style_stick, options)
+
+  options_check(options, m_style_stick$stick)
+})

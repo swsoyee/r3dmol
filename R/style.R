@@ -133,12 +133,11 @@ m_style_stick <- function(
     colorscheme = colorScheme,
     color = color,
     opacity = opacity
-  )
+  ) %>% cleanup_nulls()
 
-  stick_style <- cleanup_nulls(stick_style)
+  class(stick_style) <- "StickStyleSpec"
 
-  stick <- list(stick = stick_style)
-  stick
+  list(stick = stick_style)
 }
 
 #' Specify Styling for Labels
