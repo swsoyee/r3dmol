@@ -285,9 +285,9 @@ m_style_surface <- function(
     opacity = opacity,
     colorscheme = colorScheme,
     color = color
-  )
+  ) %>% cleanup_nulls()
 
-  surface_style <- cleanup_nulls(surface_style)
+  class(surface_style) <- "SurfaceStyleSpec"
 
   surface_style
 }

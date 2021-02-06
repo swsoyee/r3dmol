@@ -177,3 +177,29 @@ test_that("`m_style_line()` options are able to set", {
 
   options_check(options, m_style_line$line)
 })
+
+test_that("`m_style_surface()` create a `SurfaceStyleSpec` object of selection setting and has default value", {
+  default <- list(
+    opacity = 1,
+    colorScheme = "default",
+    color = NULL
+  )
+
+  m_style_surface <- m_style_surface()
+
+  expect_s3_class(m_style_surface, "SurfaceStyleSpec")
+  options_check(default, m_style_surface)
+})
+
+test_that("`m_style_surface()` options are able to set", {
+  # Just for test the options can be set correctly
+  options <- list(
+    opacity = 0.5,
+    colorScheme = "Carbon",
+    color = "#ffffff"
+  )
+
+  m_style_surface <- do.call(m_style_surface, options)
+
+  options_check(options, m_style_surface)
+})
