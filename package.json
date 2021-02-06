@@ -13,6 +13,7 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "scripts": {
-    "lint": "eslint inst --ext .js"
+    "lint": "eslint inst --ext .js",
+    "lint:fix": "eslint inst --ext .js --fix"
   }
 }
