@@ -11,5 +11,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'max-len': ['error', { code: 150 }],
+    'no-eval': 'off',
+    'no-param-reassign': 'off',
   },
 };

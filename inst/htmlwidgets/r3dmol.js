@@ -1,3 +1,4 @@
+/* global $ HTMLWidgets $3Dmol Shiny */
 const isAutoRenderFunction = [
   // Other
   'createModelFrom',
@@ -28,7 +29,7 @@ HTMLWidgets.widget({
 
   type: 'output',
 
-  factory: (el, width, height) => {
+  factory: (el) => {
     let initialized = false;
     const elementId = el.id;
     const container = document.getElementById(elementId);
@@ -75,24 +76,26 @@ HTMLWidgets.widget({
         // Save last call function name for auto render function call
         const lastCallFunction = x.api[numApiCalls - 1].method;
 
-        for (let i = 0; i < numApiCalls; i++) {
+        for (let i = 0; i < numApiCalls; i += 1) {
           const call = x.api[i];
           const { method } = call;
           delete call.method;
           try {
             evalFun(call);
             that[method](call);
-          } catch (err) { }
+          } catch (err) {
+            // continue regardless of error
+          }
         }
         // Auto render
-        if (isAutoRenderFunction.findIndex((el) => el === lastCallFunction) > -1) {
+        if (isAutoRenderFunction.findIndex((element) => element === lastCallFunction) > -1) {
           viewer.render();
         }
       },
 
-      resize: (width, height) => {
-        container.setAttribute('width', width);
-        container.setAttribute('height', height);
+      resize: (newWidth, newHeight) => {
+        container.setAttribute('width', newWidth);
+        container.setAttribute('height', newHeight);
       },
       render: () => viewer.render(),
       rotate: (params) => viewer.rotate(params.angle, params.axis, params.animationDuration, params.fixedPath),
@@ -190,7 +193,7 @@ if (HTMLWidgets.shinyMode) {
         if (el && el.widget) {
           delete message.id;
           el.widget[fxn](message);
-          if (isAutoRenderFunction.findIndex((el) => el === fxn) > -1) {
+          if (isAutoRenderFunction.findIndex((ele) => ele === fxn) > -1) {
             el.widget.render();
           }
         }
@@ -198,7 +201,7 @@ if (HTMLWidgets.shinyMode) {
     );
   };
 
-  for (let i = 0; i < functionList.length; i++) {
+  for (let i = 0; i < functionList.length; i += 1) {
     addShinyHandler(functionList[i])();
   }
 }
