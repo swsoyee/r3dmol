@@ -34,7 +34,7 @@ m_style_sphere <- function(
     colorscheme = colorScheme,
     color = color,
     opacity = opacity
-  ) %>% cleanup_nulls
+  ) %>% cleanup_nulls()
 
   class(sphere_style) <- "SphereStyleSpec"
 

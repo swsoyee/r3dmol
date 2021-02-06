@@ -25,20 +25,20 @@ test_that("`m_sel()` create a `AtomSelectionSpec` object of selection setting an
 test_that("`m_sel()` options are able to set", {
   # Just for test the options can be set correctly
   options <- list(
-    model = 'A',
-    resi = 'B',
-    resn = 'C',
-    invert = 'D',
-    byres = 'E',
-    expand = 'F',
-    elem = 'G',
-    chain = 'H',
-    atom = 'I',
-    bonds = 'J',
-    ss = 'K',
-    b = 'L',
-    clickable = 'M',
-    callback = 'N'
+    model = "A",
+    resi = "B",
+    resn = "C",
+    invert = "D",
+    byres = "E",
+    expand = "F",
+    elem = "G",
+    chain = "H",
+    atom = "I",
+    bonds = "J",
+    ss = "K",
+    b = "L",
+    clickable = "M",
+    callback = "N"
   )
 
   m_sel <- do.call(m_sel, options)
