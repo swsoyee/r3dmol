@@ -53,7 +53,4 @@ r3dmol() %>%
 
 ## About `3Dmol.js`
 
-> Nicholas Rego and David Koes
-3Dmol.js: molecular visualization with WebGL
-Bioinformatics (2015) 31 (8): 1322-1324 [doi:10.1093/bioinformatics/btu829](http://doi.org/10.1093/bioinformatics/btu829)
-
+> Nicholas Rego, David Koes, [3Dmol.js: molecular visualization with WebGL](https://academic.oup.com/bioinformatics/article/31/8/1322/213186), Bioinformatics, Volume 31, Issue 8, 15 April 2015, Pages 1322–1324,
