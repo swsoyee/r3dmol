@@ -73,22 +73,21 @@ m_sel <- function(
 
   ## Create the list of values from inputs
   m_sel <- list(
+    resi = resi,
+    resn = resn,
+    chain = chain,
     model = model,
-    bonds = bonds,
-    invert = invert,
     byres = byres,
     expand = expand,
-    resn = resn,
+    bonds = bonds,
     elem = elem,
-    chain = chain,
-    resi = resi,
     atom = atom,
     bonds = bonds,
     ss = ss,
     b = b,
+    invert = invert,
     clickable = clickable,
-    callback = callback,
-    invert = invert
+    callback = callback
   )
   m_sel <- cleanup_nulls(m_sel)
   m_sel
