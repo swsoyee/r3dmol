@@ -25,6 +25,7 @@ reference:
       - starts_with("m_style")
       - m_sel
       - m_shape_spec
+      - m_viewer_spec
   - title: 'Importing Models'
     desc: 'Importing models from {bio3d} and fetching from pdb.'
   - contents:
@@ -46,7 +47,7 @@ reference:
   - contents:
       - m_vector3
   - title: 'Dataset'
-    desc: 'Datasets provide by package for demo'
+    desc: 'Datasets provide by package for demo.'
   - contents:
       - starts_with("pdb")
       - starts_with("sdf")

@@ -35,14 +35,13 @@ m_bio3d <- function(pdb) {
 #' Will always query the only PDB for structure, and not store on local drive.
 #' May take some time to fetch information, every time it is run.
 #'
-#' @param PDB PDB ID string for structure.
+#' @param pdb PDB ID string for structure.
 #' @param save.pdb Logical, whether or not to save the PDB to local drive. Will
 #' speed up subsequent load times. Defaults to \code{FALSE}
 #' @param path If \code{save.pdb = TRUE}, determines the location for file to
 #' be saved. Defaults to \code{getwd()}.
 #'
 #' @examples
-#'
 #' library(r3dmol)
 #'
 #' r3dmol() %>%
@@ -50,10 +49,9 @@ m_bio3d <- function(pdb) {
 #'   m_set_style(style = c(m_style_cartoon(), m_style_stick())) %>%
 #'   m_zoom_to()
 #' @export
-#'
-m_fetch_pdb <- function(PDB, save.pdb = FALSE, path = NULL) {
-  if (!is.character(PDB)) {
-    stop("PDB Must be character string. e.g.'1bna'")
+m_fetch_pdb <- function(pdb, save.pdb = FALSE, path = NULL) {
+  if (!is.character(pdb)) {
+    stop("pdb must be character string. e.g.'1bna'")
   }
 
   if (is.null(path)) {
@@ -62,13 +60,13 @@ m_fetch_pdb <- function(PDB, save.pdb = FALSE, path = NULL) {
 
   if (save.pdb == T) {
     ## Download pdb file and read in file
-    pdb <- bio3d::read.pdb(bio3d::get.pdb(PDB, path = path))
+    pdb <- bio3d::read.pdb(bio3d::get.pdb(pdb, path = path))
 
     ## Read PDB file, then write directly to console.
     utils::capture.output(bio3d::write.pdb(pdb, file = ""))
   } else if (save.pdb == F) {
 
     ## Pulls pdb data from online PDB database, without saving to local drive.
-    readLines(bio3d::get.pdb(PDB, URLonly = TRUE))
+    readLines(bio3d::get.pdb(pdb, URLonly = TRUE))
   }
 }

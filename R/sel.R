@@ -87,8 +87,11 @@ m_sel <- function(
     b = b,
     invert = invert,
     clickable = clickable,
-    callback = callback
-  )
-  m_sel <- cleanup_nulls(m_sel)
+    callback = callback,
+    invert = invert
+  ) %>% cleanup_nulls()
+
+  class(m_sel) <- "AtomSelectionSpec"
+
   m_sel
 }

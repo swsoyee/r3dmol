@@ -4,10 +4,10 @@
 \alias{m_fetch_pdb}
 \title{Fetch Structure from PDB}
 \usage{
-m_fetch_pdb(PDB, save.pdb = FALSE, path = NULL)
+m_fetch_pdb(pdb, save.pdb = FALSE, path = NULL)
 }
 \arguments{
-\item{PDB}{PDB ID string for structure.}
+\item{pdb}{PDB ID string for structure.}
 
 \item{save.pdb}{Logical, whether or not to save the PDB to local drive. Will
 speed up subsequent load times. Defaults to \code{FALSE}}
@@ -21,7 +21,6 @@ Will always query the only PDB for structure, and not store on local drive.
 May take some time to fetch information, every time it is run.
 }
 \examples{
-
 library(r3dmol)
 
 r3dmol() \%>\%

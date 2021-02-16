@@ -34,13 +34,11 @@ m_style_sphere <- function(
     colorscheme = colorScheme,
     color = color,
     opacity = opacity
-  )
+  ) %>% cleanup_nulls()
 
-  sphere_style <- cleanup_nulls(sphere_style)
+  class(sphere_style) <- "SphereStyleSpec"
 
-  # sphere_style
-  sphere <- list(sphere = sphere_style)
-  sphere
+  list(sphere = sphere_style)
 }
 
 #' Specify Styling for Cartoon
@@ -94,12 +92,11 @@ m_style_cartoon <- function(
     width = width,
     opacity = opacity,
     colorfunc = colorfunc
-  )
+  ) %>% cleanup_nulls()
 
-  cartoon_style <- cleanup_nulls(cartoon_style)
+  class(cartoon_style) <- "CartoonStyleSpec"
 
-  cartoon <- list(cartoon = cartoon_style)
-  cartoon
+  list(cartoon = cartoon_style)
 }
 
 #' Specify Styling for Stick
@@ -136,12 +133,11 @@ m_style_stick <- function(
     colorscheme = colorScheme,
     color = color,
     opacity = opacity
-  )
+  ) %>% cleanup_nulls()
 
-  stick_style <- cleanup_nulls(stick_style)
+  class(stick_style) <- "StickStyleSpec"
 
-  stick <- list(stick = stick_style)
-  stick
+  list(stick = stick_style)
 }
 
 #' Specify Styling for Labels
@@ -220,9 +216,9 @@ m_style_label <- function(
     fixed = fixed,
     alignment = alignment,
     frame = frame
-  )
+  ) %>% cleanup_nulls()
 
-  label_style <- cleanup_nulls(label_style)
+  class(label_style) <- "LabelSpec"
 
   label_style
 }
@@ -256,12 +252,11 @@ m_style_line <- function(
     color = color,
     opacity = opacity,
     hidden = hidden
-  )
+  ) %>% cleanup_nulls()
 
-  line_style <- cleanup_nulls(line_style)
+  class(line_style) <- "LineStyleSpec"
 
-  line <- list(line = line_style)
-  line
+  list(line = line_style)
 }
 
 #' Specify Styling for Surface
@@ -290,9 +285,9 @@ m_style_surface <- function(
     opacity = opacity,
     colorscheme = colorScheme,
     color = color
-  )
+  ) %>% cleanup_nulls()
 
-  surface_style <- cleanup_nulls(surface_style)
+  class(surface_style) <- "SurfaceStyleSpec"
 
   surface_style
 }
@@ -344,7 +339,9 @@ m_shape_spec <- function(
     hoverable = hoverable,
     hover_callback = hover_callback,
     unhover_callback = unhover_callback
-  )
-  shape_spec <- cleanup_nulls(shape_spec)
+  ) %>% cleanup_nulls()
+
+  class(shape_spec) <- "ShapeSpec"
+
   shape_spec
 }
