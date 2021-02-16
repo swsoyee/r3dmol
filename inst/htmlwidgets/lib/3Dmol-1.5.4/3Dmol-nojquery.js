@@ -24339,39 +24339,46 @@
           };
           
           var spinInterval;
-          /**
-           * Continuously rotate a scene around the specified axis.
-           * 
-           * @function $3Dmol.GLViewer#spin
-           * @param {string}
-           *            [axis] - Axis ("x", "y", "z", "vx", "vy", or "vz") to rotate around.
-           *            Default "y".  View relative (rather than model relative) axes are prefixed with v.        
-           *  
-           */        
-          this.spin = function(axis){
-              clearInterval(spinInterval);
-              if(typeof axis == 'undefined')
-                  axis = 'y';
-              if(typeof axis == "boolean"){
-                  if(!axis)
-                      return;
-                  else
-                      axis = 'y';
-              }
-  
-              if(Array.isArray(axis)){
-                 axis = {x:axis[0],y:axis[1],z:axis[2]} ;
-              }
-              //out of bounds check
-  
-              var viewer = this;
-  
-              spinInterval = setInterval(
-                  function(){
-                      viewer.rotate(1,axis);
-                  }, 25);            
-              
-          };        
+        /**
+         * Continuously rotate a scene around the specified axis.
+         *
+         * Call `$3Dmol.GLViewer.spin(false)` to stop spinning.
+         * 
+         * @function $3Dmol.GLViewer#spin
+         * @param {string}
+         *            [axis] - Axis ("x", "y", "z", "vx", "vy", or "vz") to rotate around.
+         *            Default "y".  View relative (rather than model relative) axes are prefixed with v.   
+         * @param {number}
+         *             [speed] - Scale for speed of the spinning animation.      
+         *  
+         */        
+        this.spin = function(axis, speed){
+            clearInterval(spinInterval);
+            if(typeof axis == 'undefined')
+                axis = 'y';
+            if(typeof axis == "boolean"){
+                if(!axis)
+                    return;
+                else
+                    axis = 'y';
+            }
+            
+            if(Array.isArray(axis)){
+               axis = {x:axis[0],y:axis[1],z:axis[2]} ;
+            }
+            if(typeof speed != 'number')
+                speed = 1;
+
+            //out of bounds check
+
+            var viewer = this;
+
+            spinInterval = setInterval(
+                function(){
+                    viewer.rotate(1 * speed, axis);
+                }, 25);            
+            
+        };            
   
           //animate motion between current position and passed position
           // can set some parameters to null
