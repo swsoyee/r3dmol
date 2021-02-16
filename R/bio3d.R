@@ -64,7 +64,6 @@ m_fetch_pdb <- function(pdb, save.pdb = FALSE, path = NULL) {
 
     ## Read PDB file, then write directly to console.
     m_bio3d(pdb)
-    
   } else if (save.pdb == F) {
 
     ## Pulls pdb data from online PDB database, without saving to local drive.

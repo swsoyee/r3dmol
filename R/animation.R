@@ -40,7 +40,7 @@ m_rotate <- function(id, angle, axis = "v", animationDuration = 0, fixedPath) {
 #' \code{"vy"}, \code{"vz"})
 #' to rotate around. Default \code{"y"}. View relative (rather than model
 #' relative) axes are prefixed with \code{"v"}.
-#' @param speed Speed multiplier for spin animation. Defaults to 1. Negative 
+#' @param speed Speed multiplier for spin animation. Defaults to 1. Negative
 #' value reverses the direction of spin.
 #'
 #' @return R3dmol id or a \code{r3dmol} object (the output from \code{r3dmol()})
@@ -52,7 +52,7 @@ m_rotate <- function(id, angle, axis = "v", animationDuration = 0, fixedPath) {
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_zoom_to() %>%
 #'   m_spin()
-#' 
+#'
 #' library(r3dmol)
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
@@ -62,7 +62,7 @@ m_spin <- function(id, axis = "y", speed = 1) {
   if (!axis %in% c("x", "y", "z", "vx", "vy", "vz")) {
     stop("Unknow axis.")
   }
-  if (!is.numeric(speed)){
+  if (!is.numeric(speed)) {
     stop("Speed multiplier must be numeric.")
   }
   method <- "spin"
