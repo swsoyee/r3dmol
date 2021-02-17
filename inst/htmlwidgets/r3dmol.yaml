@@ -5,7 +5,7 @@ dependencies:
     script: jquery.min.js
   - name: r3dmol
     version: 1.5.4
-    src: htmlwidgets/lib/3Dmol-1.5.4
+    src: htmlwidgets/lib/3Dmol
     # script: 3Dmol.js            # Debug
     # script: 3Dmol.min.js        # Production with jquery
     # script: 3Dmol-nojquery.js   # Debug without jquery
