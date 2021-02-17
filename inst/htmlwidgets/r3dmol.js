@@ -137,7 +137,7 @@ HTMLWidgets.widget({
       setViewStyle: (params) => viewer.setViewStyle(params.style),
       setView: (params) => viewer.setView(params.arg),
       setHoverDuration: (params) => viewer.setHoverDuration(params.hoverDuration),
-      spin: (params) => viewer.spin(params.axis, params.speed),
+      spin: (params) => viewer.spin(params.axis),
       setWidth: (params) => viewer.setWidth(params.width),
       setHeight: (params) => viewer.setHeight(params.height),
       setProjection: (params) => viewer.setProjection(params.scheme),
