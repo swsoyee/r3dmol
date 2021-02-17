@@ -4,15 +4,15 @@
 \alias{m_add_style}
 \title{Overwrite Previous Style}
 \usage{
-m_add_style(id, sel = m_sel(), style = m_style_cartoon())
+m_add_style(id, style = m_style_cartoon(), sel = m_sel())
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()})}
 
-\item{sel}{Atom selection specification with \code{m_sel()}}
-
 \item{style}{Style spec to apply to specified atoms using m_style_*()}
+
+\item{sel}{Atom selection specification with \code{m_sel()}}
 }
 \value{
 R3dmol \code{id} or a \code{r3dmol} object (the output from
