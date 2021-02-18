@@ -21,11 +21,11 @@
 #'   m_zoom_to()
 #' @export
 m_style_sphere <- function(
-                           hidden = FALSE,
-                           radius = 1,
                            scale = 1,
                            colorScheme = "default",
                            color = NULL,
+                           radius = NA,
+                           hidden = FALSE,
                            opacity = 1) {
   sphere_style <- list(
     hidden = hidden,
