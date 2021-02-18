@@ -1,3 +1,7 @@
+# r3dmol 0.1.1.9000
+
+* Upgrade `3Dmol.js` to the latest version (v1.6.2) ([#12](https://github.com/swsoyee/r3dmol/pull/12)).
+
 # r3dmol 0.1.1
 
 * Introduce new friendly functions for addition of styles, and selection algebra. New functions for adding model from `{bio3d}` and fetching model from [RCSB PDB](https://www.rcsb.org/) ([#6](https://github.com/swsoyee/r3dmol/pull/6)).
