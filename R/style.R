@@ -120,7 +120,7 @@ m_style_cartoon <- function(
 #'   m_zoom_to()
 #' @export
 m_style_stick <- function(
-                          radius = 0.4,
+                          radius = 0.3,
                           singleBonds = FALSE,
                           colorScheme = "default",
                           color = NULL,
