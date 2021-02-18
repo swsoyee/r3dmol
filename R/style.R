@@ -49,8 +49,8 @@ m_style_sphere <- function(
 #' @param color Block color values. Strand color, may specify as 'spectrum'
 #' which will apply
 #' reversed gradient based on residue number.
-#' @param style style of cartoon rendering (trace, oval, rectangle (default),
-#' parabola, edged).
+#' @param style style of cartoon rendering ("trace", "oval", "rectangle" (default),
+#' "parabola", "edged").
 #' @param ribbon whether to use constant strand width, disregarding secondary
 #' structure; use thickness to adjust radius.
 #' @param arrows whether to add arrows showing beta-sheet directionality;
