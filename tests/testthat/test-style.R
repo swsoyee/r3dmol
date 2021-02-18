@@ -75,7 +75,7 @@ describe("m_style_cartoon()", {
 describe("m_style_stick()", {
   it("create `StickStyleSpec` with default values.", {
     default <- list(
-      radius = 0.4,
+      radius = 0.3,
       singleBonds = FALSE,
       colorScheme = "default",
       color = NULL,
