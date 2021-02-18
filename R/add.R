@@ -35,9 +35,6 @@
 m_add_style <- function(id,
                         style = m_style_cartoon(),
                         sel = m_sel()) {
-  if (missing(style)) {
-    stop("The `style` argument must be passed.")
-  }
   method <- "addStyle"
   callJS()
 }

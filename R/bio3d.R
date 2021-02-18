@@ -58,15 +58,15 @@ m_fetch_pdb <- function(pdb, save.pdb = FALSE, path = NULL) {
     path <- getwd()
   }
 
-  if (save.pdb == T) {
-    ## Download pdb file and read in file
+  if (save.pdb == TRUE) {
+    # Download pdb file and read in file
     pdb <- bio3d::read.pdb(bio3d::get.pdb(pdb, path = path))
 
-    ## Read PDB file, then write directly to console.
+    # Read PDB file, then write directly to console.
     m_bio3d(pdb)
-  } else if (save.pdb == F) {
+  } else if (save.pdb == FALSE) {
 
-    ## Pulls pdb data from online PDB database, without saving to local drive.
+    # Pulls pdb data from online PDB database, without saving to local drive.
     readLines(bio3d::get.pdb(pdb, URLonly = TRUE))
   }
 }
