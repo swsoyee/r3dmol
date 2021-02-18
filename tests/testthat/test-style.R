@@ -70,7 +70,7 @@ test_that("`m_style_cartoon` options are able to set", {
 
 test_that("`m_style_stick` create `StickStyleSpec` with default values.", {
   default <- list(
-    radius = 0.4,
+    radius = 0.3,
     singleBonds = FALSE,
     colorScheme = "default",
     color = NULL,

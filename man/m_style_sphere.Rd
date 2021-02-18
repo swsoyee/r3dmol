@@ -5,19 +5,15 @@
 \title{Specify Styling for Sphere}
 \usage{
 m_style_sphere(
-  hidden = FALSE,
-  radius = 1,
   scale = 1,
   colorScheme = "default",
   color = NULL,
+  radius = NULL,
+  hidden = FALSE,
   opacity = 1
 )
 }
 \arguments{
-\item{hidden}{Boolean - do not show atom. Default \code{FALSE}.}
-
-\item{radius}{Override van der waals radius.}
-
 \item{scale}{Scale radius by specified amount.}
 
 \item{colorScheme}{Specify scheme to color the atoms by. Default is
@@ -26,6 +22,10 @@ m_style_sphere(
 "shapely", "nucleic", "chain", "chainHetatm", "prop".}
 
 \item{color}{Discrete, fixed coloring, overrides any colorScheme.}
+
+\item{radius}{Override van der waals radius.}
+
+\item{hidden}{Boolean - do not show atom. Default \code{FALSE}.}
 
 \item{opacity}{Opacity of spheres, 0 being invisible. Must be the same for
 all atoms in the model.}

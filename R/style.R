@@ -24,7 +24,7 @@ m_style_sphere <- function(
                            scale = 1,
                            colorScheme = "default",
                            color = NULL,
-                           radius = NA,
+                           radius = NULL,
                            hidden = FALSE,
                            opacity = 1) {
   sphere_style <- list(

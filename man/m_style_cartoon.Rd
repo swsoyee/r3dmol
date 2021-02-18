@@ -21,8 +21,8 @@ m_style_cartoon(
 which will apply
 reversed gradient based on residue number.}
 
-\item{style}{style of cartoon rendering (trace, oval, rectangle (default),
-parabola, edged).}
+\item{style}{style of cartoon rendering ("trace", "oval", "rectangle" (default),
+"parabola", "edged").}
 
 \item{ribbon}{whether to use constant strand width, disregarding secondary
 structure; use thickness to adjust radius.}
