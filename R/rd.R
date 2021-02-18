@@ -61,6 +61,8 @@ NULL
 #' \code{'pqr'}, or \code{'mol2'}).
 #' @param options Format dependent options. Attributes depend on the input file
 #' format.
+#' @param keepH Default to FALSE, whether to keep or strip hydrogens from
+#' imported model.
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
@@ -82,6 +84,13 @@ NULL
 #' r3dmol() %>%
 #'   m_add_model(data = sdf_multiple, "sdf") %>%
 #'   m_zoom_to()
+#'
+#' # Add model and keep hydrogens.
+#' r3dmol() %>%
+#'   m_add_model(m_fetch_pdb('1E8L'), keepH = TRUE) %>%
+#'   m_set_style(m_style_sphere()) %>%
+#'   m_zoom_to() %>%
+#'   m_spin()
 NULL
 
 #' Unit cell visualization

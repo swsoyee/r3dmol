@@ -45,3 +45,4 @@ m_viewer_spec <- function(
   class(viewer_spec) <- "ViewerSpec"
   viewer_spec
 }
+
