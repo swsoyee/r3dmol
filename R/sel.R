@@ -60,14 +60,14 @@ m_sel <- function(
                   resi = NULL,
                   resn = NULL,
                   invert = NULL,
-                  byres = NULL,
-                  expand = NULL,
-                  elem = NULL,
                   chain = NULL,
+                  elem = NULL,
                   atom = NULL,
+                  byres = NULL,
+                  b = NULL,
+                  expand = NULL,
                   bonds = NULL,
                   ss = NULL,
-                  b = NULL,
                   clickable = NULL,
                   callback = NULL) {
 
@@ -87,8 +87,7 @@ m_sel <- function(
     b = b,
     invert = invert,
     clickable = clickable,
-    callback = callback,
-    invert = invert
+    callback = callback
   ) %>% cleanup_nulls()
 
   class(m_sel) <- "AtomSelectionSpec"
