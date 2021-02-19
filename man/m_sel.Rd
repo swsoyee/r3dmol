@@ -9,14 +9,14 @@ m_sel(
   resi = NULL,
   resn = NULL,
   invert = NULL,
-  byres = NULL,
-  expand = NULL,
-  elem = NULL,
   chain = NULL,
+  elem = NULL,
   atom = NULL,
+  byres = NULL,
+  b = NULL,
+  expand = NULL,
   bonds = NULL,
   ss = NULL,
-  b = NULL,
   clickable = NULL,
   callback = NULL
 )
@@ -34,26 +34,26 @@ Reverse indexing is allowed (-1 specifies last added model).}
 \item{invert}{Logical, if \code{invert = TRUE}, Inverts the selection
 criteria.}
 
+\item{chain}{String, chain this atom belongs to (e.g. 'A' for chain A)}
+
+\item{elem}{element abbreviation (e.g 'H', 'Ca', etc)}
+
+\item{atom}{Atom name, may be more specific than 'elem' (e.g. 'CA' for alpha
+carbon)}
+
 \item{byres}{Logical, if \code{byres = TRUE}, expands the selection to
 entire residues that include any selected atoms.}
+
+\item{b}{Atom b factor data}
 
 \item{expand}{Expand selection to include atoms within a specified distance
 from current selection.
 all atoms of any residue that has any atom already selected.}
 
-\item{elem}{element abbreviation (e.g 'H', 'Ca', etc)}
-
-\item{chain}{String, chain this atom belongs to (e.g. 'A' for chain A)}
-
-\item{atom}{Atom name, may be more specific than 'elem' (e.g. 'CA' for alpha
-carbon)}
-
 \item{bonds}{overloaded to select number of bonds, e.g. \code{bonds = 0}
 will select all non-bonded atoms}
 
 \item{ss}{Secondary structure identifier. 'h' for helix, 's' for beta-sheet.}
-
-\item{b}{Atom b factor data}
 
 \item{clickable}{Set this flag to true to enable click selection handling
 for this atom}

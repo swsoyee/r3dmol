@@ -21,11 +21,11 @@
 #'   m_zoom_to()
 #' @export
 m_style_sphere <- function(
-                           hidden = FALSE,
-                           radius = 1,
                            scale = 1,
                            colorScheme = "default",
                            color = NULL,
+                           radius = NULL,
+                           hidden = FALSE,
                            opacity = 1) {
   sphere_style <- list(
     hidden = hidden,
@@ -49,8 +49,8 @@ m_style_sphere <- function(
 #' @param color Block color values. Strand color, may specify as 'spectrum'
 #' which will apply
 #' reversed gradient based on residue number.
-#' @param style style of cartoon rendering (trace, oval, rectangle (default),
-#' parabola, edged).
+#' @param style style of cartoon rendering ("trace", "oval", "rectangle"
+#' (default), "parabola", "edged").
 #' @param ribbon whether to use constant strand width, disregarding secondary
 #' structure; use thickness to adjust radius.
 #' @param arrows whether to add arrows showing beta-sheet directionality;
@@ -120,7 +120,7 @@ m_style_cartoon <- function(
 #'   m_zoom_to()
 #' @export
 m_style_stick <- function(
-                          radius = 0.4,
+                          radius = 0.3,
                           singleBonds = FALSE,
                           colorScheme = "default",
                           color = NULL,

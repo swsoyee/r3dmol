@@ -5,7 +5,7 @@
 \title{Specify Styling for Stick}
 \usage{
 m_style_stick(
-  radius = 0.4,
+  radius = 0.3,
   singleBonds = FALSE,
   colorScheme = "default",
   color = NULL,

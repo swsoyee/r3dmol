@@ -331,8 +331,7 @@ m_add_shape <- function(id, shapeSpec = list()) {
 #' @param style Label style specification
 #' @param sel Set position of label to center of this selection
 #' @param noshow if \code{TRUE}, do not immediately display label - when adding
-#' multiple
-#' labels this is more efficient
+#' multiple labels this is more efficient
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
@@ -371,7 +370,8 @@ m_add_model <-
   function(id,
            data,
            format = c("pdb", "sdf", "xyz", "pqr", "mol2", "cif"),
-           options) {
+           keepH = FALSE,
+           options = list()) {
     format <- match.arg(format)
 
     if (!is.list(data)) {
@@ -391,6 +391,8 @@ m_add_model <-
     }
 
     rm(entries, entry)
+
+    options <- c(options, list(keepH = keepH))
 
     method <- "addModel"
     callJS()

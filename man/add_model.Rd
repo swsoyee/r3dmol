@@ -10,7 +10,8 @@ m_add_model(
   id,
   data,
   format = c("pdb", "sdf", "xyz", "pqr", "mol2", "cif"),
-  options
+  keepH = FALSE,
+  options = list()
 )
 
 m_add_models(id, data, format = c("pdb", "sdf", "xyz", "pqr", "mol2", "cif"))
@@ -23,6 +24,9 @@ m_add_models(id, data, format = c("pdb", "sdf", "xyz", "pqr", "mol2", "cif"))
 
 \item{format}{Input format (\code{'pdb'}, \code{'sdf'}, \code{'xyz'},
 \code{'pqr'}, or \code{'mol2'}).}
+
+\item{keepH}{Default to FALSE, whether to keep or strip hydrogens from
+imported model.}
 
 \item{options}{Format dependent options. Attributes depend on the input file
 format.}
@@ -52,4 +56,11 @@ r3dmol() \%>\%
 r3dmol() \%>\%
   m_add_model(data = sdf_multiple, "sdf") \%>\%
   m_zoom_to()
+
+# Add model and keep hydrogens.
+r3dmol() \%>\%
+  m_add_model(m_fetch_pdb("1E8L"), keepH = TRUE) \%>\%
+  m_set_style(m_style_sphere()) \%>\%
+  m_zoom_to() \%>\%
+  m_spin()
 }

@@ -17,8 +17,7 @@ m_add_label(id, text, style = m_style_label(), sel = m_sel(), noshow = TRUE)
 \item{sel}{Set position of label to center of this selection}
 
 \item{noshow}{if \code{TRUE}, do not immediately display label - when adding
-multiple
-labels this is more efficient}
+multiple labels this is more efficient}
 }
 \value{
 R3dmol \code{id} or a \code{r3dmol} object (the output from
