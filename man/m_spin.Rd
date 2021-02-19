@@ -26,14 +26,14 @@ Continuously rotate a scene around the specified axis
 }
 \examples{
 library(r3dmol)
-r3dmol() \%>\%
+model <- r3dmol() \%>\%
   m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
-  m_zoom_to() \%>\%
-  m_spin()
+  m_set_style(style = m_style_cartoon(color = "spectrum")) \%>\%
+  m_zoom_to()
 
-library(r3dmol)
-r3dmol() \%>\%
-  m_add_model(data = pdb_6zsl, format = "pdb") \%>\%
-  m_zoom_to() \%>\%
-  m_spin(speed = -0.2)
+# spin the model
+model \%>\% m_spin()
+
+# reverses the direction of spin
+model \%>\% m_spin(speed = -0.5)
 }
