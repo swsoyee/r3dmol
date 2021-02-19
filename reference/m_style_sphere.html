@@ -148,25 +148,17 @@ m_add_style() and m_set_style()." />
     </div>
 
     <pre class="usage"><span class='fu'>m_style_sphere</span><span class='op'>(</span>
-  hidden <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  radius <span class='op'>=</span> <span class='fl'>1</span>,
   scale <span class='op'>=</span> <span class='fl'>1</span>,
   colorScheme <span class='op'>=</span> <span class='st'>"default"</span>,
   color <span class='op'>=</span> <span class='cn'>NULL</span>,
+  radius <span class='op'>=</span> <span class='cn'>NULL</span>,
+  hidden <span class='op'>=</span> <span class='cn'>FALSE</span>,
   opacity <span class='op'>=</span> <span class='fl'>1</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>hidden</th>
-      <td><p>Boolean - do not show atom. Default <code>FALSE</code>.</p></td>
-    </tr>
-    <tr>
-      <th>radius</th>
-      <td><p>Override van der waals radius.</p></td>
-    </tr>
     <tr>
       <th>scale</th>
       <td><p>Scale radius by specified amount.</p></td>
@@ -181,6 +173,14 @@ m_add_style() and m_set_style()." />
     <tr>
       <th>color</th>
       <td><p>Discrete, fixed coloring, overrides any colorScheme.</p></td>
+    </tr>
+    <tr>
+      <th>radius</th>
+      <td><p>Override van der waals radius.</p></td>
+    </tr>
+    <tr>
+      <th>hidden</th>
+      <td><p>Boolean - do not show atom. Default <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>opacity</th>

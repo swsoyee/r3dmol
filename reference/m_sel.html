@@ -156,14 +156,14 @@ Documenation</a></p>
   resi <span class='op'>=</span> <span class='cn'>NULL</span>,
   resn <span class='op'>=</span> <span class='cn'>NULL</span>,
   invert <span class='op'>=</span> <span class='cn'>NULL</span>,
-  byres <span class='op'>=</span> <span class='cn'>NULL</span>,
-  expand <span class='op'>=</span> <span class='cn'>NULL</span>,
-  elem <span class='op'>=</span> <span class='cn'>NULL</span>,
   chain <span class='op'>=</span> <span class='cn'>NULL</span>,
+  elem <span class='op'>=</span> <span class='cn'>NULL</span>,
   atom <span class='op'>=</span> <span class='cn'>NULL</span>,
+  byres <span class='op'>=</span> <span class='cn'>NULL</span>,
+  b <span class='op'>=</span> <span class='cn'>NULL</span>,
+  expand <span class='op'>=</span> <span class='cn'>NULL</span>,
   bonds <span class='op'>=</span> <span class='cn'>NULL</span>,
   ss <span class='op'>=</span> <span class='cn'>NULL</span>,
-  b <span class='op'>=</span> <span class='cn'>NULL</span>,
   clickable <span class='op'>=</span> <span class='cn'>NULL</span>,
   callback <span class='op'>=</span> <span class='cn'>NULL</span>
 <span class='op'>)</span></pre>
@@ -192,28 +192,32 @@ Reverse indexing is allowed (-1 specifies last added model).</p></td>
 criteria.</p></td>
     </tr>
     <tr>
-      <th>byres</th>
-      <td><p>Logical, if <code>byres = TRUE</code>, expands the selection to
-entire residues that include any selected atoms.</p></td>
-    </tr>
-    <tr>
-      <th>expand</th>
-      <td><p>Expand selection to include atoms within a specified distance
-from current selection.
-all atoms of any residue that has any atom already selected.</p></td>
+      <th>chain</th>
+      <td><p>String, chain this atom belongs to (e.g. 'A' for chain A)</p></td>
     </tr>
     <tr>
       <th>elem</th>
       <td><p>element abbreviation (e.g 'H', 'Ca', etc)</p></td>
     </tr>
     <tr>
-      <th>chain</th>
-      <td><p>String, chain this atom belongs to (e.g. 'A' for chain A)</p></td>
-    </tr>
-    <tr>
       <th>atom</th>
       <td><p>Atom name, may be more specific than 'elem' (e.g. 'CA' for alpha
 carbon)</p></td>
+    </tr>
+    <tr>
+      <th>byres</th>
+      <td><p>Logical, if <code>byres = TRUE</code>, expands the selection to
+entire residues that include any selected atoms.</p></td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td><p>Atom b factor data</p></td>
+    </tr>
+    <tr>
+      <th>expand</th>
+      <td><p>Expand selection to include atoms within a specified distance
+from current selection.
+all atoms of any residue that has any atom already selected.</p></td>
     </tr>
     <tr>
       <th>bonds</th>
@@ -223,10 +227,6 @@ will select all non-bonded atoms</p></td>
     <tr>
       <th>ss</th>
       <td><p>Secondary structure identifier. 'h' for helix, 's' for beta-sheet.</p></td>
-    </tr>
-    <tr>
-      <th>b</th>
-      <td><p>Atom b factor data</p></td>
     </tr>
     <tr>
       <th>clickable</th>

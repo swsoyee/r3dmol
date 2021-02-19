@@ -153,7 +153,8 @@ to the viewer as separate models.</p>
   <span class='va'>id</span>,
   <span class='va'>data</span>,
   format <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pdb"</span>, <span class='st'>"sdf"</span>, <span class='st'>"xyz"</span>, <span class='st'>"pqr"</span>, <span class='st'>"mol2"</span>, <span class='st'>"cif"</span><span class='op'>)</span>,
-  <span class='va'>options</span>
+  keepH <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  options <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>)</span>
 
 <span class='fu'>m_add_models</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>data</span>, format <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pdb"</span>, <span class='st'>"sdf"</span>, <span class='st'>"xyz"</span>, <span class='st'>"pqr"</span>, <span class='st'>"mol2"</span>, <span class='st'>"cif"</span><span class='op'>)</span><span class='op'>)</span></pre>
@@ -174,6 +175,11 @@ to the viewer as separate models.</p>
       <th>format</th>
       <td><p>Input format (<code>'pdb'</code>, <code>'sdf'</code>, <code>'xyz'</code>,
 <code>'pqr'</code>, or <code>'mol2'</code>).</p></td>
+    </tr>
+    <tr>
+      <th>keepH</th>
+      <td><p>Default to FALSE, whether to keep or strip hydrogens from
+imported model.</p></td>
     </tr>
     <tr>
       <th>options</th>
@@ -203,6 +209,13 @@ format.</p></td>
 <span class='fu'><a href='init.html'>r3dmol</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>m_add_model</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>sdf_multiple</span>, <span class='st'>"sdf"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># Add model and keep hydrogens.</span>
+<span class='fu'><a href='init.html'>r3dmol</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>m_add_model</span><span class='op'>(</span><span class='fu'><a href='m_fetch_pdb.html'>m_fetch_pdb</a></span><span class='op'>(</span><span class='st'>"1E8L"</span><span class='op'>)</span>, keepH <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_set_style.html'>m_set_style</a></span><span class='op'>(</span><span class='fu'><a href='m_style_sphere.html'>m_style_sphere</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_spin.html'>m_spin</a></span><span class='op'>(</span><span class='op'>)</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
