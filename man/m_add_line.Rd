@@ -8,7 +8,7 @@ m_add_line(id, start, end, dashed = FALSE, spec = m_shape_spec())
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
-\code{r3dmol()})}
+\code{r3dmol()}).}
 
 \item{start}{Start location of line Can be either \code{m_sel()} or
 \code{m_vector3()}.}
@@ -21,8 +21,12 @@ m_add_line(id, start, end, dashed = FALSE, spec = m_shape_spec())
 \item{spec}{Additional shape specifications defined with
 \code{m_shape_spec()}.}
 }
+\value{
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()}).
+}
 \description{
-Adds a line between the given points.
+Add a line between the given points.
 }
 \examples{
 r3dmol() \%>\%

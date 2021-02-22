@@ -182,9 +182,9 @@ m_add_cylinder <- function(
 
 #' Add Line Between Points
 #'
-#' Adds a line between the given points.
+#' Add a line between the given points.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
-#' \code{r3dmol()})
+#' \code{r3dmol()}).
 #' @param start Start location of line Can be either \code{m_sel()} or
 #' \code{m_vector3()}.
 #' @param end End location of line. Can be either \code{m_sel()} or
@@ -192,6 +192,11 @@ m_add_cylinder <- function(
 #' @param dashed Boolean, whether or not to draw line as dashed.
 #' @param spec Additional shape specifications defined with
 #' \code{m_shape_spec()}.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()}).
+#' @export
+#'
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl) %>%
@@ -218,13 +223,20 @@ m_add_cylinder <- function(
 #'     text = "The middle of the selection",
 #'     sel = m_sel(resi = 1:10)
 #'   )
-#' @export
 m_add_line <- function(
                        id,
                        start,
                        end,
                        dashed = FALSE,
                        spec = m_shape_spec()) {
+  # ensure that the arguments are correct
+  if (is.null(dashed)) {
+    dashed <- FALSE
+  }
+  if (is.null(spec)) {
+    spec <- m_shape_spec()
+  }
+
   line_list <- list(
     start = start,
     end = end,
@@ -235,6 +247,75 @@ m_add_line <- function(
 
   method <- "addLine"
   callJS()
+}
+
+#' Add Lines Between Points
+#'
+#' Add lines between the given points.
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()}).
+#' @param line_specs a list of LineSpecs.
+#'
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
+#'
+#' @export
+#'
+#' @examples
+#' library(r3dmol)
+#'
+#' line_specs <- list(
+#'   list(
+#'     start = m_sel(
+#'       resi = 1:10,
+#'       chain = "A"
+#'     ),
+#'     end = m_sel(
+#'       resi = 1:10,
+#'       chain = "B"
+#'     ),
+#'     dashed = TRUE
+#'   ),
+#'   list(
+#'     start = m_sel(
+#'       resi = 20:30,
+#'       chain = "A"
+#'     ),
+#'     end = m_sel(
+#'       resi = 20:30,
+#'       chain = "B"
+#'     )
+#'   )
+#' )
+#'
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_6zsl) %>%
+#'   m_set_style(style = m_style_cartoon()) %>%
+#'   m_zoom_to() %>%
+#'   m_add_style(
+#'     sel = m_sel(resi = 1:10),
+#'     style = c(
+#'       m_style_stick(),
+#'       m_style_sphere(scale = 0.3)
+#'     )
+#'   ) %>%
+#'   m_add_lines(line_specs = line_specs)
+m_add_lines <- function(
+                        id,
+                        line_specs) {
+  if (missing(line_specs) || is.null(line_specs)) {
+    stop("`line_specs` should be passed in.")
+  }
+  for (line_spec in line_specs) {
+    id <- id %>%
+      m_add_line(
+        start = line_spec$start,
+        end = line_spec$end,
+        dashed = line_spec$dashed,
+        spec = line_spec$spec
+      )
+  }
+  id
 }
 
 #' Add Sphere Shape
