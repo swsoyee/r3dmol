@@ -44,16 +44,52 @@ devtools::install_github("swsoyee/r3dmol")
 
 ## Example
 
-``` r
+```{r, demo, eval=FALSE}
 library(r3dmol)
-r3dmol() %>%
-  m_add_model(data = pdb_6zsl, format = "pdb") %>%
-  m_zoom_to() %>%
-  m_set_style(style = m_style_cartoon(color = 'spectrum'))
-```
 
-![picture](https://user-images.githubusercontent.com/20528423/92235475-aff64180-eeee-11ea-94b8-304ea64425b5.png)
+r3dmol(                         # Set up the initial viewer
+  viewer_spec = m_viewer_spec(
+    cartoonQuality = 10,
+    lowerZoomLimit = 50,
+    upperZoomLimit = 350
+  )
+) %>%
+  m_add_model(                  # Add model to scene
+    data = pdb_6zsl,
+    format = "pdb"
+  ) %>%
+  m_zoom_to() %>%               # Zoom to encompass the whole scene
+  m_set_style(                  # Set style of structures
+    style = m_style_cartoon(
+      color = "#00cc96"
+    )
+  ) %>%
+  m_set_style(                  # Set style of specific selection
+    sel = m_sel(ss = "s"),      # (selecting by secondary)
+    style = m_style_cartoon(
+      color = "#636efa",
+      arrows = TRUE
+    )
+  ) %>%
+  m_set_style(                  # Style the alpha helix
+    sel = m_sel(ss = "h"),      # (selecting by alpha helix)
+    style = m_style_cartoon(
+      color = "#ff7f0e"
+    )
+  ) %>%
+  m_rotate(                     # Rotate the scene by given angle on given axis
+    angle = 90,
+    axis = "y"
+  ) %>%
+  m_spin()                      # Animate the scene by spinning it
+```
+![spin demo](man/figures/spin_demo.gif)  
+You can find more demo at [here](https://swsoyee.github.io/r3dmol/articles/r3dmol.html).
 
 ## About `3Dmol.js`
 
 > Nicholas Rego, David Koes, [3Dmol.js: molecular visualization with WebGL](https://academic.oup.com/bioinformatics/article/31/8/1322/213186), Bioinformatics, Volume 31, Issue 8, 15 April 2015, Pages 1322–1324,
+
+## Code of Conduct
+
+Please note that the r3dmol project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

@@ -3,7 +3,7 @@
 ^r3dmol\.Rproj$
 ^\.Rproj\.user$
 ^_pkgdown\.yml$
-^CODE_OF_CONDUCT.md$
+^CODE_OF_CONDUCT\.md$
 ^pkgdown$
 ^README\.Rmd$
 ^data-raw$
