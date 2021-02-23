@@ -34,7 +34,7 @@ m_style_sphere <- function(
     colorscheme = colorScheme,
     color = color,
     opacity = opacity
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(sphere_style) <- "SphereStyleSpec"
 
@@ -92,7 +92,7 @@ m_style_cartoon <- function(
     width = width,
     opacity = opacity,
     colorfunc = colorfunc
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(cartoon_style) <- "CartoonStyleSpec"
 
@@ -133,7 +133,7 @@ m_style_stick <- function(
     colorscheme = colorScheme,
     color = color,
     opacity = opacity
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(stick_style) <- "StickStyleSpec"
 
@@ -216,7 +216,7 @@ m_style_label <- function(
     fixed = fixed,
     alignment = alignment,
     frame = frame
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(label_style) <- "LabelSpec"
 
@@ -252,7 +252,7 @@ m_style_line <- function(
     color = color,
     opacity = opacity,
     hidden = hidden
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(line_style) <- "LineStyleSpec"
 
@@ -285,7 +285,7 @@ m_style_surface <- function(
     opacity = opacity,
     colorscheme = colorScheme,
     color = color
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(surface_style) <- "SurfaceStyleSpec"
 
@@ -309,6 +309,8 @@ m_style_surface <- function(
 #' @param hover_callback Function to be called upon hover.
 #' @param unhover_callback Function to be called upon hover stopping.
 #' @examples
+#' library(r3dmol)
+#' \dontrun{
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
 #'   m_add_sphere(
@@ -316,6 +318,7 @@ m_style_surface <- function(
 #'     spec = m_shape_spec(color = "green", wireframe = TRUE)
 #'   ) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1))
+#' }
 #' @export
 m_shape_spec <- function(
                          color = NULL,
@@ -339,7 +342,7 @@ m_shape_spec <- function(
     hoverable = hoverable,
     hover_callback = hover_callback,
     unhover_callback = unhover_callback
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(shape_spec) <- "ShapeSpec"
 

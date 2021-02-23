@@ -33,6 +33,8 @@
 #'
 #' @return sel \code{list()} for selecting atoms.
 #' @examples
+#' library(r3dmol)
+#' \dontrun{
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
 #'   m_add_style(
@@ -53,6 +55,7 @@
 #'     )
 #'   ) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1))
+#' }
 #' @export
 #'
 m_sel <- function(
@@ -87,7 +90,7 @@ m_sel <- function(
     invert = invert,
     clickable = clickable,
     callback = callback
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(m_sel) <- "AtomSelectionSpec"
 

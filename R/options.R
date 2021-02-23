@@ -40,7 +40,7 @@ m_viewer_spec <- function(
     antialias = antialias,
     orthographic = orthographic,
     disableFog = disableFog
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(viewer_spec) <- "ViewerSpec"
   viewer_spec

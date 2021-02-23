@@ -26,12 +26,14 @@ callJS <- function() {
   }
 }
 
-#' (Internal Use) Cleanup Nulls
+#' Cleanup Nulls
 #'
 #' For the given list, if any of the defined items are NULL, removes it from
 #' the list so it is not passed on to the callJS() function.
 #' @param list A list() object to be cleaned.
-cleanup_nulls <- function(list) {
+#' @noRd
+#' @keywords internal
+.cleanup_nulls <- function(list) {
   for (i in names(list)) {
     if (is.null(list[[i]])) {
       list[[i]] <- NULL

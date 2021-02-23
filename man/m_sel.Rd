@@ -71,6 +71,8 @@ For more advanced selection options, see the
 Documenation}
 }
 \examples{
+library(r3dmol)
+\dontrun{
 r3dmol() \%>\%
   m_add_model(data = m_fetch_pdb("1bna")) \%>\%
   m_add_style(
@@ -91,4 +93,5 @@ r3dmol() \%>\%
     )
   ) \%>\%
   m_zoom_to(sel = m_sel(resi = 1))
+}
 }
