@@ -34,7 +34,7 @@ m_style_sphere <- function(
     colorscheme = colorScheme,
     color = color,
     opacity = opacity
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(sphere_style) <- "SphereStyleSpec"
 
@@ -92,7 +92,7 @@ m_style_cartoon <- function(
     width = width,
     opacity = opacity,
     colorfunc = colorfunc
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(cartoon_style) <- "CartoonStyleSpec"
 
@@ -133,7 +133,7 @@ m_style_stick <- function(
     colorscheme = colorScheme,
     color = color,
     opacity = opacity
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(stick_style) <- "StickStyleSpec"
 
@@ -216,7 +216,7 @@ m_style_label <- function(
     fixed = fixed,
     alignment = alignment,
     frame = frame
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(label_style) <- "LabelSpec"
 
@@ -252,7 +252,7 @@ m_style_line <- function(
     color = color,
     opacity = opacity,
     hidden = hidden
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(line_style) <- "LineStyleSpec"
 
@@ -285,7 +285,7 @@ m_style_surface <- function(
     opacity = opacity,
     colorscheme = colorScheme,
     color = color
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(surface_style) <- "SurfaceStyleSpec"
 
@@ -342,7 +342,7 @@ m_shape_spec <- function(
     hoverable = hoverable,
     hover_callback = hover_callback,
     unhover_callback = unhover_callback
-  ) %>% cleanup_nulls()
+  ) %>% .cleanup_nulls()
 
   class(shape_spec) <- "ShapeSpec"
 
