@@ -44,6 +44,9 @@ Styling options for the various shapes. Used inside \code{m_add_sphere()},
 \code{m_add_arrow()}, \code{m_add_cylinder()} etc.
 }
 \examples{
+library(r3dmol)
+
+\dontrun{
 r3dmol() \%>\%
   m_add_model(data = m_fetch_pdb("1bna")) \%>\%
   m_add_sphere(
@@ -51,4 +54,5 @@ r3dmol() \%>\%
     spec = m_shape_spec(color = "green", wireframe = TRUE)
   ) \%>\%
   m_zoom_to(sel = m_sel(resi = 1))
+}
 }

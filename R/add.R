@@ -78,6 +78,7 @@ m_add_as_one_molecule <- function(id, data, format) {
 #' @param hidden Hide object if TRUE.
 #'
 #' @examples
+#' \dontrun{
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1)) %>%
@@ -86,6 +87,7 @@ m_add_as_one_molecule <- function(id, data, format) {
 #'     end = m_sel(resi = 3),
 #'     spec = m_shape_spec(color = "green")
 #'   )
+#' }
 #' @export
 m_add_arrow <- function(
                         id,

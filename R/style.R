@@ -309,6 +309,8 @@ m_style_surface <- function(
 #' @param hover_callback Function to be called upon hover.
 #' @param unhover_callback Function to be called upon hover stopping.
 #' @examples
+#' library(r3dmol)
+#' \dontrun{
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
 #'   m_add_sphere(
@@ -316,6 +318,7 @@ m_style_surface <- function(
 #'     spec = m_shape_spec(color = "green", wireframe = TRUE)
 #'   ) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1))
+#' }
 #' @export
 m_shape_spec <- function(
                          color = NULL,
