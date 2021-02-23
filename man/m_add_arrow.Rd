@@ -43,6 +43,7 @@ Add an arrow from start to end, additional customisation through
 \code{m_shape_spec()}.
 }
 \examples{
+\dontrun{
 r3dmol() \%>\%
   m_add_model(data = m_fetch_pdb("1bna")) \%>\%
   m_zoom_to(sel = m_sel(resi = 1)) \%>\%
@@ -51,4 +52,5 @@ r3dmol() \%>\%
     end = m_sel(resi = 3),
     spec = m_shape_spec(color = "green")
   )
+}
 }

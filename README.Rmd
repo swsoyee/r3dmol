@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# r3dmol
+# r3dmol <img src="man/figures/logo.png" align="right" height = 150/>
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/r3dmol)](https://CRAN.R-project.org/package=r3dmol)
