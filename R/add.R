@@ -197,11 +197,11 @@ m_add_cylinder <- function(
 #' \code{r3dmol()}).
 
 .m_add_line <- function(
-                       id,
-                       start,
-                       end,
-                       dashed = FALSE,
-                       spec = m_shape_spec()) {
+                        id,
+                        start,
+                        end,
+                        dashed = FALSE,
+                        spec = m_shape_spec()) {
   # ensure that the arguments are correct
   if (is.null(dashed)) {
     dashed <- FALSE
@@ -228,10 +228,12 @@ m_add_cylinder <- function(
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
 #' @param starts Single of list of starting positions. Can be either
-#' \code(m_sel()) or \code{m_vector3()}.
+#' \code{m_sel()} or \code{m_vector3()}.
 #' @param ends Single of list of ending positions. Can be either
-#' \code(m_sel()) or \code{m_vector3()}.
+#' \code{m_sel()} or \code{m_vector3()}.
 #' @param dashed Logical whether the lines are dashed.
+#' @param pairwise Logical, TRUE creates lines between all possible combinations
+#' of starts and ends points provided.
 #' @param spec \code{m_shape_spec()} for line styling.
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
@@ -255,8 +257,10 @@ m_add_cylinder <- function(
 #'   ) %>%
 #'   m_add_lines(
 #'     starts = m_sel(resi = 1, chain = "A"),
-#'     ends = list(m_sel(resi = 10, chain = "A"),
-#'                 m_sel(resi = 10, chain = "B")),
+#'     ends = list(
+#'       m_sel(resi = 10, chain = "A"),
+#'       m_sel(resi = 10, chain = "B")
+#'     ),
 #'     dashed = TRUE
 #'   )
 m_add_lines <- function(
@@ -270,10 +274,10 @@ m_add_lines <- function(
     stop("At least 1 start and 1 end must be passed in.")
   }
 
-  if (is(starts) == "AtomSelectionSpec") {
+  if (methods::is(starts)[1] == "AtomSelectionSpec") {
     starts <- list(starts)
   }
-  if (is(ends) == "AtomSelectionSpec") {
+  if (methods::is(ends)[1] == "AtomSelectionSpec") {
     ends <- list(ends)
   }
 

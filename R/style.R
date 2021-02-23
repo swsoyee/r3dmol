@@ -227,7 +227,7 @@ m_style_label <- function(
 #'
 #' Styling options for the line representation. Used inside
 #' \code{m_add_style()} and \code{m_set_style()}. Can also be used for styling
-#' when adding individual lines with \code{m_add_line()}.
+#' when adding individual lines with \code{m_add_lines()}.
 #'
 #' @param colorScheme Specify scheme to color the atoms by. Default is
 #' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",

@@ -87,7 +87,7 @@ NULL
 #'
 #' # Add model and keep hydrogens.
 #' r3dmol() %>%
-#'   m_add_model(m_fetch_pdb("1E8L"), keepH = TRUE) %>%
+#'   m_add_model(m_fetch_pdb("5D8V"), keepH = TRUE) %>%
 #'   m_set_style(m_style_sphere()) %>%
 #'   m_zoom_to() %>%
 #'   m_spin()
@@ -234,7 +234,7 @@ NULL
 #'
 #' # Add line
 #' r3dmol() %>%
-#'   m_add_line(
+#'   m_add_lines(
 #'     dashed = TRUE,
 #'     start = m_vector3(0, 0, 0),
 #'     end = m_vector3(30, 30, 30)
