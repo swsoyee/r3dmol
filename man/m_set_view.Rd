@@ -2,12 +2,9 @@
 % Please edit documentation in R/rd.R, R/set.R
 \name{m_set_view}
 \alias{m_set_view}
-\alias{m_set_view_style}
 \title{Sets the view to the specified translation, zoom, rotation and style}
 \usage{
 m_set_view(id, arg, style)
-
-m_set_view_style(id, style)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
