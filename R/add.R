@@ -302,18 +302,41 @@ m_add_line <- function(
 #'   m_add_lines(line_specs = line_specs)
 m_add_lines <- function(
                         id,
-                        line_specs) {
-  if (missing(line_specs) || is.null(line_specs)) {
-    stop("`line_specs` should be passed in.")
+                        starts,
+                        ends,
+                        dashed = FALSE,
+                        pairwise = FALSE,
+                        spec = m_shape_spec()) {
+  if (missing(starts) || missing(ends)) {
+    stop("At least 1 start and 1 end must be passed in.")
   }
+  line_specs <- .m_multi_spec(
+    starts = starts,
+    ends = ends,
+    pairwise = pairwise
+  )
+
+  if(length(dashed) != 1 & !pairwise) {
+    if(length(dashed) != length(starts)){
+      stop("dashed should be either 1 or length(starts)")
+    }
+  }
+
+  counter <- 1
+
   for (line_spec in line_specs) {
     id <- id %>%
       m_add_line(
         start = line_spec$start,
         end = line_spec$end,
-        dashed = line_spec$dashed,
+        dashed = dashed[counter],
         spec = line_spec$spec
       )
+
+      if(length(dashed) != 1){
+        counter <- counter + 1
+      }
+
   }
   id
 }
