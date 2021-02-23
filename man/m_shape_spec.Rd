@@ -45,7 +45,6 @@ Styling options for the various shapes. Used inside \code{m_add_sphere()},
 }
 \examples{
 library(r3dmol)
-
 \dontrun{
 r3dmol() \%>\%
   m_add_model(data = m_fetch_pdb("1bna")) \%>\%
