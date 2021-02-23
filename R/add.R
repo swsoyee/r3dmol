@@ -182,7 +182,7 @@ m_add_cylinder <- function(
 
 #' Add Line Between Points
 #'
-#' Add a line between the given points.
+#' Add a line between the given points. Used intrenally.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
 #' @param start Start location of line Can be either \code{m_sel()} or
@@ -195,35 +195,8 @@ m_add_cylinder <- function(
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
-#' @export
-#'
-#' @examples
-#' r3dmol() %>%
-#'   m_add_model(data = pdb_6zsl) %>%
-#'   m_set_style(style = m_style_cartoon()) %>%
-#'   m_zoom_to() %>%
-#'   m_add_style(
-#'     sel = m_sel(resi = 1:10),
-#'     style = c(
-#'       m_style_stick(),
-#'       m_style_sphere(scale = 0.3)
-#'     )
-#'   ) %>%
-#'   m_add_line(
-#'     start = m_sel(
-#'       resi = 1:10,
-#'       chain = "A"
-#'     ),
-#'     end = m_sel(
-#'       resi = 1:10,
-#'       chain = "B"
-#'     )
-#'   ) %>%
-#'   m_add_label(
-#'     text = "The middle of the selection",
-#'     sel = m_sel(resi = 1:10)
-#'   )
-m_add_line <- function(
+
+.m_add_line <- function(
                        id,
                        start,
                        end,
@@ -310,6 +283,14 @@ m_add_lines <- function(
   if (missing(starts) || missing(ends)) {
     stop("At least 1 start and 1 end must be passed in.")
   }
+
+  if (is(starts) == "AtomSelectionSpec") {
+    starts <- list(starts)
+  }
+  if (is(ends) == "AtomSelectionSpec") {
+    ends <- list(ends)
+  }
+
   line_specs <- .m_multi_spec(
     starts = starts,
     ends = ends,
@@ -326,7 +307,7 @@ m_add_lines <- function(
 
   for (line_spec in line_specs) {
     id <- id %>%
-      m_add_line(
+      .m_add_line(
         start = line_spec$start,
         end = line_spec$end,
         dashed = dashed[counter],
