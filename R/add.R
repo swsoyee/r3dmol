@@ -184,7 +184,7 @@ m_add_cylinder <- function(
 
 #' Add Line Between Points
 #'
-#' Add a line between the given points. Used intrenally.
+#' Add a line between the given points. Used internally.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
 #' @param start Start location of line Can be either \code{m_sel()} or
@@ -197,6 +197,8 @@ m_add_cylinder <- function(
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
+#' @noRd
+#' @keywords internal
 
 .m_add_line <- function(
                         id,
