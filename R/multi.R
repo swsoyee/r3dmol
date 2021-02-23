@@ -27,6 +27,8 @@
     ))
   }
 
+  line_list <- list()
+
   if (pairwise == TRUE) {
     if (l.starts == l.ends) {
       message("Pairwise combinations selected.")
@@ -34,7 +36,6 @@
 
     n.comb <- l.starts * l.ends
     comb <- expand.grid(starts, ends)
-    line_list <- list()
 
     for (i in 1:n.comb) {
       spec <- list(
@@ -46,7 +47,6 @@
     line_list
   } else {
     n.comb <- l.starts
-    line_list <- list()
 
     for (i in 1:n.comb) {
       spec <- list(
