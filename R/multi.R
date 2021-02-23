@@ -16,7 +16,9 @@
   l.starts <- length(starts)
   l.ends <- length(ends)
 
-  # pairwise <- FALSE
+  if (l.starts == 0 | l.ends == 0) {
+    stop("Must provide starting and ending positions.")
+  }
 
   if(l.starts != l.ends) {
     pairwise <- TRUE

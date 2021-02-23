@@ -227,7 +227,12 @@ m_add_cylinder <- function(
 #' Add lines between the given points.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
-#' @param line_specs a list of LineSpecs.
+#' @param starts Single of list of starting positions. Can be either
+#' \code(m_sel()) or \code{m_vector3()}.
+#' @param ends Single of list of ending positions. Can be either
+#' \code(m_sel()) or \code{m_vector3()}.
+#' @param dashed Logical whether the lines are dashed.
+#' @param spec \code{m_shape_spec()} for line styling.
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
@@ -236,30 +241,6 @@ m_add_cylinder <- function(
 #'
 #' @examples
 #' library(r3dmol)
-#'
-#' line_specs <- list(
-#'   list(
-#'     start = m_sel(
-#'       resi = 1:10,
-#'       chain = "A"
-#'     ),
-#'     end = m_sel(
-#'       resi = 1:10,
-#'       chain = "B"
-#'     ),
-#'     dashed = TRUE
-#'   ),
-#'   list(
-#'     start = m_sel(
-#'       resi = 20:30,
-#'       chain = "A"
-#'     ),
-#'     end = m_sel(
-#'       resi = 20:30,
-#'       chain = "B"
-#'     )
-#'   )
-#' )
 #'
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl) %>%
@@ -272,7 +253,12 @@ m_add_cylinder <- function(
 #'       m_style_sphere(scale = 0.3)
 #'     )
 #'   ) %>%
-#'   m_add_lines(line_specs = line_specs)
+#'   m_add_lines(
+#'     starts = m_sel(resi = 1, chain = "A"),
+#'     ends = list(m_sel(resi = 10, chain = "A"),
+#'                 m_sel(resi = 10, chain = "B")),
+#'     dashed = TRUE
+#'   )
 m_add_lines <- function(
                         id,
                         starts,
@@ -280,7 +266,7 @@ m_add_lines <- function(
                         dashed = FALSE,
                         pairwise = FALSE,
                         spec = m_shape_spec()) {
-  if (missing(starts) || missing(ends)) {
+  if (missing(starts) | missing(ends)) {
     stop("At least 1 start and 1 end must be passed in.")
   }
 
@@ -303,7 +289,7 @@ m_add_lines <- function(
         start = line_spec$start,
         end = line_spec$end,
         dashed = dashed,
-        spec = line_spec$spec
+        spec = spec
       )
   }
   id

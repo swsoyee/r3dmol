@@ -3,15 +3,13 @@ describe("m_add_lines()", {
   model <- r3dmol() %>%
     m_add_model(data = pdb_6zsl)
 
-  line_specs <- NULL
-
   expect_error(
-    model %>% m_add_lines(line_specs = line_specs),
-    "`line_specs` should be passed in."
+    model %>% m_add_lines(starts = NULL, ends = m_sel(resi = 1)),
+    "Must provide starting and ending positions."
   )
   expect_error(
     model %>% m_add_lines(),
-    "`line_specs` should be passed in."
+    "At least 1 start and 1 end must be passed in."
   )
   })
 })
