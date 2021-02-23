@@ -1,5 +1,7 @@
 # r3dmol 0.1.1.9000
 
+* Add logo for `{r3dmol}` ([#16](https://github.com/swsoyee/r3dmol/pull/16)).
+* Added `speed` option for `m_spin()` and option for `keepH` in `m_add_model()` ([#13](https://github.com/swsoyee/r3dmol/pull/13)).
 * Upgrade `3Dmol.js` to the latest version (v1.6.2) ([#12](https://github.com/swsoyee/r3dmol/pull/12)).
 
 # r3dmol 0.1.1
