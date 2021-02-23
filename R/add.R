@@ -297,27 +297,14 @@ m_add_lines <- function(
     pairwise = pairwise
   )
 
-  if(length(dashed) != 1 & !pairwise) {
-    if(length(dashed) != length(starts)){
-      stop("dashed should be either 1 or length(starts)")
-    }
-  }
-
-  counter <- 1
-
   for (line_spec in line_specs) {
     id <- id %>%
       .m_add_line(
         start = line_spec$start,
         end = line_spec$end,
-        dashed = dashed[counter],
+        dashed = dashed,
         spec = line_spec$spec
       )
-
-      if(length(dashed) != 1){
-        counter <- counter + 1
-      }
-
   }
   id
 }
