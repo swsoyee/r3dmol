@@ -6,6 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Create Interactive 3D Visualizations of Molecular Data • r3dmol</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -17,6 +23,7 @@
     from the R console and RStudio Viewer. r3dmol includes an extensive API
     to manipulate the visualization after creation, and supports getting data out of
     the visualization into R. Based on the 3dmol.js and the htmlwidgets R package.">
+<meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -94,9 +101,10 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="r3dmol" class="section level1">
+<div id="r3dmol-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#r3dmol" class="anchor"></a>r3dmol</h1></div>
+<a href="#r3dmol-" class="anchor"></a>r3dmol <img src="reference/figures/logo.png" align="right" height="150/">
+</h1></div>
 <!-- badges: start -->
 
 <p>This is an R package that provides support for <a href="https://3dmol.csb.pitt.edu/index.html"><code>3Dmol.js</code></a> as a <a href="https://www.htmlwidgets.org/"><code>htmlwidgets</code></a>.</p>
@@ -119,11 +127,44 @@
 <a href="#example" class="anchor"></a>Example</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/swsoyee/r3dmol">r3dmol</a></span><span class="op">)</span>
-<span class="fu"><a href="reference/init.html">r3dmol</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/m_add_model.html">m_add_model</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">pdb_6zsl</span>, format <span class="op">=</span> <span class="st">"pdb"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/m_zoom_to.html">m_zoom_to</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/m_set_style.html">m_set_style</a></span><span class="op">(</span>style <span class="op">=</span> <span class="fu"><a href="reference/m_style_cartoon.html">m_style_cartoon</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">'spectrum'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="https://user-images.githubusercontent.com/20528423/92235475-aff64180-eeee-11ea-94b8-304ea64425b5.png" alt="picture"></p>
+
+<span class="fu"><a href="reference/init.html">r3dmol</a></span><span class="op">(</span>                         <span class="co"># Set up the initial viewer</span>
+  viewer_spec <span class="op">=</span> <span class="fu"><a href="reference/m_viewer_spec.html">m_viewer_spec</a></span><span class="op">(</span>
+    cartoonQuality <span class="op">=</span> <span class="fl">10</span>,
+    lowerZoomLimit <span class="op">=</span> <span class="fl">50</span>,
+    upperZoomLimit <span class="op">=</span> <span class="fl">350</span>
+  <span class="op">)</span>
+<span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="reference/m_add_model.html">m_add_model</a></span><span class="op">(</span>                  <span class="co"># Add model to scene</span>
+    data <span class="op">=</span> <span class="va">pdb_6zsl</span>,
+    format <span class="op">=</span> <span class="st">"pdb"</span>
+  <span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="reference/m_zoom_to.html">m_zoom_to</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>               <span class="co"># Zoom to encompass the whole scene</span>
+  <span class="fu"><a href="reference/m_set_style.html">m_set_style</a></span><span class="op">(</span>                  <span class="co"># Set style of structures</span>
+    style <span class="op">=</span> <span class="fu"><a href="reference/m_style_cartoon.html">m_style_cartoon</a></span><span class="op">(</span>
+      color <span class="op">=</span> <span class="st">"#00cc96"</span>
+    <span class="op">)</span>
+  <span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="reference/m_set_style.html">m_set_style</a></span><span class="op">(</span>                  <span class="co"># Set style of specific selection</span>
+    sel <span class="op">=</span> <span class="fu"><a href="reference/m_sel.html">m_sel</a></span><span class="op">(</span>ss <span class="op">=</span> <span class="st">"s"</span><span class="op">)</span>,      <span class="co"># (selecting by secondary)</span>
+    style <span class="op">=</span> <span class="fu"><a href="reference/m_style_cartoon.html">m_style_cartoon</a></span><span class="op">(</span>
+      color <span class="op">=</span> <span class="st">"#636efa"</span>,
+      arrows <span class="op">=</span> <span class="cn">TRUE</span>
+    <span class="op">)</span>
+  <span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="reference/m_set_style.html">m_set_style</a></span><span class="op">(</span>                  <span class="co"># Style the alpha helix</span>
+    sel <span class="op">=</span> <span class="fu"><a href="reference/m_sel.html">m_sel</a></span><span class="op">(</span>ss <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span>,      <span class="co"># (selecting by alpha helix)</span>
+    style <span class="op">=</span> <span class="fu"><a href="reference/m_style_cartoon.html">m_style_cartoon</a></span><span class="op">(</span>
+      color <span class="op">=</span> <span class="st">"#ff7f0e"</span>
+    <span class="op">)</span>
+  <span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="reference/m_rotate.html">m_rotate</a></span><span class="op">(</span>                     <span class="co"># Rotate the scene by given angle on given axis</span>
+    angle <span class="op">=</span> <span class="fl">90</span>,
+    axis <span class="op">=</span> <span class="st">"y"</span>
+  <span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="reference/m_spin.html">m_spin</a></span><span class="op">(</span><span class="op">)</span>                      <span class="co"># Animate the scene by spinning it</span></code></pre></div>
+<p><img src="reference/figures/spin_demo.gif" alt="spin demo"><br>
+You can find more demo at <a href="https://swsoyee.github.io/r3dmol/articles/r3dmol.html">here</a>.</p>
 </div>
 <div id="about-3dmoljs" class="section level2">
 <h2 class="hasAnchor">
@@ -132,6 +173,11 @@
 <blockquote>
 <p>Nicholas Rego, David Koes, <a href="https://academic.oup.com/bioinformatics/article/31/8/1322/213186">3Dmol.js: molecular visualization with WebGL</a>, Bioinformatics, Volume 31, Issue 8, 15 April 2015, Pages 1322–1324,</p>
 </blockquote>
+</div>
+<div id="code-of-conduct" class="section level2">
+<h2 class="hasAnchor">
+<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<p>Please note that the r3dmol project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>
