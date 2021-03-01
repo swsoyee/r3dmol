@@ -142,6 +142,7 @@ m_add_curve <- function(id, spec = list()) {
 #' @param toCap Cap at end of cylinder. 0 for none, 1 for flat, 2 for rounded.
 #' @param dashed Boolean, dashed style cylinder instead of solid.
 #' @param spec Additional shape specifications defined with
+#' @param color Color value for cylinder.
 #' \code{m_shape_spec()}.
 #' @examples
 #' r3dmol() %>%
@@ -190,10 +191,10 @@ m_add_curve <- function(id, spec = list()) {
 #' \code{m_shape_spec()}.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
-#' @param start Start location of cylinder. Can be either \code{m_sel()} or
-#' \code{m_vector3()}.
-#' @param end End location of cylinder. Can be either \code{m_sel()} or
-#' \code{m_vector3()}.
+#' @param starts Start location of cylinder. Can be either \code{m_sel()} or
+#' \code{m_vector3()}. Can be single or vector of selections.
+#' @param ends End location of cylinder. Can be either \code{m_sel()} or
+#' \code{m_vector3()}. Can be single or vector of selections.
 #' @param radius Radius of cylinder.
 #' @param color Color value for cylinders. Either 1 or vector of colours equal
 #' in length to \code{starts}.

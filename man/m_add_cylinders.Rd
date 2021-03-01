@@ -20,6 +20,12 @@ m_add_cylinders(
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()}).}
 
+\item{starts}{Start location of cylinder. Can be either \code{m_sel()} or
+\code{m_vector3()}. Can be single or vector of selections.}
+
+\item{ends}{End location of cylinder. Can be either \code{m_sel()} or
+\code{m_vector3()}. Can be single or vector of selections.}
+
 \item{radius}{Radius of cylinder.}
 
 \item{fromCap}{Cap at start of cylinder. 0 for none, 1 for flat,
@@ -34,12 +40,6 @@ in length to \code{starts}.}
 
 \item{spec}{Additional shape specifications defined with
 \code{m_shape_spec()}.}
-
-\item{start}{Start location of cylinder. Can be either \code{m_sel()} or
-\code{m_vector3()}.}
-
-\item{end}{End location of cylinder. Can be either \code{m_sel()} or
-\code{m_vector3()}.}
 }
 \description{
 Creates cylinder shape from start to end, with styling spec from

@@ -35,8 +35,10 @@
 
 \item{dashed}{Boolean, dashed style cylinder instead of solid.}
 
-\item{spec}{Additional shape specifications defined with
+\item{color}{Color value for cylinder.
 \code{m_shape_spec()}.}
+
+\item{spec}{Additional shape specifications defined with}
 }
 \description{
 Creates cylinder shape from start to end, with styling spec from
