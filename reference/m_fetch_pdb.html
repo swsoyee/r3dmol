@@ -44,13 +44,19 @@
 <script src="../pkgdown.js"></script>
 
 
+<!-- docsearch -->
+<script src="../docsearch.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.3/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous" />
+<link href="../docsearch.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+
 
 
 <meta property="og:title" content="Fetch Structure from PDB — m_fetch_pdb" />
 <meta property="og:description" content="Using specified pdb id, retrieved .pdb file using bio3d::get.pdb() function.
 Will always query the only PDB for structure, and not store on local drive.
 May take some time to fetch information, every time it is run." />
-<meta property="og:image" content="/logo.png" />
+<meta property="og:image" content="https://swsoyee.github.io/r3dmol/logo.png" />
 
 
 
@@ -135,6 +141,12 @@ May take some time to fetch information, every time it is run." />
 </li>
       </ul>
       
+      <form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
+        <div class="form-group">
+          <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
+        </div>
+      </form>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -199,7 +211,7 @@ be saved. Defaults to <code><a href='https://rdrr.io/r/base/getwd.html'>getwd()<
 
       <footer>
       <div class="copyright">
-  <p>Developed by Wei Su, Brady Johnston.</p>
+  <p>Developed by <a href='https://swsoyee.vercel.app/'>Wei Su</a>, <a href='https://bradyajohnston.github.io/'>Brady Johnston</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -210,6 +222,23 @@ be saved. Defaults to <code><a href='https://rdrr.io/r/base/getwd.html'>getwd()<
    </div>
 
   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.js" integrity="sha256-GKvGqXDznoRYHCwKXGnuchvKSwmx9SRMrZOTh2g4Sb0=" crossorigin="anonymous"></script>
+<script>
+  docsearch({
+    
+    
+    apiKey: '864a017c89f8200576b8fbd93caafd6b',
+    indexName: 'r3dmol',
+    inputSelector: 'input#search-input.form-control',
+    transformData: function(hits) {
+      return hits.map(function (hit) {
+        hit.url = updateHitURL(hit);
+        return hit;
+      });
+    }
+  });
+</script>
+
 
 
   </body>

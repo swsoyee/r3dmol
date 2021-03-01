@@ -17,13 +17,15 @@
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Create Interactive 3D Visualizations of Molecular Data">
+<script src="pkgdown.js"></script><!-- docsearch --><script src="docsearch.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.3/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous">
+<link href="docsearch.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script><meta property="og:title" content="Create Interactive 3D Visualizations of Molecular Data">
 <meta property="og:description" content="Create rich and fully interactive 3D visualizations of molecular data.
     Visualizations can be included in Shiny apps and R markdown documents, or viewed
     from the R console and RStudio Viewer. r3dmol includes an extensive API
     to manipulate the visualization after creation, and supports getting data out of
     the visualization into R. Based on the 3dmol.js and the htmlwidgets R package.">
-<meta property="og:image" content="/logo.png">
+<meta property="og:image" content="https://swsoyee.github.io/r3dmol/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -90,7 +92,13 @@
   </a>
 </li>
       </ul>
+<form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
+        <div class="form-group">
+          <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
 </div>
+      </form>
+      
+    </div>
 <!--/.nav-collapse -->
   </div>
 <!--/.container -->
@@ -211,8 +219,10 @@ You can find more demo at <a href="https://swsoyee.github.io/r3dmol/articles/r3d
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Wei Su <br><small class="roles"> Author, maintainer </small>  </li>
-<li>Brady Johnston <br><small class="roles"> Author </small>  </li>
+<li>
+<a href="https://swsoyee.vercel.app/">Wei Su</a> <br><small class="roles"> Author, maintainer </small>  </li>
+<li>
+<a href="https://bradyajohnston.github.io/">Brady Johnston</a> <br><small class="roles"> Author </small>  </li>
 </ul>
 </div>
 
@@ -231,7 +241,7 @@ You can find more demo at <a href="https://swsoyee.github.io/r3dmol/articles/r3d
 
 
       <footer><div class="copyright">
-  <p>Developed by Wei Su, Brady Johnston.</p>
+  <p>Developed by <a href="https://swsoyee.vercel.app/">Wei Su</a>, <a href="https://bradyajohnston.github.io/">Brady Johnston</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -242,7 +252,20 @@ You can find more demo at <a href="https://swsoyee.github.io/r3dmol/articles/r3d
 </div>
 
   
-
-
-  </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.js" integrity="sha256-GKvGqXDznoRYHCwKXGnuchvKSwmx9SRMrZOTh2g4Sb0=" crossorigin="anonymous"></script><script>
+  docsearch({
+    
+    
+    apiKey: '864a017c89f8200576b8fbd93caafd6b',
+    indexName: 'r3dmol',
+    inputSelector: 'input#search-input.form-control',
+    transformData: function(hits) {
+      return hits.map(function (hit) {
+        hit.url = updateHitURL(hit);
+        return hit;
+      });
+    }
+  });
+</script>
+</body>
 </html>

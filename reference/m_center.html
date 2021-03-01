@@ -44,12 +44,18 @@
 <script src="../pkgdown.js"></script>
 
 
+<!-- docsearch -->
+<script src="../docsearch.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.3/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous" />
+<link href="../docsearch.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+
 
 
 <meta property="og:title" content="Re-center the viewer around the provided selection — m_center" />
 <meta property="og:description" content="Re-center the viewer around the provided selection (unlike zoomTo, does not
 zoom)." />
-<meta property="og:image" content="/logo.png" />
+<meta property="og:image" content="https://swsoyee.github.io/r3dmol/logo.png" />
 
 
 
@@ -134,6 +140,12 @@ zoom)." />
 </li>
       </ul>
       
+      <form class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
+        <div class="form-group">
+          <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
+        </div>
+      </form>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -207,7 +219,7 @@ requested motion, overriding updates that happen during the animation</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Wei Su, Brady Johnston.</p>
+  <p>Developed by <a href='https://swsoyee.vercel.app/'>Wei Su</a>, <a href='https://bradyajohnston.github.io/'>Brady Johnston</a>.</p>
 </div>
 
 <div class="pkgdown">
@@ -218,6 +230,23 @@ requested motion, overriding updates that happen during the animation</p></td>
    </div>
 
   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.js" integrity="sha256-GKvGqXDznoRYHCwKXGnuchvKSwmx9SRMrZOTh2g4Sb0=" crossorigin="anonymous"></script>
+<script>
+  docsearch({
+    
+    
+    apiKey: '864a017c89f8200576b8fbd93caafd6b',
+    indexName: 'r3dmol',
+    inputSelector: 'input#search-input.form-control',
+    transformData: function(hits) {
+      return hits.map(function (hit) {
+        hit.url = updateHitURL(hit);
+        return hit;
+      });
+    }
+  });
+</script>
+
 
 
   </body>
