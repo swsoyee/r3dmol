@@ -26,7 +26,7 @@ m_style_line(
 \description{
 Styling options for the line representation. Used inside
 \code{m_add_style()} and \code{m_set_style()}. Can also be used for styling
-when adding individual lines with \code{m_add_line()}.
+when adding individual lines with \code{m_add_lines()}.
 }
 \examples{
 r3dmol() \%>\%

@@ -93,7 +93,7 @@ r3dmol() \%>\%
 
 # Add line
 r3dmol() \%>\%
-  m_add_line(
+  m_add_lines(
     dashed = TRUE,
     start = m_vector3(0, 0, 0),
     end = m_vector3(30, 30, 30)

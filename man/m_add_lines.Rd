@@ -4,13 +4,36 @@
 \alias{m_add_lines}
 \title{Add Lines Between Points}
 \usage{
-m_add_lines(id, line_specs)
+m_add_lines(
+  id,
+  starts,
+  ends,
+  dashed = TRUE,
+  color = "black",
+  opacity = 1,
+  hidden = FALSE
+)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()}).}
 
-\item{line_specs}{a list of LineSpecs.}
+\item{starts}{Single of list of starting positions. Can be either
+\code{m_sel()} or \code{m_vector3()}.}
+
+\item{ends}{Single of list of ending positions. Can be either
+\code{m_sel()} or \code{m_vector3()}.}
+
+\item{dashed}{Logical whether the lines are dashed.
+of starts and ends points provided.}
+
+\item{color}{Either single or list of color values equal to number of lines.}
+
+\item{opacity}{Either single or list of opacity values equal to number of
+lines.}
+
+\item{hidden}{Either single or list of hidden values equal to number of
+lines.}
 }
 \value{
 R3dmol \code{id} or a \code{r3dmol} object (the output from
@@ -21,30 +44,6 @@ Add lines between the given points.
 }
 \examples{
 library(r3dmol)
-
-line_specs <- list(
-  list(
-    start = m_sel(
-      resi = 1:10,
-      chain = "A"
-    ),
-    end = m_sel(
-      resi = 1:10,
-      chain = "B"
-    ),
-    dashed = TRUE
-  ),
-  list(
-    start = m_sel(
-      resi = 20:30,
-      chain = "A"
-    ),
-    end = m_sel(
-      resi = 20:30,
-      chain = "B"
-    )
-  )
-)
 
 r3dmol() \%>\%
   m_add_model(data = pdb_6zsl) \%>\%
@@ -57,5 +56,14 @@ r3dmol() \%>\%
       m_style_sphere(scale = 0.3)
     )
   ) \%>\%
-  m_add_lines(line_specs = line_specs)
+  m_add_lines(
+    starts = list(
+      m_sel(resi = 1, chain = "A"),
+      m_sel(resi = 1, chain = "A")),
+    ends = list(
+      m_sel(resi = 10, chain = "A"),
+      m_sel(resi = 10, chain = "B")
+    ),
+    dashed = TRUE
+  )
 }

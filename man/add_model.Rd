@@ -60,7 +60,7 @@ r3dmol() \%>\%
 # Add model and keep hydrogens.
 \dontrun{
 r3dmol() \%>\%
-  m_add_model(m_fetch_pdb("1E8L"), keepH = TRUE) \%>\%
+  m_add_model(m_fetch_pdb("5D8V"), keepH = TRUE) \%>\%
   m_set_style(m_style_sphere()) \%>\%
   m_zoom_to() \%>\%
   m_spin()

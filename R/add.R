@@ -197,55 +197,30 @@ m_add_cylinder <- function(
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
-#' @export
-#'
-#' @examples
-#' r3dmol() %>%
-#'   m_add_model(data = pdb_6zsl) %>%
-#'   m_set_style(style = m_style_cartoon()) %>%
-#'   m_zoom_to() %>%
-#'   m_add_style(
-#'     sel = m_sel(resi = 1:10),
-#'     style = c(
-#'       m_style_stick(),
-#'       m_style_sphere(scale = 0.3)
-#'     )
-#'   ) %>%
-#'   m_add_line(
-#'     start = m_sel(
-#'       resi = 1:10,
-#'       chain = "A"
-#'     ),
-#'     end = m_sel(
-#'       resi = 1:10,
-#'       chain = "B"
-#'     )
-#'   ) %>%
-#'   m_add_label(
-#'     text = "The middle of the selection",
-#'     sel = m_sel(resi = 1:10)
-#'   )
-m_add_line <- function(
-                       id,
-                       start,
-                       end,
-                       dashed = FALSE,
-                       spec = m_shape_spec()) {
+#' @noRd
+#' @keywords internal
+
+.m_add_line <- function(
+                        id,
+                        start,
+                        end,
+                        dashed,
+                        color,
+                        opacity,
+                        hidden) {
   # ensure that the arguments are correct
   if (is.null(dashed)) {
     dashed <- FALSE
   }
-  if (is.null(spec)) {
-    spec <- m_shape_spec()
-  }
 
-  line_list <- list(
+  spec <- list(
     start = start,
     end = end,
-    dashed = dashed
-  )
-
-  spec <- c(spec, line_list)
+    dashed = dashed,
+    color = color,
+    opacity = opacity,
+    hidden = hidden
+  ) %>% .cleanup_nulls()
 
   method <- "addLine"
   callJS()
@@ -256,7 +231,17 @@ m_add_line <- function(
 #' Add lines between the given points.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
-#' @param line_specs a list of LineSpecs.
+#' @param starts Single of list of starting positions. Can be either
+#' \code{m_sel()} or \code{m_vector3()}.
+#' @param ends Single of list of ending positions. Can be either
+#' \code{m_sel()} or \code{m_vector3()}.
+#' @param dashed Logical whether the lines are dashed.
+#' of starts and ends points provided.
+#' @param color Either single or list of color values equal to number of lines.
+#' @param opacity Either single or list of opacity values equal to number of
+#' lines.
+#' @param hidden Either single or list of hidden values equal to number of
+#' lines.
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
@@ -265,30 +250,6 @@ m_add_line <- function(
 #'
 #' @examples
 #' library(r3dmol)
-#'
-#' line_specs <- list(
-#'   list(
-#'     start = m_sel(
-#'       resi = 1:10,
-#'       chain = "A"
-#'     ),
-#'     end = m_sel(
-#'       resi = 1:10,
-#'       chain = "B"
-#'     ),
-#'     dashed = TRUE
-#'   ),
-#'   list(
-#'     start = m_sel(
-#'       resi = 20:30,
-#'       chain = "A"
-#'     ),
-#'     end = m_sel(
-#'       resi = 20:30,
-#'       chain = "B"
-#'     )
-#'   )
-#' )
 #'
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_6zsl) %>%
@@ -301,20 +262,82 @@ m_add_line <- function(
 #'       m_style_sphere(scale = 0.3)
 #'     )
 #'   ) %>%
-#'   m_add_lines(line_specs = line_specs)
+#'   m_add_lines(
+#'     starts = list(
+#'       m_sel(resi = 1, chain = "A"),
+#'       m_sel(resi = 1, chain = "A")
+#'     ),
+#'     ends = list(
+#'       m_sel(resi = 10, chain = "A"),
+#'       m_sel(resi = 10, chain = "B")
+#'     ),
+#'     dashed = TRUE
+#'   )
 m_add_lines <- function(
                         id,
-                        line_specs) {
-  if (missing(line_specs) || is.null(line_specs)) {
-    stop("`line_specs` should be passed in.")
+                        starts,
+                        ends,
+                        dashed = TRUE,
+                        color = "black",
+                        opacity = 1,
+                        hidden = FALSE) {
+  if (missing(starts) | missing(ends)) {
+    stop("At least 1 start and 1 end must be passed in.")
   }
+
+  if (methods::is(starts)[1] == "AtomSelectionSpec") {
+    starts <- list(starts)
+  }
+  if (methods::is(ends)[1] == "AtomSelectionSpec") {
+    ends <- list(ends)
+  }
+
+  line_specs <- .m_multi_spec(
+    starts = starts,
+    ends = ends
+  )
+
+  if (length(starts) != length(ends)) {
+    stop(paste("ERROR length(starts) must equal length(ends)."))
+  }
+
+  test_length <- function(option) {
+    if (length(option) != length(starts)) {
+      if (length(option) != 1) {
+        stop(paste(
+          deparse(substitute(option)), "options must of length 1 or",
+          "equal to the number of line starts & stops."
+        ))
+      }
+    }
+  }
+
+  test_length(dashed)
+  test_length(color)
+  test_length(opacity)
+  test_length(hidden)
+
+  aesthetics <- data.frame(
+    line_num = seq_along(starts),
+    dashed = dashed,
+    color = color,
+    opacity = opacity,
+    hidden = hidden
+  )
+
+  counter <- 0
+
   for (line_spec in line_specs) {
+    counter <- counter + 1
+
     id <- id %>%
-      m_add_line(
+      .m_add_line(
         start = line_spec$start,
         end = line_spec$end,
-        dashed = line_spec$dashed,
-        spec = line_spec$spec
+        dashed = aesthetics$dashed[counter],
+        color = aesthetics$color[counter],
+        opacity = aesthetics$opacity[counter],
+        hidden = aesthetics$hidden[counter]
       )
   }
   id
