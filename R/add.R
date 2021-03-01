@@ -159,15 +159,15 @@ m_add_curve <- function(id, spec = list()) {
 #'   )
 #' @export
 .m_add_cylinder <- function(
-                           id,
-                           start,
-                           end,
-                           radius = 0.1,
-                           fromCap = 1,
-                           toCap = 1,
-                           dashed = FALSE,
-                           color,
-                           spec = m_shape_spec()) {
+                            id,
+                            start,
+                            end,
+                            radius = 0.1,
+                            fromCap = 1,
+                            toCap = 1,
+                            dashed = FALSE,
+                            color,
+                            spec = m_shape_spec()) {
   arglist <- list(
     start = start,
     end = end,
