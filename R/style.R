@@ -295,7 +295,7 @@ m_style_surface <- function(
 #' Specify Styling for Generic Shapes
 #'
 #' Styling options for the various shapes. Used inside \code{m_add_sphere()},
-#' \code{m_add_arrow()}, \code{m_add_cylinder()} etc.
+#' \code{m_add_arrow()}, \code{m_add_cylinders()} etc.
 #'
 #' @param color Solid color values.
 #' @param opacity Transparency value. 1 for opaque, 0 for invisible.

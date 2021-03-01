@@ -207,7 +207,7 @@ NULL
 #'
 #' # Add cylinder
 #' r3dmol() %>%
-#'   m_add_cylinder(
+#'   m_add_cylinders(
 #'     start = list(x = 0.0, y = 0.0, z = 0.0),
 #'     end = list(x = 10.0, y = 0.0, z = 0.0),
 #'     radius = 1.0,

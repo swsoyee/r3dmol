@@ -59,7 +59,8 @@ r3dmol() \%>\%
   m_add_lines(
     starts = list(
       m_sel(resi = 1, chain = "A"),
-      m_sel(resi = 1, chain = "A")),
+      m_sel(resi = 1, chain = "A")
+    ),
     ends = list(
       m_sel(resi = 10, chain = "A"),
       m_sel(resi = 10, chain = "B")

@@ -147,7 +147,7 @@ m_add_curve <- function(id, spec = list()) {
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1)) %>%
-#'   m_add_cylinder(
+#'   m_add_cylinders(
 #'     start = m_sel(resi = 1),
 #'     end = m_sel(resi = 2),
 #'     dashed = TRUE,
@@ -158,7 +158,7 @@ m_add_curve <- function(id, spec = list()) {
 #'     )
 #'   )
 #' @export
-m_add_cylinder <- function(
+.m_add_cylinder <- function(
                            id,
                            start,
                            end,
@@ -166,6 +166,7 @@ m_add_cylinder <- function(
                            fromCap = 1,
                            toCap = 1,
                            dashed = FALSE,
+                           color,
                            spec = m_shape_spec()) {
   arglist <- list(
     start = start,
@@ -173,7 +174,8 @@ m_add_cylinder <- function(
     radius = radius,
     fromCap = fromCap,
     toCap = toCap,
-    dashed = dashed
+    dashed = dashed,
+    color = color
   )
 
   spec <- c(arglist, spec)
@@ -193,6 +195,8 @@ m_add_cylinder <- function(
 #' @param end End location of cylinder. Can be either \code{m_sel()} or
 #' \code{m_vector3()}.
 #' @param radius Radius of cylinder.
+#' @param color Color value for cylinders. Either 1 or vector of colours equal
+#' in length to \code{starts}.
 #' @param fromCap Cap at start of cylinder. 0 for none, 1 for flat,
 #' 2 for rounded.
 #' @param toCap Cap at end of cylinder. 0 for none, 1 for flat, 2 for rounded.
@@ -203,7 +207,7 @@ m_add_cylinder <- function(
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1)) %>%
-#'   m_add_cylinder(
+#'   m_add_cylinders(
 #'     start = m_sel(resi = 1),
 #'     end = m_sel(resi = 2),
 #'     dashed = TRUE,
@@ -214,15 +218,16 @@ m_add_cylinder <- function(
 #'     )
 #'   )
 #' @export
-m_add_cylinder <- function(
-  id,
-  start,
-  end,
-  radius = 0.1,
-  fromCap = 1,
-  toCap = 1,
-  dashed = FALSE,
-  spec = m_shape_spec()) {
+m_add_cylinders <- function(
+                            id,
+                            starts,
+                            ends,
+                            radius = 0.1,
+                            fromCap = 1,
+                            toCap = 1,
+                            dashed = FALSE,
+                            color = "black",
+                            spec = m_shape_spec()) {
   arglist <- list(
     start = start,
     end = end,
@@ -232,10 +237,49 @@ m_add_cylinder <- function(
     dashed = dashed
   )
 
-  spec <- c(arglist, spec)
+  if (methods::is(starts)[1] == "AtomSelectionSpec") {
+    starts <- list(starts)
+  }
+  if (methods::is(ends)[1] == "AtomSelectionSpec") {
+    ends <- list(ends)
+  }
 
-  method <- "addCylinder"
-  callJS()
+  cylinder_specs <- .m_multi_spec(
+    starts = starts,
+    ends = ends
+  )
+
+  .test_length(radius, starts)
+  .test_length(fromCap, starts)
+  .test_length(toCap, starts)
+  .test_length(dashed, starts)
+  .test_length(color, starts)
+
+  aesthetics <- data.frame(
+    line_num = seq_along(starts),
+    radius = radius,
+    fromCap = fromCap,
+    toCap = toCap,
+    dashed = dashed,
+    color = color
+  )
+
+  counter <- 0
+  for (cylinder_spec in cylinder_specs) {
+    counter <- counter + 1
+
+    id <- id %>%
+      .m_add_cylinder(
+        start = cylinder_spec$start,
+        end = cylinder_spec$end,
+        color = aesthetics$color[counter],
+        radius = aesthetics$radius[counter],
+        fromCap = aesthetics$fromCap[counter],
+        toCap = aesthetics$toCap[counter],
+        dashed = aesthetics$dashed[counter]
+      )
+  }
+  id
 }
 
 #' Add Line Between Points
@@ -248,6 +292,7 @@ m_add_cylinder <- function(
 #' @param end End location of line. Can be either \code{m_sel()} or
 #' \code{m_vector3()}.
 #' @param dashed Boolean, whether or not to draw line as dashed.
+#' @param color Color value for line.
 #' @param spec Additional shape specifications defined with
 #' \code{m_shape_spec()}.
 #'
@@ -355,17 +400,6 @@ m_add_lines <- function(
 
   if (length(starts) != length(ends)) {
     stop(paste("ERROR length(starts) must equal length(ends)."))
-  }
-
-  test_length <- function(option) {
-    if (length(option) != length(starts)) {
-      if (length(option) != 1) {
-        stop(paste(
-          deparse(substitute(option)), "options must of length 1 or",
-          "equal to the number of line starts & stops."
-        ))
-      }
-    }
   }
 
   .test_length(dashed, starts)
