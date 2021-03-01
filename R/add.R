@@ -228,14 +228,6 @@ m_add_cylinders <- function(
                             dashed = FALSE,
                             color = "black",
                             spec = m_shape_spec()) {
-  arglist <- list(
-    start = start,
-    end = end,
-    radius = radius,
-    fromCap = fromCap,
-    toCap = toCap,
-    dashed = dashed
-  )
 
   if (methods::is(starts)[1] == "AtomSelectionSpec") {
     starts <- list(starts)
