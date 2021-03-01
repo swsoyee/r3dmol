@@ -15,17 +15,16 @@
   l.starts <- length(starts)
   l.ends <- length(ends)
 
-    # For each given start location, match it with an end location and combine
-    # into a list of specifications, each with a start and end location.
+  # For each given start location, match it with an end location and combine
+  # into a list of specifications, each with a start and end location.
   line_list <- list()
 
-    for (i in 1:l.starts) {
-      spec <- list(
-        start = starts[[i]],
-        end = ends[[i]]
-      )
-      line_list[[i]] <- spec
-    }
-    line_list
+  for (i in 1:l.starts) {
+    spec <- list(
+      start = starts[[i]],
+      end = ends[[i]]
+    )
+    line_list[[i]] <- spec
+  }
+  line_list
 }
-

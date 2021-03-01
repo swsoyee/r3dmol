@@ -1,8 +1,7 @@
 describe(".m_multi_spec()", {
   it("arguments check", {
-
-  expect_error(
-    .m_multi_spec(ends = m_sel(resi = 1)),
+    expect_error(
+      .m_multi_spec(ends = m_sel(resi = 1)),
       'argument "starts" is missing, with no default'
     )
   })

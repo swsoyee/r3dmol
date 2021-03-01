@@ -150,27 +150,27 @@ m_sel <- function(
 #'     )
 #'   ) %>%
 #'   m_add_lines(
-#'     starts = m_multi_resi_sel(resi = rep(1,9), chain = "A"),
+#'     starts = m_multi_resi_sel(resi = rep(1, 9), chain = "A"),
 #'     ends = m_multi_resi_sel(
 #'       resi = 2:10,
 #'       chain = "B"
 #'     )
 #'   )
 m_multi_resi_sel <- function(
-                            resi = NULL,
-                            resn = NULL,
-                            chain = NULL,
-                            model = NULL,
-                            elem = NULL,
-                            atom = NULL,
-                            invert = NULL,
-                            byres = NULL,
-                            b = NULL,
-                            expand = NULL,
-                            bonds = NULL,
-                            ss = NULL,
-                            clickable = NULL,
-                            callback = NULL) {
+                             resi = NULL,
+                             resn = NULL,
+                             chain = NULL,
+                             model = NULL,
+                             elem = NULL,
+                             atom = NULL,
+                             invert = NULL,
+                             byres = NULL,
+                             b = NULL,
+                             expand = NULL,
+                             bonds = NULL,
+                             ss = NULL,
+                             clickable = NULL,
+                             callback = NULL) {
   sel_list <- list()
 
   for (i in seq_along(resi)) {

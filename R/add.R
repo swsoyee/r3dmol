@@ -207,8 +207,7 @@ m_add_cylinder <- function(
                         dashed,
                         color,
                         opacity,
-                        hidden
-                        ) {
+                        hidden) {
   # ensure that the arguments are correct
   if (is.null(dashed)) {
     dashed <- FALSE
@@ -266,7 +265,8 @@ m_add_cylinder <- function(
 #'   m_add_lines(
 #'     starts = list(
 #'       m_sel(resi = 1, chain = "A"),
-#'       m_sel(resi = 1, chain = "A")),
+#'       m_sel(resi = 1, chain = "A")
+#'     ),
 #'     ends = list(
 #'       m_sel(resi = 10, chain = "A"),
 #'       m_sel(resi = 10, chain = "B")
@@ -280,8 +280,7 @@ m_add_lines <- function(
                         dashed = TRUE,
                         color = "black",
                         opacity = 1,
-                        hidden = FALSE
-                        ) {
+                        hidden = FALSE) {
   if (missing(starts) | missing(ends)) {
     stop("At least 1 start and 1 end must be passed in.")
   }
@@ -305,8 +304,10 @@ m_add_lines <- function(
   test_length <- function(option) {
     if (length(option) != length(starts)) {
       if (length(option) != 1) {
-        stop(paste(deparse(substitute(option)), "options must of length 1 or",
-                   "equal to the number of line starts & stops."))
+        stop(paste(
+          deparse(substitute(option)), "options must of length 1 or",
+          "equal to the number of line starts & stops."
+        ))
       }
     }
   }
