@@ -5,50 +5,21 @@
 #'
 #' @param starts Start locations, either \code{m_vector3()} or \code{m_sel()}
 #' @param ends End locations, either \code{m_vector3()} or \code{m_sel()}
-#' @param pairwise Logical, TRUE returns all possible combinations of start
 #' and end locations.
+#' @keywords internal
 
 .m_multi_spec <- function(
                           starts,
-                          ends,
-                          pairwise = FALSE) {
+                          ends) {
+  # get number of starting and ending points
   l.starts <- length(starts)
   l.ends <- length(ends)
 
-  if (l.starts == 0 | l.ends == 0) {
-    stop("Must provide starting and ending positions.")
-  }
-
-  if (l.starts != l.ends) {
-    pairwise <- TRUE
-    warning(paste(
-      "The number of start positions does not equal the number of",
-      "end positions. Defaulting to pairwise combinations."
-    ))
-  }
-
+    # For each given start location, match it with an end location and combine
+    # into a list of specifications, each with a start and end location.
   line_list <- list()
 
-  if (pairwise == TRUE) {
-    if (l.starts == l.ends) {
-      message("Pairwise combinations selected.")
-    }
-
-    n.comb <- l.starts * l.ends
-    comb <- expand.grid(starts, ends)
-
-    for (i in 1:n.comb) {
-      spec <- list(
-        start = comb[i, ][[1]][[1]],
-        end = comb[i, ][[2]][[1]]
-      )
-      line_list[[i]] <- spec
-    }
-    line_list
-  } else {
-    n.comb <- l.starts
-
-    for (i in 1:n.comb) {
+    for (i in 1:l.starts) {
       spec <- list(
         start = starts[[i]],
         end = ends[[i]]
@@ -56,5 +27,5 @@
       line_list[[i]] <- spec
     }
     line_list
-  }
 }
+

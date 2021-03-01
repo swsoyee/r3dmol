@@ -8,9 +8,10 @@ m_add_lines(
   id,
   starts,
   ends,
-  dashed = FALSE,
-  pairwise = FALSE,
-  spec = m_shape_spec()
+  dashed = TRUE,
+  color = "black",
+  opacity = 1,
+  hidden = FALSE
 )
 }
 \arguments{
@@ -23,12 +24,16 @@ m_add_lines(
 \item{ends}{Single of list of ending positions. Can be either
 \code{m_sel()} or \code{m_vector3()}.}
 
-\item{dashed}{Logical whether the lines are dashed.}
-
-\item{pairwise}{Logical, TRUE creates lines between all possible combinations
+\item{dashed}{Logical whether the lines are dashed.
 of starts and ends points provided.}
 
-\item{spec}{\code{m_shape_spec()} for line styling.}
+\item{color}{Either single or list of color values equal to number of lines.}
+
+\item{opacity}{Either single or list of opacity values equal to number of
+lines.}
+
+\item{hidden}{Either single or list of hidden values equal to number of
+lines.}
 }
 \value{
 R3dmol \code{id} or a \code{r3dmol} object (the output from
@@ -52,9 +57,13 @@ r3dmol() \%>\%
     )
   ) \%>\%
   m_add_lines(
-    starts = m_sel(resi = 1, chain = "A"),
-    ends = list(m_sel(resi = 10, chain = "A"),
-                m_sel(resi = 10, chain = "B")),
+    starts = list(
+      m_sel(resi = 1, chain = "A"),
+      m_sel(resi = 1, chain = "A")),
+    ends = list(
+      m_sel(resi = 10, chain = "A"),
+      m_sel(resi = 10, chain = "B")
+    ),
     dashed = TRUE
   )
 }

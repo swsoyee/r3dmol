@@ -103,7 +103,7 @@ m_sel <- function(
 #' residue specified with \code{resi}.
 #'
 #' The \code{m_sel(resi = 1:10)} returns a selection of all 10 residues.
-#' The \code{m_multiresi_sel(resi = 1:10)} returns 10 individual selections,
+#' The \code{m_multi_resi_sel(resi = 1:10)} returns 10 individual selections,
 #' each containing only 1 of the residues.
 #'
 #' @param model a single model or list of models from which atoms should be
@@ -150,13 +150,13 @@ m_sel <- function(
 #'     )
 #'   ) %>%
 #'   m_add_lines(
-#'     starts = m_sel(resi = 1, chain = "A"),
-#'     ends = m_multiresi_sel(
+#'     starts = m_multi_resi_sel(resi = rep(1,9), chain = "A"),
+#'     ends = m_multi_resi_sel(
 #'       resi = 2:10,
 #'       chain = "B"
 #'     )
 #'   )
-m_multiresi_sel <- function(
+m_multi_resi_sel <- function(
                             resi = NULL,
                             resn = NULL,
                             chain = NULL,

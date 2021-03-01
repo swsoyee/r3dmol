@@ -184,7 +184,7 @@ m_add_cylinder <- function(
 
 #' Add Line Between Points
 #'
-#' Add a line between the given points. Used internally.
+#' Add a line between the given points.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
 #' @param start Start location of line Can be either \code{m_sel()} or
@@ -204,23 +204,24 @@ m_add_cylinder <- function(
                         id,
                         start,
                         end,
-                        dashed = FALSE,
-                        spec = m_shape_spec()) {
+                        dashed,
+                        color,
+                        opacity,
+                        hidden
+                        ) {
   # ensure that the arguments are correct
   if (is.null(dashed)) {
     dashed <- FALSE
   }
-  if (is.null(spec)) {
-    spec <- m_shape_spec()
-  }
 
-  line_list <- list(
+  spec <- list(
     start = start,
     end = end,
-    dashed = dashed
-  )
-
-  spec <- c(spec, line_list)
+    dashed = dashed,
+    color = color,
+    opacity = opacity,
+    hidden = hidden
+  ) %>% .cleanup_nulls()
 
   method <- "addLine"
   callJS()
@@ -236,9 +237,12 @@ m_add_cylinder <- function(
 #' @param ends Single of list of ending positions. Can be either
 #' \code{m_sel()} or \code{m_vector3()}.
 #' @param dashed Logical whether the lines are dashed.
-#' @param pairwise Logical, TRUE creates lines between all possible combinations
 #' of starts and ends points provided.
-#' @param spec \code{m_shape_spec()} for line styling.
+#' @param color Either single or list of color values equal to number of lines.
+#' @param opacity Either single or list of opacity values equal to number of
+#' lines.
+#' @param hidden Either single or list of hidden values equal to number of
+#' lines.
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
@@ -260,7 +264,9 @@ m_add_cylinder <- function(
 #'     )
 #'   ) %>%
 #'   m_add_lines(
-#'     starts = m_sel(resi = 1, chain = "A"),
+#'     starts = list(
+#'       m_sel(resi = 1, chain = "A"),
+#'       m_sel(resi = 1, chain = "A")),
 #'     ends = list(
 #'       m_sel(resi = 10, chain = "A"),
 #'       m_sel(resi = 10, chain = "B")
@@ -271,9 +277,11 @@ m_add_lines <- function(
                         id,
                         starts,
                         ends,
-                        dashed = FALSE,
-                        pairwise = FALSE,
-                        spec = m_shape_spec()) {
+                        dashed = TRUE,
+                        color = "black",
+                        opacity = 1,
+                        hidden = FALSE
+                        ) {
   if (missing(starts) | missing(ends)) {
     stop("At least 1 start and 1 end must be passed in.")
   }
@@ -287,17 +295,48 @@ m_add_lines <- function(
 
   line_specs <- .m_multi_spec(
     starts = starts,
-    ends = ends,
-    pairwise = pairwise
+    ends = ends
   )
 
+  if (length(starts) != length(ends)) {
+    stop(paste("ERROR length(starts) must equal length(ends)."))
+  }
+
+  test_length <- function(option) {
+    if (length(option) != length(starts)) {
+      if (length(option) != 1) {
+        stop(paste(deparse(substitute(option)), "options must of length 1 or",
+                   "equal to the number of line starts & stops."))
+      }
+    }
+  }
+
+  test_length(dashed)
+  test_length(color)
+  test_length(opacity)
+  test_length(hidden)
+
+  aesthetics <- data.frame(
+    line_num = seq_along(starts),
+    dashed = dashed,
+    color = color,
+    opacity = opacity,
+    hidden = hidden
+  )
+
+  counter <- 0
+
   for (line_spec in line_specs) {
+    counter <- counter + 1
+
     id <- id %>%
       .m_add_line(
         start = line_spec$start,
         end = line_spec$end,
-        dashed = dashed,
-        spec = spec
+        dashed = aesthetics$dashed[counter],
+        color = aesthetics$color[counter],
+        opacity = aesthetics$opacity[counter],
+        hidden = aesthetics$hidden[counter]
       )
   }
   id

@@ -4,17 +4,16 @@
 \alias{.m_multi_spec}
 \title{List of multiple start/stop locations.}
 \usage{
-.m_multi_spec(starts, ends, pairwise = FALSE)
+.m_multi_spec(starts, ends)
 }
 \arguments{
 \item{starts}{Start locations, either \code{m_vector3()} or \code{m_sel()}}
 
-\item{ends}{End locations, either \code{m_vector3()} or \code{m_sel()}}
-
-\item{pairwise}{Logical, TRUE returns all possible combinations of start
+\item{ends}{End locations, either \code{m_vector3()} or \code{m_sel()}
 and end locations.}
 }
 \description{
 For use in addition of lines, arrows, cylinders, when multiple
 locations are specified in a single call.
 }
+\keyword{internal}
