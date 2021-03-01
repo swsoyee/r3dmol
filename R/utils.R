@@ -42,6 +42,24 @@ callJS <- function() {
   list
 }
 
+#' Test Length of Inputs
+#'
+#' Compare given argument length to #starts or #stops.
+#' @param option Option to compare the length of.
+#' @param comp What to compare option to.
+#' @noRd
+#' @keywords internal
+.test_length <- function(option, comp) {
+  if (length(option) != length(comp)) {
+    if (length(option) != 1) {
+      stop(paste(
+        deparse(substitute(option)), "options must of length 1 or",
+        "equal to the number of line starts & stops."
+      ))
+    }
+  }
+}
+
 #' @importFrom magrittr %>%
 #' @export
 magrittr::`%>%`

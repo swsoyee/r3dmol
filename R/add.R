@@ -182,6 +182,62 @@ m_add_cylinder <- function(
   callJS()
 }
 
+#' Add a cylinder shape to scene.
+#'
+#' Creates cylinder shape from start to end, with styling spec from
+#' \code{m_shape_spec()}.
+#' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()}).
+#' @param start Start location of cylinder. Can be either \code{m_sel()} or
+#' \code{m_vector3()}.
+#' @param end End location of cylinder. Can be either \code{m_sel()} or
+#' \code{m_vector3()}.
+#' @param radius Radius of cylinder.
+#' @param fromCap Cap at start of cylinder. 0 for none, 1 for flat,
+#' 2 for rounded.
+#' @param toCap Cap at end of cylinder. 0 for none, 1 for flat, 2 for rounded.
+#' @param dashed Boolean, dashed style cylinder instead of solid.
+#' @param spec Additional shape specifications defined with
+#' \code{m_shape_spec()}.
+#' @examples
+#' r3dmol() %>%
+#'   m_add_model(data = m_fetch_pdb("1bna")) %>%
+#'   m_zoom_to(sel = m_sel(resi = 1)) %>%
+#'   m_add_cylinder(
+#'     start = m_sel(resi = 1),
+#'     end = m_sel(resi = 2),
+#'     dashed = TRUE,
+#'     radius = 0.1,
+#'     spec = m_shape_spec(
+#'       color = "green",
+#'       opacity = 0.5
+#'     )
+#'   )
+#' @export
+m_add_cylinder <- function(
+  id,
+  start,
+  end,
+  radius = 0.1,
+  fromCap = 1,
+  toCap = 1,
+  dashed = FALSE,
+  spec = m_shape_spec()) {
+  arglist <- list(
+    start = start,
+    end = end,
+    radius = radius,
+    fromCap = fromCap,
+    toCap = toCap,
+    dashed = dashed
+  )
+
+  spec <- c(arglist, spec)
+
+  method <- "addCylinder"
+  callJS()
+}
+
 #' Add Line Between Points
 #'
 #' Add a line between the given points.
@@ -312,10 +368,10 @@ m_add_lines <- function(
     }
   }
 
-  test_length(dashed)
-  test_length(color)
-  test_length(opacity)
-  test_length(hidden)
+  .test_length(dashed, starts)
+  .test_length(color, starts)
+  .test_length(opacity, starts)
+  .test_length(hidden, starts)
 
   aesthetics <- data.frame(
     line_num = seq_along(starts),
