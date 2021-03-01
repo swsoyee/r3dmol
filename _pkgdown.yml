@@ -1,7 +1,18 @@
+url: https://swsoyee.github.io/r3dmol
+
+authors:
+  Wei Su:
+    href: https://swsoyee.vercel.app/
+  Brady Johnston:
+    href: https://bradyajohnston.github.io/
+
 template:
   params:
     bootswatch: flatly
     ganalytics: UA-131217026-2
+    docsearch:
+      api_key: 864a017c89f8200576b8fbd93caafd6b
+      index_name: r3dmol
 reference:
   - title: 'Common'
     desc: 'Basic functions.'
