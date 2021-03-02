@@ -344,7 +344,6 @@ m_add_cylinder <- function(
 #' be a single position or \code{list()} of positions. Format either
 #' \code{m_sel()} or \code{m_vector3()}.
 #' @param dashed Logical whether the lines are dashed.
-#' of start and end points provided.
 #' @param color Either single or list of color values equal to number of lines.
 #' @param opacity Either single or list of opacity values equal to number of
 #' lines.
