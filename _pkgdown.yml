@@ -11,7 +11,7 @@ template:
     bootswatch: flatly
     ganalytics: UA-131217026-2
     docsearch:
-      api_key: 864a017c89f8200576b8fbd93caafd6b
+      api_key: 9ba01b6c461dabb95fa94fdada7516b6
       index_name: r3dmol
 reference:
   - title: 'Common'
