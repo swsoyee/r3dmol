@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add a cylinder shape to scene. — m_add_cylinder • r3dmol</title>
+<title>Add Cylinder Between Points — m_add_cylinder • r3dmol</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,9 +52,10 @@
 
 
 
-<meta property="og:title" content="Add a cylinder shape to scene. — m_add_cylinder" />
-<meta property="og:description" content="Creates cylinder shape from start to end, with styling spec from
-m_shape_spec()." />
+<meta property="og:title" content="Add Cylinder Between Points — m_add_cylinder" />
+<meta property="og:description" content="Add cynliders between the given points. Will match starting point/s with
+ending point/s to create a line between each point. Styling options can be
+supplied as one option, or a vector of length equal to the number of lines." />
 <meta property="og:image" content="https://swsoyee.github.io/r3dmol/logo.png" />
 
 
@@ -157,14 +158,15 @@ m_shape_spec()." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add a cylinder shape to scene.</h1>
+    <h1>Add Cylinder Between Points</h1>
     <small class="dont-index">Source: <a href='https://github.com/swsoyee/r3dmol/blob/master/R/add.R'><code>R/add.R</code></a></small>
     <div class="hidden name"><code>m_add_cylinder.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Creates cylinder shape from start to end, with styling spec from
-<code><a href='m_shape_spec.html'>m_shape_spec()</a></code>.</p>
+    <p>Add cynliders between the given points. Will match starting point/s with
+ending point/s to create a line between each point. Styling options can be
+supplied as one option, or a vector of length equal to the number of lines.</p>
     </div>
 
     <pre class="usage"><span class='fu'>m_add_cylinder</span><span class='op'>(</span>
@@ -175,6 +177,10 @@ m_shape_spec()." />
   fromCap <span class='op'>=</span> <span class='fl'>1</span>,
   toCap <span class='op'>=</span> <span class='fl'>1</span>,
   dashed <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  color <span class='op'>=</span> <span class='st'>"black"</span>,
+  alpha <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  wireframe <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  hidden <span class='op'>=</span> <span class='cn'>FALSE</span>,
   spec <span class='op'>=</span> <span class='fu'><a href='m_shape_spec.html'>m_shape_spec</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>)</span></pre>
 
@@ -188,13 +194,15 @@ m_shape_spec()." />
     </tr>
     <tr>
       <th>start</th>
-      <td><p>Start location of cylinder. Can be either <code><a href='m_sel.html'>m_sel()</a></code> or
-<code><a href='m_vector3.html'>m_vector3()</a></code>.</p></td>
+      <td><p>Starting position (or <code><a href='https://rdrr.io/r/base/list.html'>list()</a></code> of positions) of line. Can
+be a single position or <code><a href='https://rdrr.io/r/base/list.html'>list()</a></code> of positions. Format either
+<code><a href='m_sel.html'>m_sel()</a></code> or <code><a href='m_vector3.html'>m_vector3()</a></code>.</p></td>
     </tr>
     <tr>
       <th>end</th>
-      <td><p>End location of cylinder. Can be either <code><a href='m_sel.html'>m_sel()</a></code> or
-<code><a href='m_vector3.html'>m_vector3()</a></code>.</p></td>
+      <td><p>Ending position (or <code><a href='https://rdrr.io/r/base/list.html'>list()</a></code> of positions) of line. Can
+be a single position or <code><a href='https://rdrr.io/r/base/list.html'>list()</a></code> of positions. Format either
+<code><a href='m_sel.html'>m_sel()</a></code> or <code><a href='m_vector3.html'>m_vector3()</a></code>.</p></td>
     </tr>
     <tr>
       <th>radius</th>
@@ -214,6 +222,23 @@ m_shape_spec()." />
       <td><p>Boolean, dashed style cylinder instead of solid.</p></td>
     </tr>
     <tr>
+      <th>color</th>
+      <td><p>Color value for cylinders. Either 1 or vector of colors equal
+in length to <code>start</code>.</p></td>
+    </tr>
+    <tr>
+      <th>alpha</th>
+      <td><p>Alpha value for transparency.</p></td>
+    </tr>
+    <tr>
+      <th>wireframe</th>
+      <td><p>Logical, display as wireframe.</p></td>
+    </tr>
+    <tr>
+      <th>hidden</th>
+      <td><p>Logical, whether or not to hide the cylinder.</p></td>
+    </tr>
+    <tr>
       <th>spec</th>
       <td><p>Additional shape specifications defined with
 <code><a href='m_shape_spec.html'>m_shape_spec()</a></code>.</p></td>
@@ -222,19 +247,53 @@ m_shape_spec()." />
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='init.html'>r3dmol</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='m_add_model.html'>m_add_model</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='fu'><a href='m_fetch_pdb.html'>m_fetch_pdb</a></span><span class='op'>(</span><span class='st'>"1bna"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <pre class="examples"><div class='input'><span class='co'>## Add a cylinder between residue 1 &amp; 2 of Chain "A"</span>
+<span class='fu'><a href='init.html'>r3dmol</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_add_model.html'>m_add_model</a></span><span class='op'>(</span><span class='va'>pdb_6zsl</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span><span class='op'>(</span>sel <span class='op'>=</span> <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>m_add_cylinder</span><span class='op'>(</span>
-    start <span class='op'>=</span> <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>,
-    end <span class='op'>=</span> <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>,
+    start <span class='op'>=</span> <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>1</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span>,
+    end <span class='op'>=</span> <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>2</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span>,
+    dashed <span class='op'>=</span> <span class='cn'>TRUE</span>,
+    radius <span class='op'>=</span> <span class='fl'>0.1</span>
+  <span class='op'>)</span>
+
+<span class='co'># Add two cylinders.</span>
+<span class='co'># Blue cylinder is between residues 1 &amp; 2</span>
+<span class='co'># Green cylinder is between residues 3 &amp; 4</span>
+<span class='fu'><a href='init.html'>r3dmol</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_add_model.html'>m_add_model</a></span><span class='op'>(</span><span class='va'>pdb_6zsl</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span><span class='op'>(</span>sel <span class='op'>=</span> <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>m_add_cylinder</span><span class='op'>(</span>
+    start <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+      <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>1</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span>,
+      <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>3</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span>
+    <span class='op'>)</span>,
+    end <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+      <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>2</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span>,
+      <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>4</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span>
+    <span class='op'>)</span>,
     dashed <span class='op'>=</span> <span class='cn'>TRUE</span>,
     radius <span class='op'>=</span> <span class='fl'>0.1</span>,
-    spec <span class='op'>=</span> <span class='fu'><a href='m_shape_spec.html'>m_shape_spec</a></span><span class='op'>(</span>
-      color <span class='op'>=</span> <span class='st'>"green"</span>,
-      opacity <span class='op'>=</span> <span class='fl'>0.5</span>
-    <span class='op'>)</span>
-  <span class='op'>)</span>
+    color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"blue"</span>, <span class='st'>"green"</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_add_res_labels.html'>m_add_res_labels</a></span><span class='op'>(</span><span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span><span class='op'>)</span>
+
+  <span class='co'># The same scene achieved with m_multi_resi_sel()</span>
+<span class='fu'><a href='init.html'>r3dmol</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_add_model.html'>m_add_model</a></span><span class='op'>(</span><span class='va'>pdb_6zsl</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span><span class='op'>(</span>sel <span class='op'>=</span> <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>m_add_cylinder</span><span class='op'>(</span>
+    start <span class='op'>=</span> <span class='fu'><a href='m_multi_resi_sel.html'>m_multi_resi_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>3</span><span class='op'>)</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span>,
+    end <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+      <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>2</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span>,
+      <span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>4</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span>
+    <span class='op'>)</span>,
+    dashed <span class='op'>=</span> <span class='cn'>TRUE</span>,
+    radius <span class='op'>=</span> <span class='fl'>0.1</span>,
+    color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"blue"</span>, <span class='st'>"green"</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_add_res_labels.html'>m_add_res_labels</a></span><span class='op'>(</span><span class='fu'><a href='m_sel.html'>m_sel</a></span><span class='op'>(</span>resi <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, chain <span class='op'>=</span> <span class='st'>"A"</span><span class='op'>)</span><span class='op'>)</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

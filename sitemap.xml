@@ -13,6 +13,9 @@
     <loc>https://swsoyee.github.io/r3dmol/reference/cube_benzene_homo.html</loc>
   </url>
   <url>
+    <loc>https://swsoyee.github.io/r3dmol/reference/dot-m_multi_spec.html</loc>
+  </url>
+  <url>
     <loc>https://swsoyee.github.io/r3dmol/reference/init.html</loc>
   </url>
   <url>
@@ -38,9 +41,6 @@
   </url>
   <url>
     <loc>https://swsoyee.github.io/r3dmol/reference/m_add_line.html</loc>
-  </url>
-  <url>
-    <loc>https://swsoyee.github.io/r3dmol/reference/m_add_lines.html</loc>
   </url>
   <url>
     <loc>https://swsoyee.github.io/r3dmol/reference/m_add_models_as_frames.html</loc>
@@ -92,6 +92,9 @@
   </url>
   <url>
     <loc>https://swsoyee.github.io/r3dmol/reference/m_is_animated.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/reference/m_multi_resi_sel.html</loc>
   </url>
   <url>
     <loc>https://swsoyee.github.io/r3dmol/reference/m_remove_all_labels.html</loc>
