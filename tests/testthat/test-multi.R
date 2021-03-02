@@ -20,7 +20,7 @@ describe(".m_multi_spec()", {
 
     expect_error(
       model %>%
-        m_add_lines(
+        m_add_line(
           starts = list(m_sel(resi = 1), m_sel(resi = 2)),
           ends = list(m_sel(resi = 3), m_sel(resi = 4)),
           dashed = c(TRUE, FALSE, TRUE)
@@ -30,7 +30,7 @@ describe(".m_multi_spec()", {
     )
     expect_error(
       model %>%
-        m_add_lines(
+        m_add_line(
           starts = list(m_sel(resi = 1), m_sel(resi = 2)),
           ends = list(m_sel(resi = 3), m_sel(resi = 4)),
           hidden = c(TRUE, FALSE, TRUE)
@@ -40,7 +40,7 @@ describe(".m_multi_spec()", {
     )
     expect_error(
       model %>%
-        m_add_lines(
+        m_add_line(
           starts = list(m_sel(resi = 1), m_sel(resi = 2)),
           ends = list(m_sel(resi = 3), m_sel(resi = 4)),
           color = c("blue", "red", "green")

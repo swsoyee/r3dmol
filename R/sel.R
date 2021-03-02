@@ -149,7 +149,7 @@ m_sel <- function(
 #'       m_style_sphere(scale = 0.3)
 #'     )
 #'   ) %>%
-#'   m_add_lines(
+#'   m_add_line(
 #'     starts = m_multi_resi_sel(resi = rep(1, 9), chain = "A"),
 #'     ends = m_multi_resi_sel(
 #'       resi = 2:10,

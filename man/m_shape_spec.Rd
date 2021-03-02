@@ -41,7 +41,7 @@ functions to be called. Set hoverDuration in the viewer_spec() of r3dmol().}
 }
 \description{
 Styling options for the various shapes. Used inside \code{m_add_sphere()},
-\code{m_add_arrow()}, \code{m_add_cylinders()} etc.
+\code{m_add_arrow()}, \code{m_add_cylinder()} etc.
 }
 \examples{
 library(r3dmol)

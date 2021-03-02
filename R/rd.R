@@ -207,7 +207,7 @@ NULL
 #'
 #' # Add cylinder
 #' r3dmol() %>%
-#'   m_add_cylinders(
+#'   m_add_cylinder(
 #'     start = list(x = 0.0, y = 0.0, z = 0.0),
 #'     end = list(x = 10.0, y = 0.0, z = 0.0),
 #'     radius = 1.0,
@@ -236,7 +236,7 @@ NULL
 #'
 #' # Add line
 #' r3dmol() %>%
-#'   m_add_lines(
+#'   m_add_line(
 #'     dashed = TRUE,
 #'     start = m_vector3(0, 0, 0),
 #'     end = m_vector3(30, 30, 30)

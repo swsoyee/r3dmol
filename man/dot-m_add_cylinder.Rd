@@ -48,7 +48,7 @@ Creates cylinder shape from start to end, with styling spec from
 r3dmol() \%>\%
   m_add_model(data = m_fetch_pdb("1bna")) \%>\%
   m_zoom_to(sel = m_sel(resi = 1)) \%>\%
-  m_add_cylinders(
+  m_add_cylinder(
     start = m_sel(resi = 1),
     end = m_sel(resi = 2),
     dashed = TRUE,

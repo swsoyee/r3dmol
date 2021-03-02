@@ -148,7 +148,7 @@ m_add_curve <- function(id, spec = list()) {
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1)) %>%
-#'   m_add_cylinders(
+#'   m_add_cylinder(
 #'     start = m_sel(resi = 1),
 #'     end = m_sel(resi = 2),
 #'     dashed = TRUE,
@@ -208,7 +208,7 @@ m_add_curve <- function(id, spec = list()) {
 #' r3dmol() %>%
 #'   m_add_model(data = m_fetch_pdb("1bna")) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1)) %>%
-#'   m_add_cylinders(
+#'   m_add_cylinder(
 #'     start = m_sel(resi = 1),
 #'     end = m_sel(resi = 2),
 #'     dashed = TRUE,
@@ -219,7 +219,7 @@ m_add_curve <- function(id, spec = list()) {
 #'     )
 #'   )
 #' @export
-m_add_cylinders <- function(
+m_add_cylinder <- function(
                             id,
                             starts,
                             ends,
@@ -356,7 +356,7 @@ m_add_cylinders <- function(
 #'       m_style_sphere(scale = 0.3)
 #'     )
 #'   ) %>%
-#'   m_add_lines(
+#'   m_add_line(
 #'     starts = list(
 #'       m_sel(resi = 1, chain = "A"),
 #'       m_sel(resi = 1, chain = "A")
@@ -367,7 +367,7 @@ m_add_cylinders <- function(
 #'     ),
 #'     dashed = TRUE
 #'   )
-m_add_lines <- function(
+m_add_line <- function(
                         id,
                         starts,
                         ends,
