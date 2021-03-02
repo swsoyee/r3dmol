@@ -25,7 +25,8 @@ describe(".m_multi_spec()", {
           ends = list(m_sel(resi = 3), m_sel(resi = 4)),
           dashed = c(TRUE, FALSE, TRUE)
         ),
-      "dashed options must of length 1 or equal to the number of line starts & stops."
+      paste("dashed options must of length 1 or equal to the number of line",
+            "starts & stops.")
     )
     expect_error(
       model %>%
@@ -34,7 +35,8 @@ describe(".m_multi_spec()", {
           ends = list(m_sel(resi = 3), m_sel(resi = 4)),
           hidden = c(TRUE, FALSE, TRUE)
         ),
-      "hidden options must of length 1 or equal to the number of line starts & stops."
+      paste("hidden options must of length 1 or equal to the number of line",
+            "starts & stops.")
     )
     expect_error(
       model %>%
@@ -43,7 +45,8 @@ describe(".m_multi_spec()", {
           ends = list(m_sel(resi = 3), m_sel(resi = 4)),
           color = c("blue", "red", "green")
         ),
-      "color options must of length 1 or equal to the number of line starts & stops."
+      paste("color options must of length 1 or equal to the number of line",
+            "starts & stops.")
     )
   })
 })
