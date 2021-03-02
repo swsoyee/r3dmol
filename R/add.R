@@ -236,7 +236,7 @@ m_add_curve <- function(id, spec = list()) {
 #'   ) %>%
 #'   m_add_res_labels(m_sel(resi = 1:4, chain = "A"))
 #'
-#'   # The same scene achieved with m_multi_resi_sel()
+#' # The same scene achieved with m_multi_resi_sel()
 #' r3dmol() %>%
 #'   m_add_model(pdb_6zsl) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1:4, chain = "A")) %>%
