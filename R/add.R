@@ -280,7 +280,6 @@ m_add_cylinder <- function(
         hidden = aesthetics$hidden[counter],
         wireframe = aesthetics$wireframe[counter],
         alpha = aesthetics$alpha[counter]
-
       )
   }
   id

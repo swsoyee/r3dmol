@@ -7,7 +7,6 @@
 #' @param ends End locations, either \code{m_vector3()} or \code{m_sel()}
 #' and end locations.
 #' @keywords internal
-
 .m_multi_spec <- function(
                           starts,
                           ends) {
