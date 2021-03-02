@@ -2,7 +2,7 @@
 % Please edit documentation in R/add.R
 \name{m_add_cylinder}
 \alias{m_add_cylinder}
-\title{Add a cylinder shape to scene.}
+\title{Add Cylinder Between Points}
 \usage{
 m_add_cylinder(
   id,
@@ -12,6 +12,10 @@ m_add_cylinder(
   fromCap = 1,
   toCap = 1,
   dashed = FALSE,
+  color = "black",
+  alpha = FALSE,
+  wireframe = FALSE,
+  hidden = FALSE,
   spec = m_shape_spec()
 )
 }
@@ -19,11 +23,13 @@ m_add_cylinder(
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()}).}
 
-\item{start}{Start location of cylinder. Can be either \code{m_sel()} or
-\code{m_vector3()}.}
+\item{start}{Starting position (or \code{list()} of positions) of line. Can
+be a single position or \code{list()} of positions. Format either
+\code{m_sel()} or \code{m_vector3()}.}
 
-\item{end}{End location of cylinder. Can be either \code{m_sel()} or
-\code{m_vector3()}.}
+\item{end}{Ending position (or \code{list()} of positions) of line. Can
+be a single position or \code{list()} of positions. Format either
+\code{m_sel()} or \code{m_vector3()}.}
 
 \item{radius}{Radius of cylinder.}
 
@@ -34,25 +40,69 @@ m_add_cylinder(
 
 \item{dashed}{Boolean, dashed style cylinder instead of solid.}
 
+\item{color}{Color value for cylinders. Either 1 or vector of colors equal
+in length to \code{start}.}
+
+\item{alpha}{Alpha value for transparency.}
+
+\item{wireframe}{Logical, display as wireframe.}
+
+\item{hidden}{Logical, whether or not to hide the cylinder.}
+
 \item{spec}{Additional shape specifications defined with
 \code{m_shape_spec()}.}
 }
 \description{
-Creates cylinder shape from start to end, with styling spec from
-\code{m_shape_spec()}.
+Add cynliders between the given points. Will match starting point/s with
+ending point/s to create a line between each point. Styling options can be
+supplied as one option, or a vector of length equal to the number of lines.
 }
 \examples{
+## Add a cylinder between residue 1 & 2 of Chain "A"
 r3dmol() \%>\%
-  m_add_model(data = m_fetch_pdb("1bna")) \%>\%
+  m_add_model(pdb_6zsl) \%>\%
   m_zoom_to(sel = m_sel(resi = 1)) \%>\%
   m_add_cylinder(
-    start = m_sel(resi = 1),
-    end = m_sel(resi = 2),
+    start = m_sel(resi = 1, chain = "A"),
+    end = m_sel(resi = 2, chain = "A"),
+    dashed = TRUE,
+    radius = 0.1
+  )
+
+# Add two cylinders.
+# Blue cylinder is between residues 1 & 2
+# Green cylinder is between residues 3 & 4
+r3dmol() \%>\%
+  m_add_model(pdb_6zsl) \%>\%
+  m_zoom_to(sel = m_sel(resi = 1:4, chain = "A")) \%>\%
+  m_add_cylinder(
+    start = list(
+      m_sel(resi = 1, chain = "A"),
+      m_sel(resi = 3, chain = "A")
+    ),
+    end = list(
+      m_sel(resi = 2, chain = "A"),
+      m_sel(resi = 4, chain = "A")
+    ),
     dashed = TRUE,
     radius = 0.1,
-    spec = m_shape_spec(
-      color = "green",
-      opacity = 0.5
-    )
-  )
+    color = c("blue", "green")
+  ) \%>\%
+  m_add_res_labels(m_sel(resi = 1:4, chain = "A"))
+
+  # The same scene achieved with m_multi_resi_sel()
+r3dmol() \%>\%
+  m_add_model(pdb_6zsl) \%>\%
+  m_zoom_to(sel = m_sel(resi = 1:4, chain = "A")) \%>\%
+  m_add_cylinder(
+    start = m_multi_resi_sel(resi = c(1, 3), chain = "A"),
+    end = list(
+      m_sel(resi = 2, chain = "A"),
+      m_sel(resi = 4, chain = "A")
+    ),
+    dashed = TRUE,
+    radius = 0.1,
+    color = c("blue", "green")
+  ) \%>\%
+  m_add_res_labels(m_sel(resi = 1:4, chain = "A"))
 }

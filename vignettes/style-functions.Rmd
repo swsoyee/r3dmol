@@ -147,7 +147,8 @@ model %>%
     end = m_sel(
       resi = 1:10,
       chain = "B"
-    ), spec = list(dashed = TRUE)
+    ), 
+    dashed = TRUE
   ) %>%
   m_add_label(
     text = "The middle of the selection",

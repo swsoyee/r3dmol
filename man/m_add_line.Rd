@@ -2,33 +2,52 @@
 % Please edit documentation in R/add.R
 \name{m_add_line}
 \alias{m_add_line}
-\title{Add Line Between Points}
+\title{Add Lines Between Points}
 \usage{
-m_add_line(id, start, end, dashed = FALSE, spec = m_shape_spec())
+m_add_line(
+  id,
+  start,
+  end,
+  dashed = TRUE,
+  color = "black",
+  opacity = 1,
+  hidden = FALSE
+)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()}).}
 
-\item{start}{Start location of line Can be either \code{m_sel()} or
-\code{m_vector3()}.}
+\item{start}{Starting position (or \code{list()} of positions) of line. Can
+be a single position or \code{list()} of positions. Format either
+\code{m_sel()} or \code{m_vector3()}.}
 
-\item{end}{End location of line. Can be either \code{m_sel()} or
-\code{m_vector3()}.}
+\item{end}{Ending position (or \code{list()} of positions) of line. Can
+be a single position or \code{list()} of positions. Format either
+\code{m_sel()} or \code{m_vector3()}.}
 
-\item{dashed}{Boolean, whether or not to draw line as dashed.}
+\item{dashed}{Logical whether the lines are dashed.}
 
-\item{spec}{Additional shape specifications defined with
-\code{m_shape_spec()}.}
+\item{color}{Either single or list of color values equal to number of lines.}
+
+\item{opacity}{Either single or list of opacity values equal to number of
+lines.}
+
+\item{hidden}{Either single or list of hidden values equal to number of
+lines.}
 }
 \value{
 R3dmol \code{id} or a \code{r3dmol} object (the output from
-\code{r3dmol()}).
+\code{r3dmol()})
 }
 \description{
-Add a line between the given points.
+Add lines between the given points. Will match starting point/s with ending
+point/s to create a line between each point. Styling options can be supplied
+as one option, or a vector of length equal to the number of lines.
 }
 \examples{
+library(r3dmol)
+
 r3dmol() \%>\%
   m_add_model(data = pdb_6zsl) \%>\%
   m_set_style(style = m_style_cartoon()) \%>\%
@@ -41,17 +60,14 @@ r3dmol() \%>\%
     )
   ) \%>\%
   m_add_line(
-    start = m_sel(
-      resi = 1:10,
-      chain = "A"
+    start = list(
+      m_sel(resi = 1, chain = "A"),
+      m_sel(resi = 1, chain = "A")
     ),
-    end = m_sel(
-      resi = 1:10,
-      chain = "B"
-    )
-  ) \%>\%
-  m_add_label(
-    text = "The middle of the selection",
-    sel = m_sel(resi = 1:10)
+    end = list(
+      m_sel(resi = 10, chain = "A"),
+      m_sel(resi = 10, chain = "B")
+    ),
+    dashed = TRUE
   )
 }
