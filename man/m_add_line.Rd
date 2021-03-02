@@ -26,8 +26,7 @@ be a single position or \code{list()} of positions. Format either
 be a single position or \code{list()} of positions. Format either
 \code{m_sel()} or \code{m_vector3()}.}
 
-\item{dashed}{Logical whether the lines are dashed.
-of start and end points provided.}
+\item{dashed}{Logical whether the lines are dashed.}
 
 \item{color}{Either single or list of color values equal to number of lines.}
 

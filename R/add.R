@@ -192,7 +192,7 @@ m_add_curve <- function(id, spec = list()) {
 #' be a single position or \code{list()} of positions. Format either
 #' \code{m_sel()} or \code{m_vector3()}.
 #' @param radius Radius of cylinder.
-#' @param color Color value for cylinders. Either 1 or vector of colours equal
+#' @param color Color value for cylinders. Either 1 or vector of colors equal
 #' in length to \code{start}.
 #' @param fromCap Cap at start of cylinder. 0 for none, 1 for flat,
 #' 2 for rounded.
@@ -204,19 +204,53 @@ m_add_curve <- function(id, spec = list()) {
 #' @param spec Additional shape specifications defined with
 #' \code{m_shape_spec()}.
 #' @examples
+#' ## Add a cylinder between residue 1 & 2 of Chain "A"
 #' r3dmol() %>%
-#'   m_add_model(data = m_fetch_pdb("1bna")) %>%
+#'   m_add_model(pdb_6zsl) %>%
 #'   m_zoom_to(sel = m_sel(resi = 1)) %>%
 #'   m_add_cylinder(
-#'     start = m_sel(resi = 1),
-#'     end = m_sel(resi = 2),
+#'     start = m_sel(resi = 1, chain = "A"),
+#'     end = m_sel(resi = 2, chain = "A"),
+#'     dashed = TRUE,
+#'     radius = 0.1
+#'   )
+#'
+#' # Add two cylinders.
+#' # Blue cylinder is between residues 1 & 2
+#' # Green cylinder is between residues 3 & 4
+#' r3dmol() %>%
+#'   m_add_model(pdb_6zsl) %>%
+#'   m_zoom_to(sel = m_sel(resi = 1:4, chain = "A")) %>%
+#'   m_add_cylinder(
+#'     start = list(
+#'       m_sel(resi = 1, chain = "A"),
+#'       m_sel(resi = 3, chain = "A")
+#'     ),
+#'     end = list(
+#'       m_sel(resi = 2, chain = "A"),
+#'       m_sel(resi = 4, chain = "A")
+#'     ),
 #'     dashed = TRUE,
 #'     radius = 0.1,
-#'     spec = m_shape_spec(
-#'       color = "green",
-#'       opacity = 0.5
-#'     )
-#'   )
+#'     color = c("blue", "green")
+#'   ) %>%
+#'   m_add_res_labels(m_sel(resi = 1:4, chain = "A"))
+#'
+#'   # The same scene achieved with m_multi_resi_sel()
+#' r3dmol() %>%
+#'   m_add_model(pdb_6zsl) %>%
+#'   m_zoom_to(sel = m_sel(resi = 1:4, chain = "A")) %>%
+#'   m_add_cylinder(
+#'     start = m_multi_resi_sel(resi = c(1, 3), chain = "A"),
+#'     end = list(
+#'       m_sel(resi = 2, chain = "A"),
+#'       m_sel(resi = 4, chain = "A")
+#'     ),
+#'     dashed = TRUE,
+#'     radius = 0.1,
+#'     color = c("blue", "green")
+#'   ) %>%
+#'   m_add_res_labels(m_sel(resi = 1:4, chain = "A"))
 #' @export
 m_add_cylinder <- function(
                            id,
