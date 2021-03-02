@@ -2,17 +2,20 @@
 % Please edit documentation in R/add.R
 \name{m_add_cylinder}
 \alias{m_add_cylinder}
-\title{Add a cylinder shape to scene.}
+\title{Add Cylinder Between Points}
 \usage{
 m_add_cylinder(
   id,
-  starts,
-  ends,
+  start,
+  end,
   radius = 0.1,
   fromCap = 1,
   toCap = 1,
   dashed = FALSE,
   color = "black",
+  alpha = FALSE,
+  wireframe = FALSE,
+  hidden = FALSE,
   spec = m_shape_spec()
 )
 }
@@ -20,11 +23,13 @@ m_add_cylinder(
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()}).}
 
-\item{starts}{Start location of cylinder. Can be either \code{m_sel()} or
-\code{m_vector3()}. Can be single or vector of selections.}
+\item{start}{Starting position (or \code{list()} of positions) of line. Can
+be a single position or \code{list()} of positions. Format either
+\code{m_sel()} or \code{m_vector3()}.}
 
-\item{ends}{End location of cylinder. Can be either \code{m_sel()} or
-\code{m_vector3()}. Can be single or vector of selections.}
+\item{end}{Ending position (or \code{list()} of positions) of line. Can
+be a single position or \code{list()} of positions. Format either
+\code{m_sel()} or \code{m_vector3()}.}
 
 \item{radius}{Radius of cylinder.}
 
@@ -36,14 +41,21 @@ m_add_cylinder(
 \item{dashed}{Boolean, dashed style cylinder instead of solid.}
 
 \item{color}{Color value for cylinders. Either 1 or vector of colours equal
-in length to \code{starts}.}
+in length to \code{start}.}
+
+\item{alpha}{Alpha value for transparency.}
+
+\item{wireframe}{Logical, display as wireframe.}
+
+\item{hidden}{Logical, whether or not to hide the cylinder.}
 
 \item{spec}{Additional shape specifications defined with
 \code{m_shape_spec()}.}
 }
 \description{
-Creates cylinder shape from start to end, with styling spec from
-\code{m_shape_spec()}.
+Add cynliders between the given points. Will match starting point/s with
+ending point/s to create a line between each point. Styling options can be
+supplied as one option, or a vector of length equal to the number of lines.
 }
 \examples{
 r3dmol() \%>\%

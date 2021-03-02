@@ -6,8 +6,8 @@
 \usage{
 m_add_line(
   id,
-  starts,
-  ends,
+  start,
+  end,
   dashed = TRUE,
   color = "black",
   opacity = 1,
@@ -18,14 +18,16 @@ m_add_line(
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()}).}
 
-\item{starts}{Single of list of starting positions. Can be either
+\item{start}{Starting position (or \code{list()} of positions) of line. Can
+be a single position or \code{list()} of positions. Format either
 \code{m_sel()} or \code{m_vector3()}.}
 
-\item{ends}{Single of list of ending positions. Can be either
+\item{end}{Ending position (or \code{list()} of positions) of line. Can
+be a single position or \code{list()} of positions. Format either
 \code{m_sel()} or \code{m_vector3()}.}
 
 \item{dashed}{Logical whether the lines are dashed.
-of starts and ends points provided.}
+of start and end points provided.}
 
 \item{color}{Either single or list of color values equal to number of lines.}
 
@@ -40,7 +42,9 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()})
 }
 \description{
-Add lines between the given points.
+Add lines between the given points. Will match starting point/s with ending
+point/s to create a line between each point. Styling options can be supplied
+as one option, or a vector of length equal to the number of lines.
 }
 \examples{
 library(r3dmol)
@@ -57,11 +61,11 @@ r3dmol() \%>\%
     )
   ) \%>\%
   m_add_line(
-    starts = list(
+    start = list(
       m_sel(resi = 1, chain = "A"),
       m_sel(resi = 1, chain = "A")
     ),
-    ends = list(
+    end = list(
       m_sel(resi = 10, chain = "A"),
       m_sel(resi = 10, chain = "B")
     ),

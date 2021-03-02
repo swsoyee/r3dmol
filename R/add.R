@@ -144,21 +144,8 @@ m_add_curve <- function(id, spec = list()) {
 #' @param spec Additional shape specifications defined with
 #' @param color Color value for cylinder.
 #' \code{m_shape_spec()}.
-#' @examples
-#' r3dmol() %>%
-#'   m_add_model(data = m_fetch_pdb("1bna")) %>%
-#'   m_zoom_to(sel = m_sel(resi = 1)) %>%
-#'   m_add_cylinder(
-#'     start = m_sel(resi = 1),
-#'     end = m_sel(resi = 2),
-#'     dashed = TRUE,
-#'     radius = 0.1,
-#'     spec = m_shape_spec(
-#'       color = "green",
-#'       opacity = 0.5
-#'     )
-#'   )
-#' @export
+#' @noRd
+#' @keywords internal
 .m_add_cylinder <- function(
                             id,
                             start,
@@ -168,6 +155,9 @@ m_add_curve <- function(id, spec = list()) {
                             toCap = 1,
                             dashed = FALSE,
                             color,
+                            hidden,
+                            wireframe,
+                            alpha,
                             spec = m_shape_spec()) {
   arglist <- list(
     start = start,
@@ -176,7 +166,10 @@ m_add_curve <- function(id, spec = list()) {
     fromCap = fromCap,
     toCap = toCap,
     dashed = dashed,
-    color = color
+    color = color,
+    hidden = hidden,
+    wireframe = wireframe,
+    alpha = alpha
   )
 
   spec <- c(arglist, spec)
@@ -185,23 +178,29 @@ m_add_curve <- function(id, spec = list()) {
   callJS()
 }
 
-#' Add a cylinder shape to scene.
+#' Add Cylinder Between Points
 #'
-#' Creates cylinder shape from start to end, with styling spec from
-#' \code{m_shape_spec()}.
+#' Add cynliders between the given points. Will match starting point/s with
+#' ending point/s to create a line between each point. Styling options can be
+#' supplied as one option, or a vector of length equal to the number of lines.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
-#' @param starts Start location of cylinder. Can be either \code{m_sel()} or
-#' \code{m_vector3()}. Can be single or vector of selections.
-#' @param ends End location of cylinder. Can be either \code{m_sel()} or
-#' \code{m_vector3()}. Can be single or vector of selections.
+#' @param start Starting position (or \code{list()} of positions) of line. Can
+#' be a single position or \code{list()} of positions. Format either
+#' \code{m_sel()} or \code{m_vector3()}.
+#' @param end Ending position (or \code{list()} of positions) of line. Can
+#' be a single position or \code{list()} of positions. Format either
+#' \code{m_sel()} or \code{m_vector3()}.
 #' @param radius Radius of cylinder.
 #' @param color Color value for cylinders. Either 1 or vector of colours equal
-#' in length to \code{starts}.
+#' in length to \code{start}.
 #' @param fromCap Cap at start of cylinder. 0 for none, 1 for flat,
 #' 2 for rounded.
 #' @param toCap Cap at end of cylinder. 0 for none, 1 for flat, 2 for rounded.
 #' @param dashed Boolean, dashed style cylinder instead of solid.
+#' @param hidden Logical, whether or not to hide the cylinder.
+#' @param wireframe Logical, display as wireframe.
+#' @param alpha Alpha value for transparency.
 #' @param spec Additional shape specifications defined with
 #' \code{m_shape_spec()}.
 #' @examples
@@ -228,12 +227,15 @@ m_add_cylinder <- function(
                            toCap = 1,
                            dashed = FALSE,
                            color = "black",
+                           alpha = FALSE,
+                           wireframe = FALSE,
+                           hidden = FALSE,
                            spec = m_shape_spec()) {
-  if (methods::is(starts)[1] == "AtomSelectionSpec") {
-    starts <- list(starts)
+  if (methods::is(start)[1] == "AtomSelectionSpec") {
+    start <- list(start)
   }
-  if (methods::is(ends)[1] == "AtomSelectionSpec") {
-    ends <- list(ends)
+  if (methods::is(end)[1] == "AtomSelectionSpec") {
+    end <- list(end)
   }
 
   cylinder_specs <- .m_multi_spec(
@@ -246,6 +248,9 @@ m_add_cylinder <- function(
   .test_length(toCap, start)
   .test_length(dashed, start)
   .test_length(color, start)
+  .test_length(hidden, start)
+  .test_length(wireframe, start)
+  .test_length(alpha, start)
 
   aesthetics <- data.frame(
     line_num = seq_along(start),
@@ -253,7 +258,10 @@ m_add_cylinder <- function(
     fromCap = fromCap,
     toCap = toCap,
     dashed = dashed,
-    color = color
+    color = color,
+    hidden = hidden,
+    wireframe = wireframe,
+    alpha = alpha
   )
 
   counter <- 0
@@ -264,11 +272,15 @@ m_add_cylinder <- function(
       .m_add_cylinder(
         start = cylinder_spec$start,
         end = cylinder_spec$end,
-        color = aesthetics$color[counter],
         radius = aesthetics$radius[counter],
         fromCap = aesthetics$fromCap[counter],
         toCap = aesthetics$toCap[counter],
-        dashed = aesthetics$dashed[counter]
+        dashed = aesthetics$dashed[counter],
+        color = aesthetics$color[counter],
+        hidden = aesthetics$hidden[counter],
+        wireframe = aesthetics$wireframe[counter],
+        alpha = aesthetics$alpha[counter]
+
       )
   }
   id
@@ -321,15 +333,19 @@ m_add_cylinder <- function(
 
 #' Add Lines Between Points
 #'
-#' Add lines between the given points.
+#' Add lines between the given points. Will match starting point/s with ending
+#' point/s to create a line between each point. Styling options can be supplied
+#' as one option, or a vector of length equal to the number of lines.
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()}).
-#' @param starts Single of list of starting positions. Can be either
+#' @param start Starting position (or \code{list()} of positions) of line. Can
+#' be a single position or \code{list()} of positions. Format either
 #' \code{m_sel()} or \code{m_vector3()}.
-#' @param ends Single of list of ending positions. Can be either
+#' @param end Ending position (or \code{list()} of positions) of line. Can
+#' be a single position or \code{list()} of positions. Format either
 #' \code{m_sel()} or \code{m_vector3()}.
 #' @param dashed Logical whether the lines are dashed.
-#' of starts and ends points provided.
+#' of start and end points provided.
 #' @param color Either single or list of color values equal to number of lines.
 #' @param opacity Either single or list of opacity values equal to number of
 #' lines.
@@ -356,11 +372,11 @@ m_add_cylinder <- function(
 #'     )
 #'   ) %>%
 #'   m_add_line(
-#'     starts = list(
+#'     start = list(
 #'       m_sel(resi = 1, chain = "A"),
 #'       m_sel(resi = 1, chain = "A")
 #'     ),
-#'     ends = list(
+#'     end = list(
 #'       m_sel(resi = 10, chain = "A"),
 #'       m_sel(resi = 10, chain = "B")
 #'     ),
@@ -368,39 +384,39 @@ m_add_cylinder <- function(
 #'   )
 m_add_line <- function(
                        id,
-                       starts,
-                       ends,
+                       start,
+                       end,
                        dashed = TRUE,
                        color = "black",
                        opacity = 1,
                        hidden = FALSE) {
-  if (missing(starts) | missing(ends)) {
+  if (missing(start) | missing(end)) {
     stop("At least 1 start and 1 end must be passed in.")
   }
 
-  if (methods::is(starts)[1] == "AtomSelectionSpec") {
-    starts <- list(starts)
+  if (methods::is(start)[1] == "AtomSelectionSpec") {
+    start <- list(start)
   }
-  if (methods::is(ends)[1] == "AtomSelectionSpec") {
-    ends <- list(ends)
+  if (methods::is(end)[1] == "AtomSelectionSpec") {
+    end <- list(end)
   }
 
   line_specs <- .m_multi_spec(
-    starts = starts,
-    ends = ends
+    starts = start,
+    ends = end
   )
 
-  if (length(starts) != length(ends)) {
-    stop(paste("ERROR length(starts) must equal length(ends)."))
+  if (length(start) != length(end)) {
+    stop(paste("ERROR length(start) must equal length(end)."))
   }
 
-  .test_length(dashed, starts)
-  .test_length(color, starts)
-  .test_length(opacity, starts)
-  .test_length(hidden, starts)
+  .test_length(dashed, start)
+  .test_length(color, start)
+  .test_length(opacity, start)
+  .test_length(hidden, start)
 
   aesthetics <- data.frame(
-    line_num = seq_along(starts),
+    line_num = seq_along(start),
     dashed = dashed,
     color = color,
     opacity = opacity,

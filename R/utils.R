@@ -54,7 +54,7 @@ callJS <- function() {
     if (length(option) != 1) {
       stop(paste(
         deparse(substitute(option)), "options must of length 1 or",
-        "equal to the number of line starts & stops."
+        "equal to the number of starts & ends."
       ))
     }
   }

@@ -88,8 +88,8 @@ r3dmol() \%>\%
     )
   ) \%>\%
   m_add_line(
-    starts = m_multi_resi_sel(resi = rep(1, 9), chain = "A"),
-    ends = m_multi_resi_sel(
+    start = m_multi_resi_sel(resi = rep(1, 9), chain = "A"),
+    end = m_multi_resi_sel(
       resi = 2:10,
       chain = "B"
     )
