@@ -139,7 +139,7 @@ model %>%
       m_style_sphere(scale = 0.3)
     )
   ) %>%
-  m_add_lines(
+  m_add_line(
     start = m_sel(
       resi = 1:10,
       chain = "A"
