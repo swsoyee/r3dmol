@@ -12,14 +12,14 @@
                           starts,
                           ends) {
   # get number of starting and ending points
-  l.starts <- length(starts)
-  l.ends <- length(ends)
+  length_starts <- length(starts)
+  length_ends <- length(ends)
 
   # For each given start location, match it with an end location and combine
   # into a list of specifications, each with a start and end location.
   line_list <- list()
 
-  for (i in 1:l.starts) {
+  for (i in 1:length_starts) {
     spec <- list(
       start = starts[[i]],
       end = ends[[i]]
