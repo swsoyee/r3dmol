@@ -220,16 +220,15 @@ m_add_curve <- function(id, spec = list()) {
 #'   )
 #' @export
 m_add_cylinder <- function(
-                            id,
-                            starts,
-                            ends,
-                            radius = 0.1,
-                            fromCap = 1,
-                            toCap = 1,
-                            dashed = FALSE,
-                            color = "black",
-                            spec = m_shape_spec()) {
-
+                           id,
+                           starts,
+                           ends,
+                           radius = 0.1,
+                           fromCap = 1,
+                           toCap = 1,
+                           dashed = FALSE,
+                           color = "black",
+                           spec = m_shape_spec()) {
   if (methods::is(starts)[1] == "AtomSelectionSpec") {
     starts <- list(starts)
   }
@@ -368,13 +367,13 @@ m_add_cylinder <- function(
 #'     dashed = TRUE
 #'   )
 m_add_line <- function(
-                        id,
-                        starts,
-                        ends,
-                        dashed = TRUE,
-                        color = "black",
-                        opacity = 1,
-                        hidden = FALSE) {
+                       id,
+                       starts,
+                       ends,
+                       dashed = TRUE,
+                       color = "black",
+                       opacity = 1,
+                       hidden = FALSE) {
   if (missing(starts) | missing(ends)) {
     stop("At least 1 start and 1 end must be passed in.")
   }
