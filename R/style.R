@@ -227,7 +227,7 @@ m_style_label <- function(
 #'
 #' Styling options for the line representation. Used inside
 #' \code{m_add_style()} and \code{m_set_style()}. Can also be used for styling
-#' when adding individual lines with \code{m_add_lines()}.
+#' when adding individual lines with \code{m_add_line()}.
 #'
 #' @param colorScheme Specify scheme to color the atoms by. Default is
 #' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
@@ -295,7 +295,7 @@ m_style_surface <- function(
 #' Specify Styling for Generic Shapes
 #'
 #' Styling options for the various shapes. Used inside \code{m_add_sphere()},
-#' \code{m_add_arrow()}, \code{m_add_cylinders()} etc.
+#' \code{m_add_arrow()}, \code{m_add_cylinder()} etc.
 #'
 #' @param color Solid color values.
 #' @param opacity Transparency value. 1 for opaque, 0 for invisible.
