@@ -221,8 +221,8 @@ m_add_curve <- function(id, spec = list()) {
 #' @export
 m_add_cylinder <- function(
                            id,
-                           starts,
-                           ends,
+                           start,
+                           end,
                            radius = 0.1,
                            fromCap = 1,
                            toCap = 1,
@@ -237,18 +237,18 @@ m_add_cylinder <- function(
   }
 
   cylinder_specs <- .m_multi_spec(
-    starts = starts,
-    ends = ends
+    starts = start,
+    ends = end
   )
 
-  .test_length(radius, starts)
-  .test_length(fromCap, starts)
-  .test_length(toCap, starts)
-  .test_length(dashed, starts)
-  .test_length(color, starts)
+  .test_length(radius, start)
+  .test_length(fromCap, start)
+  .test_length(toCap, start)
+  .test_length(dashed, start)
+  .test_length(color, start)
 
   aesthetics <- data.frame(
-    line_num = seq_along(starts),
+    line_num = seq_along(start),
     radius = radius,
     fromCap = fromCap,
     toCap = toCap,
