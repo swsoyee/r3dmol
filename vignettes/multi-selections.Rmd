@@ -1,0 +1,206 @@
+---
+title: "Multiple Selections"
+subtitle: "Dealing with multiple selections to speed up adding lines & shapes."
+author: "Brady Johnston"
+date: '2021-03-02'
+output:
+  # md_document:
+  #   pandoc_args: ["--wrap=preserve"]
+  html_document:
+    theme: flatly
+    highlight: pygments
+---
+
+<!--
+%\VignetteEngine{knitr::rmarkdown}
+%\VignetteIndexEntry{Style Functions}
+-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## What is in a selection
+
+Selections in `{r3dmol}` are provided via the `m_sel()` function. These 
+selections are then interpreted by by `3Dmol.js` that is the underlying 
+molecular library. 
+
+When dealing with styles, `3Dmol.js` works on every atom inside the `m_sel()`. 
+When creating new objects such as lines, spheres or cylinders and `3Dmol.js` interprets these selections by finding the **middle-most-point** of the selection.
+
+If we look at the code below, the styles are being applied to the residue
+number 2. Each atom of the selection `m_sel(resi = 2, chain = "A")` has the 
+specified styles applied to it.
+
+```{r}
+library(r3dmol)
+
+model <- r3dmol() %>%
+  m_add_model(pdb_6zsl) %>%
+  m_set_style(m_style_stick(hidden = TRUE)) %>%
+  m_add_style(
+    style = c(
+      m_style_stick(),
+      m_style_sphere(scale = 0.3)
+    ),
+    sel = m_sel(resi = 2, chain = "A")
+  ) %>%
+  m_zoom_to(m_sel(resi = 2, chain = "A"))
+
+model %>%
+  m_add_res_labels(m_sel(resi = 2, chain = "A"),
+    style = m_style_label(inFront = FALSE)
+  ) %>%
+  m_spin()
+```
+
+What if we add a shape to this scene, using the same selection
+`m_sel(resi = 2, chain = "A")`?
+
+```{r}
+model %>%
+  m_add_sphere(
+    center = m_sel(resi = 2, chain = "A"),
+    spec = m_shape_spec(
+      wireframe = TRUE,
+      color = "BLUE"
+    )
+  ) %>%
+  m_spin()
+```
+
+We see that only a single sphere was added because only a single 
+selection was supplied. `3Dmol.js` found the _middle-point_ of that selection, 
+and that is where the sphere was created.
+
+## Multiple selections
+
+Some functions in `{r3dmol}` can take multiple selections as a list, to speed
+up the process of creating objects without having to call `m_add_*()` multiple 
+times.
+
+### Add More Residues
+
+First, let's add a few more residues to our viewer and add labels so we can keep
+track of what is going where.
+
+```{r}
+model <- model %>%
+  m_set_style(
+    style = c(
+      m_style_stick(),
+      m_style_sphere(scale = 0.3)
+    ),
+    sel = m_sel(resi = c(2, 4, 6, 8), chain = "A")
+  ) %>%
+  m_zoom_to(m_sel(resi = 2:8, chain = "A")) %>%
+  m_spin(speed = 0.5) %>%
+  m_add_res_labels(
+    m_sel(
+      resi = c(2, 4, 6, 8),
+      chain = "A"
+    ),
+    style = m_style_label(inFront = FALSE)
+  )
+
+model
+```
+
+## Adding Lines.
+
+Using the `m_add_line()` we can add lines between selections. 
+
+One method is to do a new `m_add_line()` for each line. 
+
+Notice how, just like  `m_add_sphere()`, the middle of the selection for the
+`start` and `end` positions were found, and that is where the line was drawn.
+
+```{r}
+model %>%
+  m_add_line(
+    start = m_sel(resi = 2, chain = "A"),
+    end = m_sel(resi = 4, chain = "A"),
+    color = "green",
+    dashed = FALSE
+  ) %>%
+  m_add_line(
+    start = m_sel(resi = 6, chain = "A"),
+    end = m_sel(resi = 8, chain = "A"),
+    color = "blue"
+  )
+```
+
+Alternatively, you can supply multiple `start` and `end` selections and multiple
+lines will be created. You must provide equal numbers of `start` and `end` 
+selections.
+
+You can also supply aesthetic values to the single `m_add_line()` function. 
+These can be either of `length == 1`, in which case the aesthetic will be applied to all 
+lines (as with the `dashed` argument in the example below) or `length == #lines`
+where the aesthetic vector must have a value for each of the lines being created
+(as in the `color` argument in the example below).
+
+```{r}
+model %>%
+  m_add_line(
+    start = list(
+      m_sel(resi = 2, chain = "A"),
+      m_sel(resi = 4, chain = "A")
+    ),
+    end = list(
+      m_sel(resi = 6, chain = "A"),
+      m_sel(resi = 8, chain = "A")
+    ),
+    dashed = FALSE,
+    color = c("green", "red")
+  )
+```
+
+
+## `m_muli_resi_sel()`
+
+To make it easier to supply multiple selections, the `m_multi_resi_sel()` 
+function returns a list of `m_sel()` selections, which have all of the same
+selection criteria, but only contain a single residue each. 
+
+This single function selection:
+```{r, eval = FALSE}
+m_multi_resi_sel(resi = 2:4, chain = "A")
+```
+
+Is the same as the list of `m_sel()` selections.
+```{r, eval = FALSE}
+list(
+  m_sel(resi = 2, chain = "A"),
+  m_sel(resi = 3, chain = "A"),
+  m_sel(resi = 4, chain = "A")
+)
+```
+
+```{r}
+model %>%
+  m_add_line(
+    start = m_multi_resi_sel(resi = c(2, 4), chain = "A"),
+    end = m_multi_resi_sel(resi = c(6, 8), chain = "A"),
+    dashed = c(FALSE, TRUE),
+    color = "green"
+  )
+```
+
+This can be applied to as many lines as required by increasing the number
+of residues selected with `m_multi_resi_sel()`.
+
+```{r}
+model %>%
+  m_add_style(m_style_cartoon()) %>%
+  m_add_line(
+    start = m_multi_resi_sel(resi = 2:51, chain = "A"),
+    end = m_multi_resi_sel(resi = 2:51, chain = "B"),
+    dashed = rep(c(TRUE, FALSE), 25),
+    color = rep(c("blue", "red"), 25)
+  ) %>%
+  m_zoom_to()
+```
+
