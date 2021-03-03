@@ -749,10 +749,10 @@
     },
     "textshaping": {
       "Package": "textshaping",
-      "Version": "0.3.0",
+      "Version": "0.3.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "08517f55a30f309465c722ebd83f7e10"
+      "Hash": "8a660b6017010f0599569f5a7a06d566"
     },
     "tibble": {
       "Package": "tibble",
