@@ -2,7 +2,9 @@
 
 ### Features
 
-* Added `speed` option for `m_spin()` and option for `keepH` in `m_add_model()` ([#13](https://github.com/swsoyee/r3dmol/pull/13)).
+* Add multiple lines and cylinders in one function call are supported ([#17](https://github.com/swsoyee/r3dmol/pull/17)). Refer to [this article](https://swsoyee.github.io/r3dmol/articles/multi-selections.html) for 
+more information.
+* Add `speed` option for `m_spin()` and option for `keepH` in `m_add_model()` ([#13](https://github.com/swsoyee/r3dmol/pull/13)).
 
 ### Documentation
 
