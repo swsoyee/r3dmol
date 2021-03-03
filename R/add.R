@@ -337,7 +337,6 @@ m_add_cylinder <- function(
 #' \code{r3dmol()}).
 #' @noRd
 #' @keywords internal
-
 .m_add_line <- function(
                         id,
                         start,
@@ -423,7 +422,7 @@ m_add_line <- function(
                        opacity = 1,
                        hidden = FALSE) {
   if (missing(start) | missing(end)) {
-    stop("At least 1 start and 1 end must be passed in.")
+    stop("At least 1 `start` and 1 `end` must be passed in.")
   }
 
   if (methods::is(start)[1] == "AtomSelectionSpec") {
@@ -433,14 +432,14 @@ m_add_line <- function(
     end <- list(end)
   }
 
+  if (length(start) != length(end)) {
+    stop("length of `start` must be equal to length of `end`.")
+  }
+
   line_specs <- .m_multi_spec(
     starts = start,
     ends = end
   )
-
-  if (length(start) != length(end)) {
-    stop(paste("ERROR length(start) must equal length(end)."))
-  }
 
   .test_length(dashed, start)
   .test_length(color, start)
