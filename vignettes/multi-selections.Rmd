@@ -28,7 +28,8 @@ selections are then interpreted by by `3Dmol.js` that is the underlying
 molecular library. 
 
 When dealing with styles, `3Dmol.js` works on every atom inside the `m_sel()`. 
-When creating new objects such as lines, spheres or cylinders and `3Dmol.js` interprets these selections by finding the **middle-most-point** of the 
+When creating new objects such as lines, spheres or cylinders and `3Dmol.js` 
+interprets these selections by finding the **middle-most-point** of the 
 selection.
 
 If we look at the code below, the styles are being applied to the residue
@@ -82,7 +83,7 @@ Some functions in `{r3dmol}` can take multiple selections as a list, to speed
 up the process of creating objects without having to call `m_add_*()` multiple 
 times.
 
-### Add More Residues
+### Add more residues
 
 First, let's add a few more residues to our viewer and add labels so we can keep
 track of what is going where.
@@ -109,7 +110,7 @@ model <- model %>%
 model
 ```
 
-## Adding Lines.
+## Adding lines
 
 Using the `m_add_line()` we can add lines between selections. 
 
@@ -160,7 +161,7 @@ model %>%
 ```
 
 
-## `m_muli_resi_sel()`
+## Using `m_muli_resi_sel()`
 
 To make it easier to supply multiple selections, the `m_multi_resi_sel()` 
 function returns a list of `m_sel()` selections, which have all of the same
@@ -205,4 +206,3 @@ model %>%
   ) %>%
   m_zoom_to()
 ```
-
