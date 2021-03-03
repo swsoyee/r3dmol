@@ -13,7 +13,7 @@ output:
 
 <!--
 %\VignetteEngine{knitr::rmarkdown}
-%\VignetteIndexEntry{Style Functions}
+%\VignetteIndexEntry{Multiple Selections}
 -->
 
 ```{r setup, include=FALSE}
@@ -28,7 +28,8 @@ selections are then interpreted by by `3Dmol.js` that is the underlying
 molecular library. 
 
 When dealing with styles, `3Dmol.js` works on every atom inside the `m_sel()`. 
-When creating new objects such as lines, spheres or cylinders and `3Dmol.js` interprets these selections by finding the **middle-most-point** of the selection.
+When creating new objects such as lines, spheres or cylinders and `3Dmol.js` interprets these selections by finding the **middle-most-point** of the 
+selection.
 
 If we look at the code below, the styles are being applied to the residue
 number 2. Each atom of the selection `m_sel(resi = 2, chain = "A")` has the 
@@ -137,10 +138,10 @@ lines will be created. You must provide equal numbers of `start` and `end`
 selections.
 
 You can also supply aesthetic values to the single `m_add_line()` function. 
-These can be either of `length == 1`, in which case the aesthetic will be applied to all 
-lines (as with the `dashed` argument in the example below) or `length == #lines`
-where the aesthetic vector must have a value for each of the lines being created
-(as in the `color` argument in the example below).
+These can be either of `length == 1`, in which case the aesthetic will be 
+applied to all lines (as with the `dashed` argument in the example below) or 
+`length == #lines` where the aesthetic vector must have a value for each of the 
+lines being created (as in the `color` argument in the example below).
 
 ```{r}
 model %>%
@@ -178,7 +179,8 @@ list(
   m_sel(resi = 4, chain = "A")
 )
 ```
-
+We can then use this to supply multiple selections to the `start` and `end` 
+arguments of `m_add_line()`.
 ```{r}
 model %>%
   m_add_line(
