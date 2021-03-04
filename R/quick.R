@@ -31,7 +31,6 @@
 #' # preview structure, highlighting particular region.
 #' pdb %>%
 #'   m_quick_look(m_sel(resi = 1:10, chain = "A"), spin = 0.2)
-#'
 #' \dontrun{
 #' # Fetch given PDB string and quickly preview structure
 #' "4ozs" %>%
@@ -39,23 +38,26 @@
 #' }
 #' @export
 m_quick_look <- function(model,
-                          highlight = m_sel(),
-                          zoom = TRUE,
-                          spin = FALSE,
-                          nomouse = FALSE,
-                          ribbon = FALSE,
-                          outline = TRUE,
-                          backgroundColor = "white") {
-  if (is.character(model))
+                         highlight = m_sel(),
+                         zoom = TRUE,
+                         spin = FALSE,
+                         nomouse = FALSE,
+                         ribbon = FALSE,
+                         outline = TRUE,
+                         backgroundColor = "white") {
+  if (is.character(model)) {
     model <- m_fetch_pdb(model)
+  }
 
-  if (methods::is(model) == "pdb")
+  if (methods::is(model) == "pdb") {
     model <- m_bio3d(model)
+  }
 
   zoom_highlight <- highlight
 
-  if (length(names(highlight)) == 0)
+  if (length(names(highlight)) == 0) {
     highlight <- m_sel(invert = TRUE)
+  }
 
   id <- r3dmol(
     viewer_spec = m_viewer_spec(
@@ -65,9 +67,10 @@ m_quick_look <- function(model,
     )
   ) %>%
     m_add_models(model) %>%
-    m_set_style(m_style_cartoon(color = "spectrum",
-                                ribbon = ribbon)) %>%
-
+    m_set_style(m_style_cartoon(
+      color = "spectrum",
+      ribbon = ribbon
+    )) %>%
     m_add_style(
       style = c(
         m_style_stick(),
@@ -78,15 +81,15 @@ m_quick_look <- function(model,
     m_zoom_to() %>%
     m_spin(speed = as.numeric(spin))
 
-  if (outline == TRUE)
+  if (outline == TRUE) {
     id <- id %>%
       m_add_outline()
+  }
 
-  if (zoom == TRUE)
+  if (zoom == TRUE) {
     id <- id %>%
       m_zoom_to(zoom_highlight)
+  }
 
   id
-
-
 }
