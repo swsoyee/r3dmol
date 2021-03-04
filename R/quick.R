@@ -26,18 +26,18 @@
 #'
 #' # quickly preview structure
 #' pdb %>%
-#'   m_quick_look()
+#'   m_glimpse()
 #'
 #' # preview structure, highlighting particular region.
 #' pdb %>%
-#'   m_quick_look(m_sel(resi = 1:10, chain = "A"), spin = 0.2)
+#'   m_glimpse(m_sel(resi = 1:10, chain = "A"), spin = 0.2)
 #' \dontrun{
 #' # Fetch given PDB string and quickly preview structure
 #' "4ozs" %>%
-#'   m_quick_look(spin = TRUE)
+#'   m_glimpse(spin = TRUE)
 #' }
 #' @export
-m_quick_look <- function(model,
+m_glimpse <- function(model,
                          highlight = m_sel(),
                          zoom = TRUE,
                          spin = FALSE,
