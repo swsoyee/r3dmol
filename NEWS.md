@@ -1,9 +1,9 @@
 # r3dmol 0.1.1.9000
 
 ### Features
-* Quickly look at structures with `m_quick_look()`. Initialises the viewer with 
+* Quickly look at structures with `m_glimpse()`. Initialises the viewer with 
 a range of useful defaults. Allows for quickly visually inspecting the structure
-and further customisation of the viewer.
+and further customisation of the viewer to speed up setup.
 
 * Add multiple lines and cylinders in one function call are supported ([#17](https://github.com/swsoyee/r3dmol/pull/17)). Refer to [this article](https://swsoyee.github.io/r3dmol/articles/multi-selections.html) for 
 more information.
