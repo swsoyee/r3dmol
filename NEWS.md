@@ -2,6 +2,9 @@
 
 ### Features
 
+* Quickly look at structures with `m_glimpse()`. Initializes the viewer with 
+a range of useful defaults. Allows for quickly visually inspecting the structure
+and further customization of the viewer to speed up setup.
 * Add multiple lines and cylinders in one function call are supported ([#17](https://github.com/swsoyee/r3dmol/pull/17)). Refer to [this article](https://swsoyee.github.io/r3dmol/articles/multi-selections.html) for 
 more information.
 * Add `speed` option for `m_spin()` and option for `keepH` in `m_add_model()` ([#13](https://github.com/swsoyee/r3dmol/pull/13)).
