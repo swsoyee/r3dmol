@@ -38,16 +38,16 @@
 #' }
 #' @export
 m_glimpse <- function(model,
-                         highlight = m_sel(),
-                         zoom = TRUE,
-                         spin = FALSE,
-                         nomouse = FALSE,
-                         ribbon = FALSE,
-                         outline = TRUE,
-                         backgroundColor = "white") {
+                      highlight = m_sel(),
+                      zoom = TRUE,
+                      spin = FALSE,
+                      nomouse = FALSE,
+                      ribbon = FALSE,
+                      outline = TRUE,
+                      backgroundColor = "white") {
   if (is.character(model)) {
     model <- m_fetch_pdb(model)
-  }else if (methods::is(model) == "pdb") {
+  } else if (methods::is(model) == "pdb") {
     model <- m_bio3d(model)
   }
 
