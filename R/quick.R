@@ -52,6 +52,8 @@ m_quick_look <- function(model,
   if (methods::is(model) == "pdb")
     model <- m_bio3d(model)
 
+  zoom_highlight <- highlight
+
   if (length(names(highlight)) == 0)
     highlight <- m_sel(invert = TRUE)
 
@@ -82,7 +84,7 @@ m_quick_look <- function(model,
 
   if (zoom == TRUE)
     id <- id %>%
-      m_zoom_to(highlight)
+      m_zoom_to(zoom_highlight)
 
   id
 
