@@ -47,9 +47,7 @@ m_quick_look <- function(model,
                          backgroundColor = "white") {
   if (is.character(model)) {
     model <- m_fetch_pdb(model)
-  }
-
-  if (methods::is(model) == "pdb") {
+  }else if (methods::is(model) == "pdb") {
     model <- m_bio3d(model)
   }
 
