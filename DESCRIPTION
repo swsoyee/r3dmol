@@ -5,11 +5,13 @@ Authors@R:
     c(person(given = "Wei",
            family = "Su",
            role = c("aut", "cre"),
-           email = "swsoyee@gmail.com"),
+           email = "swsoyee@gmail.com",
+           comment = c(ORCID = "0000-0002-9302-5332")),
     person(given = "Brady", 
            family = "Johnston", 
            role = "aut", 
-           email = "brady.johnston@me.com"))
+           email = "brady.johnston@me.com",
+           comment = c(ORCID = "0000-0001-6301-2269")))
 Maintainer: Wei Su <swsoyee@gmail.com>
 Description: Create rich and fully interactive 3D visualizations of molecular data.
     Visualizations can be included in Shiny apps and R markdown documents, or viewed
