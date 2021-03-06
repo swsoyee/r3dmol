@@ -32,6 +32,7 @@
 #' pdb %>%
 #'   m_glimpse(m_sel(resi = 1:10, chain = "A"), spin = 0.2)
 #' \dontrun{
+#'
 #' # Fetch given PDB string and quickly preview structure
 #' "4ozs" %>%
 #'   m_glimpse(spin = TRUE)
