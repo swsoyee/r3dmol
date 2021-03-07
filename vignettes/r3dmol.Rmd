@@ -111,7 +111,7 @@ r3dmol(id = "demo_sdf", elementId = "demo_sdf") %>%
   m_zoom_to()
 ```
 
-### Dynamic styles
+### Dynamic Styles
 
 ```{r Dynamic styles}
 r3dmol() %>%
@@ -126,6 +126,30 @@ r3dmol() %>%
   m_zoom_to()
 ```
 
+### Multiple Viewers
+
+```{r multiple viewers}
+m1 <- r3dmol() %>%
+  m_add_model(data = pdb_6zsl, format = "pdb") %>%
+  m_zoom_to()
+
+m2 <- m1 %>%
+  m_set_style(style = m_style_cartoon(color = "spectrum"))
+
+m3 <- r3dmol() %>%
+  m_add_model(data = pdb_1j72, format = "pdb") %>%
+  m_set_style(style = m_style_stick()) %>%
+  m_zoom_to()
+
+m4 <- m3 %>%
+  m_set_style(style = m_style_sphere())
+
+m_grid(
+  viewer = list(m1, m2, m3, m4),
+  configs = list(rows = 2, cols = 2, control_all = TRUE),
+  viewer_config = list(backgroundColor = "white")
+)
+```
 
 ## About `3Dmol.js`
 
