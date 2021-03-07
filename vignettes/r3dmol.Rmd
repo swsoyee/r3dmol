@@ -1,7 +1,7 @@
 ---
 title: 'Introduction to r3dmol'
 author: 'Wei Su'
-date: '2021-02-05'
+date: '2021-03-08'
 output:
   # md_document:
   #   pandoc_args: ["--wrap=preserve"]
@@ -27,13 +27,13 @@ This is an R package that provides support for [`3Dmol.js`](https://3dmol.csb.pi
 
 ```{r installation, eval=FALSE}
 # install.packages("devtools")
-devtools::install_github('swsoyee/r3dmol')
+devtools::install_github("swsoyee/r3dmol")
 ```
 
 ```{r demo}
 library(r3dmol)
 
-# Set up the initial viewer 
+# Set up the initial viewer
 r3dmol(
   viewer_spec = m_viewer_spec(
     cartoonQuality = 10,
@@ -44,21 +44,25 @@ r3dmol(
   elementId = "demo"
 ) %>%
   # Add model to scene
-  m_add_model(data = pdb_6zsl, format = "pdb") %>%  
+  m_add_model(data = pdb_6zsl, format = "pdb") %>%
   # Zoom to encompass the whole scene
   m_zoom_to() %>%
   # Set style of structures
-  m_set_style(style = m_style_cartoon(color = '#00cc96')) %>% 
+  m_set_style(style = m_style_cartoon(color = "#00cc96")) %>%
   # Set style of specific selection (selecting by secondary)
-  m_set_style(sel = m_sel(ss = 's'),                 
-              style = m_style_cartoon(color = '#636efa', arrows = TRUE)) %>% 
+  m_set_style(
+    sel = m_sel(ss = "s"),
+    style = m_style_cartoon(color = "#636efa", arrows = TRUE)
+  ) %>%
   # Style the alpha helix
-  m_set_style(sel = m_sel(ss = 'h'),                 # Style alpha helix
-              style = m_style_cartoon(color = '#ff7f0e')) %>%
+  m_set_style(
+    sel = m_sel(ss = "h"), # Style alpha helix
+    style = m_style_cartoon(color = "#ff7f0e")
+  ) %>%
   # Rotate the scene by given angle on given axis
-  m_rotate(angle = 90, axis = 'y') %>%
+  m_rotate(angle = 90, axis = "y") %>%
   # Animate the scene by spinning it
-  m_spin()                          
+  m_spin()
 ```
 
 ```{r xyz}
@@ -70,14 +74,18 @@ H    -0.465975   -0.364992    0.807088    0.283368    0.257996   -0.583024
 H    -0.465979   -0.364991   -0.807088    0.392764    0.342436    0.764260
 "
 
-r3dmol(width = 400,
-       height = 400,
-       backgroundColor = "0xeeeeee",
-       id = "demo_xyz",
-       elementId = "demo_xyz") %>%
-  m_add_model(data = xyz,
-              format = "xyz",
-              options = list(vibrate = list(frames = 10, amplitude = 1))) %>%
+r3dmol(
+  width = 400,
+  height = 400,
+  backgroundColor = "0xeeeeee",
+  id = "demo_xyz",
+  elementId = "demo_xyz"
+) %>%
+  m_add_model(
+    data = xyz,
+    format = "xyz",
+    options = list(vibrate = list(frames = 10, amplitude = 1))
+  ) %>%
   m_set_style(style = m_style_stick()) %>%
   m_animate(list(loop = "backAndForth")) %>%
   m_zoom_to()
@@ -106,8 +114,10 @@ $$$$"
 r3dmol(id = "demo_sdf", elementId = "demo_sdf") %>%
   m_add_model(data = benz, format = "sdf") %>%
   m_set_style(style = m_style_stick()) %>%
-  m_set_style(sel = m_sel(model = 0), 
-              style = m_style_stick(colorScheme = "cyanCarbon")) %>%
+  m_set_style(
+    sel = m_sel(model = 0),
+    style = m_style_stick(colorScheme = "cyanCarbon")
+  ) %>%
   m_zoom_to()
 ```
 
@@ -117,12 +127,11 @@ r3dmol(id = "demo_sdf", elementId = "demo_sdf") %>%
 r3dmol() %>%
   m_add_model(data = pdb_1j72) %>%
   m_set_style(style = m_style_cartoon(
-      colorfunc = "
+    colorfunc = "
         function(atom) {
           return atom.resi % 2 == 0 ? 'white' : 'green';
         }"
-    )
-  ) %>%
+  )) %>%
   m_zoom_to()
 ```
 
