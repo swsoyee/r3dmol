@@ -2,6 +2,7 @@
 
 ### Features
 
+* Add `m_grid()` to support multiple viewers ([#25](https://github.com/swsoyee/r3dmol/pull/25)).
 * Quickly look at structures with `m_glimpse()`. Initializes the viewer with 
 a range of useful defaults. Allows for quickly visually inspecting the structure
 and further customization of the viewer to speed up setup.
@@ -9,12 +10,9 @@ and further customization of the viewer to speed up setup.
 more information.
 * Add `speed` option for `m_spin()` and option for `keepH` in `m_add_model()` ([#13](https://github.com/swsoyee/r3dmol/pull/13)).
 
-### Documentation
-
-* Add logo for `{r3dmol}` ([#16](https://github.com/swsoyee/r3dmol/pull/16)).
-
 ### Others
 
+* Add logo for `{r3dmol}` ([#16](https://github.com/swsoyee/r3dmol/pull/16)).
 * Function `m_set_view_style()` is deprecated and replaced by `m_add_outline()`.
 * Upgrade `3Dmol.js` to the latest version (v1.6.2) ([#12](https://github.com/swsoyee/r3dmol/pull/12)).
 
