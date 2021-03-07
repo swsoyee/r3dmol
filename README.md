@@ -44,7 +44,40 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("swsoyee/r3dmol")
 ```
 
-## Example
+## Quickly View a Protein Structure in RStudio or Rmarkdown
+
+`{r3dmol}` can visualise structures in the built-in RStudio viewer to
+avoid having to check your work in other molecular viewers such as
+PyMol, VMD and ChimeraX. It can also be easily embedded into HTML
+Rmarkdown documents for the sharing of results and analysis with
+colleagues, or for the creation of fully-interactive teaching materials
+with rich 3D structures embedded.
+
+#### Glimpse a [`{bio3d}`](http://thegrantlab.org/bio3d/) structure
+
+``` r
+library(r3dmol)
+
+pdb <- bio3d::read.pdb("4ozs")
+
+pdb %>% 
+  m_glimpse()
+```
+
+![bio3d-preview](man/figures/bio3d-preview.png)
+
+#### Glimpse a PDB ID String
+
+``` r
+"6zsl" %>% 
+  m_glimpse()
+```
+
+![pdb-glimpse-example](man/figures/pdb_glimpse.png)
+
+## Full Example
+
+Example of setting up the viewer manually.
 
 ``` r
 library(r3dmol)
@@ -87,7 +120,7 @@ r3dmol(                         # Set up the initial viewer
 ```
 
 ![spin demo](man/figures/spin_demo.gif)  
-You can find more demo at
+You can find more demos
 [here](https://swsoyee.github.io/r3dmol/articles/r3dmol.html).
 
 ## About `3Dmol.js`
