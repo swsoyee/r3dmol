@@ -39,51 +39,50 @@
 #' ) %>%
 #'   m_add_model(data = pdb_6zsl, format = "pdb") %>%
 #'   m_zoom_to()
-r3dmol <-
-  function(id = NULL,
-           viewer_spec = m_viewer_spec(),
-           ...,
-           width = NULL,
-           height = NULL,
-           elementId = NULL) {
-    if (missing(id)) {
-      id <- (sample(256, 10, replace = TRUE) - 1) %>%
-        as.hexmode() %>%
-        format(width = 2) %>%
-        paste(collapse = "")
-    }
-
-    if (!is.null(elementId) &&
-      !grepl(pattern = "^[#,.]{0,1}[A-Za-z][0-9A-Za-z\\-\\._:]*$", elementId)) {
-      stop("ElementId is not validate. Please use id that starts with letter.")
-    }
-    # forward options using x
-    x <- list(
-      id = id,
-      configs = c(list(...), viewer_spec)
-    )
-    # Allow a list of API functions to be called on the r3dmol after
-    # initialization
-    x$api <- list()
-
-    # create widget
-    widget <- htmlwidgets::createWidget(
-      name = "r3dmol",
-      x,
-      width = width,
-      height = height,
-      package = "r3dmol",
-      elementId = elementId,
-      sizingPolicy = htmlwidgets::sizingPolicy(
-        defaultWidth = "100%",
-        knitr.figure = FALSE,
-        browser.fill = TRUE,
-        padding = 0
-      )
-    )
-
-    return(widget)
+r3dmol <- function(id = NULL,
+                   viewer_spec = m_viewer_spec(),
+                   ...,
+                   width = NULL,
+                   height = NULL,
+                   elementId = NULL) {
+  if (missing(id)) {
+    id <- (sample(256, 10, replace = TRUE) - 1) %>%
+      as.hexmode() %>%
+      format(width = 2) %>%
+      paste(collapse = "")
   }
+
+  if (!is.null(elementId) &&
+    !grepl(pattern = "^[#,.]{0,1}[A-Za-z][0-9A-Za-z\\-\\._:]*$", elementId)) {
+    stop("ElementId is not validate. Please use id that starts with letter.")
+  }
+  # forward options using x
+  x <- list(
+    id = id,
+    configs = c(list(...), viewer_spec)
+  )
+  # Allow a list of API functions to be called on the r3dmol after
+  # initialization
+  x$api <- list()
+
+  # create widget
+  widget <- htmlwidgets::createWidget(
+    name = "r3dmol",
+    x,
+    width = width,
+    height = height,
+    package = "r3dmol",
+    elementId = elementId,
+    sizingPolicy = htmlwidgets::sizingPolicy(
+      defaultWidth = "100%",
+      knitr.figure = FALSE,
+      browser.fill = TRUE,
+      padding = 0
+    )
+  )
+
+  return(widget)
+}
 
 #' Shiny bindings for r3dmol
 #'
