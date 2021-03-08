@@ -2,18 +2,20 @@
 #'
 #' @param viewer a list contains sub-viewers.
 #' @param element_id HTML string identifier.
-#' @param configs grid configuration.
+#' @param rows Number of rows in viewer grid.
+#' @param cols Number of columns in viewer grid.
+#' @param control_all Logical, simaultaneous mouse control of all windows in the
+#'  grid.
 #' @param viewer_config viewer specification to apply to all subviewers.
-#' @param width Fixed width for viewer (in css units). Ignored when used in a
-#' Shiny app -- use the \code{width} parameter in
+#' @param width Fixed width for combined viewer (in css units). Ignored when
+#' used in a Shiny app -- use the \code{width} parameter in
 #' \code{\link[r3dmol]{r3dmolOutput}}.
 #' It is not recommended to use this parameter because the widget knows how to
 #' adjust its width automatically.
-#' @param height Fixed height for viewer (in css units). It is recommended to
-#' not use this parameter since the widget knows how to adjust its height
-#' automatically.
+#' @param height Fixed height for combined viewer (in css units). It is
+#' recommended to not use this parameter since the widget knows how to adjust
+#' its height automatically.
 #'
-#' @return
 #' @export
 #'
 #' @examples
@@ -34,13 +36,17 @@
 #'
 #' m_grid(
 #'   viewer = list(m1, m2, m3, m4),
-#'   configs = list(rows = 2, cols = 2, control_all = TRUE),
-#'   viewer_config = list(backgroundColor = "black")
+#'   control_all = TRUE,
+#'   viewer_config = m_viewer_spec(
+#'      backgroundColor = "black"
+#'      )
 #' )
 m_grid <- function(viewer,
                    element_id,
-                   configs,
-                   viewer_config = list(),
+                   rows = NULL,
+                   cols = NULL,
+                   control_all = TRUE,
+                   viewer_config = m_viewer_spec(),
                    width = NULL,
                    height = NULL) {
   if (missing(element_id)) {
@@ -49,13 +55,20 @@ m_grid <- function(viewer,
       format(width = 2) %>%
       paste(collapse = "")
   }
-  if (missing(configs)) {
-    configs <- list(
-      rows = 1,
-      cols = length(viewer),
-      control_all = TRUE
-    )
+
+  if (is.null(rows)) {
+    rows <- ceiling(sqrt(length(viewer)))
   }
+
+  if (is.null(cols)) {
+    cols <- ceiling(length(viewer) / rows)
+  }
+
+  configs <- list(
+    rows = rows,
+    cols = cols,
+    control_all = control_all
+  )
 
   x <- list(
     viewer = viewer,

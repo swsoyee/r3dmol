@@ -7,8 +7,10 @@
 m_grid(
   viewer,
   element_id,
-  configs,
-  viewer_config = list(),
+  rows = NULL,
+  cols = NULL,
+  control_all = TRUE,
+  viewer_config = m_viewer_spec(),
   width = NULL,
   height = NULL
 )
@@ -18,22 +20,24 @@ m_grid(
 
 \item{element_id}{HTML string identifier.}
 
-\item{configs}{grid configuration.}
+\item{rows}{Number of rows in viewer grid.}
+
+\item{cols}{Number of columns in viewer grid.}
+
+\item{control_all}{Logical, simaultaneous mouse control of all windows in the
+grid.}
 
 \item{viewer_config}{viewer specification to apply to all subviewers.}
 
-\item{width}{Fixed width for viewer (in css units). Ignored when used in a
-Shiny app -- use the \code{width} parameter in
+\item{width}{Fixed width for combined viewer (in css units). Ignored when
+used in a Shiny app -- use the \code{width} parameter in
 \code{\link[r3dmol]{r3dmolOutput}}.
 It is not recommended to use this parameter because the widget knows how to
 adjust its width automatically.}
 
-\item{height}{Fixed height for viewer (in css units). It is recommended to
-not use this parameter since the widget knows how to adjust its height
-automatically.}
-}
-\value{
-
+\item{height}{Fixed height for combined viewer (in css units). It is
+recommended to not use this parameter since the widget knows how to adjust
+its height automatically.}
 }
 \description{
 Create a grid of viewers that share a WebGL canvas
@@ -56,7 +60,9 @@ m4 <- m1 \%>\%
 
 m_grid(
   viewer = list(m1, m2, m3, m4),
-  configs = list(rows = 2, cols = 2, control_all = TRUE),
-  viewer_config = list(backgroundColor = "black")
+  control_all = TRUE,
+  viewer_config = m_viewer_spec(
+     backgroundColor = "black"
+     )
 )
 }
