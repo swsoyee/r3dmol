@@ -155,8 +155,10 @@ m4 <- m3 %>%
 
 m_grid(
   viewer = list(m1, m2, m3, m4),
-  configs = list(rows = 2, cols = 2, control_all = TRUE),
-  viewer_config = list(backgroundColor = "white")
+  rows = 2, 
+  cols = 2, 
+  control_all = TRUE,
+  viewer_config = m_viewer_spec(backgroundColor = "lightblue")
 )
 ```
 
