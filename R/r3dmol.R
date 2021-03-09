@@ -45,6 +45,7 @@ r3dmol <- function(id = NULL,
                    width = NULL,
                    height = NULL,
                    elementId = NULL) {
+  # TODO move it to utils and add test
   if (missing(id)) {
     id <- (sample(256, 10, replace = TRUE) - 1) %>%
       as.hexmode() %>%
