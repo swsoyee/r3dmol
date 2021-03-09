@@ -19,6 +19,9 @@ reference:
   - contents:
       - init
       - m_render
+      - m_png
+      - m_grid
+      - m_glimpse
       - m_clear
       - m_enable_fog
       - m_shiny_demo
@@ -35,6 +38,7 @@ reference:
   - contents:
       - starts_with("m_style")
       - m_sel
+      - m_multi_resi_sel
       - m_shape_spec
       - m_viewer_spec
   - title: 'Importing Models'

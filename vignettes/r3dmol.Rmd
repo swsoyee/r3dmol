@@ -123,6 +123,8 @@ r3dmol(id = "demo_sdf", elementId = "demo_sdf") %>%
 
 ### Dynamic Styles
 
+If you know some JavaScript, then you are able to write a function to set dynamic styles. The following code shows how to color atoms based on their positions. You can also use `m_png()` to convert the widget to a png image.
+
 ```{r Dynamic styles}
 r3dmol() %>%
   m_add_model(data = pdb_1j72) %>%
@@ -132,7 +134,8 @@ r3dmol() %>%
           return atom.resi % 2 == 0 ? 'white' : 'green';
         }"
   )) %>%
-  m_zoom_to()
+  m_zoom_to() %>%
+  m_png(width = 800)
 ```
 
 ### Multiple Viewers
