@@ -52,6 +52,11 @@ HTMLWidgets.widget({
       renderValue(x) {
         // alias this
         const that = this;
+
+        if (x.viewer) {
+          viewer = x.viewer;
+        }
+
         if (!initialized) {
           initialized = true;
           // attach the widget to the DOM
@@ -60,7 +65,22 @@ HTMLWidgets.widget({
           $(el).css({
             position: x.position || 'relative',
           });
-          viewer = $3Dmol.createViewer($(container), x.configs);
+          if (x.api === 'grid') {
+            const viewers = $3Dmol.createViewerGrid($(container), x.configs, x.viewer_config);
+            let index = 0;
+            for (let i = 0; i < x.configs.rows; i += 1) {
+              for (let j = 0; j < x.configs.cols; j += 1) {
+                x.viewer[index].x.viewer = viewers[i][j];
+                that.renderValue(x.viewer[index].x);
+                index += 1;
+              }
+            }
+          }
+          if (x.viewer) {
+            viewer = x.viewer;
+          } else {
+            viewer = $3Dmol.createViewer($(container), x.configs);
+          }
         }
         // set listeners to events and pass data back to Shiny
         if (HTMLWidgets.shinyMode) {
@@ -89,7 +109,11 @@ HTMLWidgets.widget({
         }
         // Auto render
         if (isAutoRenderFunction.findIndex((element) => element === lastCallFunction) > -1) {
-          viewer.render();
+          if (x.viewer) {
+            x.viewer.render();
+          } else {
+            viewer.render();
+          }
         }
       },
 
