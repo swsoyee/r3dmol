@@ -50,6 +50,7 @@ m_grid <- function(viewer,
                    viewer_config = m_viewer_spec(),
                    width = NULL,
                    height = NULL) {
+  # TODO move it to utils and add test
   if (missing(element_id)) {
     element_id <- (sample(256, 10, replace = TRUE) - 1) %>%
       as.hexmode() %>%
@@ -57,6 +58,7 @@ m_grid <- function(viewer,
       paste(collapse = "")
   }
 
+  # TODO move it to utils and add test
   if (is.null(rows)) {
     rows <- ceiling(sqrt(length(viewer)))
   }
