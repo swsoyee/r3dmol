@@ -1,12 +1,12 @@
 #' Create a grid of viewers that share a WebGL canvas
 #'
-#' @param viewer a list contains sub-viewers.
+#' @param viewer A list contains sub-viewers.
 #' @param element_id HTML string identifier.
 #' @param rows Number of rows in viewer grid.
 #' @param cols Number of columns in viewer grid.
 #' @param control_all Logical, simaultaneous mouse control of all windows in the
 #'  grid.
-#' @param viewer_config viewer specification to apply to all subviewers.
+#' @param viewer_config Viewer specification to apply to all subviewers.
 #' @param width Fixed width for combined viewer (in css units). Ignored when
 #' used in a Shiny app -- use the \code{width} parameter in
 #' \code{\link[r3dmol]{r3dmolOutput}}.
@@ -16,6 +16,7 @@
 #' recommended to not use this parameter since the widget knows how to adjust
 #' its height automatically.
 #'
+#' @return An \code{r3dmol} object (the output from \code{r3dmol()}).
 #' @export
 #'
 #' @examples
@@ -38,8 +39,8 @@
 #'   viewer = list(m1, m2, m3, m4),
 #'   control_all = TRUE,
 #'   viewer_config = m_viewer_spec(
-#'      backgroundColor = "black"
-#'      )
+#'     backgroundColor = "black"
+#'   )
 #' )
 m_grid <- function(viewer,
                    element_id,
