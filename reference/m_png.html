@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • r3dmol</title>
+<title>Convert widgets to PNG image — m_png • r3dmol</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,7 +52,8 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Convert widgets to PNG image — m_png" />
+<meta property="og:description" content="Convert widgets to PNG image" />
 <meta property="og:image" content="https://swsoyee.github.io/r3dmol/logo.png" />
 
 
@@ -82,7 +83,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -158,60 +159,52 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/swsoyee/r3dmol/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Convert widgets to PNG image</h1>
+    <small class="dont-index">Source: <a href='https://github.com/swsoyee/r3dmol/blob/master/R/save.R'><code>R/save.R</code></a></small>
+    <div class="hidden name"><code>m_png.Rd</code></div>
     </div>
 
-    <div id="r3dmol-0119000" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.1.9000">
-<a href="#r3dmol-0119000" class="anchor"></a>r3dmol 0.1.1.9000<small> Unreleased </small>
-</h1>
-<div id="features" class="section level3">
-<h3 class="hasAnchor">
-<a href="#features" class="anchor"></a>Features</h3>
-<ul>
-<li>Add <code><a href="../reference/m_png.html">m_png()</a></code> to support convert widget to png (<a href="https://github.com/swsoyee/r3dmol/pull/27"><a href='https://github.com/swsoyee/r3dmol/issues/27'>#27</a></a>).</li>
-<li>Add <code><a href="../reference/m_grid.html">m_grid()</a></code> to support multiple viewers (<a href="https://github.com/swsoyee/r3dmol/pull/25"><a href='https://github.com/swsoyee/r3dmol/issues/25'>#25</a></a>).</li>
-<li>Quickly look at structures with <code><a href="../reference/m_glimpse.html">m_glimpse()</a></code>. Initializes the viewer with a range of useful defaults. Allows for quickly visually inspecting the structure and further customization of the viewer to speed up setup.</li>
-<li>Add multiple lines and cylinders in one function call are supported (<a href="https://github.com/swsoyee/r3dmol/pull/17"><a href='https://github.com/swsoyee/r3dmol/issues/17'>#17</a></a>). Refer to <a href="https://swsoyee.github.io/r3dmol/articles/multi-selections.html">this article</a> for more information.</li>
-<li>Add <code>speed</code> option for <code><a href="../reference/m_spin.html">m_spin()</a></code> and option for <code>keepH</code> in <code><a href="../reference/m_add_model.html">m_add_model()</a></code> (<a href="https://github.com/swsoyee/r3dmol/pull/13"><a href='https://github.com/swsoyee/r3dmol/issues/13'>#13</a></a>).</li>
-</ul>
-</div>
-<div id="others" class="section level3">
-<h3 class="hasAnchor">
-<a href="#others" class="anchor"></a>Others</h3>
-<ul>
-<li>Add logo for <a href="https://github.com/swsoyee/r3dmol">r3dmol</a> (<a href="https://github.com/swsoyee/r3dmol/pull/16"><a href='https://github.com/swsoyee/r3dmol/issues/16'>#16</a></a>).</li>
-<li>Function <code>m_set_view_style()</code> is deprecated and replaced by <code><a href="../reference/m_add_outline.html">m_add_outline()</a></code>.</li>
-<li>Upgrade <code>3Dmol.js</code> to the latest version (v1.6.2) (<a href="https://github.com/swsoyee/r3dmol/pull/12"><a href='https://github.com/swsoyee/r3dmol/issues/12'>#12</a></a>).</li>
-</ul>
-</div>
-</div>
-    <div id="r3dmol-011" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.1">
-<a href="#r3dmol-011" class="anchor"></a>r3dmol 0.1.1<small> 2021-02-15 </small>
-</h1>
-<ul>
-<li>Introduce new friendly functions for addition of styles, and selection algebra. New functions for adding model from <a href="http://thegrantlab.org/bio3d/">bio3d</a> and fetching model from <a href="https://www.rcsb.org/">RCSB PDB</a> (<a href="https://github.com/swsoyee/r3dmol/pull/6"><a href='https://github.com/swsoyee/r3dmol/issues/6'>#6</a></a>).</li>
-</ul>
-</div>
-    <div id="r3dmol-010" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.0">
-<a href="#r3dmol-010" class="anchor"></a>r3dmol 0.1.0<small> 2020-10-26 </small>
-</h1>
-<ul>
-<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
-<li>Main functions of <a href="http://3dmol.csb.pitt.edu/doc/%243Dmol.GLViewer.html"><code>3Dmol.js</code></a> are now available in <code>Rmarkdown</code> and <code>shiny</code>.</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Convert widgets to PNG image</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>m_png</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>width</span>, <span class='va'>height</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>id</th>
+      <td><p>R3dmol <code>id</code> or a <code>r3dmol</code> object (the output from
+<code><a href='init.html'>r3dmol()</a></code>)</p></td>
+    </tr>
+    <tr>
+      <th>width, height</th>
+      <td><p>image width and height</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    
+
+
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/swsoyee/r3dmol'>r3dmol</a></span><span class='op'>)</span>
+
+<span class='fu'><a href='init.html'>r3dmol</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+<span class='fu'><a href='m_add_model.html'>m_add_model</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>pdb_1j72</span>, format <span class='op'>=</span> <span class='st'>"pdb"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_set_style.html'>m_set_style</a></span><span class='op'>(</span>style <span class='op'>=</span> <span class='fu'><a href='m_style_cartoon.html'>m_style_cartoon</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>m_png</span><span class='op'>(</span>width <span class='op'>=</span> <span class='fl'>600</span><span class='op'>)</span>
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 
