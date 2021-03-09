@@ -2,6 +2,7 @@
 
 ### Features
 
+* Add `m_png()` to support convert widget to png ([#27](https://github.com/swsoyee/r3dmol/pull/27)).
 * Add `m_grid()` to support multiple viewers ([#25](https://github.com/swsoyee/r3dmol/pull/25)).
 * Quickly look at structures with `m_glimpse()`. Initializes the viewer with 
 a range of useful defaults. Allows for quickly visually inspecting the structure

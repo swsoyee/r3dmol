@@ -181,6 +181,10 @@ HTMLWidgets.widget({
       vibrate: (params) => viewer.vibrate(params.numFrames, params.amplitude, params.bothWays, params.arrowSpec),
       center: (params) => viewer.center(params.sel, params.animationDuration, params.fixedPath),
       clear: () => viewer.clear(),
+      pngURI: (params) => {
+        viewer.render();
+        container.innerHTML = `<img src="${viewer.pngURI()}" width="${params.width}" height="${params.height}"/>`;
+      },
     };
   },
 });
