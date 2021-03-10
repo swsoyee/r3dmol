@@ -1,4 +1,4 @@
-# r3dmol 0.1.1.9000
+# r3dmol 0.1.2
 
 ### Features
 
