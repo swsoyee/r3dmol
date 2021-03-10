@@ -8,12 +8,12 @@ m_png(id, width, height)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
-\code{r3dmol()})}
+\code{r3dmol()}).}
 
-\item{width, height}{image width and height}
+\item{width, height}{image width and height.}
 }
 \value{
-
+Base64 encoded png image wrapped by \code{<img>} tag.
 }
 \description{
 Convert widgets to PNG image
@@ -22,7 +22,7 @@ Convert widgets to PNG image
 library(r3dmol)
 
 r3dmol() \%>\%
-m_add_model(data = pdb_1j72, format = "pdb") \%>\%
+  m_add_model(data = pdb_1j72, format = "pdb") \%>\%
   m_set_style(style = m_style_cartoon()) \%>\%
   m_zoom_to() \%>\%
   m_png(width = 600)

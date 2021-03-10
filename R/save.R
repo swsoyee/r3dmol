@@ -1,10 +1,10 @@
 #' Convert widgets to PNG image
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
-#' \code{r3dmol()})
-#' @param width,height image width and height
+#' \code{r3dmol()}).
+#' @param width,height image width and height.
 #'
-#' @return
+#' @return Base64 encoded png image wrapped by \code{<img>} tag.
 #' @export
 #'
 #' @examples
