@@ -12,7 +12,7 @@ coverage](https://codecov.io/gh/swsoyee/r3dmol/branch/master/graph/badge.svg)](h
 [![R build
 status](https://github.com/swsoyee/r3dmol/workflows/R-CMD-check/badge.svg)](https://github.com/swsoyee/r3dmol/actions)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Metacran
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/r3dmol)](https://cran.r-project.org/package=r3dmol)
 <!-- badges: end -->
