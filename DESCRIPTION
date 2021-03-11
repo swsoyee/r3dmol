@@ -35,7 +35,6 @@ Suggests:
     colourpicker,
     covr,
     testthat
-VignetteBuilder: knitr
 Depends: 
     R (>= 2.10)
 URL: https://github.com/swsoyee/r3dmol
