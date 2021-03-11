@@ -188,7 +188,7 @@ HTMLWidgets.widget({
       button: (params) => {
         const button = document.createElement('button');
         button.setAttribute('name', params.name);
-        button.setAttribute('style', 'position:absolute;top:10px;left:10px;z-index:1;');
+        button.setAttribute('style', 'display:inline-block;');
         button.onclick = params.func;
         button.innerText = params.label;
         container.before(button);
