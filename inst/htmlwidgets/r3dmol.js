@@ -1,7 +1,7 @@
 /* global $ HTMLWidgets $3Dmol Shiny */
 const isAutoRenderFunction = [
   // Other
-  'createModelFrom',
+  'createModelFrom', 'button',
   // add
   'addArrow', 'addBox', 'addCurve', 'addCylinder', 'addLine',
   'addSphere', 'addShape', 'addStyle', 'addLabel', 'addModel',
@@ -184,6 +184,14 @@ HTMLWidgets.widget({
       pngURI: (params) => {
         viewer.render();
         container.innerHTML = `<img src="${viewer.pngURI()}" width="${params.width}" height="${params.height}"/>`;
+      },
+      button: (params) => {
+        const button = document.createElement('button');
+        button.setAttribute('name', params.name);
+        button.setAttribute('style', 'position:absolute;top:10px;left:10px;z-index:1;');
+        button.onclick = params.func;
+        button.innerText = params.label;
+        container.before(button);
       },
     };
   },
