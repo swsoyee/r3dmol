@@ -35,7 +35,7 @@
 #'     align_items = "flex-end",
 #'     justify_content = "center",
 #'     func = "
-#'       function(){
+#'       function() {
 #'         viewer.setStyle({cartoon:{}});
 #'         viewer.render();
 #'       }
@@ -45,7 +45,7 @@
 #'     name = "stick",
 #'     label = "Stick",
 #'     func = "
-#'       function(){
+#'       function() {
 #'         viewer.setStyle({stick:{}});
 #'         viewer.render();
 #'       }
