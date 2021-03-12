@@ -4,7 +4,7 @@
 \alias{m_button}
 \title{Add button into viewer}
 \usage{
-m_button(id, name, label, func)
+m_button(id, name, label, func, style = "flex-start")
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
@@ -15,6 +15,8 @@ m_button(id, name, label, func)
 \item{label}{Label for button.}
 
 \item{func}{The function executed when the button is clicked.}
+
+\item{layout}{CSS style for button layout.}
 }
 \value{
 R3dmol \code{id} or a \code{r3dmol} object (the output from

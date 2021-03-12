@@ -5,6 +5,7 @@
 #' @param name Name for button.
 #' @param label Label for button.
 #' @param func The function executed when the button is clicked.
+#' @param layout CSS style for button layout.
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
@@ -28,7 +29,8 @@
 m_button <- function(id,
                      name,
                      label,
-                     func) {
+                     func,
+                     style = "flex-start") {
   if (missing(label)) {
     stop("`label` is a required argument.")
   }

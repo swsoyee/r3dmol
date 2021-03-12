@@ -186,9 +186,15 @@ HTMLWidgets.widget({
         container.innerHTML = `<img src="${viewer.pngURI()}" width="${params.width}" height="${params.height}"/>`;
       },
       button: (params) => {
+        const parent = container.parentElement;
+        const parentStyle = parent.getAttribute('style');
+        const flexStyle = 'display:flex;flex-wrap:nowrap;';
+        const reg = new RegExp(flexStyle);
+        if (!reg.test(parentStyle)) {
+          parent.setAttribute('style', `${parentStyle}${flexStyle}align-items:${params.style};`);
+        }
         const button = document.createElement('button');
         button.setAttribute('name', params.name);
-        button.setAttribute('style', 'display:inline-block;');
         button.onclick = params.func;
         button.innerText = params.label;
         container.before(button);
