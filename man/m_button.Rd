@@ -4,7 +4,14 @@
 \alias{m_button}
 \title{Add button into viewer}
 \usage{
-m_button(id, name, label, func, style = "flex-start")
+m_button(
+  id,
+  name,
+  label,
+  func,
+  align_items = "flex-start",
+  justify_content = "flex-start"
+)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
@@ -16,14 +23,27 @@ m_button(id, name, label, func, style = "flex-start")
 
 \item{func}{The function executed when the button is clicked.}
 
-\item{style}{CSS style for button layout.}
+\item{align_items}{The css \code{align-items} property specifies the default
+alignment for items inside the viewer.}
+
+\item{justify_content}{The css \code{justify-content} property aligns the
+buttons when the items do not use all available space on the main-axis
+(horizontally).}
 }
 \value{
 R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()})
 }
 \description{
-Add button into viewer
+Add additional buttons to the viewer and pass in JavaScript functions to
+enable additional actions to be done when the button is clicked (such as
+styling changes to the model). You can also use css flex layout to control
+the layout of all added buttons.
+}
+\details{
+If more than one button is set, only the layout
+(\code{justify-content} and \code{align-items}) of the first button will be
+used.
 }
 \examples{
 library(r3dmol)
@@ -34,9 +54,21 @@ r3dmol() \%>\%
   m_button(
     name = "cartoon",
     label = "Cartoon",
+    align_items = "flex-end",
+    justify_content = "center",
     func = "
       function(){
         viewer.setStyle({cartoon:{}});
+        viewer.render();
+      }
+    "
+  ) \%>\%
+  m_button(
+    name = "stick",
+    label = "Stick",
+    func = "
+      function(){
+        viewer.setStyle({stick:{}});
         viewer.render();
       }
     "

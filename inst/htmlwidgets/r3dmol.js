@@ -187,17 +187,20 @@ HTMLWidgets.widget({
       },
       button: (params) => {
         const parent = container.parentElement;
-        const parentStyle = parent.getAttribute('style');
-        const flexStyle = 'display:flex;flex-wrap:nowrap;';
-        const reg = new RegExp(flexStyle);
-        if (!reg.test(parentStyle)) {
-          parent.setAttribute('style', `${parentStyle}${flexStyle}align-items:${params.style};`);
+        let buttonLayout = parent.querySelector('#button-layout');
+        if (buttonLayout === null) {
+          const newButtonLayout = document.createElement('div');
+          newButtonLayout.setAttribute('id', 'button-layout');
+          const style = 'width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;display:flex;';
+          newButtonLayout.setAttribute('style', `${style}justify-content:${params.justify_content};align-items:${params.align_items};`);
+          parent.insertBefore(newButtonLayout, parent.firstChild);
+          buttonLayout = newButtonLayout;
         }
         const button = document.createElement('button');
         button.setAttribute('name', params.name);
         button.onclick = params.func;
         button.innerText = params.label;
-        container.before(button);
+        buttonLayout.append(button);
       },
     };
   },
