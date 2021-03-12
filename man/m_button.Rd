@@ -16,7 +16,7 @@ m_button(id, name, label, func, style = "flex-start")
 
 \item{func}{The function executed when the button is clicked.}
 
-\item{layout}{CSS style for button layout.}
+\item{style}{CSS style for button layout.}
 }
 \value{
 R3dmol \code{id} or a \code{r3dmol} object (the output from
