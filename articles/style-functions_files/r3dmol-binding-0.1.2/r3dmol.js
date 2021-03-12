@@ -1,7 +1,7 @@
 /* global $ HTMLWidgets $3Dmol Shiny */
 const isAutoRenderFunction = [
   // Other
-  'createModelFrom',
+  'createModelFrom', 'button',
   // add
   'addArrow', 'addBox', 'addCurve', 'addCylinder', 'addLine',
   'addSphere', 'addShape', 'addStyle', 'addLabel', 'addModel',
@@ -184,6 +184,23 @@ HTMLWidgets.widget({
       pngURI: (params) => {
         viewer.render();
         container.innerHTML = `<img src="${viewer.pngURI()}" width="${params.width}" height="${params.height}"/>`;
+      },
+      button: (params) => {
+        const parent = container.parentElement;
+        let buttonLayout = parent.querySelector('#button-layout');
+        if (buttonLayout === null) {
+          const newButtonLayout = document.createElement('div');
+          newButtonLayout.setAttribute('id', 'button-layout');
+          const style = 'width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;display:flex;';
+          newButtonLayout.setAttribute('style', `${style}justify-content:${params.justify_content};align-items:${params.align_items};`);
+          parent.insertBefore(newButtonLayout, parent.firstChild);
+          buttonLayout = newButtonLayout;
+        }
+        const button = document.createElement('button');
+        button.setAttribute('name', params.name);
+        button.onclick = params.func;
+        button.innerText = params.label;
+        buttonLayout.append(button);
       },
     };
   },
