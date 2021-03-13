@@ -2,6 +2,8 @@
 
 ### Features
 
+* Add `m_button()` function to support adding custom features in the viewer, 
+such as switching the style of the model, etc ([#29](https://github.com/swsoyee/r3dmol/pull/29)).
 * Add `m_png()` to support convert widget to png ([#27](https://github.com/swsoyee/r3dmol/pull/27)).
 * Add `m_grid()` to support multiple viewers ([#25](https://github.com/swsoyee/r3dmol/pull/25)).
 * Quickly look at structures with `m_glimpse()`. Initializes the viewer with 
