@@ -69,3 +69,8 @@ reference:
       - starts_with("cif")
       - starts_with("xyz")
       - starts_with("cube")
+
+news:
+  releases:
+  - text: "Version 0.1.2"
+    href: https://swsoyee.vercel.app/2021/03/r3dmol-release-012/
