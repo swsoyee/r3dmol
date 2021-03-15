@@ -186,18 +186,18 @@ HTMLWidgets.widget({
         container.innerHTML = `<img src="${viewer.pngURI()}" width="${params.width}" height="${params.height}"/>`;
       },
       button: (params) => {
-        const parent = container.parentElement;
-        let buttonLayout = parent.querySelector('#button-layout');
+        let buttonLayout = container.querySelector('#button-layout');
         if (buttonLayout === null) {
           const newButtonLayout = document.createElement('div');
           newButtonLayout.setAttribute('id', 'button-layout');
-          const style = 'width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;display:flex;';
+          const style = 'width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;display:flex;pointer-events:none;';
           newButtonLayout.setAttribute('style', `${style}justify-content:${params.justify_content};align-items:${params.align_items};`);
-          parent.insertBefore(newButtonLayout, parent.firstChild);
+          container.insertBefore(newButtonLayout, container.firstChild);
           buttonLayout = newButtonLayout;
         }
         const button = document.createElement('button');
         button.setAttribute('name', params.name);
+        button.setAttribute('style', 'pointer-events:auto');
         button.onclick = params.func;
         button.innerText = params.label;
         buttonLayout.append(button);
