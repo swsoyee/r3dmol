@@ -22,6 +22,7 @@ reference:
       - m_png
       - m_grid
       - m_glimpse
+      - m_button
       - m_clear
       - m_enable_fog
       - m_shiny_demo
