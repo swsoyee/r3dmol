@@ -1,7 +1,7 @@
 /* global $ HTMLWidgets $3Dmol Shiny */
 const isAutoRenderFunction = [
   // Other
-  'createModelFrom',
+  'createModelFrom', 'button',
   // add
   'addArrow', 'addBox', 'addCurve', 'addCylinder', 'addLine',
   'addSphere', 'addShape', 'addStyle', 'addLabel', 'addModel',
@@ -52,6 +52,11 @@ HTMLWidgets.widget({
       renderValue(x) {
         // alias this
         const that = this;
+
+        if (x.viewer) {
+          viewer = x.viewer;
+        }
+
         if (!initialized) {
           initialized = true;
           // attach the widget to the DOM
@@ -60,7 +65,22 @@ HTMLWidgets.widget({
           $(el).css({
             position: x.position || 'relative',
           });
-          viewer = $3Dmol.createViewer($(container), x.configs);
+          if (x.api === 'grid') {
+            const viewers = $3Dmol.createViewerGrid($(container), x.configs, x.viewer_config);
+            let index = 0;
+            for (let i = 0; i < x.configs.rows; i += 1) {
+              for (let j = 0; j < x.configs.cols; j += 1) {
+                x.viewer[index].x.viewer = viewers[i][j];
+                that.renderValue(x.viewer[index].x);
+                index += 1;
+              }
+            }
+          }
+          if (x.viewer) {
+            viewer = x.viewer;
+          } else {
+            viewer = $3Dmol.createViewer($(container), x.configs);
+          }
         }
         // set listeners to events and pass data back to Shiny
         if (HTMLWidgets.shinyMode) {
@@ -89,7 +109,11 @@ HTMLWidgets.widget({
         }
         // Auto render
         if (isAutoRenderFunction.findIndex((element) => element === lastCallFunction) > -1) {
-          viewer.render();
+          if (x.viewer) {
+            x.viewer.render();
+          } else {
+            viewer.render();
+          }
         }
       },
 
@@ -157,6 +181,27 @@ HTMLWidgets.widget({
       vibrate: (params) => viewer.vibrate(params.numFrames, params.amplitude, params.bothWays, params.arrowSpec),
       center: (params) => viewer.center(params.sel, params.animationDuration, params.fixedPath),
       clear: () => viewer.clear(),
+      pngURI: (params) => {
+        viewer.render();
+        container.innerHTML = `<img src="${viewer.pngURI()}" width="${params.width}" height="${params.height}"/>`;
+      },
+      button: (params) => {
+        let buttonLayout = container.querySelector('#button-layout');
+        if (buttonLayout === null) {
+          const newButtonLayout = document.createElement('div');
+          newButtonLayout.setAttribute('id', 'button-layout');
+          const style = 'width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;display:flex;pointer-events:none;';
+          newButtonLayout.setAttribute('style', `${style}justify-content:${params.justify_content};align-items:${params.align_items};`);
+          container.insertBefore(newButtonLayout, container.firstChild);
+          buttonLayout = newButtonLayout;
+        }
+        const button = document.createElement('button');
+        button.setAttribute('name', params.name);
+        button.setAttribute('style', 'pointer-events:auto');
+        button.onclick = params.func;
+        button.innerText = params.label;
+        buttonLayout.append(button);
+      },
     };
   },
 });
