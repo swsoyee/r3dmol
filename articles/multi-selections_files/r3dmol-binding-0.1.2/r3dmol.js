@@ -34,6 +34,7 @@ HTMLWidgets.widget({
     const elementId = el.id;
     const container = document.getElementById(elementId);
     let viewer;
+    const promiseCalls = [];
 
     const evalFun = (object) => {
       Object.keys(object).forEach((key) => {
@@ -99,6 +100,10 @@ HTMLWidgets.widget({
         for (let i = 0; i < numApiCalls; i += 1) {
           const call = x.api[i];
           const { method } = call;
+          // save any Promise call
+          if (method === 'addSurface') {
+            promiseCalls.push(call);
+          }
           delete call.method;
           try {
             evalFun(call);
@@ -144,7 +149,6 @@ HTMLWidgets.widget({
       addVolumetricRender: (params) => viewer.addVolumetricRender(new $3Dmol.VolumeData(params.data.toString(), 'cube'), params.spec),
       addModelsAsFrames: (params) => viewer.addModelsAsFrames(params.data, params.format),
       addIsosurface: (params) => viewer.addIsosurface(new $3Dmol.VolumeData(params.data.toString(), 'cube'), params.isoSpec),
-      // TODO: not working
       addSurface: (params) => viewer.addSurface(params.type, params.style, params.atomsel, params.allsel, params.focus, params.surfacecallback),
       removeAllLabels: () => viewer.removeAllLabels(),
       removeAllModels: () => viewer.removeAllModels(),
@@ -183,7 +187,13 @@ HTMLWidgets.widget({
       clear: () => viewer.clear(),
       pngURI: (params) => {
         viewer.render();
-        container.innerHTML = `<img src="${viewer.pngURI()}" width="${params.width}" height="${params.height}"/>`;
+        const width = params.width || window.innerWidth;
+        const height = params.height || window.innerHeight;
+        const captureDelay = promiseCalls.length === 0 ? 0 : params.captureDelay;
+        window.setTimeout(
+          () => { container.innerHTML = `<img src="${viewer.pngURI()}" width="${width}" height="${height}"/>`; },
+          captureDelay,
+        );
       },
       button: (params) => {
         let buttonLayout = container.querySelector('#button-layout');

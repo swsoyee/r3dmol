@@ -182,7 +182,7 @@
     <p>Convert widgets to PNG image</p>
     </div>
 
-    <pre class="usage"><span class='fu'>m_png</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>width</span>, <span class='va'>height</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>m_png</span><span class='op'>(</span><span class='va'>id</span>, <span class='va'>width</span>, <span class='va'>height</span>, captureDelay <span class='op'>=</span> <span class='fl'>2000</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -195,6 +195,13 @@
     <tr>
       <th>width, height</th>
       <td><p>image width and height.</p></td>
+    </tr>
+    <tr>
+      <th>captureDelay</th>
+      <td><p>Image conversion delay setting. This argument is only
+needed in some cases where the rendering is time-consuming (e.g. with
+<code><a href='m_add_surface.html'>m_add_surface()</a></code>). The default value is 2000 milliseconds. Fixed to 0
+when immediate rendering available.</p></td>
     </tr>
     </table>
 
@@ -209,7 +216,7 @@
   <span class='fu'><a href='m_add_model.html'>m_add_model</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>pdb_1j72</span>, format <span class='op'>=</span> <span class='st'>"pdb"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='m_set_style.html'>m_set_style</a></span><span class='op'>(</span>style <span class='op'>=</span> <span class='fu'><a href='m_style_cartoon.html'>m_style_cartoon</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>m_png</span><span class='op'>(</span>width <span class='op'>=</span> <span class='fl'>600</span><span class='op'>)</span>
+  <span class='fu'>m_png</span><span class='op'>(</span><span class='op'>)</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
