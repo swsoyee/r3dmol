@@ -1,9 +1,12 @@
 # r3dmol 0.1.3
 
-### Bugs
+### Bugs Fixed
 
 * Fix the incorrect layout of `m_button()` in the rmarkdown ([#31](https://github.com/swsoyee/r3dmol/pull/31)).
 * Fix `colorScheme="default"` overriding user-specified colors ([#34](https://github.com/swsoyee/r3dmol/pull/34))
+* Fix the bug that surface cannot be rendered correctly when using `m_png()`
+with `m_add_surface()` at the same time, and optimize the default image size 
+setting of `m_png()` ([#35](https://github.com/swsoyee/r3dmol/issues/35)).
 
 # r3dmol 0.1.2
 
