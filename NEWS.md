@@ -1,8 +1,9 @@
 # r3dmol 0.1.3
 
-### Bug
+### Bugs
 
 * Fix the incorrect layout of `m_button()` in the rmarkdown ([#31](https://github.com/swsoyee/r3dmol/pull/31)).
+* Fix `colorScheme="default"` overriding user-specified colors ([#34](https://github.com/swsoyee/r3dmol/pull/34))
 
 # r3dmol 0.1.2
 

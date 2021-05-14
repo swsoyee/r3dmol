@@ -6,7 +6,7 @@
 \usage{
 m_style_sphere(
   scale = 1,
-  colorScheme = "default",
+  colorScheme = NULL,
   color = NULL,
   radius = NULL,
   hidden = FALSE,
@@ -17,7 +17,7 @@ m_style_sphere(
 \item{scale}{Scale radius by specified amount.}
 
 \item{colorScheme}{Specify scheme to color the atoms by. Default is
-"default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+"default". Other choices are "Carbon", "ssPyMOL", "ssJmol", "Jmol",
 "default", "amino",
 "shapely", "nucleic", "chain", "chainHetatm", "prop".}
 

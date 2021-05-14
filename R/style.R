@@ -7,7 +7,7 @@
 #' @param radius Override van der waals radius.
 #' @param scale Scale radius by specified amount.
 #' @param colorScheme Specify scheme to color the atoms by. Default is
-#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default". Other choices are "Carbon", "ssPyMOL", "ssJmol", "Jmol",
 #' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Discrete, fixed coloring, overrides any colorScheme.
@@ -22,7 +22,7 @@
 #' @export
 m_style_sphere <- function(
                            scale = 1,
-                           colorScheme = "default",
+                           colorScheme = NULL,
                            color = NULL,
                            radius = NULL,
                            hidden = FALSE,
@@ -108,7 +108,7 @@ m_style_cartoon <- function(
 #' @param radius Radius of sticks.
 #' @param singleBonds Draw all bonds as single bonds if \code{TRUE}.
 #' @param colorScheme Specify scheme to color the atoms by. Default is
-#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default". Other choices are "Carbon", "ssPyMOL", "ssJmol", "Jmol",
 #' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Fixed coloring, overrides colorScheme.
@@ -122,7 +122,7 @@ m_style_cartoon <- function(
 m_style_stick <- function(
                           radius = 0.3,
                           singleBonds = FALSE,
-                          colorScheme = "default",
+                          colorScheme = NULL,
                           color = NULL,
                           opacity = 1,
                           hidden = FALSE) {
@@ -230,7 +230,7 @@ m_style_label <- function(
 #' when adding individual lines with \code{m_add_line()}.
 #'
 #' @param colorScheme Specify scheme to color the atoms by. Default is
-#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default". Other choices are "Carbon", "ssPyMOL", "ssJmol", "Jmol",
 #' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Fixed coloring, overrides \code{colorScheme}.
@@ -243,7 +243,7 @@ m_style_label <- function(
 #'   m_zoom_to()
 #' @export
 m_style_line <- function(
-                         colorScheme = "default",
+                         colorScheme = NULL,
                          color = NULL,
                          opacity = 1,
                          hidden = FALSE) {
@@ -266,7 +266,7 @@ m_style_line <- function(
 #'
 #' @param opacity Opacity, 0 for transparent, 1 for opaque.
 #' @param colorScheme Specify scheme to color the atoms by. Default is
-#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default". Other choices are "Carbon", "ssPyMOL", "ssJmol", "Jmol",
 #' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Fixed coloring, overrides colorScheme.
@@ -279,7 +279,7 @@ m_style_line <- function(
 #' @export
 m_style_surface <- function(
                             opacity = 1,
-                            colorScheme = "default",
+                            colorScheme = NULL,
                             color = NULL) {
   surface_style <- list(
     opacity = opacity,
