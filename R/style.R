@@ -230,7 +230,7 @@ m_style_label <- function(
 #' when adding individual lines with \code{m_add_line()}.
 #'
 #' @param colorScheme Specify scheme to color the atoms by. Default is
-#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default". Other choices are "Carbon", "ssPyMOL", "ssJmol", "Jmol",
 #' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Fixed coloring, overrides \code{colorScheme}.
