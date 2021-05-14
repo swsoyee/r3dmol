@@ -4,7 +4,7 @@
 \alias{m_style_surface}
 \title{Specify Styling for Surface}
 \usage{
-m_style_surface(opacity = 1, colorScheme = "default", color = NULL)
+m_style_surface(opacity = 1, colorScheme = NULL, color = NULL)
 }
 \arguments{
 \item{opacity}{Opacity, 0 for transparent, 1 for opaque.}

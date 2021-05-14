@@ -4,12 +4,7 @@
 \alias{m_style_line}
 \title{Specify Styling for Lines}
 \usage{
-m_style_line(
-  colorScheme = "default",
-  color = NULL,
-  opacity = 1,
-  hidden = FALSE
-)
+m_style_line(colorScheme = NULL, color = NULL, opacity = 1, hidden = FALSE)
 }
 \arguments{
 \item{colorScheme}{Specify scheme to color the atoms by. Default is

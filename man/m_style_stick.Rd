@@ -7,7 +7,7 @@
 m_style_stick(
   radius = 0.3,
   singleBonds = FALSE,
-  colorScheme = "default",
+  colorScheme = NULL,
   color = NULL,
   opacity = 1,
   hidden = FALSE

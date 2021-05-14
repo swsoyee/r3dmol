@@ -6,7 +6,7 @@
 \usage{
 m_style_sphere(
   scale = 1,
-  colorScheme = "default",
+  colorScheme = NULL,
   color = NULL,
   radius = NULL,
   hidden = FALSE,

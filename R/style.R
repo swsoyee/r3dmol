@@ -22,7 +22,7 @@
 #' @export
 m_style_sphere <- function(
                            scale = 1,
-                           colorScheme = "default",
+                           colorScheme = NULL,
                            color = NULL,
                            radius = NULL,
                            hidden = FALSE,
@@ -122,7 +122,7 @@ m_style_cartoon <- function(
 m_style_stick <- function(
                           radius = 0.3,
                           singleBonds = FALSE,
-                          colorScheme = "default",
+                          colorScheme = NULL,
                           color = NULL,
                           opacity = 1,
                           hidden = FALSE) {
@@ -243,7 +243,7 @@ m_style_label <- function(
 #'   m_zoom_to()
 #' @export
 m_style_line <- function(
-                         colorScheme = "default",
+                         colorScheme = NULL,
                          color = NULL,
                          opacity = 1,
                          hidden = FALSE) {
@@ -279,7 +279,7 @@ m_style_line <- function(
 #' @export
 m_style_surface <- function(
                             opacity = 1,
-                            colorScheme = "default",
+                            colorScheme = NULL,
                             color = NULL) {
   surface_style <- list(
     opacity = opacity,
