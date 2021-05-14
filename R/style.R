@@ -7,7 +7,7 @@
 #' @param radius Override van der waals radius.
 #' @param scale Scale radius by specified amount.
 #' @param colorScheme Specify scheme to color the atoms by. Default is
-#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default". Other choices are "Carbon", "ssPyMOL", "ssJmol", "Jmol",
 #' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Discrete, fixed coloring, overrides any colorScheme.
@@ -108,7 +108,7 @@ m_style_cartoon <- function(
 #' @param radius Radius of sticks.
 #' @param singleBonds Draw all bonds as single bonds if \code{TRUE}.
 #' @param colorScheme Specify scheme to color the atoms by. Default is
-#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default". Other choices are "Carbon", "ssPyMOL", "ssJmol", "Jmol",
 #' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Fixed coloring, overrides colorScheme.
@@ -266,7 +266,7 @@ m_style_line <- function(
 #'
 #' @param opacity Opacity, 0 for transparent, 1 for opaque.
 #' @param colorScheme Specify scheme to color the atoms by. Default is
-#' "default". Other choies are "Carbon", ssPyMOL", "ssJmol", "Jmol",
+#' "default". Other choices are "Carbon", "ssPyMOL", "ssJmol", "Jmol",
 #' "default", "amino",
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Fixed coloring, overrides colorScheme.
