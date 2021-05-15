@@ -187,8 +187,8 @@ HTMLWidgets.widget({
       clear: () => viewer.clear(),
       pngURI: (params) => {
         viewer.render();
-        const width = params.width || window.innerWidth;
-        const height = params.height || window.innerHeight;
+        const width = params.width || viewer.getCanvas().getAttribute('width') / 2;
+        const height = params.height || viewer.getCanvas().getAttribute('height') / 2;
         const captureDelay = promiseCalls.length === 0 ? 0 : params.captureDelay;
         window.setTimeout(
           () => { container.innerHTML = `<img src="${viewer.pngURI()}" width="${width}" height="${height}"/>`; },
