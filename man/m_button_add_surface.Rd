@@ -28,7 +28,7 @@ m_button_add_surface(
 \item{atomsel}{Show surface for atoms in this selection.}
 
 \item{allsel}{Use different atoms to calculate the surface than to display
-it. May be a larger selection than \ocode{atomsel}.}
+it. May be a larger selection than \code{atomsel}.}
 
 \item{removeSurface}{Logical, whether to also create a button that will
 remove all surfaces from the viewer.}
