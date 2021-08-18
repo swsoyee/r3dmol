@@ -1,6 +1,6 @@
-#' Overwrite Previous Style
+#' Add Style to Selection
 #'
-#' Takes a selection and overwrites previous styling with given styles.
+#' Takes a selection and adds additional styling to it.
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
