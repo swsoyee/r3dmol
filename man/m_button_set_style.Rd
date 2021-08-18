@@ -22,9 +22,20 @@ m_button_set_style(
 \item{label}{String for button label.}
 }
 \value{
-
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Adds a button that will overwrite the style for the given selection with the
 new given styles.
+}
+\examples{
+# Add buttons to show and hide sticks
+r3dmol() \%>\%
+  m_add_model(data = pdb_1j72, format = "pdb") \%>\%
+  m_zoom_to() \%>\%
+  m_set_style(m_style_cartoon()) \%>\%
+  m_button_add_style(m_style_stick(), label = "Add Sticks") \%>\%
+  m_button_add_style(m_style_sphere(scale = 0.3), label = "Add Spheres") \%>\%
+  m_button_set_style(m_style_cartoon(), label = "Set Cartoon")
 }

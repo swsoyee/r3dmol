@@ -10,7 +10,7 @@ m_button_manual(
   label,
   func,
   align_items = "flex-start",
-  justify_content = "flex-start"
+  justify_content = "center"
 )
 }
 \arguments{

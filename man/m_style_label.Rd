@@ -41,6 +41,9 @@ m_style_label(
 
 \item{borderThickness}{Line width of border around label, default 0.}
 
+\item{screenOffset}{Offset label on the x and y relative to the viewer from
+the label position given with \code{m_sel()}.}
+
 \item{borderColor}{Color of border, default backgroundColor.}
 
 \item{inFront}{Logical, if \code{TRUE} always put in front of model.}

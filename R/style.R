@@ -20,8 +20,7 @@
 #'   m_set_style(style = m_style_sphere(radius = 0.5)) %>%
 #'   m_zoom_to()
 #' @export
-m_style_sphere <- function(
-                           scale = 1,
+m_style_sphere <- function(scale = 1,
                            colorScheme = NULL,
                            color = NULL,
                            radius = NULL,
@@ -72,8 +71,7 @@ m_style_sphere <- function(
 #'   m_set_style(style = m_style_cartoon(color = "spectrum")) %>%
 #'   m_zoom_to()
 #' @export
-m_style_cartoon <- function(
-                            color = NULL,
+m_style_cartoon <- function(color = NULL,
                             style = "rectangle",
                             ribbon = FALSE,
                             arrows = TRUE,
@@ -119,8 +117,7 @@ m_style_cartoon <- function(
 #'   m_set_style(style = m_style_stick(opacity = 0.4)) %>%
 #'   m_zoom_to()
 #' @export
-m_style_stick <- function(
-                          radius = 0.3,
+m_style_stick <- function(radius = 0.3,
                           singleBonds = FALSE,
                           colorScheme = NULL,
                           color = NULL,
@@ -162,7 +159,10 @@ m_style_stick <- function(
 #' @param alignment String, how to orient the label with respect to position:
 #' 'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center',
 #' 'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'.
+#' @param screenOffset Offset label on the x and y relative to the viewer from
+#'   the label position given with \code{m_sel()}.
 #' @param frame If set, only display in this frame of an animation.
+#'
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
@@ -173,8 +173,7 @@ m_style_stick <- function(
 #'   )) %>%
 #'   m_zoom_to()
 #' @export
-m_style_label <- function(
-                          font = "sans-serif",
+m_style_label <- function(font = "sans-serif",
                           fontSize = 18,
                           fontColor = "white",
                           fontOpacity = 1,
@@ -244,8 +243,7 @@ m_style_label <- function(
 #'   m_set_style(style = m_style_line(color = "blue")) %>%
 #'   m_zoom_to()
 #' @export
-m_style_line <- function(
-                         colorScheme = NULL,
+m_style_line <- function(colorScheme = NULL,
                          color = NULL,
                          opacity = 1,
                          hidden = FALSE) {
@@ -279,8 +277,7 @@ m_style_line <- function(
 #'   m_add_surface(style = m_style_surface(opacity = 0.4)) %>%
 #'   m_zoom_to()
 #' @export
-m_style_surface <- function(
-                            opacity = 1,
+m_style_surface <- function(opacity = 1,
                             colorScheme = NULL,
                             color = NULL) {
   surface_style <- list(
@@ -322,8 +319,7 @@ m_style_surface <- function(
 #'   m_zoom_to(sel = m_sel(resi = 1))
 #' }
 #' @export
-m_shape_spec <- function(
-                         color = NULL,
+m_shape_spec <- function(color = NULL,
                          opacity = 1.0,
                          wireframe = FALSE,
                          hidden = FALSE,

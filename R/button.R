@@ -52,11 +52,11 @@
 #'     "
 #'   )
 m_button_manual <- function(id,
-                     name,
-                     label,
-                     func,
-                     align_items = "flex-start",
-                     justify_content = "flex-start") {
+                            name,
+                            label,
+                            func,
+                            align_items = "flex-start",
+                            justify_content = "center") {
   if (missing(label)) {
     stop("`label` is a required argument.")
   }
@@ -81,29 +81,35 @@ m_button_manual <- function(id,
 #' @param sel Atom selection specification with \code{m_sel()}
 #' @param label String for button label.
 #'
-#' @return
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
+#' # Add buttons to show and hide sticks
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_zoom_to() %>%
+#'   m_button_add_style(m_style_stick(), label = "Show Sticks") %>%
+#'   m_button_add_style(m_style_stick(hidden = TRUE), label = "Hide Sticks")
 m_button_add_style <-
   function(id,
            style = m_style_cartoon(),
            sel = m_sel(),
            label = "Style") {
-  m_button_manual(
-    id = id,
-    name = "cartoon",
-    label = label,
-    align_items = "flex-end",
-    justify_content = "center",
-    func = paste0("
+    m_button_manual(
+      id = id,
+      name = "cartoon",
+      label = label,
+      align_items = "flex-end",
+      justify_content = "center",
+      func = paste0("
         function() {
           viewer.addStyle(", rjson::toJSON(sel), ",", rjson::toJSON(style), ");
           viewer.render();
         }
-      "
+      ")
     )
-  )
   }
 
 #' Add a button for overwriting a style
@@ -117,30 +123,38 @@ m_button_add_style <-
 #' @param sel Atom selection specification with \code{m_sel()}
 #' @param label String for button label.
 #'
-#' @return
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
+#' # Add buttons to show and hide sticks
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_zoom_to() %>%
+#'   m_set_style(m_style_cartoon()) %>%
+#'   m_button_add_style(m_style_stick(), label = "Add Sticks") %>%
+#'   m_button_add_style(m_style_sphere(scale = 0.3), label = "Add Spheres") %>%
+#'   m_button_set_style(m_style_cartoon(), label = "Set Cartoon")
 m_button_set_style <-
   function(id,
            style = m_style_cartoon(),
            sel = m_sel(),
            label = "Style") {
-  m_button_manual(
-    id = id,
-    name = "cartoon",
-    label = label,
-    align_items = "flex-end",
-    justify_content = "center",
-    func = paste0("
+    m_button_manual(
+      id = id,
+      name = "cartoon",
+      label = label,
+      align_items = "flex-end",
+      justify_content = "center",
+      func = paste0("
         function() {
-          viewer.addStyle(", rjson::toJSON(sel), ",", rjson::toJSON(style), ");
+          viewer.setStyle(", rjson::toJSON(sel), ",", rjson::toJSON(style), ");
           viewer.render();
         }
-      "
+      ")
     )
-  )
-}
+  }
 
 #' Add a button for spinning the scene
 #'
@@ -155,10 +169,25 @@ m_button_set_style <-
 #' @param stopButton Logical, whether to also create a button to stop the spin.
 #' @param stopLabel String for the stop button label.
 #'
-#' @return
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
+#' # Add buttons to start and stop spin
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_zoom_to() %>%
+#'   m_set_style(m_style_cartoon()) %>%
+#'   m_button_spin()
+#'
+#' # Add buttons to stop already spinning scene
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_zoom_to() %>%
+#'   m_set_style(m_style_cartoon()) %>%
+#'   m_spin() %>%
+#'   m_button_spin()
 m_button_spin <-
   function(id,
            speed = 1,
@@ -166,35 +195,34 @@ m_button_spin <-
            label = "Spin",
            stopButton = TRUE,
            stopLabel = "Stop") {
-
-  id <- m_button_manual(
-    id = id,
-    name = "spin",
-    label = label,
-    func = paste0("
+    id <- m_button_manual(
+      id = id,
+      name = "spin",
+      label = label,
+      func = paste0("
         function() {
           viewer.spin(\"", axis, "\",", speed, ");
           viewer.render();
       }
       ")
-  )
+    )
 
-  if (stopButton) {
-    id <- m_button_manual(
-      id = id,
-      name = "stopSpin",
-      label = stopLabel,
-      func = paste0("
+    if (stopButton) {
+      id <- m_button_manual(
+        id = id,
+        name = "stopSpin",
+        label = stopLabel,
+        func = paste0("
           function() {
             viewer.spin(false);
             viewer.render();
         }
         ")
-    )
-  }
+      )
+    }
 
-  id
-}
+    id
+  }
 
 #' Add a button for zooming to a selection
 #'
@@ -207,17 +235,24 @@ m_button_spin <-
 #'   view to encompass the entire scene.
 #' @param zoomOutLabel String for zoom out button label.
 #'
-#' @return
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
+#' # Add buttons to zoom in and out of a specific selection
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_zoom_to() %>%
+#'   m_set_style(m_style_cartoon()) %>%
+#'   m_add_style(m_style_stick(), m_sel(resi = 100:110)) %>%
+#'   m_button_zoom_to(sel = m_sel(resi = 100:110))
 m_button_zoom_to <- function(id,
                              sel = m_sel(),
                              label = "Zoom",
                              duration = 500,
                              zoomOut = TRUE,
                              zoomOutLabel = "Zoom Out") {
-
   id <- m_button_manual(
     id = id,
     name = label,
@@ -225,7 +260,7 @@ m_button_zoom_to <- function(id,
     func = paste0(
       "
       function() {
-        viewer.zoomTo(", rjson::toJSON(sel), ",", duration ,");
+        viewer.zoomTo(", rjson::toJSON(sel), ",", duration, ");
       }"
     )
   )
@@ -237,7 +272,7 @@ m_button_zoom_to <- function(id,
       label = zoomOutLabel,
       func = paste0("
       function() {
-        viewer.zoomTo({},", duration,");
+        viewer.zoomTo({},", duration, ");
       }")
     )
   }
@@ -260,10 +295,26 @@ m_button_zoom_to <- function(id,
 #'   remove all surfaces from the viewer.
 #' @param removeLabel String for clear surface button label.
 #'
-#' @return
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
+#' # Add buttons to add and clear surface representations
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_zoom_to() %>%
+#'   m_set_style(m_style_cartoon()) %>%
+#'   m_button_add_surface(
+#'     style = m_style_surface(opacity = 0.4),
+#'     atomsel = m_sel(resi = 70:110)
+#'   ) %>%
+#'   m_button_add_surface(
+#'     style = m_style_surface(opacity = 1),
+#'     atomsel = m_sel(resi = 70:110, invert = TRUE),
+#'     label = "Rest of Protein",
+#'     removeSurface = FALSE
+#'   )
 m_button_add_surface <- function(id,
                                  label = "Surface",
                                  type = "VDW",
@@ -272,14 +323,14 @@ m_button_add_surface <- function(id,
                                  allsel = NULL,
                                  removeSurface = TRUE,
                                  removeLabel = "Clear Surfaces") {
-
   if (is.null(allsel)) allsel <- atomsel
 
   id <- m_button_manual(
     id = id,
     name = "surface",
     label = label,
-    func = paste0("
+    func = paste0(
+      "
       function() {
         viewer.addSurface($3Dmol.SurfaceType.", type, ",",
       rjson::toJSON(style), ",",
@@ -287,7 +338,8 @@ m_button_add_surface <- function(id,
       rjson::toJSON(allsel),
       ");
         viewer.render();
-      }")
+      }"
+    )
   )
 
   if (removeSurface) {
@@ -319,10 +371,17 @@ m_button_add_surface <- function(id,
 #'   labels from the viewer.
 #' @param hideLabel String for hide labels button label.
 #'
-#' @return
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
+#' # Add buttons to add and clear surface representations
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_zoom_to() %>%
+#'   m_set_style(m_style_cartoon()) %>%
+#'   m_button_add_res_labels(sel = m_sel(resi = c(70, 80, 90)))
 m_button_add_res_labels <- function(id,
                                     sel = m_sel(),
                                     style = m_style_label(),
@@ -334,17 +393,19 @@ m_button_add_res_labels <- function(id,
     id = id,
     name = label,
     label = label,
-    func = paste0("
+    func = paste0(
+      "
                   function() {
                     viewer.addResLabels(", rjson::toJSON(sel),
-                  ",",
-                  rjson::toJSON(style),
-                  ",",
-                  ifelse(byframe, "true", "false"),
-                  ");
+      ",",
+      rjson::toJSON(style),
+      ",",
+      ifelse(byframe, "true", "false"),
+      ");
                   viewer.render();
 
-                  }")
+                  }"
+    )
   )
 
   if (hideButton) {
@@ -378,10 +439,32 @@ m_button_add_res_labels <- function(id,
 #'   currently playing animation.
 #' @param stopLabel String for stop for stop animation button label.
 #'
-#' @return
+#' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
+#' \code{r3dmol()})
 #' @export
 #'
 #' @examples
+#'
+#' xyz <- "4
+#' * (null), Energy   -1000.0000000
+#' N     0.000005    0.019779   -0.000003   -0.157114    0.000052   -0.012746
+#' H     0.931955   -0.364989    0.000003    1.507100   -0.601158   -0.004108
+#' H    -0.465975   -0.364992    0.807088    0.283368    0.257996   -0.583024
+#' H    -0.465979   -0.364991   -0.807088    0.392764    0.342436    0.764260
+#' "
+#'
+#' r3dmol(
+#'   backgroundColor = "0xeeeeee"
+#' ) %>%
+#'   m_add_model(
+#'     data = xyz,
+#'     format = "xyz",
+#'     options = list(vibrate = list(frames = 10, amplitude = 1))
+#'   ) %>%
+#'   m_set_style(style = m_style_stick()) %>%
+#'   m_animate(list(loop = "backAndForth")) %>%
+#'   m_zoom_to() %>%
+#'   m_button_animate(step = 1, reps = 0, interval = 50)
 m_button_animate <- function(id,
                              interval = 50,
                              loop = "backAndForth",
@@ -397,10 +480,11 @@ m_button_animate <- function(id,
     func = paste0("
     function() {
       viewer.animate(", rjson::toJSON(list(
-        interval = interval,
-                                           loop = loop,
-                                           step = step,
-                                           reps = reps)), ");
+      interval = interval,
+      loop = loop,
+      step = step,
+      reps = reps
+    )), ");
       viewer.render();
     }")
   )

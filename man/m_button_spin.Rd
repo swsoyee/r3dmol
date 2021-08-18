@@ -31,8 +31,25 @@ relative (rather than model relative) axes are prefixed with \code{"v"}.}
 \item{stopLabel}{String for the stop button label.}
 }
 \value{
-
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Add a button for spinning the scene
+}
+\examples{
+# Add buttons to start and stop spin
+r3dmol() \%>\%
+  m_add_model(data = pdb_1j72, format = "pdb") \%>\%
+  m_zoom_to() \%>\%
+  m_set_style(m_style_cartoon()) \%>\%
+  m_button_spin()
+
+# Add buttons to stop already spinning scene
+r3dmol() \%>\%
+  m_add_model(data = pdb_1j72, format = "pdb") \%>\%
+  m_zoom_to() \%>\%
+  m_set_style(m_style_cartoon()) \%>\%
+  m_spin() \%>\%
+  m_button_spin()
 }

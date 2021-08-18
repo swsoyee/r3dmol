@@ -24,8 +24,17 @@ Multiple styles can be supplied inside a vector (i.e.)
 \item{label}{String for button label.}
 }
 \value{
-
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Creates a button that will add the given style to the selection when pressed.
+}
+\examples{
+# Add buttons to show and hide sticks
+r3dmol() \%>\%
+  m_add_model(data = pdb_1j72, format = "pdb") \%>\%
+  m_zoom_to() \%>\%
+  m_button_add_style(m_style_stick(), label = "Show Sticks") \%>\%
+  m_button_add_style(m_style_stick(hidden = TRUE), label = "Hide Sticks")
 }

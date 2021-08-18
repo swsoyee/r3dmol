@@ -36,8 +36,26 @@ remove all surfaces from the viewer.}
 \item{removeLabel}{String for clear surface button label.}
 }
 \value{
-
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Add a button for adding a surface
+}
+\examples{
+# Add buttons to add and clear surface representations
+r3dmol() \%>\%
+  m_add_model(data = pdb_1j72, format = "pdb") \%>\%
+  m_zoom_to() \%>\%
+  m_set_style(m_style_cartoon()) \%>\%
+  m_button_add_surface(
+    style = m_style_surface(opacity = 0.4),
+    atomsel = m_sel(resi = 70:110)
+  ) \%>\%
+  m_button_add_surface(
+    style = m_style_surface(opacity = 1),
+    atomsel = m_sel(resi = 70:110, invert = TRUE),
+    label = "Rest of Protein",
+    removeSurface = FALSE
+  )
 }

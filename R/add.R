@@ -89,8 +89,7 @@ m_add_as_one_molecule <- function(id, data, format) {
 #'   )
 #' }
 #' @export
-m_add_arrow <- function(
-                        id,
+m_add_arrow <- function(id,
                         start,
                         end,
                         radius = 0.2,
@@ -146,8 +145,7 @@ m_add_curve <- function(id, spec = list()) {
 #' \code{m_shape_spec()}.
 #' @noRd
 #' @keywords internal
-.m_add_cylinder <- function(
-                            id,
+.m_add_cylinder <- function(id,
                             start,
                             end,
                             radius = 0.1,
@@ -252,8 +250,7 @@ m_add_curve <- function(id, spec = list()) {
 #'   ) %>%
 #'   m_add_res_labels(m_sel(resi = 1:4, chain = "A"))
 #' @export
-m_add_cylinder <- function(
-                           id,
+m_add_cylinder <- function(id,
                            start,
                            end,
                            radius = 0.1,
@@ -337,8 +334,7 @@ m_add_cylinder <- function(
 #' \code{r3dmol()}).
 #' @noRd
 #' @keywords internal
-.m_add_line <- function(
-                        id,
+.m_add_line <- function(id,
                         start,
                         end,
                         dashed,
@@ -413,8 +409,7 @@ m_add_cylinder <- function(
 #'     ),
 #'     dashed = TRUE
 #'   )
-m_add_line <- function(
-                       id,
+m_add_line <- function(id,
                        start,
                        end,
                        dashed = TRUE,

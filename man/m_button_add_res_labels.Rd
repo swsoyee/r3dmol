@@ -33,8 +33,17 @@ labels from the viewer.}
 \item{hideLabel}{String for hide labels button label.}
 }
 \value{
-
+R3dmol \code{id} or a \code{r3dmol} object (the output from
+\code{r3dmol()})
 }
 \description{
 Add a button for adding residue labels
+}
+\examples{
+# Add buttons to add and clear surface representations
+r3dmol() \%>\%
+  m_add_model(data = pdb_1j72, format = "pdb") \%>\%
+  m_zoom_to() \%>\%
+  m_set_style(m_style_cartoon()) \%>\%
+  m_button_add_res_labels(sel = m_sel(resi = c(70, 80, 90)))
 }
