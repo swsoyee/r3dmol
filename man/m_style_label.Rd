@@ -13,6 +13,7 @@ m_style_label(
   backgroundOpacity = 1,
   borderOpacity = 1,
   borderThickness = 0,
+  screenOffset = list(x = 1, y = 1),
   borderColor = backgroundColor,
   inFront = TRUE,
   showBackground = TRUE,
