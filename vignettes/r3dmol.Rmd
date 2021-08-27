@@ -135,7 +135,7 @@ r3dmol() %>%
         }"
   )) %>%
   m_zoom_to() %>%
-  m_png(width = 800, height = 500)
+  m_png()
 ```
 
 ### Multiple Viewers
