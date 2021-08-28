@@ -1,0 +1,105 @@
+---
+title: "Using Buttons in {r3dmol}"
+author: "Brady Johnston"
+date: "2021-08-18"
+output: 
+  html_document:
+    theme: flatly
+vignette: >
+  %\VignetteIndexEntry{Using Buttons in {r3dmol}}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(r3dmol)
+```
+
+# Settuping up a basic scene
+
+Before we start adding buttons, lets set up a basic molecular viewer.
+
+```{r}
+viewer <- r3dmol() %>% 
+  m_add_model(pdb_1j72) %>% 
+  m_set_style(m_style_cartoon("spectrum")) %>% 
+  m_zoom_to()
+
+viewer
+```
+
+Now that we have a viewer set up, let's add some user interactions with buttons!
+
+## Basics of Buttons
+
+{r3dmol} provides a framework for creating buttons that will appear in the viewer for the user to click on. When clicked - the button will execute some pre-determied javascript code. If you want to create your own custom buttons, use the `m_button_manual()` function and supply your own javascript, like in the example below.
+
+```{r}
+viewer %>% 
+  m_button_manual(
+    name = "cartoon",
+    label = "Cartoon",
+    align_items = "flex-end",
+    justify_content = "center",
+    func = "
+      function() {
+        viewer.setStyle({cartoon:{color:\"spectrum\"}});
+        viewer.render();
+      }
+    "
+  ) %>%
+  m_button_manual(
+    name = "stick",
+    label = "Stick",
+    func = "
+      function() {
+        viewer.setStyle({stick:{}});
+        viewer.render();
+      }
+    "
+  )
+
+```
+
+The viewer is executing the javascript code that is defined inside of the `func` variable. The problem with this is that it requires you to learn some javascript, but also that writing javascript inside of a string inside of R isn't the most pleasant thing in the world.
+
+To help out {r3dmol} has some pre-defined buttons for convenience.
+
+## Default Buttons
+
+The `m_button_*()` family of functions allow for the quick creation of buttons to do a range of common user input tasks that you might want to set up inside of the viewer.
+
+Changing the style, zooming in and out of a particular selection, spinning and playing animations are currently pre-defined. If you feel the need for other buttons, please feel free to [open a feature request](https://github.com/swsoyee/r3dmol/issues) on github.
+
+Let's recreate the viewer above to allow changing of the style, with a few less lines of code.
+
+```{r}
+viewer %>% 
+  m_button_set_style(m_style_cartoon("spectrum"), 
+                     label = "Cartoon") %>% 
+  m_button_set_style(m_style_stick(), 
+                     label = "Stick")
+```
+
+We can also allow spinning / stopping of spinning.
+
+```{r}
+viewer %>% 
+  m_button_spin()
+```
+
+You'll notice that the `m_button_spin()` function automatically also created a *Stop* button as well as the spin button. Several `m_button_*()` functions automatically create a complimentary button (start / stop animation, show / hide labels etc), but the creation of this button can be disabled inside the function with `stopButton = FALSE`.
+
+Of course now when we start the model spinning with the button, we have no way of stopping it. This feature is useful however when you wish to have multiple buttons that spin the model different directions and speeds, and not create a new *Stop* button each time you add a button.
+
+```{r}
+viewer %>% 
+  m_button_spin(stopButton = FALSE)
+```

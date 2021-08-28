@@ -7,8 +7,7 @@
 #' @param ends End locations, either \code{m_vector3()} or \code{m_sel()}
 #' and end locations.
 #' @keywords internal
-.m_multi_spec <- function(
-                          starts,
+.m_multi_spec <- function(starts,
                           ends) {
   # get number of starting and ending points
   length_starts <- length(starts)

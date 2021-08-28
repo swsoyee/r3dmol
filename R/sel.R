@@ -58,8 +58,7 @@
 #' }
 #' @export
 #'
-m_sel <- function(
-                  model = NULL,
+m_sel <- function(model = NULL,
                   resi = NULL,
                   resn = NULL,
                   invert = NULL,
@@ -156,8 +155,7 @@ m_sel <- function(
 #'       chain = "B"
 #'     )
 #'   )
-m_multi_resi_sel <- function(
-                             resi = NULL,
+m_multi_resi_sel <- function(resi = NULL,
                              resn = NULL,
                              chain = NULL,
                              model = NULL,

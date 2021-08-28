@@ -27,7 +27,8 @@ Imports:
     htmlwidgets,
     magrittr,
     methods, 
-    bio3d
+    bio3d, 
+    rjson
 Suggests: 
     knitr,
     rmarkdown,

@@ -18,8 +18,7 @@
 #' representation.
 #' @param disableFog Logical, disable fog, defaults to \code{FALSE}
 #' @export
-m_viewer_spec <- function(
-                          id = NULL,
+m_viewer_spec <- function(id = NULL,
                           defaultcolors = NULL,
                           cartoonQuality = 5,
                           antialias = TRUE,
