@@ -20,8 +20,7 @@
 #'   m_set_style(style = m_style_sphere(radius = 0.5)) %>%
 #'   m_zoom_to()
 #' @export
-m_style_sphere <- function(
-                           scale = 1,
+m_style_sphere <- function(scale = 1,
                            colorScheme = NULL,
                            color = NULL,
                            radius = NULL,
@@ -39,6 +38,59 @@ m_style_sphere <- function(
   class(sphere_style) <- "SphereStyleSpec"
 
   list(sphere = sphere_style)
+}
+
+#' Specifying Style for Ball and Stick
+#'
+#' Styling options for ball and stick representations.
+#'
+#' @param sphereScale Relative scaling of sphere atomic radii.
+#' @param colorScheme Specify scheme to color the atoms by. Default is
+#'   "default". Other choices are "Carbon", "ssPyMOL", "ssJmol", "Jmol",
+#'   "default", "amino", "shapely", "nucleic", "chain", "chainHetatm", "prop".
+#' @param color Specific coloring for everything in selection, overrides any
+#'   specified colorScheme.
+#' @param sphereRadius Set absolute radius for all spheres in selection
+#'   (overriding the atomic raddii)l
+#' @param stickRadius Set absolute radius for all sticks in the selection.
+#' @param hidden Boolean - do not show atoms in selection. Default \code{FALSE}
+#' @param opacity Opacity of spheres and sticks, 0 being invisible, 1 being
+#'   opaque. Must be the same for all atoms in the model.
+#'
+#' @export
+#'
+#' @examples
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_set_style(style = m_style_ballnstick()) %>%
+#'   m_zoom_to()
+m_style_ballnstick <- function(sphereScale = 0.3,
+                               colorScheme = NULL,
+                               color = NULL,
+                               sphereRadius = NULL,
+                               stickRadius = 0.25,
+                               hidden = FALSE,
+                               opacity = 1) {
+  ballnstick_style <- c(
+    m_style_sphere(
+      scale = sphereScale,
+      colorScheme = colorScheme,
+      color = color,
+      opacity = opacity,
+      hidden = hidden
+    ),
+    m_style_stick(
+      radius = stickRadius,
+      hidden = hidden,
+      colorScheme = colorScheme,
+      color = color,
+      opacity = opacity
+    )
+  )
+
+  class(ballnstick_style) <- "BallnStickStyleSpec"
+
+  ballnstick_style
 }
 
 #' Specify Styling for Cartoon
@@ -72,8 +124,7 @@ m_style_sphere <- function(
 #'   m_set_style(style = m_style_cartoon(color = "spectrum")) %>%
 #'   m_zoom_to()
 #' @export
-m_style_cartoon <- function(
-                            color = NULL,
+m_style_cartoon <- function(color = NULL,
                             style = "rectangle",
                             ribbon = FALSE,
                             arrows = TRUE,
@@ -119,8 +170,7 @@ m_style_cartoon <- function(
 #'   m_set_style(style = m_style_stick(opacity = 0.4)) %>%
 #'   m_zoom_to()
 #' @export
-m_style_stick <- function(
-                          radius = 0.3,
+m_style_stick <- function(radius = 0.3,
                           singleBonds = FALSE,
                           colorScheme = NULL,
                           color = NULL,
@@ -163,6 +213,7 @@ m_style_stick <- function(
 #' 'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center',
 #' 'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'.
 #' @param frame If set, only display in this frame of an animation.
+#'
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
@@ -173,8 +224,7 @@ m_style_stick <- function(
 #'   )) %>%
 #'   m_zoom_to()
 #' @export
-m_style_label <- function(
-                          font = "sans-serif",
+m_style_label <- function(font = "sans-serif",
                           fontSize = 18,
                           fontColor = "white",
                           fontOpacity = 1,
@@ -242,8 +292,7 @@ m_style_label <- function(
 #'   m_set_style(style = m_style_line(color = "blue")) %>%
 #'   m_zoom_to()
 #' @export
-m_style_line <- function(
-                         colorScheme = NULL,
+m_style_line <- function(colorScheme = NULL,
                          color = NULL,
                          opacity = 1,
                          hidden = FALSE) {
@@ -277,8 +326,7 @@ m_style_line <- function(
 #'   m_add_surface(style = m_style_surface(opacity = 0.4)) %>%
 #'   m_zoom_to()
 #' @export
-m_style_surface <- function(
-                            opacity = 1,
+m_style_surface <- function(opacity = 1,
                             colorScheme = NULL,
                             color = NULL) {
   surface_style <- list(
@@ -320,8 +368,7 @@ m_style_surface <- function(
 #'   m_zoom_to(sel = m_sel(resi = 1))
 #' }
 #' @export
-m_shape_spec <- function(
-                         color = NULL,
+m_shape_spec <- function(color = NULL,
                          opacity = 1.0,
                          wireframe = FALSE,
                          hidden = FALSE,

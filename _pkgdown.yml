@@ -22,7 +22,6 @@ reference:
       - m_png
       - m_grid
       - m_glimpse
-      - m_button
       - m_clear
       - m_enable_fog
       - m_shiny_demo
@@ -58,6 +57,10 @@ reference:
       - m_stop_animate
       - starts_with("m_translate")
       - starts_with("m_zoom")
+  - title: 'Button'
+    desc: 'Functions for adding buttons to interact with visualizations.'
+  - contents:
+      - starts_with("m_button")
   - title: 'Class Constructor'
     desc: 'Convenience functions for constructing class for r3dmol.'
   - contents:

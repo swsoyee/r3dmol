@@ -1,5 +1,10 @@
 # r3dmol 0.1.3
 
+### Features
+
+* Provide more enhancement functions with `m_button_*()` ([#38](https://github.com/swsoyee/r3dmol/pull/38)). 
+See [Using Buttons in `{r3dmol}`](https://swsoyee.github.io/r3dmol/articles/using-buttons.html) for more details.
+
 ### Bugs Fixed
 
 * Fix the incorrect layout of `m_button()` in the rmarkdown ([#31](https://github.com/swsoyee/r3dmol/pull/31)).

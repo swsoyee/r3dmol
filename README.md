@@ -9,8 +9,7 @@
 status](https://www.r-pkg.org/badges/version/r3dmol)](https://CRAN.R-project.org/package=r3dmol)
 [![Codecov test
 coverage](https://codecov.io/gh/swsoyee/r3dmol/branch/master/graph/badge.svg)](https://codecov.io/gh/swsoyee/r3dmol?branch=master)
-[![R build
-status](https://github.com/swsoyee/r3dmol/workflows/R-CMD-check/badge.svg)](https://github.com/swsoyee/r3dmol/actions)
+[![R-CMD-check](https://github.com/swsoyee/r3dmol/workflows/R-CMD-check/badge.svg)](https://github.com/swsoyee/r3dmol/actions)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Metacran

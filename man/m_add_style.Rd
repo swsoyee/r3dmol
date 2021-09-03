@@ -2,7 +2,7 @@
 % Please edit documentation in R/add.R
 \name{m_add_style}
 \alias{m_add_style}
-\title{Overwrite Previous Style}
+\title{Add Style to Selection}
 \usage{
 m_add_style(id, style = m_style_cartoon(), sel = m_sel())
 }
@@ -19,7 +19,7 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()})
 }
 \description{
-Takes a selection and overwrites previous styling with given styles.
+Takes a selection and adds additional styling to it.
 }
 \examples{
 library(r3dmol)
