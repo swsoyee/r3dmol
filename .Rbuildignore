@@ -25,3 +25,6 @@
 ^yarn\.lock$
 ^node_modules$
 ^vignettes/multi-selections.Rmd
+^vignettes/style-functions.Rmd
+^vignettes/using-buttons.Rmd
+^vignettes/r3dmol.Rmd
