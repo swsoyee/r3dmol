@@ -40,6 +40,59 @@ m_style_sphere <- function(scale = 1,
   list(sphere = sphere_style)
 }
 
+#' Specifying Style for Ball and Stick
+#'
+#' Styling options for ball and stick representations.
+#'
+#' @param sphereScale Relative scaling of sphere atomic radii.
+#' @param colorScheme Specify scheme to color the atoms by. Default is
+#'   "default". Other choices are "Carbon", "ssPyMOL", "ssJmol", "Jmol",
+#'   "default", "amino", "shapely", "nucleic", "chain", "chainHetatm", "prop".
+#' @param color Specific coloring for everything in selection, overrides any
+#'   specified colorScheme.
+#' @param sphereRadius Set absolute radius for all spheres in selection
+#'   (overriding the atomic raddii)l
+#' @param stickRadius Set absolute radius for all sticks in the selection.
+#' @param hidden Boolean - do not show atoms in selection. Default \code{FALSE}
+#' @param opacity Opacity of spheres and sticks, 0 being invisible, 1 being
+#'   opaque. Must be the same for all atoms in the model.
+#'
+#' @export
+#'
+#' @examples
+#' r3dmol() %>%
+#'   m_add_model(data = pdb_1j72, format = "pdb") %>%
+#'   m_set_style(style = m_style_ballnstick()) %>%
+#'   m_zoom_to()
+m_style_ballnstick <- function(sphereScale = 0.3,
+                               colorScheme = NULL,
+                               color = NULL,
+                               sphereRadius = NULL,
+                               stickRadius = 0.25,
+                               hidden = FALSE,
+                               opacity = 1) {
+  ballnstick_style <- c(
+    m_style_sphere(
+      scale = sphereScale,
+      colorScheme = colorScheme,
+      color = color,
+      opacity = opacity,
+      hidden = hidden
+    ),
+    m_style_stick(
+      radius = stickRadius,
+      hidden = hidden,
+      colorScheme = colorScheme,
+      color = color,
+      opacity = opacity
+    )
+  )
+
+  class(ballnstick_style) <- "BallnStickStyleSpec"
+
+  ballnstick_style
+}
+
 #' Specify Styling for Cartoon
 #'
 #' Styling options for the cartoon representation. Used inside
@@ -181,7 +234,6 @@ m_style_label <- function(font = "sans-serif",
                           backgroundOpacity = 1,
                           borderOpacity = 1,
                           borderThickness = 0,
-                          screenOffset = list(x = 1, y = 1),
                           borderColor = backgroundColor,
                           inFront = TRUE,
                           showBackground = TRUE,
@@ -205,7 +257,6 @@ m_style_label <- function(font = "sans-serif",
     fontSize = fontSize,
     fontColor = fontColor,
     fontOpacity = fontOpacity,
-    screenOffset = screenOffset,
     backgroundColor = backgroundColor,
     backgroundOpacity = backgroundOpacity,
     borderColor = borderColor,
