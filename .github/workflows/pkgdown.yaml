@@ -17,15 +17,15 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v1
 
+      - uses: r-lib/actions/setup-r@v1
+        with:
+          use-public-rspm: true
+      
       - name: Install pak and query dependencies
         run: |
           install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
           saveRDS(pak::pkg_deps("local::.", dependencies = TRUE), ".github/r-depends.rds")
         shell: Rscript {0}
-
-      - uses: r-lib/actions/setup-r@v1
-        with:
-          use-public-rspm: true
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
