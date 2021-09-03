@@ -212,8 +212,6 @@ m_style_stick <- function(radius = 0.3,
 #' @param alignment String, how to orient the label with respect to position:
 #' 'topLeft' (default), 'topCenter', 'topRight', 'centerLeft', 'center',
 #' 'centerRight', 'bottomLeft', 'bottomCenter', 'bottomRight'.
-#' @param screenOffset Offset label on the x and y relative to the viewer from
-#'   the label position given with \code{m_sel()}.
 #' @param frame If set, only display in this frame of an animation.
 #'
 #' @examples

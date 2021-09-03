@@ -13,7 +13,6 @@ m_style_label(
   backgroundOpacity = 1,
   borderOpacity = 1,
   borderThickness = 0,
-  screenOffset = list(x = 1, y = 1),
   borderColor = backgroundColor,
   inFront = TRUE,
   showBackground = TRUE,
@@ -40,9 +39,6 @@ m_style_label(
 \item{borderOpacity}{Opacity of border, default 1.}
 
 \item{borderThickness}{Line width of border around label, default 0.}
-
-\item{screenOffset}{Offset label on the x and y relative to the viewer from
-the label position given with \code{m_sel()}.}
 
 \item{borderColor}{Color of border, default backgroundColor.}
 
