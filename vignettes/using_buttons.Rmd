@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 library(r3dmol)
 ```
 
-# Settuping up a basic scene
+# Setting up a basic scene
 
 Before we start adding buttons, lets set up a basic molecular viewer.
 
@@ -103,3 +103,28 @@ Of course now when we start the model spinning with the button, we have no way o
 viewer %>% 
   m_button_spin(stopButton = FALSE)
 ```
+
+# Buttons to Change Style
+
+To change the styling of the protein in the scene between two options, we can use the `m_button_*_style()` functions to either `add` or `set` new styles.
+
+```{r}
+viewer <- viewer %>% 
+  m_button_set_style(m_style_cartoon("spectrum"),
+                     label = "Cartoon") %>% 
+  m_button_set_style(m_style_stick(), 
+                     label = "Sticks")
+
+viewer
+```
+
+# *Enhance!*
+
+To zoom in and out of a particular section, use the `m_button_zoom_to()` functions, to bring the attention of the viewer to a particular section of the scene with the click of a button.
+
+```{r}
+viewer %>% 
+  m_button_zoom_to(m_sel(resi = 100:110))
+```
+
+Checkout the documentation for the other `m_button_*` functions to see what support has been added. If you would like a particular button to exist, open an issue or a pull request and we can help make it happen!
