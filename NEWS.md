@@ -1,4 +1,4 @@
-# r3dmol 0.1.3
+# r3dmol 0.2.0
 
 ### Features
 
@@ -12,6 +12,10 @@ See [Using Buttons in `{r3dmol}`](https://swsoyee.github.io/r3dmol/articles/usin
 * Fix the bug that surface cannot be rendered correctly when using `m_png()`
 with `m_add_surface()` at the same time, and optimize the default image size 
 setting of `m_png()` ([#35](https://github.com/swsoyee/r3dmol/issues/35)).
+
+### Other
+
+* Upgrade 3dmol.js dependency to v1.7.0 ([#43](https://github.com/swsoyee/r3dmol/pull/43)).
 
 # r3dmol 0.1.2
 
