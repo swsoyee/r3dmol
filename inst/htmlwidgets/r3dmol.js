@@ -34,6 +34,7 @@ HTMLWidgets.widget({
     const elementId = el.id;
     const container = document.getElementById(elementId);
     let viewer;
+    let viewers;
     const promiseCalls = [];
 
     const evalFun = (object) => {
@@ -67,15 +68,7 @@ HTMLWidgets.widget({
             position: x.position || 'relative',
           });
           if (x.api === 'grid') {
-            const viewers = $3Dmol.createViewerGrid($(container), x.configs, x.viewer_config);
-            let index = 0;
-            for (let i = 0; i < x.configs.rows; i += 1) {
-              for (let j = 0; j < x.configs.cols; j += 1) {
-                x.viewer[index].x.viewer = viewers[i][j];
-                that.renderValue(x.viewer[index].x);
-                index += 1;
-              }
-            }
+            viewers = $3Dmol.createViewerGrid($(container), x.configs, x.viewer_config);
           }
           if (x.viewer) {
             viewer = x.viewer;
@@ -85,13 +78,32 @@ HTMLWidgets.widget({
         }
         // set listeners to events and pass data back to Shiny
         if (HTMLWidgets.shinyMode) {
-          viewer.clear();
-          viewer.setStateChangeCallback(() => {
-            // Shiny.onInputChange(elementId + "_is_animated", view.isAnimated());
-            Shiny.onInputChange(`${elementId}_get_perceived_distance`, viewer.getPerceivedDistance());
-          });
+          if (viewers) {
+            for (let i = 0; i < x.configs.rows; i += 1) {
+              for (let j = 0; j < x.configs.cols; j += 1) {
+                viewers[i][j].clear();
+              }
+            }
+          } else {
+            viewer.clear();
+            viewer.setStateChangeCallback(() => {
+              // Shiny.onInputChange(elementId + "_is_animated", view.isAnimated());
+              Shiny.onInputChange(`${elementId}_get_perceived_distance`, viewer.getPerceivedDistance());
+            });
+          }
         }
         // Now that the widget is initialized, call any outstanding API
+        // If using Grid layout, render each view
+        if (x.api === 'grid') {
+          let index = 0;
+          for (let i = 0; i < x.configs.rows; i += 1) {
+            for (let j = 0; j < x.configs.cols; j += 1) {
+              x.viewer[index].x.viewer = viewers[i][j];
+              that.renderValue(x.viewer[index].x);
+              index += 1;
+            }
+          }
+        }
         // functions that the user wantd to run on the widget
         const numApiCalls = x.api.length;
         // Save last call function name for auto render function call
