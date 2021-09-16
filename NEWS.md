@@ -12,6 +12,7 @@ See [Using Buttons in `{r3dmol}`](https://swsoyee.github.io/r3dmol/articles/usin
 * Fix the bug that surface cannot be rendered correctly when using `m_png()`
 with `m_add_surface()` at the same time, and optimize the default image size 
 setting of `m_png()` ([#35](https://github.com/swsoyee/r3dmol/issues/35)).
+* Fix grid layout dose not update in Shiny app ([#42](https://github.com/swsoyee/r3dmol/issues/42), [#44](https://github.com/swsoyee/r3dmol/issues/44))
 
 ### Other
 
