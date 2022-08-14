@@ -130,6 +130,7 @@ m_animate <- function(id, options) {
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
 #' @export
+#' @keywords internal
 #'
 m_create_model_from <- function(id, sel, extract) {
   method <- "createModelFrom"

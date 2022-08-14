@@ -89,14 +89,16 @@
     },
     "bslib": {
       "Package": "bslib",
-      "Version": "0.3.0",
+      "Version": "0.4.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "074ebc936dbcecd7115ed8083643b550",
+      "Hash": "be5ee090716ce1671be6cd5d7c34d091",
       "Requirements": [
+        "cachem",
         "htmltools",
         "jquerylib",
         "jsonlite",
+        "memoise",
         "rlang",
         "sass"
       ]
@@ -229,13 +231,13 @@
     },
     "desc": {
       "Package": "desc",
-      "Version": "1.3.0",
+      "Version": "1.4.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "b6963166f7f10b970af1006c462ce6cd",
+      "Hash": "eebd27ee58fcc58714eedb7aa07d8ad1",
       "Requirements": [
         "R6",
-        "crayon",
+        "cli",
         "rprojroot"
       ]
     },
@@ -259,17 +261,20 @@
     },
     "downlit": {
       "Package": "downlit",
-      "Version": "0.2.1",
+      "Version": "0.4.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "f24f1e44320a978c03050b8403a83793",
+      "Hash": "79bf3f66590752ffbba20f8d2da94c7c",
       "Requirements": [
         "brio",
+        "desc",
         "digest",
         "evaluate",
         "fansi",
+        "memoise",
         "rlang",
         "vctrs",
+        "withr",
         "yaml"
       ]
     },
@@ -325,10 +330,10 @@
     },
     "gert": {
       "Package": "gert",
-      "Version": "1.3.2",
+      "Version": "1.7.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "72b34cde959b806e86cb99fc12d1ba58",
+      "Hash": "e8432885a6c629a693c6e0716d1b68ec",
       "Requirements": [
         "askpass",
         "credentials",
@@ -752,24 +757,24 @@
     },
     "pkgdown": {
       "Package": "pkgdown",
-      "Version": "1.6.1",
+      "Version": "2.0.6",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "8896076540d9e9b556a2ec658c81f916",
+      "Hash": "f958d0b2a5dabc5ffd414f062b1ffbe7",
       "Requirements": [
+        "bslib",
         "callr",
-        "crayon",
+        "cli",
         "desc",
         "digest",
         "downlit",
         "fs",
         "httr",
+        "jsonlite",
         "magrittr",
         "memoise",
-        "openssl",
         "purrr",
         "ragg",
-        "rematch2",
         "rlang",
         "rmarkdown",
         "tibble",
@@ -1158,10 +1163,10 @@
     },
     "usethis": {
       "Package": "usethis",
-      "Version": "2.0.1",
+      "Version": "2.1.6",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "360e904f9e623286e1a0c6ca0a98c5f6",
+      "Hash": "a67a22c201832b12c036cc059f1d137d",
       "Requirements": [
         "cli",
         "clipr",
@@ -1238,10 +1243,10 @@
     },
     "withr": {
       "Package": "withr",
-      "Version": "2.4.2",
+      "Version": "2.5.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "ad03909b44677f930fa156d47d7a3aeb",
+      "Hash": "c0e49a9760983e81e55cdd9be92e7182",
       "Requirements": []
     },
     "xfun": {

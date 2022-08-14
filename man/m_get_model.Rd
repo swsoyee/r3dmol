@@ -19,3 +19,4 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from
 \description{
 Return specified model
 }
+\keyword{internal}

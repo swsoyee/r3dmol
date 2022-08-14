@@ -6,6 +6,8 @@
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
+#' 
+#' @keywords internal
 #' @export
 #'
 m_get_model <- function(id, modelId) {
@@ -22,6 +24,8 @@ m_get_model <- function(id, modelId) {
 #' \code{r3dmol()})
 #'
 #' @return \code{logical}
+#' 
+#' @keywords internal
 #' @export
 #'
 m_is_animated <- function(id) {

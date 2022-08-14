@@ -16,3 +16,4 @@ m_is_animated(id)
 \description{
 Return true if viewer is currently being animated, false otherwise
 }
+\keyword{internal}

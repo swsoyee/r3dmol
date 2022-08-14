@@ -22,3 +22,4 @@ R3dmol \code{id} or a \code{r3dmol} object (the output from
 Create a new model from atoms specified by sel.
 If extract, removes selected atoms from existing models.
 }
+\keyword{internal}
