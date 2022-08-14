@@ -1,11 +1,12 @@
 pandoc: 2.7.3
-pkgdown: 1.6.1
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   multi-selections: multi-selections.html
   r3dmol: r3dmol.html
   style-functions: style-functions.html
-last_built: 2021-08-28T05:37Z
+  using-buttons: using-buttons.html
+last_built: 2022-08-14T08:36Z
 urls:
   reference: https://swsoyee.github.io/r3dmol/reference
   article: https://swsoyee.github.io/r3dmol/articles

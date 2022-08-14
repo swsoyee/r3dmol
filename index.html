@@ -38,6 +38,8 @@
 </script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -50,18 +52,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">r3dmol</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="articles/r3dmol.html">Get started</a>
 </li>
@@ -69,7 +65,7 @@
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -81,10 +77,13 @@
     <li>
       <a href="articles/style-functions.html">Styling Your Protein</a>
     </li>
+    <li>
+      <a href="articles/using-buttons.html">Using Buttons in {r3dmol}</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -92,10 +91,11 @@
   <ul class="dropdown-menu" role="menu">
 <li class="dropdown-header">Releases</li>
     <li>
-      <a href="https://swsoyee.vercel.app/2021/03/r3dmol-release-012/">Version 0.1.2</a>
+      <a href="https://swsoyee.vercel.app/2021/03/r3dmol-release-012/" class="external-link">Version 0.1.2</a>
     </li>
     <li class="divider">
-    <li>
+    </li>
+<li>
       <a href="news/index.html">Changelog</a>
     </li>
   </ul>
@@ -103,7 +103,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/swsoyee/r3dmol/">
+  <a href="https://github.com/swsoyee/r3dmol/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -126,143 +126,147 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="r3dmol-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#r3dmol-" class="anchor"></a>r3dmol <img src="reference/figures/logo.png" align="right" height="150/">
+<div class="section level1">
+<div class="page-header"><h1 id="r3dmol-">r3dmol <img src="reference/figures/logo.png" align="right" height="150/"><a class="anchor" aria-label="anchor" href="#r3dmol-"></a>
 </h1></div>
 <!-- badges: start -->
-
-<p>This is an R package that provides support for <a href="https://3dmol.csb.pitt.edu/index.html"><code>3Dmol.js</code></a> as a <a href="https://www.htmlwidgets.org/"><code>htmlwidgets</code></a>.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<blockquote>
-<p><strong>Important</strong>: This package is still very early in its development stages. Please give the repository a star on Github if you find the package is useful. In addition, we need your feedback to improve the package, feel free to create an issue if you have any question or feature requirement. You are more than welcome to submit a PR to make any feasible improvements.</p>
-</blockquote>
-<p>You could install the released version of r3dmol from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<p>This is an R package that provides support for <a href="https://3dmol.csb.pitt.edu/index.html" class="external-link"><code>3Dmol.js</code></a> as a <a href="https://www.htmlwidgets.org/" class="external-link"><code>htmlwidgets</code></a>.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<blockquote><p><strong>Important</strong>: This package is still very early in its development stages. Please give the repository a star on Github if you find the package is useful. In addition, we need your feedback to improve the package, feel free to create an issue if you have any question or feature requirement. You are more than welcome to submit a PR to make any feasible improvements.</p></blockquote>
+<p>You could install the released version of r3dmol from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"r3dmol"</span><span class="op">)</span></code></pre></div>
-<p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"r3dmol"</span><span class="op">)</span></span></code></pre></div>
+<p>And the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"swsoyee/r3dmol"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"swsoyee/r3dmol"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/swsoyee/r3dmol">r3dmol</a></span><span class="op">)</span>
-
-<span class="fu"><a href="reference/init.html">r3dmol</a></span><span class="op">(</span>                         <span class="co"># Set up the initial viewer</span>
-  viewer_spec <span class="op">=</span> <span class="fu"><a href="reference/m_viewer_spec.html">m_viewer_spec</a></span><span class="op">(</span>
-    cartoonQuality <span class="op">=</span> <span class="fl">10</span>,
-    lowerZoomLimit <span class="op">=</span> <span class="fl">50</span>,
-    upperZoomLimit <span class="op">=</span> <span class="fl">350</span>
-  <span class="op">)</span>
-<span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/m_add_model.html">m_add_model</a></span><span class="op">(</span>                  <span class="co"># Add model to scene</span>
-    data <span class="op">=</span> <span class="va">pdb_6zsl</span>,
-    format <span class="op">=</span> <span class="st">"pdb"</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/m_zoom_to.html">m_zoom_to</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>               <span class="co"># Zoom to encompass the whole scene</span>
-  <span class="fu"><a href="reference/m_set_style.html">m_set_style</a></span><span class="op">(</span>                  <span class="co"># Set style of structures</span>
-    style <span class="op">=</span> <span class="fu"><a href="reference/m_style_cartoon.html">m_style_cartoon</a></span><span class="op">(</span>
-      color <span class="op">=</span> <span class="st">"#00cc96"</span>
-    <span class="op">)</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/m_set_style.html">m_set_style</a></span><span class="op">(</span>                  <span class="co"># Set style of specific selection</span>
-    sel <span class="op">=</span> <span class="fu"><a href="reference/m_sel.html">m_sel</a></span><span class="op">(</span>ss <span class="op">=</span> <span class="st">"s"</span><span class="op">)</span>,      <span class="co"># (selecting by secondary)</span>
-    style <span class="op">=</span> <span class="fu"><a href="reference/m_style_cartoon.html">m_style_cartoon</a></span><span class="op">(</span>
-      color <span class="op">=</span> <span class="st">"#636efa"</span>,
-      arrows <span class="op">=</span> <span class="cn">TRUE</span>
-    <span class="op">)</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/m_set_style.html">m_set_style</a></span><span class="op">(</span>                  <span class="co"># Style the alpha helix</span>
-    sel <span class="op">=</span> <span class="fu"><a href="reference/m_sel.html">m_sel</a></span><span class="op">(</span>ss <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span>,      <span class="co"># (selecting by alpha helix)</span>
-    style <span class="op">=</span> <span class="fu"><a href="reference/m_style_cartoon.html">m_style_cartoon</a></span><span class="op">(</span>
-      color <span class="op">=</span> <span class="st">"#ff7f0e"</span>
-    <span class="op">)</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/m_rotate.html">m_rotate</a></span><span class="op">(</span>                     <span class="co"># Rotate the scene by given angle on given axis</span>
-    angle <span class="op">=</span> <span class="fl">90</span>,
-    axis <span class="op">=</span> <span class="st">"y"</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="reference/m_spin.html">m_spin</a></span><span class="op">(</span><span class="op">)</span>                      <span class="co"># Animate the scene by spinning it</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/swsoyee/r3dmol" class="external-link">r3dmol</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/init.html">r3dmol</a></span><span class="op">(</span>                         <span class="co"># Set up the initial viewer</span></span>
+<span>  viewer_spec <span class="op">=</span> <span class="fu"><a href="reference/m_viewer_spec.html">m_viewer_spec</a></span><span class="op">(</span></span>
+<span>    cartoonQuality <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>    lowerZoomLimit <span class="op">=</span> <span class="fl">50</span>,</span>
+<span>    upperZoomLimit <span class="op">=</span> <span class="fl">350</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/add_model.html">m_add_model</a></span><span class="op">(</span>                  <span class="co"># Add model to scene</span></span>
+<span>    data <span class="op">=</span> <span class="va">pdb_6zsl</span>,</span>
+<span>    format <span class="op">=</span> <span class="st">"pdb"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/m_zoom_to.html">m_zoom_to</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>               <span class="co"># Zoom to encompass the whole scene</span></span>
+<span>  <span class="fu"><a href="reference/m_set_style.html">m_set_style</a></span><span class="op">(</span>                  <span class="co"># Set style of structures</span></span>
+<span>    style <span class="op">=</span> <span class="fu"><a href="reference/m_style_cartoon.html">m_style_cartoon</a></span><span class="op">(</span></span>
+<span>      color <span class="op">=</span> <span class="st">"#00cc96"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/m_set_style.html">m_set_style</a></span><span class="op">(</span>                  <span class="co"># Set style of specific selection</span></span>
+<span>    sel <span class="op">=</span> <span class="fu"><a href="reference/m_sel.html">m_sel</a></span><span class="op">(</span>ss <span class="op">=</span> <span class="st">"s"</span><span class="op">)</span>,      <span class="co"># (selecting by secondary)</span></span>
+<span>    style <span class="op">=</span> <span class="fu"><a href="reference/m_style_cartoon.html">m_style_cartoon</a></span><span class="op">(</span></span>
+<span>      color <span class="op">=</span> <span class="st">"#636efa"</span>,</span>
+<span>      arrows <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/m_set_style.html">m_set_style</a></span><span class="op">(</span>                  <span class="co"># Style the alpha helix</span></span>
+<span>    sel <span class="op">=</span> <span class="fu"><a href="reference/m_sel.html">m_sel</a></span><span class="op">(</span>ss <span class="op">=</span> <span class="st">"h"</span><span class="op">)</span>,      <span class="co"># (selecting by alpha helix)</span></span>
+<span>    style <span class="op">=</span> <span class="fu"><a href="reference/m_style_cartoon.html">m_style_cartoon</a></span><span class="op">(</span></span>
+<span>      color <span class="op">=</span> <span class="st">"#ff7f0e"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/m_rotate.html">m_rotate</a></span><span class="op">(</span>                     <span class="co"># Rotate the scene by given angle on given axis</span></span>
+<span>    angle <span class="op">=</span> <span class="fl">90</span>,</span>
+<span>    axis <span class="op">=</span> <span class="st">"y"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/m_spin.html">m_spin</a></span><span class="op">(</span><span class="op">)</span>                      <span class="co"># Animate the scene by spinning it</span></span></code></pre></div>
 <p><img src="reference/figures/spin_demo.gif" alt="spin demo"><br>
 You can find more demo at <a href="https://swsoyee.github.io/r3dmol/articles/r3dmol.html">here</a>.</p>
 </div>
-<div id="about-3dmoljs" class="section level2">
-<h2 class="hasAnchor">
-<a href="#about-3dmoljs" class="anchor"></a>About <code>3Dmol.js</code>
+<div class="section level2">
+<h2 id="about-3dmoljs">About <code>3Dmol.js</code>
+<a class="anchor" aria-label="anchor" href="#about-3dmoljs"></a>
 </h2>
-<blockquote>
-<p>Nicholas Rego, David Koes, <a href="https://academic.oup.com/bioinformatics/article/31/8/1322/213186">3Dmol.js: molecular visualization with WebGL</a>, Bioinformatics, Volume 31, Issue 8, 15 April 2015, Pages 1322–1324,</p>
-</blockquote>
+<blockquote><p>Nicholas Rego, David Koes, <a href="https://academic.oup.com/bioinformatics/article/31/8/1322/213186" class="external-link">3Dmol.js: molecular visualization with WebGL</a>, Bioinformatics, Volume 31, Issue 8, 15 April 2015, Pages 1322–1324,</p></blockquote>
 </div>
-<div id="code-of-conduct" class="section level2">
-<h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
-<p>Please note that the r3dmol project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<div class="section level2">
+<h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h2>
+<p>Please note that the r3dmol project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=r3dmol">https://​cloud.r-project.org/​package=r3dmol</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/swsoyee/r3dmol/">https://​github.com/​swsoyee/​r3dmol/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/swsoyee/r3dmol/issues">https://​github.com/​swsoyee/​r3dmol/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=r3dmol" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/swsoyee/r3dmol/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/swsoyee/r3dmol/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://opensource.org/licenses/BSD-3-Clause">BSD_3_clause</a> + file <a href="LICENSE-text.html">LICENSE</a>
+<a href="https://opensource.org/licenses/BSD-3-Clause" class="external-link">BSD_3_clause</a> + file <a href="LICENSE-text.html">LICENSE</a>
 </li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>
-<a href="https://swsoyee.vercel.app/">Wei Su</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-9302-5332" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>
-<a href="https://bradyajohnston.github.io/">Brady Johnston</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-6301-2269" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html#citation">Citing r3dmol</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=r3dmol"><img src="https://www.r-pkg.org/badges/version/r3dmol" alt="CRAN status"></a></li>
-<li><a href="https://codecov.io/gh/swsoyee/r3dmol?branch=master"><img src="https://codecov.io/gh/swsoyee/r3dmol/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://github.com/swsoyee/r3dmol/actions"><img src="https://github.com/swsoyee/r3dmol/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://cran.r-project.org/package=r3dmol"><img src="https://cranlogs.r-pkg.org/badges/grand-total/r3dmol" alt="Metacran downloads"></a></li>
+<li>
+<a href="https://swsoyee.vercel.app/" class="external-link">Wei Su</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-9302-5332" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>
+<a href="https://bradyajohnston.github.io/" class="external-link">Brady Johnston</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-6301-2269" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=r3dmol" class="external-link"><img src="https://www.r-pkg.org/badges/version/r3dmol" alt="CRAN status"></a></li>
+<li><a href="https://codecov.io/gh/swsoyee/r3dmol?branch=master" class="external-link"><img src="https://codecov.io/gh/swsoyee/r3dmol/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/swsoyee/r3dmol/actions" class="external-link"><img src="https://github.com/swsoyee/r3dmol/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://cran.r-project.org/package=r3dmol" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/r3dmol" alt="Metacran downloads"></a></li>
+</ul>
 </div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://swsoyee.vercel.app/">Wei Su</a>, <a href="https://bradyajohnston.github.io/">Brady Johnston</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://swsoyee.vercel.app/" class="external-link">Wei Su</a>, <a href="https://bradyajohnston.github.io/" class="external-link">Brady Johnston</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

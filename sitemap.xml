@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://swsoyee.github.io/r3dmol/404.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/articles/multi-selections.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/articles/r3dmol.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/articles/style-functions.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/articles/using-buttons.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/authors.html</loc>
+  </url>
+  <url>
     <loc>https://swsoyee.github.io/r3dmol/index.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/news/index.html</loc>
   </url>
   <url>
     <loc>https://swsoyee.github.io/r3dmol/reference/add_model.html</loc>
@@ -14,6 +44,9 @@
   </url>
   <url>
     <loc>https://swsoyee.github.io/r3dmol/reference/dot-m_multi_spec.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/reference/index.html</loc>
   </url>
   <url>
     <loc>https://swsoyee.github.io/r3dmol/reference/init.html</loc>
@@ -73,7 +106,28 @@
     <loc>https://swsoyee.github.io/r3dmol/reference/m_bio3d.html</loc>
   </url>
   <url>
-    <loc>https://swsoyee.github.io/r3dmol/reference/m_button.html</loc>
+    <loc>https://swsoyee.github.io/r3dmol/reference/m_button_add_res_labels.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/reference/m_button_add_style.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/reference/m_button_add_surface.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/reference/m_button_animate.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/reference/m_button_manual.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/reference/m_button_set_style.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/reference/m_button_spin.html</loc>
+  </url>
+  <url>
+    <loc>https://swsoyee.github.io/r3dmol/reference/m_button_zoom_to.html</loc>
   </url>
   <url>
     <loc>https://swsoyee.github.io/r3dmol/reference/m_center.html</loc>
@@ -175,6 +229,9 @@
     <loc>https://swsoyee.github.io/r3dmol/reference/m_stop_animate.html</loc>
   </url>
   <url>
+    <loc>https://swsoyee.github.io/r3dmol/reference/m_style_ballnstick.html</loc>
+  </url>
+  <url>
     <loc>https://swsoyee.github.io/r3dmol/reference/m_style_cartoon.html</loc>
   </url>
   <url>
@@ -230,14 +287,5 @@
   </url>
   <url>
     <loc>https://swsoyee.github.io/r3dmol/reference/xyz_multiple.html</loc>
-  </url>
-  <url>
-    <loc>https://swsoyee.github.io/r3dmol/articles/multi-selections.html</loc>
-  </url>
-  <url>
-    <loc>https://swsoyee.github.io/r3dmol/articles/r3dmol.html</loc>
-  </url>
-  <url>
-    <loc>https://swsoyee.github.io/r3dmol/articles/style-functions.html</loc>
   </url>
 </urlset>
