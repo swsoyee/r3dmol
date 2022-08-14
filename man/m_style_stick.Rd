@@ -10,7 +10,8 @@ m_style_stick(
   colorScheme = NULL,
   color = NULL,
   opacity = 1,
-  hidden = FALSE
+  hidden = FALSE,
+  colorfunc = NULL
 )
 }
 \arguments{
@@ -28,6 +29,11 @@ m_style_stick(
 \item{opacity}{Opacity, must be the same for all atoms in the model.}
 
 \item{hidden}{Do not show.}
+
+\item{colorfunc}{Allows the user to provide a function for setting the
+colorSchemes, written in javascript.
+\href{https://3dmol.csb.pitt.edu/doc/types.html#ColorschemeSpec}{Official
+Documentation}}
 }
 \description{
 Styling options for the stick representation. Used inside

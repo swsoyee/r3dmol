@@ -10,7 +10,8 @@ m_style_sphere(
   color = NULL,
   radius = NULL,
   hidden = FALSE,
-  opacity = 1
+  opacity = 1,
+  colorfunc = NULL
 )
 }
 \arguments{
@@ -29,6 +30,11 @@ m_style_sphere(
 
 \item{opacity}{Opacity of spheres, 0 being invisible. Must be the same for
 all atoms in the model.}
+
+\item{colorfunc}{Allows the user to provide a function for setting the
+colorSchemes, written in javascript.
+\href{https://3dmol.csb.pitt.edu/doc/types.html#ColorschemeSpec}{Official
+Documentation}}
 }
 \description{
 Styling options for the sphere representation. Used inside

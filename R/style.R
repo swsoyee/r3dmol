@@ -13,6 +13,10 @@
 #' @param color Discrete, fixed coloring, overrides any colorScheme.
 #' @param opacity Opacity of spheres, 0 being invisible. Must be the same for
 #' all atoms in the model.
+#' @param colorfunc Allows the user to provide a function for setting the
+#' colorSchemes, written in javascript.
+#' \href{https://3dmol.csb.pitt.edu/doc/types.html#ColorschemeSpec}{Official
+#' Documentation}
 #'
 #' @examples
 #' r3dmol() %>%
@@ -25,14 +29,16 @@ m_style_sphere <- function(scale = 1,
                            color = NULL,
                            radius = NULL,
                            hidden = FALSE,
-                           opacity = 1) {
+                           opacity = 1,
+                           colorfunc = NULL) {
   sphere_style <- list(
     hidden = hidden,
     radius = radius,
     scale = scale,
     colorscheme = colorScheme,
     color = color,
-    opacity = opacity
+    opacity = opacity,
+    colorfunc = colorfunc
   ) %>% .cleanup_nulls()
 
   class(sphere_style) <- "SphereStyleSpec"
@@ -56,7 +62,11 @@ m_style_sphere <- function(scale = 1,
 #' @param hidden Boolean - do not show atoms in selection. Default \code{FALSE}
 #' @param opacity Opacity of spheres and sticks, 0 being invisible, 1 being
 #'   opaque. Must be the same for all atoms in the model.
-#'
+#' @param colorfunc Allows the user to provide a function for setting the
+#' colorSchemes, written in javascript.
+#' \href{https://3dmol.csb.pitt.edu/doc/types.html#ColorschemeSpec}{Official
+#' Documentation}
+#' 
 #' @export
 #'
 #' @examples
@@ -70,21 +80,24 @@ m_style_ballnstick <- function(sphereScale = 0.3,
                                sphereRadius = NULL,
                                stickRadius = 0.25,
                                hidden = FALSE,
-                               opacity = 1) {
+                               opacity = 1,
+                              colorfunc = NULL) {
   ballnstick_style <- c(
     m_style_sphere(
       scale = sphereScale,
       colorScheme = colorScheme,
       color = color,
       opacity = opacity,
-      hidden = hidden
+      hidden = hidden,
+      colorfunc = colorfunc
     ),
     m_style_stick(
       radius = stickRadius,
       hidden = hidden,
       colorScheme = colorScheme,
       color = color,
-      opacity = opacity
+      opacity = opacity,
+      colorfunc = colorfunc
     )
   )
 
@@ -116,7 +129,7 @@ m_style_ballnstick <- function(sphereScale = 0.3,
 #' warning outputted in the event of ambiguity.
 #' @param colorfunc Allows the user to provide a function for setting the
 #' colorSchemes, written in javascript.
-#' \href{https://3dmol.csb.pitt.edu/doc/types.html#CartoonStyleSpec}{Official
+#' \href{https://3dmol.csb.pitt.edu/doc/types.html#ColorschemeSpec}{Official
 #' Documentation}
 #' @examples
 #' r3dmol() %>%
@@ -164,6 +177,10 @@ m_style_cartoon <- function(color = NULL,
 #' "shapely", "nucleic", "chain", "chainHetatm", "prop".
 #' @param color Fixed coloring, overrides colorScheme.
 #' @param opacity Opacity, must be the same for all atoms in the model.
+#' @param colorfunc Allows the user to provide a function for setting the
+#' colorSchemes, written in javascript.
+#' \href{https://3dmol.csb.pitt.edu/doc/types.html#ColorschemeSpec}{Official
+#' Documentation}
 #' @examples
 #' r3dmol() %>%
 #'   m_add_model(data = pdb_1j72, format = "pdb") %>%
@@ -175,14 +192,16 @@ m_style_stick <- function(radius = 0.3,
                           colorScheme = NULL,
                           color = NULL,
                           opacity = 1,
-                          hidden = FALSE) {
+                          hidden = FALSE,
+                          colorfunc = NULL) {
   stick_style <- list(
     hidden = hidden,
     radius = radius,
     singleBonds = singleBonds,
     colorscheme = colorScheme,
     color = color,
-    opacity = opacity
+    opacity = opacity,
+    colorfunc = colorfunc
   ) %>% .cleanup_nulls()
 
   class(stick_style) <- "StickStyleSpec"

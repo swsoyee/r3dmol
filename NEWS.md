@@ -4,6 +4,7 @@
 
 * Provide more enhancement functions with `m_button_*()` ([#38](https://github.com/swsoyee/r3dmol/pull/38)). 
 See [Using Buttons in `{r3dmol}`](https://swsoyee.github.io/r3dmol/articles/using-buttons.html) for more details.
+* Add `colorfunc` argument to `m_style_sphere()`, `m_style_ballnstick()` and `m_style_stick()` ([#47](https://github.com/swsoyee/r3dmol/issues/47)).
 
 ### Bugs Fixed
 

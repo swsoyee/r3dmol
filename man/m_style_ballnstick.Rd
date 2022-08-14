@@ -11,7 +11,8 @@ m_style_ballnstick(
   sphereRadius = NULL,
   stickRadius = 0.25,
   hidden = FALSE,
-  opacity = 1
+  opacity = 1,
+  colorfunc = NULL
 )
 }
 \arguments{
@@ -33,6 +34,11 @@ specified colorScheme.}
 
 \item{opacity}{Opacity of spheres and sticks, 0 being invisible, 1 being
 opaque. Must be the same for all atoms in the model.}
+
+\item{colorfunc}{Allows the user to provide a function for setting the
+colorSchemes, written in javascript.
+\href{https://3dmol.csb.pitt.edu/doc/types.html#ColorschemeSpec}{Official
+Documentation}}
 }
 \description{
 Styling options for ball and stick representations.

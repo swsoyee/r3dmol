@@ -43,7 +43,7 @@ warning outputted in the event of ambiguity.}
 
 \item{colorfunc}{Allows the user to provide a function for setting the
 colorSchemes, written in javascript.
-\href{https://3dmol.csb.pitt.edu/doc/types.html#CartoonStyleSpec}{Official
+\href{https://3dmol.csb.pitt.edu/doc/types.html#ColorschemeSpec}{Official
 Documentation}}
 }
 \description{
